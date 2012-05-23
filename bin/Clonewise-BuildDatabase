@@ -1,0 +1,43 @@
+#!/bin/bash
+
+DISTRO=ubuntu
+
+if [ "$(id -u)" != 0 ]; then
+	echo "Error. Must be superuser to build database."
+	exit 1
+fi
+
+cd /var/lib/Clonewise/distros/$DISTRO/downloads
+list=$(apt-cache pkgnames)
+rm -f /var/lib/Clonewise/distros/$DISTRO/.done
+rm -f /var/lib/Clonewise/distros/$DISTRO/packages
+rm -f /var/lib/Clonewise/distros/$DISTRO/.apt-source
+count=0
+totlist=$(echo $list|wc -w)
+for i in $list; do
+	echo "#$i ($count/$totlist)"
+	srcname=$(apt-cache showsrc $i|grep ^Package:|head -n1|cut -d\  -f2)
+	if [ "$srcname" != "" ]; then
+		apt-get source $i > /var/lib/Clonewise/distros/$DISTRO/.apt-source 2> /dev/null
+		out="$(grep 'dpkg-source: info: extracting' /var/lib/Clonewise/distros/$DISTRO/.apt-source|awk '{print $6}')"
+		if [ "$out" != "" ]; then
+			cd $out
+			find . -type f -name '*.dsc' -exec dpkg-source -x {} \;
+			find . -type f -name '*.zip' -exec unzip {} \;
+			find . -type f -name '*.gz' -exec gunzip {} \;
+			find . -type f -name '*.lzma' -exec unzlma {} \;
+			find . -type f -name '*.rar' -exec unrar {} \;
+			find . -type f -name '*.bz2' -exec bunzip2 {} \;
+			find . -type f -name '*.bz' -exec bunzip {} \;
+			find . -type f -name '*.xz' -exec unxz {} \;
+			find . -type f -name '*.tar' -exec tar xf {} \;
+			cd ..
+			find $out -type f |while read f; do ssdeep $f |tail -n1 >> /var/lib/Clonewise/distros/$DISTRO/signatures/$srcname; done
+			rm -rf $out
+		fi
+	fi
+	echo $i/$srcname >> /var/lib/Clonewise/distros/$DISTRO/packages
+	((count=count+1))
+done
+rm /var/lib/Clonewise/distros/$DISTRO/.apt-source
+touch /var/lib/Clonewise/distros/$DISTRO/.done

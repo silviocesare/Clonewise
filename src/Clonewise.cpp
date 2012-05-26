@@ -272,34 +272,39 @@ BuildFeatures()
 bool
 approxMatchFilenames(const std::string &x, const std::string &y)
 {
-	int xi, yi;
+	int xi, yi, xs, ys;
 	unsigned int d;
 	float s, s_min, s_max;
 	int m_min, m_max;
 
-	xi = x.size();
-	yi = y.size();
-	m_max = max((double)x.size(), (double)y.size());
-	m_min = min((double)x.size(), (double)y.size());
-	//d = SmithWatermanDistance(x.c_str(), x.size(), y.c_str(), y.size());
-	d = LevenshteinDistance(x.c_str(), x.size(), y.c_str(), y.size());
-//	d = LongestCommonSubsequenceLength(x.c_str(), x.size(), y.c_str(), y.size());
+	xs = x.size();
+	ys = y.size();
+	m_max = max((double)xs, (double)ys);
+	m_min = min((double)xs, (double)ys);
+	//d = SmithWatermanDistance(x.c_str(), xs, y.c_str(), ys);
+	d = LevenshteinDistance(x.c_str(), xs, y.c_str(), ys);
+//	d = LongestCommonSubsequenceLength(x.c_str(), xs, y.c_str(), ys);
 	s = 1.0 - (double)d/(double)m_max;
 //	s_min = (double)d/(double)m_min;
 //	s_max = (double)d/(double)m_max;
-//	if (xi >= 5 && yi >= 5 && s_min >= 0.85 && s_max >= 0.65) {
+//	if (xs >= 5 && ys >= 5 && s_min >= 0.85 && s_max >= 0.65) {
 	if (s >= 0.85) {
 		return true;
 	}
+	return false;
+/*
+	xi = xs;
+	yi = ys;
 	while (xi > 0 && yi > 0 && x[xi - 1] == y[yi - 1]) {
 		xi--;
 		yi--;
 	}
-	if (xi >= 5 && yi >= 5) {
+	if (xs >= 5 && ys >= 5) {
 		return xi == 0 || yi == 0;
 	} else {
 		return xi == 0 && yi == 0;
 	}
+*/
 }
 
 std::map<std::string, std::set<std::string> >::const_iterator
@@ -365,7 +370,7 @@ printMatch(const std::map<std::string, std::set<std::string> > &embedding, const
 }
 
 bool
-WriteCheckForClone(std::ofstream &testStream, const std::map<std::string, std::set<std::string> > &embedding, const std::map<std::string, std::set<std::string> > &package, const std::string &cl, std::map<std::string, std::pair<std::string, float> > &matches)
+WriteCheckForClone(const std::string &name, std::ofstream &testStream, const std::map<std::string, std::set<std::string> > &embedding, const std::map<std::string, std::set<std::string> > &package, const std::string &cl, std::map<std::string, std::pair<std::string, float> > &matches)
 {
 	std::map<std::string, std::set<std::string> >::const_iterator eIter;
 	int found, foundFilenameHash, foundFilenameHash80, foundExactFilenameHash;
@@ -569,7 +574,7 @@ skip2:
 					found++;
 					scoreFilename += weight;
 				}
-				matches[possibleMatchesIter->first] = std::pair<std::string, float>(*possibleMatchesIter2, weight);
+				matches[possibleMatchesIter->first] = std::pair<std::string, float>(*possibleMatchesIter2, weight);	
 				break;
 			}
 		}
@@ -599,16 +604,22 @@ skip2:
 	featureVector[19] = foundExactHash;
 	featureVector[20] = foundDataExactHash;
 
-printf("# yop %i\n", found);
+#pragma omp critical
+{
+printf("# yop %s %i\n", name.c_str(), found);
 fflush(stdout);
+}
 
 	if (featureVector[2] == 0)
 		return false;
 
-	for (int i = 0; i < NFEATURES; i++) {
-		testStream << featureVector[i] << ",";
+#pragma omp critical
+	{
+		for (int i = 0; i < NFEATURES; i++) {
+			testStream << featureVector[i] << ",";
+		}
+		testStream << cl << "\n";
 	}
-	testStream << cl << "\n";
 //printMatch(embedding, package, matches);
 	return true;
 }
@@ -685,6 +696,8 @@ GetScoreForNotEmbedded(std::ofstream &testStream)
 
 	skip = 0;
 	do {
+		std::string n;
+
 		doit = false;
 		do {
         	        n1 = rand() % packages.size();
@@ -703,7 +716,8 @@ GetScoreForNotEmbedded(std::ofstream &testStream)
 			else if (embeddedList.find(p2) != embeddedList.end() && embeddedList[p2].find(p1) != embeddedList[p2].end())
 				breakit = false;
 		} while (!breakit);
-		if (!WriteCheckForClone(testStream, packagesSignatures[p1], packagesSignatures[p2], "N", matches)) {
+		n = p1 + std::string("/") + p2;
+		if (!WriteCheckForClone(n, testStream, packagesSignatures[p1], packagesSignatures[p2], "N", matches)) {
 			doit = true;
 			skip++;
 		}
@@ -714,32 +728,44 @@ GetScoreForNotEmbedded(std::ofstream &testStream)
 int
 DoScoresForEmbedded(std::ofstream &testStream)
 {
-	std::map<std::string, std::set<std::string> >::const_iterator iter1;
-	std::map<std::string, std::pair<std::string, float> > matches;
 	int total;
 	int fp;
 
 	fp = 0;
 	total = 0;
-        for (   iter1  = embeddedList.begin();
-                iter1 != embeddedList.end();
-                iter1++)
-        {
-                std::set<std::string>::const_iterator iter2;
-                std::map<std::string, std::set<std::string> > *sig1, *sig2;
+#pragma omp parallel
+#pragma omp single
+	{
+		std::map<std::string, std::set<std::string> >::const_iterator iter1;
 
-                sig1 = &packagesSignatures[iter1->first];
-                for (   iter2  = iter1->second.begin();
-                        iter2 != iter1->second.end();
-                        iter2++, total++)
-                {
-                        sig2 = &packagesSignatures[*iter2];
-			printf("# y0p %s %s\n", iter1->first.c_str(), iter2->c_str());
-			if (!WriteCheckForClone(testStream, *sig1, *sig2, "Y", matches)) {
-				fp++;
+        	for (   iter1  = embeddedList.begin();
+        	        iter1 != embeddedList.end();
+        	        iter1++)
+        	{
+			std::set<std::string>::const_iterator iter2;
+			std::map<std::string, std::set<std::string> > *sig1, *sig2;
+
+			sig1 = &packagesSignatures[iter1->first];
+			for (   iter2  = iter1->second.begin();
+				iter2 != iter1->second.end();
+				iter2++, total++)
+			{
+				std::map<std::string, std::pair<std::string, float> > matches;
+				std::string n;
+
+				n = iter1->first + std::string("/") + *iter2;
+				sig2 = &packagesSignatures[*iter2];
+#pragma omp task
+				{
+					if (!WriteCheckForClone(n, testStream, *sig1, *sig2, "Y", matches)) {
+#pragma omp atomic
+						fp++;
+					}
+				}
 			}
-                }
-        }
+		}
+#pragma omp taskwait
+	}
 	printf("# total positives %i (fp %i)\n", total, fp);
 	return total - fp;
 }
@@ -765,8 +791,14 @@ trainModel()
 	c = DoScoresForEmbedded(testStream);
 	total = 0;
 	c = 0;
-	for (int i = 0; total < 50000; i++) {
-		total += GetScoreForNotEmbedded(testStream);
+#pragma omp parallel for
+	for (int i = 0; i < 3000; i++) {
+		int t;
+
+		t = GetScoreForNotEmbedded(testStream);
+#pragma omp atomic
+		total += t;
+#pragma omp atomic
 		c++;
 	}
 	printf("# total negatives (non zero %i) out of %i\n", c, total);
@@ -795,24 +827,38 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 	}
 	printArffHeader(testStream);
 
-	for (	pIter  = packages.begin();
-		pIter != packages.end();
-		pIter++)
+#pragma parallel
+#pragma single
 	{
-		const std::map<std::string, std::set<std::string> > *package;
-		std::string fp;
+		for (	pIter  = packages.begin();
+			pIter != packages.end();
+			pIter++)
+		{
+#pragma task
+			{
+				const std::map<std::string, std::set<std::string> > *package;
+				std::string fp;
 
-		fp = std::string(name) + std::string("/") + pIter->first;
-		if (ignoreFalsePositives.find(fp) != ignoreFalsePositives.end())
-			continue;
+				fp = std::string(name) + std::string("/") + pIter->first;
+				if (ignoreFalsePositives.find(fp) != ignoreFalsePositives.end())
+					continue;
 
-		package = &packagesSignatures[pIter->first];
-		if (strcmp(name, pIter->first.c_str()) != 0) {
-			if (!WriteCheckForClone(testStream, embedding, *package, "?", matchesTable[pIter->first]))
-				skip.insert(fp);
-		} else {
-			skip.insert(fp);
+				package = &packagesSignatures[pIter->first];
+				if (strcmp(name, pIter->first.c_str()) != 0) {
+					if (!WriteCheckForClone(fp, testStream, embedding, *package, "?", matchesTable[pIter->first]))
+#pragma omp critical (skipMod)
+						{
+							skip.insert(fp);
+						}
+				} else {
+#pragma omp critical (skipMod)
+					{
+						skip.insert(fp);
+					}
+				}
+			}
 		}
+#pragma omp taskwait
 	}
 	testStream.close();
 

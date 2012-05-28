@@ -270,6 +270,18 @@ BuildFeatures()
 }
 
 bool
+hasSameExtension(const std::string &x, const std::string &y)
+{
+	size_t n1, n2;
+
+	n1 = x.find_last_of('.');
+	n2 = y.find_last_of('.');
+	if (n1 == std::string::npos && n2 == std::string::npos)
+		return true;
+	return x.substr(n1 + 1) == y.substr(n2 + 1);
+}
+
+bool
 approxMatchFilenames(const std::string &x, const std::string &y)
 {
 	int xi, yi, xs, ys;
@@ -277,6 +289,9 @@ approxMatchFilenames(const std::string &x, const std::string &y)
 	float s, s_min, s_max;
 	int m_min, m_max;
 
+	if (!hasSameExtension(x, y)) {
+		return false;
+	}
 	xs = x.size();
 	ys = y.size();
 	m_max = max((double)xs, (double)ys);
@@ -369,16 +384,35 @@ printMatch(const std::map<std::string, std::set<std::string> > &embedding, const
 	}
 }
 
+unsigned int
+numberOfSources(const std::map<std::string, std::set<std::string> > &embedding)
+{
+	std::map<std::string, std::set<std::string> >::const_iterator eIter;
+	unsigned int count;
+
+	count = 0;
+	for (	eIter  = embedding.begin();
+		eIter != embedding.end();
+		eIter++)
+	{
+
+		if (IsProgramFilename(eIter->first)) {
+			count++;
+		}
+	}
+	return count;
+}
+
 bool
 WriteCheckForClone(const std::string &name, std::ofstream &testStream, const std::map<std::string, std::set<std::string> > &embedding, const std::map<std::string, std::set<std::string> > &package, const std::string &cl, std::map<std::string, std::pair<std::string, float> > &matches)
 {
 	std::map<std::string, std::set<std::string> >::const_iterator eIter;
-	int found, foundFilenameHash, foundFilenameHash80, foundExactFilenameHash;
-	int foundData, foundDataFilenameHash, foundDataFilenameHash80, foundDataExactFilenameHash;
+	int found, foundSimilar, foundFilenameHash, foundFilenameHash80, foundExactFilenameHash;
+	int foundData, foundDataSimilar, foundDataFilenameHash, foundDataFilenameHash80, foundDataExactFilenameHash;
 	int foundHash, foundExactHash, foundDataExactHash;
 	float s;
-	float scoreFilename, scoreFilenameHash, scoreFilenameHash80, scoreExactFilenameHash;
-	float scoreDataFilename, scoreDataFilenameHash, scoreDataFilenameHash80, scoreDataExactFilenameHash;
+	float scoreFilename, scoreSimilar, scoreFilenameHash, scoreFilenameHash80, scoreExactFilenameHash;
+	float scoreDataFilename, scoreDataSimilar, scoreDataFilenameHash, scoreDataFilenameHash80, scoreDataExactFilenameHash;
 	float featureVector[NFEATURES];
 	std::map<std::string, std::map<std::string, float> > possibleMatches;
 	std::map<std::string, std::map<std::string, float> >::const_iterator possibleMatchesIter;
@@ -389,21 +423,25 @@ WriteCheckForClone(const std::string &name, std::ofstream &testStream, const std
 	foundHash = 0;
 
 	found = 0;
+	foundSimilar = 0;
 	foundFilenameHash80 = 0;
 	foundFilenameHash = 0;
 	foundExactFilenameHash = 0;
 	scoreFilenameHash = 0.0;
 	scoreFilenameHash80 = 0.0;
 	scoreFilename = 0.0;
+	scoreSimilar = 0.0;
 	scoreExactFilenameHash = 0.0;
 
 	foundData = 0;
+	foundDataSimilar;
 	foundDataFilenameHash80 = 0;
 	foundDataFilenameHash = 0;
 	foundDataExactFilenameHash = 0;
 	scoreDataFilenameHash = 0.0;
 	scoreDataFilenameHash80 = 0.0;
 	scoreDataFilename = 0.0;
+	scoreDataSimilar = 0.0;
 	scoreDataExactFilenameHash = 0.0;
 
 	for (	eIter  = embedding.begin();
@@ -568,11 +606,21 @@ skip2:
 				weight = possibleMatches[possibleMatchesIter->first][*possibleMatchesIter2];
 				isData = !IsProgramFilename(possibleMatchesIter->first);
 				if (isData) {
-					foundData++;
-					scoreDataFilename += weight;
+					if (possibleMatchesIter->first == *possibleMatchesIter2) {
+						foundDataSimilar++;
+						scoreDataSimilar += weight;
+					} else {
+						foundData++;
+						scoreDataFilename += weight;
+					}
 				} else {
-					found++;
-					scoreFilename += weight;
+					if (possibleMatchesIter->first == *possibleMatchesIter2) {
+						found++;
+						scoreFilename += weight;
+					} else {
+						foundSimilar++;
+						scoreSimilar += weight;
+					}
 				}
 				matches[possibleMatchesIter->first] = std::pair<std::string, float>(*possibleMatchesIter2, weight);	
 				break;
@@ -580,33 +628,39 @@ skip2:
 		}
 	}
 	featureVector[ 0] = embedding.size();
-	featureVector[ 1] = package.size();
+	featureVector[ 1] = numberOfSources(embedding);
+	featureVector[ 2] = package.size();
+	featureVector[ 3] = numberOfSources(package);
 
-	featureVector[ 2] = found;
-	featureVector[ 3] = foundFilenameHash;
-	featureVector[ 4] = foundFilenameHash80;
-	featureVector[ 5] = foundExactFilenameHash;
-	featureVector[ 6] = scoreFilename;
-	featureVector[ 7] = scoreFilenameHash;
-	featureVector[ 8] = scoreFilenameHash80;
-	featureVector[ 9] = scoreExactFilenameHash;
+	featureVector[ 4] = found;
+	featureVector[ 5] = foundSimilar;
+	featureVector[ 6] = foundFilenameHash;
+	featureVector[ 7] = foundFilenameHash80;
+	featureVector[ 8] = foundExactFilenameHash;
+	featureVector[ 9] = scoreFilename;
+	featureVector[10] = scoreSimilar;
+	featureVector[11] = scoreFilenameHash;
+	featureVector[12] = scoreFilenameHash80;
+	featureVector[13] = scoreExactFilenameHash;
 
-	featureVector[10] = foundData;
-	featureVector[11] = foundDataFilenameHash;
-	featureVector[12] = foundDataFilenameHash80;
-	featureVector[13] = foundDataExactFilenameHash;
-	featureVector[14] = scoreDataFilename;
-	featureVector[15] = scoreDataFilenameHash;
-	featureVector[16] = scoreDataFilenameHash80;
-	featureVector[17] = scoreDataExactFilenameHash;
+	featureVector[14] = foundData;
+	featureVector[15] = foundDataSimilar;
+	featureVector[16] = foundDataFilenameHash;
+	featureVector[17] = foundDataFilenameHash80;
+	featureVector[18] = foundDataExactFilenameHash;
+	featureVector[19] = scoreDataFilename;
+	featureVector[20] = scoreDataSimilar;
+	featureVector[21] = scoreDataFilenameHash;
+	featureVector[22] = scoreDataFilenameHash80;
+	featureVector[23] = scoreDataExactFilenameHash;
 
-	featureVector[18] = foundHash;
-	featureVector[19] = foundExactHash;
-	featureVector[20] = foundDataExactHash;
+	featureVector[24] = foundHash;
+	featureVector[25] = foundExactHash;
+	featureVector[26] = foundDataExactHash;
 
 #pragma omp critical
 {
-printf("# yop %s %i\n", name.c_str(), found);
+printf("# yop %s %i %i %i %i\n", name.c_str(), found, foundSimilar, foundData, foundDataSimilar);
 fflush(stdout);
 }
 
@@ -655,22 +709,28 @@ printArffHeader(std::ofstream &testStream)
 	testStream << "@RELATION Clones\n";
 
 	testStream << "@ATTRIBUTE N_Filenames_A NUMERIC\n";
-	testStream << "@ATTRIBUTE N_Filenames_B NUMERIC\n";
+	testStream << "@ATTRIBUTE N_Filenames_Source_A NUMERIC\n";
+	testStream << "@ATTRIBUTE N_Filenames_A NUMERIC\n";
+	testStream << "@ATTRIBUTE N_Filenames_Source_B NUMERIC\n";
 
 	testStream << "@ATTRIBUTE N_Common_Filenames NUMERIC\n";
+	testStream << "@ATTRIBUTE N_Common_Similar_Filenames NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Common_FilenameHashes NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Common_FilenameHash80 NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Common_ExactFilenameHash NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Score_of_Common_Filename NUMERIC\n";
+	testStream << "@ATTRIBUTE N_Score_of_Common_Similar_Filename NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Score_of_Common_FilenameHash NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Score_of_Common_FilenameHash80 NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Score_of_Common_ExactFilenameHash80 NUMERIC\n";
 
 	testStream << "@ATTRIBUTE N_Data_Common_Filenames NUMERIC\n";
+	testStream << "@ATTRIBUTE N_Data_Common_Similar_Filenames NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Data_Common_FilenameHashes NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Data_Common_FilenameHash80 NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Data_Common_ExactFilenameHash NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Data_Score_of_Common_Filename NUMERIC\n";
+	testStream << "@ATTRIBUTE N_Data_Score_of_Common_Similar_Filename NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Data_Score_of_Common_FilenameHash NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Data_Score_of_Common_FilenameHash80 NUMERIC\n";
 	testStream << "@ATTRIBUTE N_Data_Score_of_Common_ExactFilenameHash80 NUMERIC\n";
@@ -774,14 +834,16 @@ void
 trainModel()
 {
 	std::ofstream testStream;
-	char cmd[1024], s[1024], testFilename[1024];
+	char cmd[1024], s[1024], testFilename[L_tmpnam + 128], t[L_tmpnam];
 	int c, total;
 
 	srand(0);
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies", distroString);
 	LoadEmbeddedCodeCopiesList(s);
 
-	snprintf(testFilename, sizeof(testFilename), "/tmp/train_%i.arff", rand());
+	tmpnam(t);
+	snprintf(testFilename, sizeof(testFilename), "%s.arff", t);
+
 	testStream.open(testFilename);
 	if (!testStream) {
 		fprintf(stderr, "Can't write test.arff\n");
@@ -814,12 +876,14 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 	std::map<std::string, std::map<std::string, std::pair<std::string, float> > > matchesTable;
 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
 	float featureVector[NFEATURES];
-	char cmd[1024], testFilename[1024], str[1024];
+	char cmd[1024], testFilename[L_tmpnam + 128], t[L_tmpnam], str[1024];
 	FILE *p;
 	std::ofstream testStream;
 	std::set<std::string> skip;
 
-	snprintf(testFilename, sizeof(testFilename), "/tmp/test_%i.arff", rand());
+	tmpnam(t);
+	snprintf(testFilename, sizeof(testFilename), "%s.arff", t);
+
 	testStream.open(testFilename);
 	if (!testStream) {
 		fprintf(stderr, "Can't write test.arff\n");

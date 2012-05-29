@@ -434,7 +434,7 @@ WriteCheckForClone(const std::string &name, std::ofstream &testStream, const std
 	scoreExactFilenameHash = 0.0;
 
 	foundData = 0;
-	foundDataSimilar;
+	foundDataSimilar = 0;
 	foundDataFilenameHash80 = 0;
 	foundDataFilenameHash = 0;
 	foundDataExactFilenameHash = 0;
@@ -607,11 +607,11 @@ skip2:
 				isData = !IsProgramFilename(possibleMatchesIter->first);
 				if (isData) {
 					if (possibleMatchesIter->first == *possibleMatchesIter2) {
-						foundDataSimilar++;
-						scoreDataSimilar += weight;
-					} else {
 						foundData++;
 						scoreDataFilename += weight;
+					} else {
+						foundDataSimilar++;
+						scoreDataSimilar += weight;
 					}
 				} else {
 					if (possibleMatchesIter->first == *possibleMatchesIter2) {

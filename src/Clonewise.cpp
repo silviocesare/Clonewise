@@ -875,8 +875,7 @@ trainModel()
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies", distroString);
 	LoadEmbeddedCodeCopiesList(s);
 
-	tmpnam(t);
-	snprintf(testFilename, sizeof(testFilename), "%s.arff", t);
+	snprintf(testFilename, sizeof(testFilename), "/var/lib/Clonewise/distros/%s/training.arff", distroString);
 
 	testStream.open(testFilename);
 	if (!testStream) {
@@ -910,7 +909,6 @@ trainModel()
 	testStream.close();
 	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/distros/%s/model -t %s", distroString, testFilename);
 	system(cmd);
-	//unlink(testFilename);
 }
 
 static void

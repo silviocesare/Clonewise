@@ -20,9 +20,9 @@
 static void
 Usage(const char *argv0)
 {
-	fprintf(stderr, "Usage: %s [-o xml] [-d distro] [-estrvvv] signature ...\n", argv0);
-	fprintf(stderr, "       %s -a [-o xml] [-d distro] [-estvvv]\n", argv0);
-//	fprintf(stderr, "       %s -g [-o xml] [-d distro] [-estvvv]\n", argv0);
+	fprintf(stderr, "Usage: %s [-v level] [-o xml] [-d distro] [-estr] signature ...\n", argv0);
+	fprintf(stderr, "       %s -a [-v level] [-o xml] [-d distro] [-est]\n", argv0);
+//	fprintf(stderr, "       %s -g [-v level] [-o xml] [-d distro] [-est]\n", argv0);
 	exit(1);
 }
 
@@ -37,7 +37,7 @@ main(int argc, char *argv[])
 #endif
 	useRelativePathForSignature = true;
 	argv0 = argv[0];
-	while ((ch = getopt(argc, argv, "d:eo:starv")) != EOF) {
+	while ((ch = getopt(argc, argv, "d:eo:starv:")) != EOF) {
 		switch (ch) {
 /*
 		case 'g':
@@ -81,7 +81,7 @@ main(int argc, char *argv[])
 			break;
 
 		case 'v':
-			verbose++;
+			verbose = atoi(optarg);
 			break;
 
 		default:

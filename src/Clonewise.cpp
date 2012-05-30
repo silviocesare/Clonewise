@@ -59,7 +59,7 @@ OutputFormat_e outputFormat = CLONEWISE_OUTPUT_TEXT;
 bool doCheckRelated = false;
 bool useSSDeep = true;
 bool useExtensions = true;
-int verbose = 0;
+int verbose = 2;
 std::map<std::string, float> idf;
 std::set<std::string> featureSet;
 std::set<std::string> ignoreFalsePositives;
@@ -690,10 +690,27 @@ skip2:
 	featureVector[26] = foundDataExactHash;
 
 #pragma omp critical
-{
-printf("# yop %s %i %i %i %i\n", name.c_str(), found, foundSimilar, foundData, foundDataSimilar);
-fflush(stdout);
-}
+	{
+		if (verbose >= 3) {
+			char fs[1024];
+
+			snprintf(fs, sizeof(fs), "%f", featureVector[0]);
+			for (int i = 1; i < NFEATURES; i++) {
+				char ts[1024];
+
+				snprintf(ts, sizeof(ts), ",%f", featureVector[i]);
+				strcat(fs, ts);
+			}
+			if (outputFormat == CLONEWISE_OUTPUT_XML) {
+				printf("\t<Comparison>\n");
+				printf("\t\t<Names>%s</Names>\n", name.c_str());
+				printf("\t\t<FeatureVector>%s</FeatureVector>\n", fs);
+				printf("\t</Comparison>\n");
+			} else {
+				printf("# Comparison %s : %s\n", name.c_str(), fs);
+			}
+		}
+	}
 
 	if (featureVector[4] == 0)
 		return false;
@@ -834,7 +851,16 @@ DoScoresForEmbedded(std::ofstream &testStream)
 		}
 #pragma omp taskwait
 	}
-	printf("# total positives %i (fp %i)\n", total, fp);
+	if (verbose >= 3) {
+		if (outputFormat == CLONEWISE_OUTPUT_XML) {
+			printf("\t<Positives>\n");
+			printf("\t\t<Total>%i</Total>\n", total);
+			printf("\t\t<FalsePositives>%i</FalsePositives>\n", fp);
+			printf("\t</Positives>\n");
+		} else {
+			printf("# total positives %i (fp %i)\n", total, fp);
+		}
+	}
 	return total - fp;
 }
 
@@ -871,7 +897,16 @@ trainModel()
 #pragma omp atomic
 		c++;
 	}
-	printf("# total negatives (non zero %i) out of %i\n", c, total);
+	if (verbose >= 3) {
+		if (outputFormat == CLONEWISE_OUTPUT_XML) {
+			printf("\t<Negatives>\n");
+			printf("\t\t<Total>%i</Total>\n", total);
+			printf("\t\t<NonZero>%i</NonZero>\n", c);
+			printf("\t</Negatives>\n");
+		} else {
+			printf("# total negatives (non zero %i) out of %i\n", c, total);
+		}
+	}
 	testStream.close();
 	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/distros/%s/model -t %s", distroString, testFilename);
 	system(cmd);

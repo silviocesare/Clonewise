@@ -23,7 +23,12 @@ enum OutputFormat_e {
 	CLONEWISE_OUTPUT_YAML
 };
 
-#define NFEATURES 21
+struct Feature {
+	char *Name;
+	bool Use;
+};
+
+#define NFEATURES 27
 
 extern std::set<std::string> featureExceptions;
 extern const char *distroString;

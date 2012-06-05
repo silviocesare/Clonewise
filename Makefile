@@ -18,6 +18,7 @@ install:
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/features
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/signatures
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/downloads
+	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/cache
 	$(INSTALL) -d $(DESTDIR)/usr/bin
 	$(INSTALL) -m644 ./config/* $(DESTDIR)/var/lib/Clonewise
 	$(INSTALL) ./bin/* $(DESTDIR)/usr/bin

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+	echo "Usage: $0 distro package" > /dev/stderr
+	exit 1
+fi
+
+srcpackage=$(cat /var/lib/Clonewise/distros/$1/packages|grep "^$2/.*$" 2> /dev/null|cut -d/ -f2|sort -u)
+if [ "$srcpackage" = "" ]; then
+	echo "No such package: $2" > /dev/stderr
+	exit 1
+fi
+
+cat /var/lib/Clonewise/distros/$1/cache/$srcpackage

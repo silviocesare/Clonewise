@@ -32,10 +32,9 @@ main(int argc, char *argv[])
 	const char *argv0;
 	int ch;
 
-#if 1
+#if 0
 	omp_set_num_threads(2);
 #endif
-	useRelativePathForSignature = true;
 	argv0 = argv[0];
 	while ((ch = getopt(argc, argv, "d:eo:starv:")) != EOF) {
 		switch (ch) {

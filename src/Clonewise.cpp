@@ -51,6 +51,7 @@ Feature Features[] = {
 
 static void CreateFeatures();
 
+FILE *outFd = stdout;
 double maxWeight = 0.0;
 std::set<std::string> featureExceptions;
 bool approxFilename = true;
@@ -69,7 +70,7 @@ std::map<std::string, std::list<std::string> > packages;
 std::map<std::string, std::map<std::string, std::set<std::string> > > packagesSignatures;
 std::set<std::string> extensions;
 bool reportError = false;
-bool useRelativePathForSignature;
+bool useRelativePathForSignature = true;
 std::map<std::string, std::string> normalFeatures;
 std::map<std::string, std::set<std::string> > embeddedList;
 
@@ -402,13 +403,13 @@ printMatch(const std::map<std::string, std::set<std::string> > &embedding, const
 		{
 			if (IsProgramFilename(matchesIter->first) || IsProgramFilename(matchesIter->second.first)) {
 				if (outputFormat == CLONEWISE_OUTPUT_XML) {
-					printf("\t\t<Match>\n");
-					printf("\t\t\t<Filename1>%s</Filename1>\n", matchesIter->first.c_str());
-					printf("\t\t\t<Filename2>%s</Filename2>\n", matchesIter->second.first.c_str());
-					printf("\t\t\t<Weight>%f</Weight>\n", matchesIter->second.second);
-					printf("\t\t</Match>\n");
+					fprintf(outFd, "\t\t<Match>\n");
+					fprintf(outFd, "\t\t\t<Filename1>%s</Filename1>\n", matchesIter->first.c_str());
+					fprintf(outFd, "\t\t\t<Filename2>%s</Filename2>\n", matchesIter->second.first.c_str());
+					fprintf(outFd, "\t\t\t<Weight>%f</Weight>\n", matchesIter->second.second);
+					fprintf(outFd, "\t\t</Match>\n");
 				} else {
-					printf("\t\tMATCH %s/%s (%f)\n", matchesIter->first.c_str(), matchesIter->second.first.c_str(), matchesIter->second.second);
+					fprintf(outFd, "\t\tMATCH %s/%s (%f)\n", matchesIter->first.c_str(), matchesIter->second.first.c_str(), matchesIter->second.second);
 				}
 			}
 		}
@@ -702,12 +703,12 @@ skip2:
 				strcat(fs, ts);
 			}
 			if (outputFormat == CLONEWISE_OUTPUT_XML) {
-				printf("\t<Comparison>\n");
-				printf("\t\t<Names>%s</Names>\n", name.c_str());
-				printf("\t\t<FeatureVector>%s</FeatureVector>\n", fs);
-				printf("\t</Comparison>\n");
+				fprintf(outFd, "\t<Comparison>\n");
+				fprintf(outFd, "\t\t<Names>%s</Names>\n", name.c_str());
+				fprintf(outFd, "\t\t<FeatureVector>%s</FeatureVector>\n", fs);
+				fprintf(outFd, "\t</Comparison>\n");
 			} else {
-				printf("# Comparison %s : %s\n", name.c_str(), fs);
+				fprintf(outFd, "# Comparison %s : %s\n", name.c_str(), fs);
 			}
 		}
 	}
@@ -853,12 +854,12 @@ DoScoresForEmbedded(std::ofstream &testStream)
 	}
 	if (verbose >= 3) {
 		if (outputFormat == CLONEWISE_OUTPUT_XML) {
-			printf("\t<Positives>\n");
-			printf("\t\t<Total>%i</Total>\n", total);
-			printf("\t\t<FalsePositives>%i</FalsePositives>\n", fp);
-			printf("\t</Positives>\n");
+			fprintf(outFd, "\t<Positives>\n");
+			fprintf(outFd, "\t\t<Total>%i</Total>\n", total);
+			fprintf(outFd, "\t\t<FalsePositives>%i</FalsePositives>\n", fp);
+			fprintf(outFd, "\t</Positives>\n");
 		} else {
-			printf("# total positives %i (fp %i)\n", total, fp);
+			fprintf(outFd, "# total positives %i (fp %i)\n", total, fp);
 		}
 	}
 	return total - fp;
@@ -898,12 +899,12 @@ trainModel()
 	}
 	if (verbose >= 3) {
 		if (outputFormat == CLONEWISE_OUTPUT_XML) {
-			printf("\t<Negatives>\n");
-			printf("\t\t<Total>%i</Total>\n", total);
-			printf("\t\t<NonZero>%i</NonZero>\n", c);
-			printf("\t</Negatives>\n");
+			fprintf(outFd, "\t<Negatives>\n");
+			fprintf(outFd, "\t\t<Total>%i</Total>\n", total);
+			fprintf(outFd, "\t\t<NonZero>%i</NonZero>\n", c);
+			fprintf(outFd, "\t</Negatives>\n");
 		} else {
-			printf("# total negatives (non zero %i) out of %i\n", c, total);
+			fprintf(outFd, "# total negatives (non zero %i) out of %i\n", c, total);
 		}
 	}
 	testStream.close();
@@ -998,11 +999,11 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 		fgets(str, sizeof(str), p);
 		if (str[27] == 'Y') {
 			if (outputFormat == CLONEWISE_OUTPUT_XML) {
-				printf("\t<Clone>\n");
-				printf("\t\t<SourcePackage>%s</SourcePackage>\n", name);
-				printf("\t\t<ClonedSourcePackage>%s</ClonedSourcePackage>\n", pIter->first.c_str());
+				fprintf(outFd, "\t<Clone>\n");
+				fprintf(outFd, "\t\t<SourcePackage>%s</SourcePackage>\n", name);
+				fprintf(outFd, "\t\t<ClonedSourcePackage>%s</ClonedSourcePackage>\n", pIter->first.c_str());
 			} else {
-				printf("%s CLONED_IN_SOURCE %s\n", name, pIter->first.c_str());		
+				fprintf(outFd, "%s CLONED_IN_SOURCE %s\n", name, pIter->first.c_str());		
 			}
 			printMatch(embedding, *package, matchesTable[pIter->first]);
 			if (verbose >= 1) {
@@ -1013,14 +1014,14 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 					nIter++)
 				{
 					if (outputFormat == CLONEWISE_OUTPUT_XML) {
-						printf("\t\t<ClonedPackage>%s</ClonedPackage>\n", nIter->c_str());
+						fprintf(outFd, "\t\t<ClonedPackage>%s</ClonedPackage>\n", nIter->c_str());
 					} else {
-						printf("\t%s CLONED_IN_PACKAGE %s\n", name, nIter->c_str());
+						fprintf(outFd, "\t%s CLONED_IN_PACKAGE %s\n", name, nIter->c_str());
 					}
 				}
 			}
 			if (outputFormat == CLONEWISE_OUTPUT_XML) {
-				printf("\t</Clone>\n");
+				fprintf(outFd, "\t</Clone>\n");
 			}
 		}
 	}
@@ -1131,11 +1132,11 @@ checkRelated()
 	stream.close();
 	//TCliqueOverlap::GetCPMCommunities(g, OverlapSz+1, CmtyV);
 	TCliqueOverlap::GetMaxCliques(g, 3, CmtyV);
-	printf("%d PACKAGE_GROUPS\n", CmtyV.Len());
+	fprintf(outFd, "%d PACKAGE_GROUPS\n", CmtyV.Len());
 	for (int i = 0; i < CmtyV.Len(); i++) {
-		printf("RELATED\n");
+		fprintf(outFd, "RELATED\n");
 		for (int j = 0; j < CmtyV[i].Len(); j++) {
-			printf("\t%s\n", packagesReverseIndex[CmtyV[i][j].Val].c_str());
+			fprintf(outFd, "\t%s\n", packagesReverseIndex[CmtyV[i][j].Val].c_str());
 		}
 	}
 #endif
@@ -1324,7 +1325,7 @@ RunClonewise(int argc, char *argv[])
 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
 
 	if (outputFormat == CLONEWISE_OUTPUT_XML) {
-		printf("<Clonewise>\n");
+		fprintf(outFd, "<Clonewise>\n");
 	}
 	if (doCheckRelated) {
 		checkRelated();
@@ -1347,7 +1348,7 @@ RunClonewise(int argc, char *argv[])
 		}
 	}
 	if (outputFormat == CLONEWISE_OUTPUT_XML) {
-		printf("</Clonewise>\n");
+		fprintf(outFd, "</Clonewise>\n");
 	}
 	return 0;
 }
@@ -1440,8 +1441,6 @@ CreateFeatures()
 			featuresKey = std::set<std::string>();
 		} else {
 			featuresKey.insert(s);
-printf("# feature %s %i\n", s, features[s]);
-fflush(stdout);
 			features[s]++;
 		}
 	}
@@ -1457,7 +1456,5 @@ fflush(stdout);
 	{
 		featuresFile << iIter->second.c_str() << "/" << iIter->first << "/" << featuresDoc[iIter->second] << "\n";
 	}
-printf("done\n");
-fflush(stdout);
 	featuresFile.close();
 }

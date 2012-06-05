@@ -24,12 +24,13 @@ enum OutputFormat_e {
 };
 
 struct Feature {
-	char *Name;
+	const char *Name;
 	bool Use;
 };
 
 #define NFEATURES 27
 
+extern FILE *outFd;
 extern std::set<std::string> featureExceptions;
 extern const char *distroString;
 extern OutputFormat_e outputFormat;

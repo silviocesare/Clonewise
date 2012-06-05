@@ -1,18 +1,17 @@
 LDFLAGS = -lrt -lm -lfuzzy
 INCLUDES = -I libs/snap -I libs/glib -I src -I libs/munkres-2
-CFLAGS = -O3 -fopenmp
+CFLAGS = -fopenmp -g
 INSTALL = install
 
-CC = g++
+CC = mpic++
 
-all: Clonewise
-#Clonewise-RunTests-Statistics
+all: Clonewise-MakeCache Clonewise
 
 Clonewise: src/Clonewise.cpp src/main.cpp
 	$(CC) $(CFLAGS) -o bin/Clonewise libs/munkres-2/munkres.cpp libs/snap/cliques.cpp libs/snap/Snap.cpp src/main.cpp src/Clonewise.cpp $(INCLUDES) $(LDFLAGS)
 
-Clonewise-RunTests-Statistics: src/Clonewise.cpp src/Clonewise-RunTests-Statistics.cpp
-	$(CC) $(CFLAGS) -o bin/Clonewise-RunTests-Statistics libs/snap/cliques.cpp libs/snap/Snap.cpp src/Clonewise-RunTests-Statistics.cpp src/Clonewise.cpp $(INCLUDES) $(LDFLAGS)
+Clonewise-MakeCache: src/Clonewise.cpp src/Clonewise-MakeCache.cpp
+	$(CC) $(CFLAGS) -o bin/Clonewise-MakeCache libs/munkres-2/munkres.cpp libs/snap/cliques.cpp libs/snap/Snap.cpp src/Clonewise-MakeCache.cpp src/Clonewise.cpp $(INCLUDES) $(LDFLAGS)
 
 install:
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise

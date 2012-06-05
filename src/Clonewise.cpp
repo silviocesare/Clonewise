@@ -24,28 +24,28 @@ Feature Features[] = {
 	{ "N_Filenames_B", false },				// 3
 	{ "N_Filenames_Source_B", false },			// 4
 	{ "N_Common_Filenames", true },				// 5
-	{ "N_Common_Similar_Filenames", false },		// 6
+	{ "N_Common_Similar_Filenames", true },			// 6
 	{ "N_Common_FilenameHashes", true },			// 7
-	{ "N_Common_FilenameHash80", false },			// 8
-	{ "N_Common_ExactFilenameHash", false },		// 9
+	{ "N_Common_FilenameHash80", true },			// 8
+	{ "N_Common_ExactFilenameHash", true },			// 9
 	{ "N_Score_of_Common_Filename", true },			// 10
-	{ "N_Score_of_Common_Similar_Filename", false },	// 11
-	{ "N_Score_of_Common_FilenameHash", true },		// 12
+	{ "N_Score_of_Common_Similar_Filename", true },		// 11
+	{ "N_Score_of_Common_FilenameHash", false },		// 12
 	{ "N_Score_of_Common_FilenameHash80", true },		// 13
 	{ "N_Score_of_Common_ExactFilenameHash80", true },	// 14
-	{ "N_Data_Common_Filenames", false },			// 15
-	{ "N_Data_Common_Similar_Filenames", true },		// 16
-	{ "N_Data_Common_FilenameHashes", true },		// 17
+	{ "N_Data_Common_Filenames", true },			// 15
+	{ "N_Data_Common_Similar_Filenames", false },		// 16
+	{ "N_Data_Common_FilenameHashes", false },		// 17
 	{ "N_Data_Common_FilenameHash80", false },		// 18
-	{ "N_Data_Common_ExactFilenameHash", false },		// 19
-	{ "N_Data_Score_of_Common_Filename", true },		// 20
-	{ "N_Data_Score_of_Common_Similar_Filename", true },	// 21
+	{ "N_Data_Common_ExactFilenameHash", true },		// 19
+	{ "N_Data_Score_of_Common_Filename", false },		// 20
+	{ "N_Data_Score_of_Common_Similar_Filename", false },	// 21
 	{ "N_Data_Score_of_Common_FilenameHash", false },	// 22
 	{ "N_Data_Score_of_Common_FilenameHash80", false },	// 23
-	{ "N_Data_Score_of_Common_ExactFilenameHash80", false },// 24
-	{ "N_Common_Hash", true },				// 25
+	{ "N_Data_Score_of_Common_ExactFilenameHash80", true },// 24
+	{ "N_Common_Hash", false },				// 25
 	{ "N_Common_ExactHash", false },			// 26
-	{ "N_Common_DataExactHash", false },			// 27
+	{ "N_Common_DataExactHash", true },			// 27
 	{ NULL, false }
 };
 

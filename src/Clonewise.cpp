@@ -19,11 +19,11 @@
 #include <omp.h>
 
 Feature Features[] = {
-	{ "N_Filenames_A", false },				// 1
+	{ "N_Filenames_A", true },				// 1
 	{ "N_Filenames_Source_A", true },			// 2
 	{ "N_Filenames_B", true },				// 3
-	{ "N_Filenames_Source_B", false },			// 4
-	{ "N_Common_Filenames", false },			// 5
+	{ "N_Filenames_Source_B", true },			// 4
+	{ "N_Common_Filenames", true },			// 5
 	{ "N_Common_Similar_Filenames", true },			// 6
 	{ "N_Common_FilenameHashes", true },			// 7
 	{ "N_Common_FilenameHash80", true },			// 8
@@ -31,13 +31,13 @@ Feature Features[] = {
 	{ "N_Score_of_Common_Filename", true },			// 10
 	{ "N_Score_of_Common_Similar_Filename", true },		// 11
 	{ "N_Score_of_Common_FilenameHash", true },		// 12
-	{ "N_Score_of_Common_FilenameHash80", false },		// 13
-	{ "N_Score_of_Common_ExactFilenameHash80", false },	// 14
-	{ "N_Data_Common_Filenames", false },			// 15
+	{ "N_Score_of_Common_FilenameHash80", true },		// 13
+	{ "N_Score_of_Common_ExactFilenameHash80", true },	// 14
+	{ "N_Data_Common_Filenames", true },			// 15
 	{ "N_Data_Common_Similar_Filenames", true },		// 16
 	{ "N_Data_Common_FilenameHashes", true },		// 17
-	{ "N_Data_Common_FilenameHash80", false },		// 18
-	{ "N_Data_Common_ExactFilenameHash", false },		// 19
+	{ "N_Data_Common_FilenameHash80", true },		// 18
+	{ "N_Data_Common_ExactFilenameHash", true },		// 19
 	{ "N_Data_Score_of_Common_Filename", true },		// 20
 	{ "N_Data_Score_of_Common_Similar_Filename", true },	// 21
 	{ "N_Data_Score_of_Common_FilenameHash", true },	// 22
@@ -746,7 +746,9 @@ skip2:
 #pragma omp critical
 	{
 		for (int i = 0; i < NFEATURES; i++) {
-			testStream << featureVector[i] << ",";
+			if (!UseFeatureSelection || Features[i].Use) {
+				testStream << featureVector[i] << ",";
+			}
 		}
 		testStream << cl << "\n";
 	}
@@ -789,7 +791,9 @@ printArffHeader(std::ofstream &testStream)
 	testStream << "@RELATION Clones\n";
 
 	for (int i = 0; i < NFEATURES; i++) {
-		testStream << "@Attribute " << Features[i].Name << " NUMERIC\n";
+		if (!UseFeatureSelection || Features[i].Use) {
+			testStream << "@Attribute " << Features[i].Name << " NUMERIC\n";
+		}
 	}
 
 	testStream << "@ATTRIBUTE CLASS {Y,N}\n";
@@ -879,16 +883,6 @@ DoScoresForEmbedded(std::ofstream &testStream)
 		}
 #pragma omp taskwait
 	}
-	if (verbose >= 3) {
-		if (outputFormat == CLONEWISE_OUTPUT_XML) {
-			fprintf(outFd, "\t<Positives>\n");
-			fprintf(outFd, "\t\t<Total>%i</Total>\n", total);
-			fprintf(outFd, "\t\t<FalsePositives>%i</FalsePositives>\n", fp);
-			fprintf(outFd, "\t</Positives>\n");
-		} else {
-			fprintf(outFd, "# total positives %i (fp %i)\n", total, fp);
-		}
-	}
 	return total - fp;
 }
 
@@ -897,6 +891,7 @@ trainModel()
 {
 	std::ofstream testStream;
 	char cmd[1024], s[1024], testFilename[L_tmpnam + 128], t[L_tmpnam];
+	std::string rmString;
 	int c, total;
 
 	srand(0);
@@ -924,18 +919,19 @@ trainModel()
 #pragma omp atomic
 		c++;
 	}
-	if (verbose >= 3) {
-		if (outputFormat == CLONEWISE_OUTPUT_XML) {
-			fprintf(outFd, "\t<Negatives>\n");
-			fprintf(outFd, "\t\t<Total>%i</Total>\n", total);
-			fprintf(outFd, "\t\t<NonZero>%i</NonZero>\n", c);
-			fprintf(outFd, "\t</Negatives>\n");
-		} else {
-			fprintf(outFd, "# total negatives (non zero %i) out of %i\n", c, total);
-		}
-	}
 	testStream.close();
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/distros/%s/weka/model -t %s", distroString, testFilename);
+
+#if 0
+	// feature selection on training set
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.attributeSelection.WrapperSubsetEval -B weka.classifiers.trees.RandomForest -F 5 -T 0.01 -R 1 -- -I 10 -K 0 -S 1 -i /var/lib/Clonewise/distros/%s/weka/training.arff");
+
+	// generate new training set based on feature selection
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.filters.unsupervised.attribute.Remove -R %s -i /var/lib/Clonewise/distros/%s/weka/training.arff -o /var/lib/Clonewise/distros/%s/weka/training_withfeatureselection.arff", rmString.c_str(), distroString, distroString);
+	system(cmd);
+#endif
+
+	// train model
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/distros/%s/weka/model -t /var/lib/Clonewise/distros/%s/weka/training.arff", distroString, distroString);
 	system(cmd);
 }
 

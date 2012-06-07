@@ -19,38 +19,39 @@
 #include <omp.h>
 
 Feature Features[] = {
-	{ "N_Filenames_A", true },				// 1
+	{ "N_Filenames_A", false },				// 1
 	{ "N_Filenames_Source_A", true },			// 2
-	{ "N_Filenames_B", false },				// 3
+	{ "N_Filenames_B", true },				// 3
 	{ "N_Filenames_Source_B", false },			// 4
-	{ "N_Common_Filenames", true },				// 5
+	{ "N_Common_Filenames", false },			// 5
 	{ "N_Common_Similar_Filenames", true },			// 6
 	{ "N_Common_FilenameHashes", true },			// 7
 	{ "N_Common_FilenameHash80", true },			// 8
 	{ "N_Common_ExactFilenameHash", true },			// 9
 	{ "N_Score_of_Common_Filename", true },			// 10
 	{ "N_Score_of_Common_Similar_Filename", true },		// 11
-	{ "N_Score_of_Common_FilenameHash", false },		// 12
-	{ "N_Score_of_Common_FilenameHash80", true },		// 13
-	{ "N_Score_of_Common_ExactFilenameHash80", true },	// 14
-	{ "N_Data_Common_Filenames", true },			// 15
-	{ "N_Data_Common_Similar_Filenames", false },		// 16
-	{ "N_Data_Common_FilenameHashes", false },		// 17
+	{ "N_Score_of_Common_FilenameHash", true },		// 12
+	{ "N_Score_of_Common_FilenameHash80", false },		// 13
+	{ "N_Score_of_Common_ExactFilenameHash80", false },	// 14
+	{ "N_Data_Common_Filenames", false },			// 15
+	{ "N_Data_Common_Similar_Filenames", true },		// 16
+	{ "N_Data_Common_FilenameHashes", true },		// 17
 	{ "N_Data_Common_FilenameHash80", false },		// 18
-	{ "N_Data_Common_ExactFilenameHash", true },		// 19
-	{ "N_Data_Score_of_Common_Filename", false },		// 20
-	{ "N_Data_Score_of_Common_Similar_Filename", false },	// 21
-	{ "N_Data_Score_of_Common_FilenameHash", false },	// 22
-	{ "N_Data_Score_of_Common_FilenameHash80", false },	// 23
-	{ "N_Data_Score_of_Common_ExactFilenameHash80", true },// 24
+	{ "N_Data_Common_ExactFilenameHash", false },		// 19
+	{ "N_Data_Score_of_Common_Filename", true },		// 20
+	{ "N_Data_Score_of_Common_Similar_Filename", true },	// 21
+	{ "N_Data_Score_of_Common_FilenameHash", true },	// 22
+	{ "N_Data_Score_of_Common_FilenameHash80", true },	// 23
+	{ "N_Data_Score_of_Common_ExactFilenameHash80", true },	// 24
 	{ "N_Common_Hash", false },				// 25
-	{ "N_Common_ExactHash", false },			// 26
+	{ "N_Common_ExactHash", true },				// 26
 	{ "N_Common_DataExactHash", true },			// 27
 	{ NULL, false }
 };
 
 static void CreateFeatures();
 
+bool UseFeatureSelection = true;
 FILE *outFd = stdout;
 double maxWeight = 0.0;
 std::set<std::string> featureExceptions;
@@ -435,6 +436,30 @@ numberOfSources(const std::map<std::string, std::set<std::string> > &embedding)
 	return count;
 }
 
+template <class T>
+void
+SolveGreedy(Matrix<T> &matrix)
+{
+	std::set<int> done;
+	int min_j;
+	T min;
+
+	for (int i = 0; i < matrix.rows(); i++) {
+		min_j = -1;
+		for (int j = 0; j < matrix.columns(); j++) {
+			if ((min_j == -1 || matrix(i, j) < min) && done.find(i) == done.end()) {
+				min_j = j;
+				min = matrix(i, j);
+			}
+			matrix(i, j) = -1;
+		}
+		if (min_j != -1) {
+			done.insert(min_j);
+			matrix(i, min_j) = 0;
+		}
+	}
+}
+
 bool
 WriteCheckForClone(const std::string &name, std::ofstream &testStream, const std::map<std::string, std::set<std::string> > &embedding, const std::map<std::string, std::set<std::string> > &package, const std::string &cl, std::map<std::string, std::pair<std::string, float> > &matches)
 {
@@ -615,8 +640,12 @@ skip2:
 			matrix(i, j) = maxWeight - possibleMatches[possibleMatchesIter->first][*possibleMatchesIter2];
 		}
 	}
-	Munkres m;
-	m.solve(matrix);
+	if (matrix.rows() > 500 || matrix.columns() > 500) {
+		SolveGreedy(matrix);
+	} else {
+		Munkres m;
+		m.solve(matrix);
+	}
 
 	i = 0;
 	for (	possibleMatchesIter  = possibleMatches.begin();
@@ -713,19 +742,19 @@ skip2:
 		}
 	}
 
-	if (featureVector[4] == 0)
-		return false;
 
 #pragma omp critical
 	{
 		for (int i = 0; i < NFEATURES; i++) {
-			if (Features[i].Use) {
-				testStream << featureVector[i] << ",";
-			}
+			testStream << featureVector[i] << ",";
 		}
 		testStream << cl << "\n";
 	}
 //printMatch(embedding, package, matches);
+
+	if (featureVector[4] == 0)
+		return false;
+
 	return true;
 }
 
@@ -760,9 +789,7 @@ printArffHeader(std::ofstream &testStream)
 	testStream << "@RELATION Clones\n";
 
 	for (int i = 0; i < NFEATURES; i++) {
-		if (Features[i].Use) {
-			testStream << "@Attribute " << Features[i].Name << " NUMERIC\n";
-		}
+		testStream << "@Attribute " << Features[i].Name << " NUMERIC\n";
 	}
 
 	testStream << "@ATTRIBUTE CLASS {Y,N}\n";
@@ -876,7 +903,7 @@ trainModel()
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies", distroString);
 	LoadEmbeddedCodeCopiesList(s);
 
-	snprintf(testFilename, sizeof(testFilename), "/var/lib/Clonewise/distros/%s/training.arff", distroString);
+	snprintf(testFilename, sizeof(testFilename), "/var/lib/Clonewise/distros/%s/weka/training.arff", distroString);
 
 	testStream.open(testFilename);
 	if (!testStream) {
@@ -908,7 +935,7 @@ trainModel()
 		}
 	}
 	testStream.close();
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/distros/%s/model -t %s", distroString, testFilename);
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/distros/%s/weka/model -t %s", distroString, testFilename);
 	system(cmd);
 }
 
@@ -954,7 +981,7 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 					if (!WriteCheckForClone(fp, testStream, embedding, *package, "?", matchesTable[pIter->first]))
 #pragma omp critical (skipMod)
 						{
-							skip.insert(fp);
+//							skip.insert(fp);
 						}
 				} else {
 #pragma omp critical (skipMod)
@@ -968,7 +995,7 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 	}
 	testStream.close();
 
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -l /var/lib/Clonewise/distros/%s/model -T %s -p 0", distroString, testFilename);
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -l /var/lib/Clonewise/distros/%s/weka/model -T %s -p 0", distroString, testFilename);
 	p = popen(cmd, "r");
 	if (p == NULL) {
 		unlink(testFilename);
@@ -998,25 +1025,27 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 		str[27] = 0;
 		fgets(str, sizeof(str), p);
 		if (str[27] == 'Y') {
-			if (outputFormat == CLONEWISE_OUTPUT_XML) {
-				fprintf(outFd, "\t<Clone>\n");
-				fprintf(outFd, "\t\t<SourcePackage>%s</SourcePackage>\n", name);
-				fprintf(outFd, "\t\t<ClonedSourcePackage>%s</ClonedSourcePackage>\n", pIter->first.c_str());
-			} else {
-				fprintf(outFd, "%s CLONED_IN_SOURCE %s\n", name, pIter->first.c_str());		
-			}
-			printMatch(embedding, *package, matchesTable[pIter->first]);
-			if (verbose >= 1) {
-				std::list<std::string>::const_iterator nIter;
+			if (str[35] == '1' || (str[37] - '0') >= 8) {
+				if (outputFormat == CLONEWISE_OUTPUT_XML) {
+					fprintf(outFd, "\t<Clone>\n");
+					fprintf(outFd, "\t\t<SourcePackage>%s</SourcePackage>\n", name);
+					fprintf(outFd, "\t\t<ClonedSourcePackage>%s</ClonedSourcePackage>\n", pIter->first.c_str());
+				} else {
+					fprintf(outFd, "%s CLONED_IN_SOURCE %s\n", name, pIter->first.c_str());		
+				}
+				printMatch(embedding, *package, matchesTable[pIter->first]);
+				if (verbose >= 1) {
+					std::list<std::string>::const_iterator nIter;
 
-				for (	nIter  = pIter->second.begin();
-					nIter != pIter->second.end();
-					nIter++)
-				{
-					if (outputFormat == CLONEWISE_OUTPUT_XML) {
-						fprintf(outFd, "\t\t<ClonedPackage>%s</ClonedPackage>\n", nIter->c_str());
-					} else {
-						fprintf(outFd, "\t%s CLONED_IN_PACKAGE %s\n", name, nIter->c_str());
+					for (	nIter  = pIter->second.begin();
+						nIter != pIter->second.end();
+						nIter++)
+					{
+						if (outputFormat == CLONEWISE_OUTPUT_XML) {
+							fprintf(outFd, "\t\t<ClonedPackage>%s</ClonedPackage>\n", nIter->c_str());
+						} else {
+							fprintf(outFd, "\t%s CLONED_IN_PACKAGE %s\n", name, nIter->c_str());
+						}
 					}
 				}
 			}

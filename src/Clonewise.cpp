@@ -1327,7 +1327,7 @@ LoadEverything()
 		LoadSignature(filename, packagesSignatures[pIter->first]);
 	}
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/model", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/weka/model", distroString);
 	if (access(s, R_OK) != 0) {
 		if (getuid() != 0) {
 			fprintf(stderr, "Need to be root to build database.\n");

@@ -180,7 +180,7 @@ LevenshteinDistance(const char *s, unsigned int m, const char *t, unsigned int n
        return d[m][n % 2];
 }
 
-static void
+void
 LoadEmbeddedCodeCopiesList(const char *filename)
 {
         std::ifstream stream;
@@ -924,14 +924,16 @@ trainModel()
 #if 0
 	// feature selection on training set
 	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.attributeSelection.WrapperSubsetEval -B weka.classifiers.trees.RandomForest -F 5 -T 0.01 -R 1 -- -I 10 -K 0 -S 1 -i /var/lib/Clonewise/distros/%s/weka/training.arff");
-
-	// generate new training set based on feature selection
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.filters.unsupervised.attribute.Remove -R %s -i /var/lib/Clonewise/distros/%s/weka/training.arff -o /var/lib/Clonewise/distros/%s/weka/training_withfeatureselection.arff", rmString.c_str(), distroString, distroString);
-	system(cmd);
 #endif
 
+	// generate new training set based on feature selection
+	rmString = "3,4,7,9,11,17,19,21,23,24,25";
+//	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.filters.unsupervised.attribute.Remove -R %s -i /var/lib/Clonewise/distros/%s/weka/training.arff -o /var/lib/Clonewise/distros/%s/weka/training_featureselection.arff", rmString.c_str(), distroString, distroString);
+	snprintf(cmd, sizeof(cmd), "cp /var/lib/Clonewise/distros/%s/weka/training.arff /var/lib/Clonewise/distros/%s/weka/training_featureselection.arff", distroString, distroString);
+	system(cmd);
+
 	// train model
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/distros/%s/weka/model -t /var/lib/Clonewise/distros/%s/weka/training.arff", distroString, distroString);
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/distros/%s/weka/model -t /var/lib/Clonewise/distros/%s/weka/training_featureselection.arff", distroString, distroString);
 	system(cmd);
 }
 
@@ -941,13 +943,16 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 	std::map<std::string, std::map<std::string, std::pair<std::string, float> > > matchesTable;
 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
 	float featureVector[NFEATURES];
-	char cmd[1024], testFilename[L_tmpnam + 128], t[L_tmpnam], str[1024];
+	char cmd[1024], testFilename[L_tmpnam + 128], testFilename2[L_tmpnam + 128], t[L_tmpnam], str[1024];
 	FILE *p;
 	std::ofstream testStream;
 	std::set<std::string> skip;
+	std::string rmString;
 
 	tmpnam(t);
 	snprintf(testFilename, sizeof(testFilename), "%s.arff", t);
+	tmpnam(t);
+	snprintf(testFilename2, sizeof(testFilename2), "%s.arff", t);
 
 	testStream.open(testFilename);
 	if (!testStream) {
@@ -991,7 +996,13 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 	}
 	testStream.close();
 
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -l /var/lib/Clonewise/distros/%s/weka/model -T %s -p 0", distroString, testFilename);
+	// generate new test set based on feature selection
+	rmString = "3,4,7,9,11,17,19,21,23,24,25";
+//	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.filters.unsupervised.attribute.Remove -R %s -i %s -o %s", rmString.c_str(), testFilename, testFilename2);
+	snprintf(cmd, sizeof(cmd), "cp %s %s", testFilename, testFilename2);
+
+	system(cmd);
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -l /var/lib/Clonewise/distros/%s/weka/model -T %s -p 0", distroString, testFilename2);
 	p = popen(cmd, "r");
 	if (p == NULL) {
 		unlink(testFilename);
@@ -1052,6 +1063,7 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 	}
 	pclose(p);
 //	unlink(testFilename);
+//	unlink(testFilename2);
 }
 
 static void

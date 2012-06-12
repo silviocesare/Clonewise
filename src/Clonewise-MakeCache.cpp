@@ -3,14 +3,50 @@
 #include <cstdio>
 #include <cstdlib>
 
-#define R_TAG		100
-#define RESULTS_TAG	101
+#define TAG1		100
 
 std::vector<std::string> vPackages;
+std::list<int> packageQueue;
+
+struct Msg {
+	int r[2];
+	char *result;
+};
+
+std::list<Msg> messages;
+
+void DoWork(int index);
 
 void
-DoWork(const char *name, int index, int me)
+DoWorkLoop(int me)
 {
+	MPI_Status status;
+	int index;
+
+	MPI_Send(&me, 1, MPI_INT, 0, TAG1, MPI_COMM_WORLD); 
+	while (1) {
+		MPI_Recv(&index, 1, MPI_INT, 0, TAG1, MPI_COMM_WORLD, &status); 
+		if (index == -1)
+			break;
+		DoWork(index);
+		MPI_Send(&me, 1, MPI_INT, 0, TAG1, MPI_COMM_WORLD); 
+	}
+	std::list<Msg>::iterator mIter;
+	for (	mIter  = messages.begin();
+		mIter != messages.end();
+		mIter++)
+	{
+		MPI_Send(&me, 1, MPI_INT, 0, TAG1, MPI_COMM_WORLD); 
+		MPI_Send(mIter->r, 1, MPI_INT, 0, TAG1, MPI_COMM_WORLD); 
+		MPI_Send(mIter->result, mIter->r[1], MPI_CHAR, 0, TAG1, MPI_COMM_WORLD); 
+		delete [] mIter->result;
+	} 
+}
+
+void
+DoWork(int index)
+{
+	const char *name = vPackages[index].c_str();
 	int c = 1;
 	char myName[strlen(name) + 1];
 	char *v[] = { myName, NULL };
@@ -18,30 +54,39 @@ DoWork(const char *name, int index, int me)
 
 	strcpy(myName, name);
 
-
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/cache/%s", distroString, name);
-	outFd = fopen(s, "w+");
-
-	RunClonewise(c, v);
-	printf("# scanned %s\n", name);
-
-	if (me != 0) {
-		long size;
-		char *result;
-		int r[2];
-
-		size = ftell(outFd);
-		fseek(outFd, 0, SEEK_SET);
-		result = new char[size];
-		fread(result, 1, size, outFd);
-		r[0] = index;
-		r[1] = size;
-		MPI_Send(r, 1, MPI_INT, 0, R_TAG, MPI_COMM_WORLD); 
-		MPI_Send(result, size, MPI_CHAR, 0, RESULTS_TAG, MPI_COMM_WORLD); 
-		delete [] result;
+	if (0 && access(s, R_OK) == 0) {
+		outFd = fopen(s, "r");
+	} else {
+		outFd = fopen(s, "w+");
+		RunClonewise(c, v);
 	}
+	printf("# scanned %s\n", name);
+	fflush(stdout);
+
+	Msg msg;
+	long size;
+	char *result;
+	int r[2];
+
+	size = ftell(outFd);
+	fseek(outFd, 0, SEEK_SET);
+	msg.result = new char[size];
+	fread(msg.result, 1, size, outFd);
+	msg.r[0] = index;
+	msg.r[1] = size;
+	messages.push_back(msg);
 
 	fclose(outFd), outFd = NULL;
+}
+
+bool embeddedOnly = true;
+
+void
+Usage(const char *argv0)
+{
+	fprintf(stderr, "Usage: %s [-d distroString] [-a]\n", argv0);
+	exit(1);
 }
 
 int
@@ -49,67 +94,108 @@ main(int argc, char* argv[])
 { 
 	int np, me; 
 	const int root = 0;
+	int xi;
 	MPI_Status status;
  	std::map<std::string, std::list<std::string> >::const_iterator pIter;
-	int *x, *y, xi, ysize;
+	int ch;
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &np);
 	MPI_Comm_rank(MPI_COMM_WORLD, &me);
-   
-	LoadEverything();
-	outputFormat = CLONEWISE_OUTPUT_XML;
 
-	x = new int[packages.size()];
-	for (	pIter  = packages.begin(), xi = 0;
-		pIter != packages.end();
-		pIter++)
-	{
-		vPackages.push_back(pIter->first);
-		x[xi++] = xi;
+	while ((ch = getopt(argc, argv, "ad:")) != EOF) {
+		switch (ch) {
+		case 'a':
+			embeddedOnly = false;
+			break;
+
+                case 'd':
+                        distroString = optarg;
+                        break;
+
+		default:
+			Usage(argv[0]);
+			break;
+		}
 	}
-	ysize = xi / np;
-	y = new int[ysize];
-	MPI_Scatter(x, ysize, MPI_INT, y, ysize, MPI_INT, root, MPI_COMM_WORLD); 
-	if (me == 0) {
-		for (int i = 0; i < ysize; i++) {
-			DoWork(vPackages[y[i]].c_str(), y[i], me);
+
+	argc -= optind;
+	argv += optind;
+	
+	LoadEverything();
+//	outputFormat = CLONEWISE_OUTPUT_XML;
+	printf("# loaded everything\n");
+	fflush(stdout);
+
+	if (embeddedOnly) {
+		std::map<std::string, std::set<std::string> >::const_iterator eIter;
+
+		if (embeddedList.size() == 0) {
+			char s[1024];
+
+		        snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies", distroString);
+		        LoadEmbeddedCodeCopiesList(s);
 		}
-		for (int i = ysize * np; i < xi; i++) {
-			DoWork(vPackages[i].c_str(), x[i], me);
+		for (	eIter  = embeddedList.begin(), xi = 0;
+			eIter != embeddedList.end();
+			eIter++)
+		{
+			vPackages.push_back(eIter->first);
+			packageQueue.push_back(xi++);
 		}
-
-		for (int yi = 0; yi < ysize; yi++) {
-			for (int i = 1; i < np; i++) { 
-				int r[2], size;
-				char *result;
-				FILE *f;
-				char s[1024];
-
-				MPI_Recv(r, 2, MPI_INT, i, R_TAG, MPI_COMM_WORLD, &status); 
-
-				size = r[1];
-				result = new char[size];
-
-				MPI_Recv(result, size, MPI_CHAR, i, RESULTS_TAG, MPI_COMM_WORLD, &status); 
-
-				snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/cache/%s", distroString, vPackages[x[r[0]]].c_str());
-				f = fopen(s, "w");
-				fwrite(result, 1, size, f);
-				fclose(f), f = NULL;
-
-				delete [] result;
-			}
-		}
-
-		delete [] x; 
 	} else {
-		for (int i = 0; i < ysize; i++) {
-			DoWork(vPackages[y[i]].c_str(), y[i], me);
+		for (	pIter  = packages.begin(), xi = 0;
+			pIter != packages.end();
+			pIter++)
+		{
+			vPackages.push_back(pIter->first);
+			packageQueue.push_back(xi++);
 		}
-	} 
- 
-	delete [] y;
+	}
+
+	printf("# going to scan %i packages\n", xi);
+	fflush(stdout);
+	if (me == 0) {
+		while (packageQueue.size() != 0) {
+			int index, which;
+
+			MPI_Recv(&which, 1, MPI_INT, MPI_ANY_SOURCE, TAG1, MPI_COMM_WORLD, &status); 
+			index = packageQueue.front();
+			packageQueue.pop_front();
+			MPI_Send(&index, 1, MPI_INT, which, TAG1, MPI_COMM_WORLD); 
+		}
+		for (int i = 1; i < np; i++) {
+			int which, neg = -1;
+
+			MPI_Recv(&which, 1, MPI_INT, i, TAG1, MPI_COMM_WORLD, &status); 
+			MPI_Send(&neg, 1, MPI_INT, i, TAG1, MPI_COMM_WORLD); 
+		}
+		for (int i = 0; i < vPackages.size(); i++) { 
+			int which;
+			int r[2], size;
+			char *result;
+			FILE *f;
+			char s[1024];
+
+			MPI_Recv(&which, 1, MPI_INT, MPI_ANY_SOURCE, TAG1, MPI_COMM_WORLD, &status); 
+			MPI_Recv(r, 2, MPI_INT, which, TAG1, MPI_COMM_WORLD, &status); 
+
+			size = r[1];
+			result = new char[size];
+
+			MPI_Recv(result, size, MPI_CHAR, which, TAG1, MPI_COMM_WORLD, &status); 
+
+			snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/cache/%s", distroString, vPackages[r[0]].c_str());
+			f = fopen(s, "w");
+			fwrite(result, 1, size, f);
+			fclose(f), f = NULL;
+
+			delete [] result;
+		}
+	} else {
+		DoWorkLoop(me);
+	}
+
 	MPI_Finalize(); 
 	exit(0); 
 }

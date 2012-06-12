@@ -6,7 +6,10 @@ INSTALL = install
 CC = g++
 MPICC = mpic++
 
-all: Clonewise-MakeCache Clonewise
+all: Clonewise-MakeCache Clonewise Clonewise-Cache
+
+Clonewise-Cache: src/Clonewise-Cache.cpp
+	$(CC) -o bin/Clonewise-Cache src/Clonewise-Cache.cpp $(INCLUDES) $(LDFLAGS)
 
 Clonewise: src/Clonewise.cpp src/main.cpp
 	$(CC) $(CFLAGS) -o bin/Clonewise libs/munkres-2/munkres.cpp libs/snap/cliques.cpp libs/snap/Snap.cpp src/main.cpp src/Clonewise.cpp $(INCLUDES) $(LDFLAGS)

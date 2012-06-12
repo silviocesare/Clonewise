@@ -30,6 +30,7 @@ struct Feature {
 
 #define NFEATURES 27
 
+extern std::map<std::string, std::set<std::string> > embeddedList;
 extern FILE *outFd;
 extern std::set<std::string> featureExceptions;
 extern const char *distroString;
@@ -49,6 +50,7 @@ extern std::set<std::string> extensions;
 extern bool reportError;
 extern bool useRelativePathForSignature;
 
+void LoadEmbeddedCodeCopiesList(const char *filename);
 int LoadEverything();
 int RunClonewise(int argc, char *argv[]);
 bool WriteCheckForClone(std::ofstream &testStream, const std::map<std::string, std::set<std::string> > &embedding, const std::map<std::string, std::set<std::string> > &package, const std::string &cl);

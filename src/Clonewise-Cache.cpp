@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <list>
+#include "Clonewise.h"
 
 void
 Usage(const char *argv0)
@@ -19,9 +20,15 @@ enum EmbedType {
 	EMBED_UNFIXED
 };
 
+struct Match {
+	std::string filename1;
+	std::string filename2;
+	std::string weight;
+};
+
 std::map<std::string, std::map<std::string, EmbedType> > embeddedsState;
 std::map<std::string, std::set<std::string> > embeddeds;
-std::map<std::string, std::map<std::string, std::list<std::string> > > cache;
+std::map<std::string, std::map<std::string, std::list<Match> > > cache;
 bool pretty = false;
 bool showUnfixed = false;
 
@@ -116,15 +123,19 @@ LoadCache()
 					str[j] = s[i];
 				str[j] = 0;
 				lib = str;
-				if (cache.find(eIter->first) == cache.end()) {
-					cache[eIter->first] = std::map<std::string, std::list<std::string> >();
-				}
-				if (cache[eIter->first].find(lib) == cache[eIter->first].end()) {
-					cache[eIter->first][lib] = std::list<std::string>();
-				}
 			} else {
 				if (strncmp(s, "\t\tMATCH", 7) == 0) {
-					cache[eIter->first][lib].push_back(&s[8]);
+					std::string s1 = &s[8], s2;
+					Match m;
+					size_t n1, n2;
+
+					n1 = s1.find_first_of('/');
+					m.filename1 = s1.substr(0, n1);
+					s2 = s1.substr(n1 + 1);
+					n2 = s2.find_first_of(' ');
+					m.filename2 = s2.substr(0, n2);
+					m.weight = s2.substr(n2 + 1);
+					cache[eIter->first][lib].push_back(m);
 				}
 			}
 		}
@@ -133,11 +144,12 @@ LoadCache()
 }
 
 void
-ShowMissingLibs(const std::string &embeddedLib)
+ShowMissingLibs(const std::string &embeddedLib, const char *matchFilename)
 {
-	std::map<std::string, std::list<std::string> >::const_iterator cIter;
+	std::map<std::string, std::list<Match> >::const_iterator cIter;
 	std::set<std::string>::const_iterator eIter;
 	bool any1 = false, any2 = false;
+	std::string m;
 
 	if (embeddeds.find(embeddedLib) == embeddeds.end()) {
 		return;
@@ -163,6 +175,9 @@ ShowMissingLibs(const std::string &embeddedLib)
 	if (cache.find(embeddedLib) == cache.end()) {
 		return;
 	}
+	if (matchFilename) {
+		normalizeFeature(m, matchFilename);
+	}
 	for (	cIter  = cache[embeddedLib].begin();
 		cIter != cache[embeddedLib].end();
 		cIter++)
@@ -171,8 +186,20 @@ ShowMissingLibs(const std::string &embeddedLib)
 			continue;
 
 		if (embeddeds[embeddedLib].find(cIter->first.c_str()) == embeddeds[embeddedLib].end()) {
-			std::list<std::string>::const_iterator mIter;
+			std::list<Match>::const_iterator mIter;
 
+			if (matchFilename) {
+				for (	mIter  = cIter->second.begin();
+					mIter != cIter->second.end();
+					mIter++)
+				{
+					if (strcmp(m.c_str(), mIter->filename1.c_str()) == 0 || strcmp(m.c_str(), mIter->filename2.c_str()) == 0) {
+						goto gotit;
+					}
+				}
+				continue;
+			}
+gotit:
 			if (any2 == false && pretty) {
 				printf("# The following package clones are NOT tracked in the embedded-code-copies\n# database.\n");
 				printf("#\n\n");
@@ -183,7 +210,7 @@ ShowMissingLibs(const std::string &embeddedLib)
 				mIter != cIter->second.end();
 				mIter++)
 			{
-				printf("\t\tMATCH %s\n", mIter->c_str());
+				printf("\t\tMATCH %s/%s %s\n", mIter->filename1.c_str(), mIter->filename2.c_str(), mIter->weight.c_str());
 			}
 		}
 	}
@@ -198,7 +225,7 @@ ShowMissing()
 		eIter != embeddeds.end();
 		eIter++)
 	{
-		ShowMissingLibs(eIter->first);
+		ShowMissingLibs(eIter->first, NULL);
 	}
 }
 
@@ -226,8 +253,6 @@ main(int argc, char *argv[])
 	} else {
 		pretty = true;
 		showUnfixed = true;
-		for (int i = 0; i < argc; i++) {
-			ShowMissingLibs(argv[i]);
-		}
+		ShowMissingLibs(argv[0], argv[1]);
 	}
 }

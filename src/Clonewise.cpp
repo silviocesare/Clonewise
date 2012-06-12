@@ -211,7 +211,7 @@ LoadEmbeddedCodeCopiesList(const char *filename)
         stream.close();
 }
 
-static void
+void
 normalizeFeature(std::string &normalFeature, const std::string &feature)
 {
 	size_t lastDot;

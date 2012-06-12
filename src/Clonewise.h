@@ -50,6 +50,9 @@ extern std::set<std::string> extensions;
 extern bool reportError;
 extern bool useRelativePathForSignature;
 
+void LoadPackagesInfo();
+void LoadExtensions();
+bool IsProgramFilename(const std::string &feature);
 void normalizeFeature(std::string &normalFeature, const std::string &feature);
 void LoadEmbeddedCodeCopiesList(const char *filename);
 int LoadEverything();

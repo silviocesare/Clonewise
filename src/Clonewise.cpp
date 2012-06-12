@@ -1235,18 +1235,11 @@ ReadIgnoreList(const char *filename)
 	}
 }
 
-int
-LoadEverything()
+void
+LoadExtensions()
 {
-	std::string filename;
 	std::ifstream stream;
 	char s[1024];
-	std::map<std::string, std::list<std::string> >::const_iterator pIter;
-	std::map<std::string, float>::iterator idfIter;
-
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/.done", distroString);
-	if (access(s, R_OK) != 0)
-		BuildDatabase();
 
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/extensions", distroString);
 	stream.open(s);
@@ -1267,7 +1260,22 @@ LoadEverything()
 		extensions.insert(ext);
 	}
 	stream.close();
+}
 
+int
+LoadEverything()
+{
+	std::string filename;
+	std::ifstream stream;
+	char s[1024];
+	std::map<std::string, std::list<std::string> >::const_iterator pIter;
+	std::map<std::string, float>::iterator idfIter;
+
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/.done", distroString);
+	if (access(s, R_OK) != 0)
+		BuildDatabase();
+
+	LoadExtensions();
 	LoadPackagesInfo();
 	loadFeatureExceptions();
 

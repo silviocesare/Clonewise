@@ -11,9 +11,79 @@
 #include "Clonewise.h"
 #include "Clonewise-lib-Cache.h"
 
+std::map<std::string, std::set<std::string> > cveReports;
+std::set<std::string> notPackages;
+
 static void
 Usage(const char *argv0)
 {
+}
+
+void
+loadNotPackages()
+{
+	std::ifstream stream;
+
+        stream.open("/var/lib/Clonewise/distros/ubuntu/these-are-not-packages");
+        if (!stream) {
+        }
+        while (!stream.eof()) {
+                char s[1024];
+                       int i;
+
+                stream.getline(s, sizeof(s));
+                if (s[0] == 0)
+                        continue;
+
+		notPackages.insert(s);
+	}
+	stream.close();
+}
+
+void
+loadCveReports()
+{
+	std::ifstream stream;
+        std::string cve, package;
+
+        stream.open("/var/lib/Clonewise/distros/ubuntu/CVE-list");
+        if (!stream) {
+        }
+        while (!stream.eof()) {
+                char s[1024];
+                       int i;
+
+                stream.getline(s, sizeof(s));
+                if (s[0] == 0)
+                        continue;
+
+		if (!isspace(s[0])) {
+			char str[1024];
+			int j;
+
+			str[0] = 0;
+			for (i = 0; isspace(s[i]); i++);
+			for (j = 0; !isspace(s[i]); i++, j++)
+				str[j] = s[i];
+			str[j] = 0;
+			cve = str;
+		} else {
+			for (i = 0; isspace(s[i]); i++);
+			if (s[i] == '-' && s[i + 1] == ' ') {
+				int j;
+				char str[1024];
+
+				i += 2;
+				for (j = 0; !isspace(s[i]); i++, j++)
+					str[j] = s[i];
+				str[j] = 0;
+				package = str;
+				cveReports[cve].insert(package);
+                        }
+                }
+        }
+        stream.close();
+
 }
 
 void
@@ -69,7 +139,7 @@ tokenizeIntoWords(const char *s, std::list<std::string> &wordList)
 	int last = 0;
 
 	for (int i = 0; s[i]; i++) {
-		if (isspace(s[i]) || (ispunct(s[i]) && s[i] != '.' && s[i] != '_')) {
+		if (isspace(s[i]) || (ispunct(s[i]) && s[i] != '.' && s[i] != '_' && s[i] != '-')) {
 			std::string word;
 
 			word = str.substr(last, i - last);
@@ -100,6 +170,8 @@ findPackageFromWordList(std::string &package, const std::list<std::string> &word
 		for (i = 0; wIter->c_str()[i] && i < sizeof(name1); i++)
 			name1[i] = tolower(wIter->c_str()[i]);
 		name1[i] = 0;
+		if (notPackages.find(name1) != notPackages.end())
+			continue;
 		for (	eIter  = embeddeds.begin();
 			eIter != embeddeds.end();
 			eIter++)
@@ -188,6 +260,7 @@ main(int argc, char *argv[])
 	std::set<std::string> vulnSources;
 	int ch;
 	const char *argv0 = argv[0];
+	std::set<std::string>::const_iterator cIter;
 
 	while ((ch = getopt(argc, argv, "")) != EOF) {
 		switch (ch) {
@@ -206,6 +279,9 @@ main(int argc, char *argv[])
 	LoadCache();
 	LoadPackagesInfo();
 	LoadExtensions();
+	loadCveReports();
+	loadNotPackages();
+
 	if (extractCveInfo(argv[0], vulnPackage, vulnSources)) {
 		std::set<std::string>::const_iterator sIter;
 
@@ -219,8 +295,18 @@ main(int argc, char *argv[])
 		}
 		printf("#\n\n");
 
+		if (cveReports.find(argv[0]) != cveReports.end()) {
+			printf("# Debian tracks the following packages affected:\n");
+			for (	cIter  = cveReports[argv[0]].begin();
+				cIter != cveReports[argv[0]].end();
+				cIter++)
+			{
+				printf("#\t%s\n", cIter->c_str());
+			}
+			printf("#\n\n");
+		}
 		pretty = true;
 		showUnfixed = true;
-		ShowMissingLibs(vulnPackage, true, vulnSources);
+		ShowMissingLibs(vulnPackage, true, vulnSources, cveReports[argv[0]]);
 	}
 }

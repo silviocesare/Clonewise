@@ -134,7 +134,7 @@ LoadCache()
 }
 
 void
-ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std::set<std::string> &matchFilename)
+ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude)
 {
 	std::map<std::string, std::list<Match> >::const_iterator cIter;
 	std::set<std::string>::const_iterator eIter;
@@ -149,7 +149,7 @@ ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std
 			eIter != embeddeds[embeddedLib].end();
 			eIter++)
 		{
-			if (embeddedsState[embeddedLib][*eIter] == EMBED_UNFIXED) {
+			if (exclude.find(*eIter) == exclude.end() && embeddedsState[embeddedLib][*eIter] == EMBED_UNFIXED) {
 				if (any1 == false && pretty) {
 					printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
 					printf("#\n\n");
@@ -169,6 +169,9 @@ ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std
 		cIter != cache[embeddedLib].end();
 		cIter++)
 	{
+		if (exclude.find(cIter->first) != exclude.end())
+			continue;
+
 		if (strcmp(embeddedLib.c_str(), cIter->first.c_str()) == 0)
 			continue;
 
@@ -212,8 +215,8 @@ ShowMissing()
 		eIter != embeddeds.end();
 		eIter++)
 	{
-		std::set<std::string> vulnSources;
+		std::set<std::string> vulnSources, exclude;
 
-		ShowMissingLibs(eIter->first, false, vulnSources);
+		ShowMissingLibs(eIter->first, false, vulnSources, exclude);
 	}
 }

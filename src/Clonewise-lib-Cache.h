@@ -32,7 +32,7 @@ extern bool showUnfixed;
 
 void LoadEmbeds(const char *filename);
 void LoadCache();
-void ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std::set<std::string> &matchFilename);
+void ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude);
 void ShowMissing();
 
 #endif

@@ -39,18 +39,18 @@ main(int argc, char *argv[])
 		showUnfixed = false;
 		ShowMissing();
 	} else {
-		std::set<std::string> vulnSources;
+		std::set<std::string> vulnSources, exclude;
 
 		pretty = true;
 		showUnfixed = true;
 		if (argv[1] == NULL) {
-			ShowMissingLibs(argv[0], false, vulnSources);
+			ShowMissingLibs(argv[0], false, vulnSources, exclude);
 		} else {
 			std::string m;
 
 			normalizeFeature(m, argv[1]);
 			vulnSources.insert(m);
-			ShowMissingLibs(argv[0], true, vulnSources);
+			ShowMissingLibs(argv[0], true, vulnSources, exclude);
 		}
 	}
 }

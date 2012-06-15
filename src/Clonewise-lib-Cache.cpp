@@ -134,7 +134,7 @@ LoadCache()
 }
 
 void
-ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude)
+ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude)
 {
 	std::map<std::string, std::list<Match> >::const_iterator cIter;
 	std::set<std::string>::const_iterator eIter;
@@ -150,12 +150,27 @@ ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std
 			eIter++)
 		{
 			if (exclude.find(*eIter) == exclude.end() && embeddedsState[embeddedLib][*eIter] == EMBED_UNFIXED) {
-				if (any1 == false && pretty) {
-					printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
-					printf("#\n\n");
-					any1 = true;
+				std::string filename;
+				std::map<std::string, std::set<std::string> > sig;
+				std::map<std::string, std::set<std::string> >::const_iterator sigIter;
+
+				filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + eIter->c_str();
+				LoadSignature(filename, sig);
+
+				for (	sigIter  = sig.begin();
+					sigIter != sig.end();
+					sigIter++)
+				{
+					if (matchFilename.find(sigIter->first) != matchFilename.end()) {
+						if (any1 == false && pretty) {
+							printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
+							printf("#\n\n");
+							any1 = true;
+						}
+						printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), eIter->c_str(), msg.c_str());
+						break;
+					}
 				}
-				printf("%s CLONED_IN_SOURCE %s <unfixed>\n", embeddedLib.c_str(), eIter->c_str());
 			}
 		}
 		if (any1) {
@@ -200,9 +215,9 @@ gotit:
 			snprintf(cmd, sizeof(cmd), "Clonewise-CheckDepends %s %s> /dev/null 2> /dev/null", embeddedLib.c_str(), cIter->first.c_str());
 			status = system(cmd);
 			if (WEXITSTATUS(status) == 0) {
-				printf("%s CLONED_IN_SOURCE %s <fixed>\n", embeddedLib.c_str(), cIter->first.c_str());
+				printf("%s CLONED_IN_SOURCE %s <fixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
 			} else {
-				printf("%s CLONED_IN_SOURCE %s <unfixed>\n", embeddedLib.c_str(), cIter->first.c_str());
+				printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
 			}
 			for (	mIter  = cIter->second.begin();
 				mIter != cIter->second.end();
@@ -225,6 +240,6 @@ ShowMissing()
 	{
 		std::set<std::string> vulnSources, exclude;
 
-		ShowMissingLibs(eIter->first, false, vulnSources, exclude);
+		ShowMissingLibs(eIter->first, "", false, vulnSources, exclude);
 	}
 }

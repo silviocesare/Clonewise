@@ -412,7 +412,7 @@ DoWork(const char *cveName)
 		}
 		pretty = true;
 		showUnfixed = true;
-		ShowMissingLibs(vulnPackage, true, vulnSources, cveReports[cveName]);
+		ShowMissingLibs(vulnPackage, cveName, true, vulnSources, cveReports[cveName]);
 	} else {
 		if (verbose >= 3) {
 			printf("# SUMMARY: %s\n", summary.c_str());

@@ -44,13 +44,13 @@ main(int argc, char *argv[])
 		pretty = true;
 		showUnfixed = true;
 		if (argv[1] == NULL) {
-			ShowMissingLibs(argv[0], false, vulnSources, exclude);
+			ShowMissingLibs(argv[0], "", false, vulnSources, exclude);
 		} else {
 			std::string m;
 
 			normalizeFeature(m, argv[1]);
 			vulnSources.insert(m);
-			ShowMissingLibs(argv[0], true, vulnSources, exclude);
+			ShowMissingLibs(argv[0], "", true, vulnSources, exclude);
 		}
 	}
 }

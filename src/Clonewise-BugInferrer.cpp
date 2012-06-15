@@ -241,7 +241,6 @@ extractCveInfoFromSummary(std::string &vulnPackage, std::set<std::string> &vulnS
 	std::list<std::string> wordList;
 
 	tokenizeIntoWords(summary.c_str(), wordList);
-	findPackageFromWordList(vulnPackage, wordList);
 	if (findSourcesFromWordList(vulnSources, wordList)) {
 		return 1;
 	}
@@ -258,7 +257,7 @@ initXmlParser()
 		XMLCh *nameString = XMLString::transcode("name");
 
 		parser = new XercesDOMParser();
-		parser->parse("/var/lib/Clonewise/nvdcve-2011.xml");
+		parser->parse("/var/lib/Clonewise/nvdcve-2012.xml");
 		DOMDocument *xmlDoc = parser->getDocument();
 		DOMElement *elementRoot = xmlDoc->getDocumentElement();
 		DOMNodeList *entries = xmlDoc->getElementsByTagName(entryString);
@@ -300,6 +299,8 @@ extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::s
 			char *vulnPackageS, *summaryS;
 				
 			DOMNodeList *prodList= dynamic_cast<DOMElement *>(currentEntry)->getElementsByTagName(prodString);
+			if (prodList->getLength() == 0)
+				return status;
 			DOMNodeList *descriptList = dynamic_cast<DOMElement *>(currentEntry)->getElementsByTagName(descriptString);
 
 			vulnPackageS = XMLString::transcode(dynamic_cast<DOMElement *>(prodList->item(0))->getAttribute(nameString));
@@ -436,7 +437,7 @@ main(int argc, char *argv[])
 
 			std::cin.getline(cveName, sizeof(cveName));
 			if (cveName[0] == 0)
-				break;
+				continue;
 			DoWork(cveName);
 		}
 	} else {

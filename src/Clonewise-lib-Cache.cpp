@@ -197,7 +197,7 @@ gotit:
 				printf("#\n\n");
 				any2 = true;
 			}
-			snprintf(cmd, sizeof(cmd), "Clonewise-CheckDepends %s %s", embeddedLib.c_str(), cIter->first.c_str());
+			snprintf(cmd, sizeof(cmd), "Clonewise-CheckDepends %s %s> /dev/null 2> /dev/null", embeddedLib.c_str(), cIter->first.c_str());
 			status = system(cmd);
 			if (WEXITSTATUS(status) == 0) {
 				printf("%s CLONED_IN_SOURCE %s <fixed>\n", embeddedLib.c_str(), cIter->first.c_str());

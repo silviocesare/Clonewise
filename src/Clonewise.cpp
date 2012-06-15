@@ -386,6 +386,8 @@ IsProgramFilename(const std::string &feature)
 	size_t n;
 
 	n = feature.find_last_of('.');
+	if (n == 0 || n == std::string::npos)
+		return false;
 	ext = feature.substr(n + 1);
 	for (int i = 0; i < ext.size(); i++) {
 		ext[i] = tolower(ext[i]);

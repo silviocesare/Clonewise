@@ -1,4 +1,4 @@
-LDFLAGS = -lrt -lm -lfuzzy
+LDFLAGS = -lrt -lm -lfuzzy -lxerces-c
 INCLUDES = -I libs/snap -I libs/glib -I src -I libs/munkres-2
 CFLAGS = -fopenmp -g
 INSTALL = install
@@ -9,10 +9,10 @@ MPICC = mpic++
 all: Clonewise-MakeCache Clonewise Clonewise-Cache Clonewise-BugInferrer
 
 Clonewise-BugInferrer: src/Clonewise-Cache.cpp src/Clonewise.cpp
-	$(CC) -o bin/Clonewise-BugInferrer src/Clonewise-BugInferrer.cpp src/Clonewise-lib-Cache.cpp src/Clonewise.cpp libs/munkres-2/munkres.cpp $(INCLUDES) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o bin/Clonewise-BugInferrer src/Clonewise-BugInferrer.cpp src/Clonewise-lib-Cache.cpp src/Clonewise.cpp libs/munkres-2/munkres.cpp $(INCLUDES) $(LDFLAGS)
 
 Clonewise-Cache: src/Clonewise-Cache.cpp src/Clonewise.cpp
-	$(CC) -o bin/Clonewise-Cache src/Clonewise-lib-Cache.cpp src/Clonewise-Cache.cpp src/Clonewise.cpp libs/munkres-2/munkres.cpp $(INCLUDES) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o bin/Clonewise-Cache src/Clonewise-lib-Cache.cpp src/Clonewise-Cache.cpp src/Clonewise.cpp libs/munkres-2/munkres.cpp $(INCLUDES) $(LDFLAGS)
 
 Clonewise: src/Clonewise.cpp src/main.cpp
 	$(CC) $(CFLAGS) -o bin/Clonewise libs/munkres-2/munkres.cpp libs/snap/cliques.cpp libs/snap/Snap.cpp src/main.cpp src/Clonewise.cpp $(INCLUDES) $(LDFLAGS)

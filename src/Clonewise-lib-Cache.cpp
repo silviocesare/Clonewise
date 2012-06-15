@@ -155,7 +155,7 @@ ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std
 					printf("#\n\n");
 					any1 = true;
 				}
-				printf("%s CLONED_IN_SOURCE %s\n", embeddedLib.c_str(), eIter->c_str());
+				printf("%s CLONED_IN_SOURCE %s <unfixed>\n", embeddedLib.c_str(), eIter->c_str());
 			}
 		}
 		if (any1) {
@@ -177,6 +177,8 @@ ShowMissingLibs(const std::string &embeddedLib, bool useMatchFilename, const std
 
 		if (embeddeds[embeddedLib].find(cIter->first.c_str()) == embeddeds[embeddedLib].end()) {
 			std::list<Match>::const_iterator mIter;
+			char cmd[1024];
+			int status;
 
 			if (useMatchFilename) {
 				for (	mIter  = cIter->second.begin();
@@ -195,7 +197,13 @@ gotit:
 				printf("#\n\n");
 				any2 = true;
 			}
-			printf("%s CLONED_IN_SOURCE %s\n", embeddedLib.c_str(), cIter->first.c_str());
+			snprintf(cmd, sizeof(cmd), "Clonewise-CheckDepends %s %s", embeddedLib.c_str(), cIter->first.c_str());
+			status = system(cmd);
+			if (WEXITSTATUS(status) == 0) {
+				printf("%s CLONED_IN_SOURCE %s <fixed>\n", embeddedLib.c_str(), cIter->first.c_str());
+			} else {
+				printf("%s CLONED_IN_SOURCE %s <unfixed>\n", embeddedLib.c_str(), cIter->first.c_str());
+			}
 			for (	mIter  = cIter->second.begin();
 				mIter != cIter->second.end();
 				mIter++)

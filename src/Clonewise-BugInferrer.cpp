@@ -1,3 +1,15 @@
+#include <xercesc/util/PlatformUtils.hpp>
+#include <xercesc/dom/DOM.hpp>
+#include <xercesc/dom/DOMDocument.hpp>
+#include <xercesc/dom/DOMDocumentType.hpp>
+#include <xercesc/dom/DOMElement.hpp>
+#include <xercesc/dom/DOMImplementation.hpp>
+#include <xercesc/dom/DOMImplementationLS.hpp>
+#include <xercesc/dom/DOMNodeIterator.hpp>
+#include <xercesc/dom/DOMNodeList.hpp>
+#include <xercesc/parsers/XercesDOMParser.hpp>
+#include <xercesc/dom/DOMText.hpp>
+#include <xercesc/util/XMLString.hpp>
 #include <iostream>
 #include <fstream>
 #include <getopt.h>
@@ -11,8 +23,11 @@
 #include "Clonewise.h"
 #include "Clonewise-lib-Cache.h"
 
+using namespace xercesc;
+
 std::map<std::string, std::set<std::string> > cveReports;
 std::set<std::string> notPackages;
+bool useStdin = false;
 
 static void
 Usage(const char *argv0)
@@ -219,7 +234,70 @@ findSourcesFromWordList(std::set<std::string> &sources, const std::list<std::str
 }
 
 int
-extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::string> &vulnSources)
+extractCveInfoFromSummary(std::string &vulnPackage, std::set<std::string> &vulnSources, const std::string &summary)
+{
+	std::list<std::string> wordList;
+
+	tokenizeIntoWords(summary.c_str(), wordList);
+	findPackageFromWordList(vulnPackage, wordList);
+	if (findSourcesFromWordList(vulnSources, wordList)) {
+		return 1;
+	}
+	return 0;
+}
+
+int
+extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::string> &vulnSources, std::string &summary)
+{
+	int status = 0;
+
+	try {
+		XMLPlatformUtils::Initialize();
+
+		XMLCh *entryString = XMLString::transcode("entry");
+		XMLCh *nameString = XMLString::transcode("name");
+		XMLCh *cveString = XMLString::transcode(cve.c_str());
+		XMLCh *prodString = XMLString::transcode("prod");
+		XMLCh *descriptString = XMLString::transcode("descript");
+
+		XercesDOMParser *parser = new XercesDOMParser();
+		parser->parse("/var/lib/Clonewise/nvdcve-2012.xml");
+		DOMDocument *xmlDoc = parser->getDocument();
+		DOMElement *elementRoot = xmlDoc->getDocumentElement();
+		DOMNodeList *entries = xmlDoc->getElementsByTagName(entryString);
+		for (int i = 0; i < entries->getLength(); i++) {
+			DOMNode *currentEntry = entries->item(i);
+			if (XMLString::compareString(dynamic_cast<DOMElement *>(currentEntry)->getAttribute(nameString), cveString) == 0) {
+				char *vulnPackageS, *summaryS;
+				
+				DOMNodeList *prodList= dynamic_cast<DOMElement *>(currentEntry)->getElementsByTagName(prodString);
+				DOMNodeList *descriptList = dynamic_cast<DOMElement *>(currentEntry)->getElementsByTagName(descriptString);
+
+				vulnPackageS = XMLString::transcode(dynamic_cast<DOMElement *>(prodList->item(0))->getAttribute(nameString));
+				summaryS = XMLString::transcode(dynamic_cast<DOMElement *>(descriptList->item(0))->getTextContent());
+				vulnPackage = vulnPackageS;
+				summary = summaryS;
+
+				delete [] vulnPackageS;
+				delete [] summaryS;
+
+				status = extractCveInfoFromSummary(vulnPackage, vulnSources, summary);
+				break;
+			}
+		}
+		XMLString::release(&nameString);
+		XMLString::release(&entryString);
+		XMLString::release(&cveString);
+		XMLString::release(&descriptString);
+		XMLString::release(&prodString);
+		delete parser;
+	} catch (XMLException &exception) {
+	}
+	return status;
+}
+
+int
+extractHistoricCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::string> &vulnSources, std::string &summary)
 {
 	std::ifstream stream;
 
@@ -234,36 +312,78 @@ extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::s
 		if (s[0] == 0)
 			break;
 		if (strncmp(s, cve.c_str(), strlen(cve.c_str())) == 0) {
-			std::list<std::string> wordList;
 			std::map<int, std::string> cveData;
 
 			tokenizeCSV(s, cveData);
-			printf("# SUMMARY: %s\n", cveData[2].c_str());
-			printf("#\n\n");
-			tokenizeIntoWords(cveData[2].c_str(), wordList);
-			if (findPackageFromWordList(vulnPackage, wordList)) {
-				if (findSourcesFromWordList(vulnSources, wordList)) {
-					return 1;
-				}
-			}
-			break;
+			stream.close();
+			return extractCveInfoFromSummary(vulnPackage, vulnSources, cveData[2]);
 		}
 	}
 	stream.close();
 	return 0;
 }
 
+void
+DoWork(const char *cveName)
+{
+	std::set<std::string>::const_iterator cIter;
+	std::string vulnPackage, summary;
+	std::set<std::string> vulnSources;
+
+	fprintf(stderr, "; %s\n", cveName);
+	if (extractCveInfo(cveName, vulnPackage, vulnSources, summary)) {
+		std::set<std::string>::const_iterator sIter;
+
+		printf("# SUMMARY: %s\n", summary.c_str());
+		printf("#\n\n");
+
+		printf("# %s relates to a vulnerability in package %s.\n", cveName, vulnPackage.c_str());
+		printf("# The following source filenames are likely responsible:\n");
+		for (	sIter  = vulnSources.begin();
+			sIter != vulnSources.end();
+			sIter++)
+		{
+			printf("#\t%s\n", sIter->c_str());
+		}
+		printf("#\n\n");
+
+		if (cveReports.find(cveName) != cveReports.end()) {
+			printf("# Debian tracks the following packages affected:\n");
+			for (	cIter  = cveReports[cveName].begin();
+				cIter != cveReports[cveName].end();
+				cIter++)
+			{
+				printf("#\t%s\n", cIter->c_str());
+			}
+			printf("#\n\n");
+		}
+		pretty = true;
+		showUnfixed = true;
+		ShowMissingLibs(vulnPackage, true, vulnSources, cveReports[cveName]);
+	} else {
+		if (verbose >= 3) {
+			printf("# SUMMARY: %s\n", summary.c_str());
+			printf("#\n\n");
+		}
+	}
+}
+
 int
 main(int argc, char *argv[])
 {
-	std::string vulnPackage;
-	std::set<std::string> vulnSources;
 	int ch;
 	const char *argv0 = argv[0];
-	std::set<std::string>::const_iterator cIter;
 
-	while ((ch = getopt(argc, argv, "")) != EOF) {
+	while ((ch = getopt(argc, argv, "v:s")) != EOF) {
 		switch (ch) {
+		case 's':
+			useStdin = true;
+			break;
+
+		case 'v':
+			verbose = atoi(optarg);
+			break;
+
 		default:
 			Usage(argv0);
 		}
@@ -282,31 +402,18 @@ main(int argc, char *argv[])
 	loadCveReports();
 	loadNotPackages();
 
-	if (extractCveInfo(argv[0], vulnPackage, vulnSources)) {
-		std::set<std::string>::const_iterator sIter;
+	if (useStdin) {
+		while (!std::cin.eof()) {
+			char cveName[1024];
 
-		printf("# %s relates to a vulnerability in package %s.\n", argv[0], vulnPackage.c_str());
-		printf("# The following source filenames are likely responsible:\n");
-		for (	sIter  = vulnSources.begin();
-			sIter != vulnSources.end();
-			sIter++)
-		{
-			printf("#\t%s\n", sIter->c_str());
+			std::cin.getline(cveName, sizeof(cveName));
+			if (cveName[0] == 0)
+				break;
+			DoWork(cveName);
 		}
-		printf("#\n\n");
-
-		if (cveReports.find(argv[0]) != cveReports.end()) {
-			printf("# Debian tracks the following packages affected:\n");
-			for (	cIter  = cveReports[argv[0]].begin();
-				cIter != cveReports[argv[0]].end();
-				cIter++)
-			{
-				printf("#\t%s\n", cIter->c_str());
-			}
-			printf("#\n\n");
+	} else {
+		for (int i = 0; i < argc; i++) {
+			DoWork(argv[i]);	
 		}
-		pretty = true;
-		showUnfixed = true;
-		ShowMissingLibs(vulnPackage, true, vulnSources, cveReports[argv[0]]);
 	}
 }

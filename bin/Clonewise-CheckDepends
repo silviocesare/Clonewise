@@ -1,0 +1,15 @@
+#!/bin/bash
+
+libBins=$(grep /$1$ /var/lib/Clonewise/distros/ubuntu/packages|cut -d/ -f1)
+bins=$(grep /$2$ /var/lib/Clonewise/distros/ubuntu/packages|cut -d/ -f1)
+for i in $bins; do
+	depends=$(apt-cache depends $i|grep "^  Depends:"|awk '{print $2}')
+	for l in $libBins; do
+		for d in $depends; do
+			if [ $d = $l ]; then
+				exit 0
+			fi
+		done
+	done
+done
+exit 1

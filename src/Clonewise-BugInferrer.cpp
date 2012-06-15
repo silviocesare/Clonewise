@@ -28,6 +28,8 @@ using namespace xercesc;
 std::map<std::string, std::set<std::string> > cveReports;
 std::set<std::string> notPackages;
 bool useStdin = false;
+std::map<std::string, DOMNode *> cvesByXml;
+XercesDOMParser *parser;
 
 static void
 Usage(const char *argv0)
@@ -247,50 +249,74 @@ extractCveInfoFromSummary(std::string &vulnPackage, std::set<std::string> &vulnS
 }
 
 int
+initXmlParser()
+{
+	try {
+		XMLPlatformUtils::Initialize();
+
+		XMLCh *entryString = XMLString::transcode("entry");
+		XMLCh *nameString = XMLString::transcode("name");
+
+		parser = new XercesDOMParser();
+		parser->parse("/var/lib/Clonewise/nvdcve-2011.xml");
+		DOMDocument *xmlDoc = parser->getDocument();
+		DOMElement *elementRoot = xmlDoc->getDocumentElement();
+		DOMNodeList *entries = xmlDoc->getElementsByTagName(entryString);
+		for (int i = 0; i < entries->getLength(); i++) {
+			DOMNode *currentEntry = entries->item(i);
+			char *cve = XMLString::transcode(dynamic_cast<DOMElement *>(currentEntry)->getAttribute(nameString));
+			cvesByXml[cve] = currentEntry;
+			delete [] cve;
+		}
+
+		XMLString::release(&entryString);
+		XMLString::release(&nameString);
+	} catch (XMLException &exception) {
+		return 1;
+	}
+	return 0;
+}
+
+void
+cleanupXmlParser()
+{
+	delete parser;
+}
+
+int
 extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::string> &vulnSources, std::string &summary)
 {
 	int status = 0;
 
 	try {
-		XMLPlatformUtils::Initialize();
-
 		XMLCh *entryString = XMLString::transcode("entry");
 		XMLCh *nameString = XMLString::transcode("name");
 		XMLCh *cveString = XMLString::transcode(cve.c_str());
 		XMLCh *prodString = XMLString::transcode("prod");
 		XMLCh *descriptString = XMLString::transcode("descript");
 
-		XercesDOMParser *parser = new XercesDOMParser();
-		parser->parse("/var/lib/Clonewise/nvdcve-2012.xml");
-		DOMDocument *xmlDoc = parser->getDocument();
-		DOMElement *elementRoot = xmlDoc->getDocumentElement();
-		DOMNodeList *entries = xmlDoc->getElementsByTagName(entryString);
-		for (int i = 0; i < entries->getLength(); i++) {
-			DOMNode *currentEntry = entries->item(i);
-			if (XMLString::compareString(dynamic_cast<DOMElement *>(currentEntry)->getAttribute(nameString), cveString) == 0) {
-				char *vulnPackageS, *summaryS;
+		if (cvesByXml.find(cve) != cvesByXml.end()) {
+			DOMNode *currentEntry = cvesByXml[cve];
+			char *vulnPackageS, *summaryS;
 				
-				DOMNodeList *prodList= dynamic_cast<DOMElement *>(currentEntry)->getElementsByTagName(prodString);
-				DOMNodeList *descriptList = dynamic_cast<DOMElement *>(currentEntry)->getElementsByTagName(descriptString);
+			DOMNodeList *prodList= dynamic_cast<DOMElement *>(currentEntry)->getElementsByTagName(prodString);
+			DOMNodeList *descriptList = dynamic_cast<DOMElement *>(currentEntry)->getElementsByTagName(descriptString);
 
-				vulnPackageS = XMLString::transcode(dynamic_cast<DOMElement *>(prodList->item(0))->getAttribute(nameString));
-				summaryS = XMLString::transcode(dynamic_cast<DOMElement *>(descriptList->item(0))->getTextContent());
-				vulnPackage = vulnPackageS;
-				summary = summaryS;
+			vulnPackageS = XMLString::transcode(dynamic_cast<DOMElement *>(prodList->item(0))->getAttribute(nameString));
+			summaryS = XMLString::transcode(dynamic_cast<DOMElement *>(descriptList->item(0))->getTextContent());
+			vulnPackage = vulnPackageS;
+			summary = summaryS;
 
-				delete [] vulnPackageS;
-				delete [] summaryS;
+			delete [] vulnPackageS;
+			delete [] summaryS;
 
-				status = extractCveInfoFromSummary(vulnPackage, vulnSources, summary);
-				break;
-			}
+			status = extractCveInfoFromSummary(vulnPackage, vulnSources, summary);
 		}
 		XMLString::release(&nameString);
 		XMLString::release(&entryString);
 		XMLString::release(&cveString);
 		XMLString::release(&descriptString);
 		XMLString::release(&prodString);
-		delete parser;
 	} catch (XMLException &exception) {
 	}
 	return status;
@@ -401,6 +427,8 @@ main(int argc, char *argv[])
 	LoadExtensions();
 	loadCveReports();
 	loadNotPackages();
+	if (initXmlParser())
+		exit(1);
 
 	if (useStdin) {
 		while (!std::cin.eof()) {
@@ -416,4 +444,7 @@ main(int argc, char *argv[])
 			DoWork(argv[i]);	
 		}
 	}
+
+	cleanupXmlParser();
+	exit(0);
 }

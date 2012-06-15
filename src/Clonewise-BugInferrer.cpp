@@ -30,10 +30,34 @@ std::set<std::string> notPackages;
 bool useStdin = false;
 std::map<std::string, DOMNode *> cvesByXml;
 XercesDOMParser *parser;
+std::map<std::string, std::string> cpeMap;
 
 static void
 Usage(const char *argv0)
 {
+}
+
+void
+loadCpes()
+{
+	std::ifstream stream;
+
+        stream.open("/var/lib/Clonewise/distros/ubuntu/CPE-list");
+        if (!stream) {
+        }
+        while (!stream.eof()) {
+                char s[1024];
+		std::string str, debianPackage, cpeName;
+
+                stream.getline(s, sizeof(s));
+                if (s[0] == 0)
+                        continue;
+		str = s;
+		debianPackage = str.substr(0, str.find_first_of(';'));
+		cpeName = str.substr(str.find_last_of(':') + 1);
+		cpeMap[cpeName] = debianPackage;
+	}
+	stream.close();
 }
 
 void
@@ -46,7 +70,6 @@ loadNotPackages()
         }
         while (!stream.eof()) {
                 char s[1024];
-                       int i;
 
                 stream.getline(s, sizeof(s));
                 if (s[0] == 0)
@@ -305,7 +328,10 @@ extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::s
 
 			vulnPackageS = XMLString::transcode(dynamic_cast<DOMElement *>(prodList->item(0))->getAttribute(nameString));
 			summaryS = XMLString::transcode(dynamic_cast<DOMElement *>(descriptList->item(0))->getTextContent());
-			vulnPackage = vulnPackageS;
+			if (cpeMap.find(vulnPackageS) == cpeMap.end())
+				vulnPackage = vulnPackageS;
+			else
+				vulnPackage = cpeMap[vulnPackageS];
 			summary = summaryS;
 
 			delete [] vulnPackageS;
@@ -428,6 +454,7 @@ main(int argc, char *argv[])
 	LoadExtensions();
 	loadCveReports();
 	loadNotPackages();
+	loadCpes();
 	if (initXmlParser())
 		exit(1);
 

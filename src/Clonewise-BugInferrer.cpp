@@ -258,12 +258,35 @@ findSourcesFromWordList(std::set<std::string> &sources, const std::list<std::str
 	return sources.size() != 0;
 }
 
+void
+findFunctionsFromWordList(std::list<std::string> &functions, const std::list<std::string> &wordList)
+{
+	std::list<std::string>::const_iterator wIter;
+
+	for (	wIter  = wordList.begin();
+		wIter != wordList.end();
+		wIter++)
+	{
+		if (*wIter == "function") {
+			if (wIter != wordList.begin()) {
+				std::list<std::string>::const_iterator prev;
+
+				prev = wIter;
+				--prev;
+				functions.push_back(*prev);
+			}
+		}
+	}
+				
+}
+
 int
-extractCveInfoFromSummary(std::string &vulnPackage, std::set<std::string> &vulnSources, const std::string &summary)
+extractCveInfoFromSummary(std::string &vulnPackage, std::set<std::string> &vulnSources, const std::string &summary, std::list<std::string> &functions)
 {
 	std::list<std::string> wordList;
 
 	tokenizeIntoWords(summary.c_str(), wordList);
+	findFunctionsFromWordList(functions, wordList);
 	if (findSourcesFromWordList(vulnSources, wordList)) {
 		return 1;
 	}
@@ -280,7 +303,7 @@ initXmlParser()
 		XMLCh *nameString = XMLString::transcode("name");
 
 		parser = new XercesDOMParser();
-		parser->parse("/var/lib/Clonewise/nvdcve-2011.xml");
+		parser->parse("/var/lib/Clonewise/nvdcve-2012.xml");
 		DOMDocument *xmlDoc = parser->getDocument();
 		DOMElement *elementRoot = xmlDoc->getDocumentElement();
 		DOMNodeList *entries = xmlDoc->getElementsByTagName(entryString);
@@ -306,7 +329,7 @@ cleanupXmlParser()
 }
 
 int
-extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::string> &vulnSources, std::string &summary)
+extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::string> &vulnSources, std::string &summary, std::list<std::string> &functions)
 {
 	int status = 0;
 
@@ -337,7 +360,7 @@ extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::s
 			delete [] vulnPackageS;
 			delete [] summaryS;
 
-			status = extractCveInfoFromSummary(vulnPackage, vulnSources, summary);
+			status = extractCveInfoFromSummary(vulnPackage, vulnSources, summary, functions);
 		}
 		XMLString::release(&nameString);
 		XMLString::release(&entryString);
@@ -350,7 +373,7 @@ extractCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::s
 }
 
 int
-extractHistoricCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::string> &vulnSources, std::string &summary)
+extractHistoricCveInfo(const std::string &cve, std::string &vulnPackage, std::set<std::string> &vulnSources, std::string &summary, std::list<std::string> &functions)
 {
 	std::ifstream stream;
 
@@ -369,7 +392,7 @@ extractHistoricCveInfo(const std::string &cve, std::string &vulnPackage, std::se
 
 			tokenizeCSV(s, cveData);
 			stream.close();
-			return extractCveInfoFromSummary(vulnPackage, vulnSources, cveData[2]);
+			return extractCveInfoFromSummary(vulnPackage, vulnSources, cveData[2], functions);
 		}
 	}
 	stream.close();
@@ -382,9 +405,10 @@ DoWork(const char *cveName)
 	std::set<std::string>::const_iterator cIter;
 	std::string vulnPackage, summary;
 	std::set<std::string> vulnSources;
+	std::list<std::string> functions;
 
 	fprintf(stderr, "; %s\n", cveName);
-	if (extractCveInfo(cveName, vulnPackage, vulnSources, summary)) {
+	if (extractCveInfo(cveName, vulnPackage, vulnSources, summary, functions)) {
 		std::set<std::string>::const_iterator sIter;
 
 		printf("# SUMMARY: %s\n", summary.c_str());
@@ -412,7 +436,7 @@ DoWork(const char *cveName)
 		}
 		pretty = true;
 		showUnfixed = true;
-		ShowMissingLibs(vulnPackage, cveName, true, vulnSources, cveReports[cveName]);
+		ShowMissingLibs(vulnPackage, cveName, true, vulnSources, cveReports[cveName], functions);
 	} else {
 		if (verbose >= 3) {
 			printf("# SUMMARY: %s\n", summary.c_str());

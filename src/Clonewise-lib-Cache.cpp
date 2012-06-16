@@ -168,8 +168,15 @@ matchHash(std::map<std::string, std::set<std::string> > &sig1, std::map<std::str
 	return false;
 }
 
+bool
+matchFunctions(const std::string &packageName, const std::list<std::string> &functions)
+{
+	// Not implemented. Requires source of packages.
+	return true;
+}
+
 void
-ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude)
+ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude, const std::list<std::string> &functions)
 {
 	std::map<std::string, std::list<Match> >::const_iterator cIter;
 	std::set<std::string>::const_iterator eIter;
@@ -206,7 +213,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 					sigIter++)
 				{
 					if (matchFilename.find(sigIter->first) != matchFilename.end()) {
-						if (matchFilename.size() == 0 || matchHash(sig, eSig, matchFilename)) {
+						if ((matchFilename.size() == 0 || matchHash(sig, eSig, matchFilename)) && (functions.size() == 0 || matchFunctions(*eIter, functions))) {
 							if (any1 == false && pretty) {
 								printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
 								printf("#\n\n");
@@ -255,7 +262,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 					mIter != cIter->second.end();
 					mIter++)
 				{
-					if ((matchFilename.find(mIter->filename1) != matchFilename.end() || matchFilename.find(mIter->filename2) != matchFilename.end()) && matchHash(sig, eSig, matchFilename)) {
+					if ((matchFilename.find(mIter->filename1) != matchFilename.end() || matchFilename.find(mIter->filename2) != matchFilename.end()) && matchHash(sig, eSig, matchFilename) && (functions.size() == 0 || matchFunctions(cIter->first, functions))) {
 						goto gotit;
 					}
 				}
@@ -294,7 +301,8 @@ ShowMissing()
 		eIter++)
 	{
 		std::set<std::string> vulnSources, exclude;
+		std::list<std::string> functions;
 
-		ShowMissingLibs(eIter->first, "", false, vulnSources, exclude);
+		ShowMissingLibs(eIter->first, "", false, vulnSources, exclude, functions);
 	}
 }

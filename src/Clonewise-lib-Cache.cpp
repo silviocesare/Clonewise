@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <list>
+#include <fuzzy.h>
 #include "Clonewise.h"
 #include "Clonewise-lib-Cache.h"
 
@@ -133,6 +134,40 @@ LoadCache()
 	}
 }
 
+bool
+matchHash(std::map<std::string, std::set<std::string> > &sig1, std::map<std::string, std::set<std::string> > &sig2, const std::set<std::string> &matchFilename)
+{
+	std::set<std::string>::const_iterator mIter;
+
+	for (	mIter  = matchFilename.begin();
+		mIter != matchFilename.end();
+		mIter++)
+	{
+		if (sig1.find(*mIter) != sig1.end() && sig2.find(*mIter) != sig2.end()) {
+			std::set<std::string>::const_iterator sIter1, sIter2;
+
+			for (	sIter1  = sig1[*mIter].begin();
+				sIter1 != sig1[*mIter].end();
+				sIter1++)
+			{
+				for (	sIter2  = sig2[*mIter].begin();
+					sIter2 != sig2[*mIter].end();
+					sIter2++)
+				{
+					float s;
+
+					s = fuzzy_compare(sIter1->c_str(), sIter2->c_str());
+					if (s > 0) {
+						return true;
+                                        }
+
+				}
+			}
+		}
+	}
+	return false;
+}
+
 void
 ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude)
 {
@@ -140,10 +175,14 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 	std::set<std::string>::const_iterator eIter;
 	bool any1 = false, any2 = false;
 	std::string m;
+	bool loadedSig;
+	std::map<std::string, std::set<std::string> > eSig;
 
 	if (embeddeds.find(embeddedLib) == embeddeds.end()) {
 		return;
 	}
+
+	loadedSig = false;
 	if (showUnfixed) {
 		for (	eIter  = embeddeds[embeddedLib].begin();
 			eIter != embeddeds[embeddedLib].end();
@@ -156,19 +195,26 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 
 				filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + eIter->c_str();
 				LoadSignature(filename, sig);
+				if (!loadedSig) {
+					filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + embeddedLib;
+					LoadSignature(filename, eSig);
+					loadedSig = true;
+				}
 
 				for (	sigIter  = sig.begin();
 					sigIter != sig.end();
 					sigIter++)
 				{
 					if (matchFilename.find(sigIter->first) != matchFilename.end()) {
-						if (any1 == false && pretty) {
-							printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
-							printf("#\n\n");
-							any1 = true;
+						if (matchFilename.size() == 0 || matchHash(sig, eSig, matchFilename)) {
+							if (any1 == false && pretty) {
+								printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
+								printf("#\n\n");
+								any1 = true;
+							}
+							printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), eIter->c_str(), msg.c_str());
+							break;
 						}
-						printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), eIter->c_str(), msg.c_str());
-						break;
 					}
 				}
 			}
@@ -194,13 +240,22 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 			std::list<Match>::const_iterator mIter;
 			char cmd[1024];
 			int status;
+			std::string filename;
+			std::map<std::string, std::set<std::string> > sig;
 
+			filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + cIter->first.c_str();
+			LoadSignature(filename, sig);
+			if (!loadedSig) {
+				filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + embeddedLib;
+				LoadSignature(filename, eSig);
+				loadedSig = true;
+			}
 			if (useMatchFilename) {
 				for (	mIter  = cIter->second.begin();
 					mIter != cIter->second.end();
 					mIter++)
 				{
-					if (matchFilename.find(mIter->filename1) != matchFilename.end() || matchFilename.find(mIter->filename2) != matchFilename.end()) {
+					if ((matchFilename.find(mIter->filename1) != matchFilename.end() || matchFilename.find(mIter->filename2) != matchFilename.end()) && matchHash(sig, eSig, matchFilename)) {
 						goto gotit;
 					}
 				}

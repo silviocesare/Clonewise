@@ -280,7 +280,7 @@ initXmlParser()
 		XMLCh *nameString = XMLString::transcode("name");
 
 		parser = new XercesDOMParser();
-		parser->parse("/var/lib/Clonewise/nvdcve-2012.xml");
+		parser->parse("/var/lib/Clonewise/nvdcve-2011.xml");
 		DOMDocument *xmlDoc = parser->getDocument();
 		DOMElement *elementRoot = xmlDoc->getDocumentElement();
 		DOMNodeList *entries = xmlDoc->getElementsByTagName(entryString);

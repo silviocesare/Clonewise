@@ -176,7 +176,7 @@ matchFunctions(const std::string &packageName, const std::list<std::string> &fun
 }
 
 void
-ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude, const std::list<std::string> &functions)
+ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude, const std::list<std::string> &functions, std::set<std::string> &packages)
 {
 	std::map<std::string, std::list<Match> >::const_iterator cIter;
 	std::set<std::string>::const_iterator eIter;
@@ -184,6 +184,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 	std::string m;
 	bool loadedSig;
 	std::map<std::string, std::set<std::string> > eSig;
+	int packagesSize = packages.size();
 
 	if (embeddeds.find(embeddedLib) == embeddeds.end()) {
 		return;
@@ -212,7 +213,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 					sigIter != sig.end();
 					sigIter++)
 				{
-					if (matchFilename.find(sigIter->first) != matchFilename.end()) {
+					if (matchFilename.find(sigIter->first) != matchFilename.end() && (packagesSize == 0 || packages.find(*eIter) != packages.end())) {
 						if ((matchFilename.size() == 0 || matchHash(sig, eSig, matchFilename)) && (functions.size() == 0 || matchFunctions(*eIter, functions))) {
 							if (any1 == false && pretty) {
 								printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
@@ -220,6 +221,8 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 								any1 = true;
 							}
 							printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), eIter->c_str(), msg.c_str());
+							if (packagesSize == 0)
+								packages.insert(*eIter);
 							break;
 						}
 					}
@@ -243,7 +246,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 		if (strcmp(embeddedLib.c_str(), cIter->first.c_str()) == 0)
 			continue;
 
-		if (embeddeds[embeddedLib].find(cIter->first.c_str()) == embeddeds[embeddedLib].end()) {
+		if (embeddeds[embeddedLib].find(cIter->first.c_str()) == embeddeds[embeddedLib].end() && (packagesSize == 0 || packages.find(cIter->first) != packages.end())) {
 			std::list<Match>::const_iterator mIter;
 			char cmd[1024];
 			int status;
@@ -280,6 +283,8 @@ gotit:
 				printf("%s CLONED_IN_SOURCE %s <fixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
 			} else {
 				printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
+				if (packagesSize == 0)
+					packages.insert(cIter->first);
 			}
 			for (	mIter  = cIter->second.begin();
 				mIter != cIter->second.end();
@@ -300,9 +305,9 @@ ShowMissing()
 		eIter != embeddeds.end();
 		eIter++)
 	{
-		std::set<std::string> vulnSources, exclude;
-		std::list<std::string> functions;
+		std::set<std::string> vulnSources, exclude, packages;
+		std::list<std::string> functions;	
 
-		ShowMissingLibs(eIter->first, "", false, vulnSources, exclude, functions);
+		ShowMissingLibs(eIter->first, "", false, vulnSources, exclude, functions, packages);
 	}
 }

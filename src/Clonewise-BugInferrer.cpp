@@ -345,7 +345,7 @@ initXmlParser()
 		XMLPlatformUtils::Initialize();
 		parser = new XercesDOMParser();
 //		readXML("/var/lib/Clonewise/nvdcve-2010.xml");
-		readXML("/var/lib/Clonewise/nvdcve-2011.xml");
+//		readXML("/var/lib/Clonewise/nvdcve-2011.xml");
 		readXML("/var/lib/Clonewise/nvdcve-2012.xml");
 	} catch (XMLException &exception) {
 		return 1;
@@ -468,28 +468,31 @@ PrintCVEReport(VulnCVEReport &v, std::set<std::string> &packages)
 	std::set<std::string>::const_iterator sIter;
 	std::set<std::string>::const_iterator cIter;
 
-	printf("# SUMMARY: %s\n", v.summary.c_str());
-	printf("#\n\n");
+	if (!HasMissingLibs(v.vulnPackage, v.cveName, true, v.vulnSources, v.tracked, v.functions))
+		return;
 
-	printf("# %s relates to a vulnerability in package %s.\n", v.cveName.c_str(), v.vulnPackage.c_str());
-	printf("# The following source filenames are likely responsible:\n");
+	printf("SUMMARY: %s\n", v.summary.c_str());
+	printf("\n\n");
+
+	printf("%s relates to a vulnerability in package %s.\n", v.cveName.c_str(), v.vulnPackage.c_str());
+	printf("The following source filenames are likely responsible:\n");
 	for (	sIter  = v.vulnSources.begin();
 		sIter != v.vulnSources.end();
 		sIter++)
 	{
-		printf("#\t%s\n", sIter->c_str());
+		printf("\t%s\n", sIter->c_str());
 	}
-	printf("#\n\n");
+	printf("\n\n");
 
 	if (v.tracked.size() != 0) {
-		printf("# Debian tracks the following packages affected:\n");
+		printf("Debian tracks the following packages affected:\n");
 		for (	cIter  = v.tracked.begin();
 			cIter != v.tracked.end();
 			cIter++)
 		{
-			printf("#\t%s\n", cIter->c_str());
+			printf("\t%s\n", cIter->c_str());
 		}
-		printf("#\n\n");
+		printf("\n\n");
 	}
 
 	ShowMissingLibs(v.vulnPackage, v.cveName, true, v.vulnSources, v.tracked, v.functions, packages);

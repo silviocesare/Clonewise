@@ -175,8 +175,9 @@ matchFunctions(const std::string &packageName, const std::list<std::string> &fun
 	return true;
 }
 
+
 void
-ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude, const std::list<std::string> &functions, std::set<std::string> &packages)
+ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude, const std::list<std::string> &functions, std::set<std::string> &packages, bool print)
 {
 	std::map<std::string, std::list<Match> >::const_iterator cIter;
 	std::set<std::string>::const_iterator eIter;
@@ -215,12 +216,13 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 				{
 					if (matchFilename.find(sigIter->first) != matchFilename.end() && (packagesSize == 0 || packages.find(*eIter) != packages.end())) {
 						if ((matchFilename.size() == 0 || matchHash(sig, eSig, matchFilename)) && (functions.size() == 0 || matchFunctions(*eIter, functions))) {
-							if (any1 == false && pretty) {
+							if (any1 == false && pretty && print) {
 								printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
 								printf("#\n\n");
 								any1 = true;
 							}
-							printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), eIter->c_str(), msg.c_str());
+							if (print)
+								printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), eIter->c_str(), msg.c_str());
 							if (packagesSize == 0)
 								packages.insert(*eIter);
 							break;
@@ -229,7 +231,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 				}
 			}
 		}
-		if (any1) {
+		if (any1 && print) {
 			printf("\n\n");
 		}
 	}
@@ -272,7 +274,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 				continue;
 			}
 gotit:
-			if (any2 == false && pretty) {
+			if (any2 == false && pretty && print) {
 				printf("# The following package clones are NOT tracked in the embedded-code-copies\n# database.\n");
 				printf("#\n\n");
 				any2 = true;
@@ -280,20 +282,39 @@ gotit:
 			snprintf(cmd, sizeof(cmd), "Clonewise-CheckDepends %s %s> /dev/null 2> /dev/null", embeddedLib.c_str(), cIter->first.c_str());
 			status = system(cmd);
 			if (WEXITSTATUS(status) == 0) {
-				printf("%s CLONED_IN_SOURCE %s <fixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
+				if (print)
+					printf("%s CLONED_IN_SOURCE %s <fixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
 			} else {
-				printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
+				if (print)
+					printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
 				if (packagesSize == 0)
 					packages.insert(cIter->first);
 			}
-			for (	mIter  = cIter->second.begin();
-				mIter != cIter->second.end();
-				mIter++)
-			{
-				printf("\t\tMATCH %s/%s %s\n", mIter->filename1.c_str(), mIter->filename2.c_str(), mIter->weight.c_str());
+			if (print) {
+				for (	mIter  = cIter->second.begin();
+					mIter != cIter->second.end();
+					mIter++)
+				{
+					printf("\t\tMATCH %s/%s %s\n", mIter->filename1.c_str(), mIter->filename2.c_str(), mIter->weight.c_str());
+				}
 			}
 		}
 	}
+}
+
+bool
+HasMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude, const std::list<std::string> &functions)
+{
+	std::set<std::string> packages;
+
+	ShowMissingLibs(embeddedLib, msg, useMatchFilename, matchFilename, exclude, functions, packages, false);
+	return packages.size() != 0;
+}
+
+void
+ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool useMatchFilename, const std::set<std::string> &matchFilename, const std::set<std::string> &exclude, const std::list<std::string> &functions, std::set<std::string> &packages)
+{
+	return ShowMissingLibs(embeddedLib, msg, useMatchFilename, matchFilename, exclude, functions, packages, true);
 }
 
 void

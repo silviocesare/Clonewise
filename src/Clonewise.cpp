@@ -11,8 +11,8 @@
 #include <list>
 #include <cmath>
 #include <cctype>
-#include "../libs/snap/cliques.h"
 #include <unistd.h>
+#include <cstring>
 #include <fuzzy.h>
 #include <cstdarg>
 #include "Clonewise.h"
@@ -58,7 +58,6 @@ std::set<std::string> featureExceptions;
 bool approxFilename = true;
 const char *distroString = "ubuntu";
 OutputFormat_e outputFormat = CLONEWISE_OUTPUT_TEXT;
-bool doCheckRelated = false;
 bool useSSDeep = true;
 bool useExtensions = true;
 int verbose = 2;
@@ -92,10 +91,7 @@ LongestCommonSubsequenceLength(const char *s, unsigned int m, const char *t, uns
 {
        double d[m + 1][n + 1];
        unsigned int i, j;
-       double cost;
-       double D;
 
-       D = 0;
        for (i = 0; i <= m; i++) {
                d[i][0] = 0.0;
        }
@@ -107,7 +103,7 @@ LongestCommonSubsequenceLength(const char *s, unsigned int m, const char *t, uns
                        if (s[i - 1] == t[j - 1]) {
                                d[i][j] = d[i-1][j-1] + 1;
                        } else {
-                               d[i][j] = max(d[i][j - 1], d[i-1][j]);
+                               d[i][j] = std::max(d[i][j - 1], d[i-1][j]);
                        }
                }
        }
@@ -137,12 +133,12 @@ SmithWatermanDistance(const char *s, unsigned int m, const char *t, unsigned int
                        else {
                                cost =  0.0;
                        }
-                       d[i][j % 2] = max(
+                       d[i][j % 2] = std::max(
                                0.0,
 // start over
-                               max(d[i - 1][(j - 1) % 2] + cost,
+                               std::max(d[i - 1][(j - 1) % 2] + cost,
 // substitution
-                               max(d[i - 1][j % 2] - G,
+                               std::max(d[i - 1][j % 2] - G,
 // insertion
                                d[i][(j - 1) % 2] - G)));
 // deletion
@@ -150,7 +146,7 @@ SmithWatermanDistance(const char *s, unsigned int m, const char *t, unsigned int
                                D = d[i][j % 2];
                }
        }
-       return (int)max(m, n) - D;
+       return (int)std::max(m, n) - D;
 }
 
 static unsigned int
@@ -171,7 +167,7 @@ LevenshteinDistance(const char *s, unsigned int m, const char *t, unsigned int n
                                cost = 0;
                        else
                                cost = 1;
-                       d[i][j % 2] = min(min(
+                       d[i][j % 2] = std::min(std::min(
                                d[i - 1][j % 2] + 1,            // insertion
                                d[i][(j - 1) % 2] + 1),         // deletion
                                d[i - 1][(j - 1) % 2] + cost);  // substitution
@@ -317,9 +313,10 @@ hasSameExtension(const std::string &x, const std::string &y)
 bool
 approxMatchFilenames(const std::string &x, const std::string &y)
 {
-	int xi, yi, xs, ys;
+	int xs, ys;
 	unsigned int d;
-	float s, s_min, s_max;
+	float s;
+//	float s_min, s_max;
 	int m_min, m_max;
 
 	if (!hasSameExtension(x, y)) {
@@ -327,8 +324,8 @@ approxMatchFilenames(const std::string &x, const std::string &y)
 	}
 	xs = x.size();
 	ys = y.size();
-	m_max = max((double)xs, (double)ys);
-	m_min = min((double)xs, (double)ys);
+	m_max = std::max((double)xs, (double)ys);
+	m_min = std::min((double)xs, (double)ys);
 	//d = SmithWatermanDistance(x.c_str(), xs, y.c_str(), ys);
 	d = LevenshteinDistance(x.c_str(), xs, y.c_str(), ys);
 //	d = LongestCommonSubsequenceLength(x.c_str(), xs, y.c_str(), ys);
@@ -389,7 +386,7 @@ IsProgramFilename(const std::string &feature)
 	if (n == 0 || n == std::string::npos)
 		return false;
 	ext = feature.substr(n + 1);
-	for (int i = 0; i < ext.size(); i++) {
+	for (size_t i = 0; i < ext.size(); i++) {
 		ext[i] = tolower(ext[i]);
 	}
 	return extensions.find(ext) != extensions.end();
@@ -469,7 +466,6 @@ WriteCheckForClone(const std::string &name, std::ofstream &testStream, const std
 	int found, foundSimilar, foundFilenameHash, foundFilenameHash80, foundExactFilenameHash;
 	int foundData, foundDataSimilar, foundDataFilenameHash, foundDataFilenameHash80, foundDataExactFilenameHash;
 	int foundHash, foundExactHash, foundDataExactHash;
-	float s;
 	float scoreFilename, scoreSimilar, scoreFilenameHash, scoreFilenameHash80, scoreExactFilenameHash;
 	float scoreDataFilename, scoreDataSimilar, scoreDataFilenameHash, scoreDataFilenameHash80, scoreDataExactFilenameHash;
 	float featureVector[NFEATURES];
@@ -774,7 +770,6 @@ LoadSignature(std::string name, std::map<std::string, std::set<std::string> > &s
 	while (!stream.eof()) {
 		std::string str, str2, hash, feature;
 		char s[1024];
-		size_t n, n1, n2;
 
 		stream.getline(s, sizeof(s));
 		if (s[0] == 0)
@@ -809,7 +804,6 @@ GetScoreForNotEmbedded(std::ofstream &testStream)
         std::string p1, p2;
         int n1, n2, i;
         bool breakit, doit;
-        float featureVector[NFEATURES];
 	int skip;
 	std::map<std::string, std::pair<std::string, float> > matches;
 
@@ -892,7 +886,7 @@ void
 trainModel()
 {
 	std::ofstream testStream;
-	char cmd[1024], s[1024], testFilename[L_tmpnam + 128], t[L_tmpnam];
+	char cmd[1024], s[1024], testFilename[L_tmpnam + 128];
 	std::string rmString;
 	int c, total;
 
@@ -944,7 +938,6 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 {
 	std::map<std::string, std::map<std::string, std::pair<std::string, float> > > matchesTable;
 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
-	float featureVector[NFEATURES];
 	char cmd[1024], testFilename[L_tmpnam + 128], testFilename2[L_tmpnam + 128], t[L_tmpnam], str[1024];
 	FILE *p;
 	std::ofstream testStream;
@@ -1068,119 +1061,6 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 //	unlink(testFilename2);
 }
 
-static void
-checkRelated()
-{
-#if 0
-	std::map<std::string, int> packagesIndex;
-	std::map<int, std::string> packagesReverseIndex;
-	int packagesCount = 1;
-	PUNGraph g;
-	std::ifstream stream;
-	TVec<TIntV> CmtyV;
-	const int OverlapSz = 2;
-	std::map<std::string, std::list<std::string> >::const_iterator pIter;
-	char s[1024];
-	float featureVector[NFEATURES];
-
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/scores", distroString);
-	stream.open(s);
-	if (!stream) {
-		std::ofstream scoresFile;
-		std::map<std::string, std::list<std::string> >::const_iterator pIter1;
-
-		if (getuid() != 0) {
-			fprintf(stderr, "Need to be root to build database.\n");
-			exit(1);
-		}
-		fprintf(stderr, "Building database. This could take a considerable amount of time..\n");
-		snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/scores", distroString);
-		scoresFile.open(s);
-		if (!scoresFile) {
-			fprintf(stderr, "Couldn't open scores\n");
-			exit(1);
-		}
-		for (	pIter1  = packages.begin();
-			pIter1 != packages.end();
-			pIter1++)
-		{
-			std::map<std::string, std::list<std::string> >::const_iterator pIter2;
-
-			for (	pIter2  = packages.begin();
-				pIter2 != packages.end();
-				pIter2++)
-			{
-				float score;
-
-//				CheckForClone(packagesSignatures[pIter1->first], packagesSignatures[pIter2->first], score, featureVector);
-				if (score >= 5.0) {
-					scoresFile << "THRESHOLD" << "/" << pIter1->first.c_str() << "/" << pIter2->first.c_str() << "/" << score << "\n";
-				}
-			}
-		}
-		scoresFile.close();
-		snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/scores", distroString);
-		stream.open(s);
-		if (!stream) {
-			fprintf(stderr, "Couldn't open scores\n");
-			exit(1);
-		}
-	}
-	g = TUNGraph::New();
-	for (	pIter  = packages.begin();
-		pIter != packages.end();
-		pIter++)
-	{
-		packagesIndex[pIter->first] = packagesCount;
-		g->AddNode(packagesCount);
-		packagesReverseIndex[packagesCount] = pIter->first;
-		packagesCount++;
-	}
-	while (!stream.eof()) {
-		std::string str, pkgEmbedded, pkgMain;
-		char s[1024];
-		float threshold;
-		size_t n;
-
-		stream.getline(s, sizeof(s));
-		if (s[0] == 0)
-			break;
-		if (strncmp(s, "THRESHOLD/", sizeof("THRESHOLD/") - 1) != 0)
-			continue;
-		str = std::string(&s[sizeof("THRESHOLD/")] - 1);
-		n = str.find_first_of('/');
-		if (n == std::string::npos)
-			continue;
-		pkgEmbedded = str.substr(0, n);
-		str = str.substr(n + 1);
-		n = str.find_first_of('/');
-		if (n == std::string::npos)
-			continue;
-		pkgMain = str.substr(0, n);
-		str = str.substr(n + 1);
-		threshold = strtof(str.c_str(), NULL);
-		if (pkgMain.size() == 0 || pkgEmbedded.size() == 0)
-			continue;
-		if (packagesIndex.find(pkgMain) == packagesIndex.end() || packagesIndex.find(pkgEmbedded) == packagesIndex.end()) {
-			continue;
-		}
-		if (threshold >= g_OverlapScoreMeasure_Threshold) {
-			g->AddEdge(packagesIndex[pkgEmbedded], packagesIndex[pkgMain]);
-		}
-	}
-	stream.close();
-	//TCliqueOverlap::GetCPMCommunities(g, OverlapSz+1, CmtyV);
-	TCliqueOverlap::GetMaxCliques(g, 3, CmtyV);
-	fprintf(outFd, "%d PACKAGE_GROUPS\n", CmtyV.Len());
-	for (int i = 0; i < CmtyV.Len(); i++) {
-		fprintf(outFd, "RELATED\n");
-		for (int j = 0; j < CmtyV[i].Len(); j++) {
-			fprintf(outFd, "\t%s\n", packagesReverseIndex[CmtyV[i][j].Val].c_str());
-		}
-	}
-#endif
-}
-
 void
 LoadPackagesInfo()
 {
@@ -1256,7 +1136,7 @@ LoadExtensions()
 		if (s[0] == 0)
 			break;
 		ext = std::string(s);
-		for (int i = 0; i < ext.size(); i++) {
+		for (size_t i = 0; i < ext.size(); i++) {
 			ext[i] = tolower(ext[i]);
 		}
 		extensions.insert(ext);
@@ -1374,9 +1254,7 @@ RunClonewise(int argc, char *argv[])
 	if (outputFormat == CLONEWISE_OUTPUT_XML) {
 		fprintf(outFd, "<Clonewise>\n");
 	}
-	if (doCheckRelated) {
-		checkRelated();
-	} if (allPackages == false) {
+	if (allPackages == false) {
 		for (int i = 0; i < argc; i++) {
 			if (useRelativePathForSignature) {
 				embedding = packagesSignatures[argv[i]];
@@ -1443,7 +1321,6 @@ CreateFeatures()
 		while (!stream.eof()) {
 			std::string str, str2, hash, feature;
 			char s[1024];
-			size_t n, n1, n2;
 
 			stream.getline(s, sizeof(s));
 			if (s[0] == 0)

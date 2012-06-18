@@ -2,6 +2,7 @@
 #include <mpi.h>
 #include <cstdio>
 #include <cstdlib>
+#include <omp.h>
 
 #define TAG1		100
 
@@ -66,8 +67,6 @@ DoWork(int index)
 
 	Msg msg;
 	long size;
-	char *result;
-	int r[2];
 
 	size = ftell(outFd);
 	fseek(outFd, 0, SEEK_SET);
@@ -93,7 +92,6 @@ int
 main(int argc, char* argv[])
 { 
 	int np, me; 
-	const int root = 0;
 	int xi;
 	MPI_Status status;
  	std::map<std::string, std::list<std::string> >::const_iterator pIter;
@@ -170,7 +168,7 @@ main(int argc, char* argv[])
 			MPI_Recv(&which, 1, MPI_INT, i, TAG1, MPI_COMM_WORLD, &status); 
 			MPI_Send(&neg, 1, MPI_INT, i, TAG1, MPI_COMM_WORLD); 
 		}
-		for (int i = 0; i < vPackages.size(); i++) { 
+		for (size_t i = 0; i < vPackages.size(); i++) { 
 			int which;
 			int r[2], size;
 			char *result;

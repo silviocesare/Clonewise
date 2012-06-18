@@ -22,7 +22,6 @@ Usage(const char *argv0)
 {
 	fprintf(stderr, "Usage: %s [-v level] [-o xml] [-d distro] [-estr] signature ...\n", argv0);
 	fprintf(stderr, "       %s -a [-v level] [-o xml] [-d distro] [-est]\n", argv0);
-//	fprintf(stderr, "       %s -g [-v level] [-o xml] [-d distro] [-est]\n", argv0);
 	exit(1);
 }
 
@@ -38,11 +37,6 @@ main(int argc, char *argv[])
 	argv0 = argv[0];
 	while ((ch = getopt(argc, argv, "d:eo:starv:")) != EOF) {
 		switch (ch) {
-/*
-		case 'g':
-			doCheckRelated = true;
-			break;
-*/
 		case 'd':
 			distroString = optarg;
 			break;
@@ -90,7 +84,7 @@ main(int argc, char *argv[])
 	argc -= optind;
 	argv += optind;
 
-	if ((allPackages == false && argc == 0 && doCheckRelated == false) || (allPackages == true && argc != 0))
+	if ((allPackages == false && argc == 0) || (allPackages == true && argc != 0))
 		Usage(argv0);
 
 	if (LoadEverything())

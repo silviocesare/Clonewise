@@ -22,13 +22,15 @@ Clonewise-MakeCache: src/Clonewise.cpp src/Clonewise-MakeCache.cpp
 
 install:
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise
-	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/features
-	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/signatures
-	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/downloads
-	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/cache
+	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/clones
+	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/bugs
+	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/clones/features
+	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/clones/signatures
+	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/clones/downloads
+	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/clones/cache
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/weka
 	$(INSTALL) -d $(DESTDIR)/usr/bin
-	$(INSTALL) -m644 ./config/* $(DESTDIR)/var/lib/Clonewise
+#	$(INSTALL) -m644 ./config/* $(DESTDIR)/var/lib/Clonewise
 	$(INSTALL) ./bin/* $(DESTDIR)/usr/bin
 
 clean:

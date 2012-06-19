@@ -67,7 +67,7 @@ loadCpes()
 	std::ifstream stream;
 	char s[1024];
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/CPE-list", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/bugs/distros/%s/CPE-list", distroString);
         stream.open(s);
         if (!stream) {
 		fprintf(stderr, "Can't open %s\n", s);
@@ -94,7 +94,7 @@ loadNotPackages()
 	std::ifstream stream;
 	char s[1024];
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/these-are-not-packages", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/bugs/distros/%s/these-are-not-packages", distroString);
 
         stream.open(s);
         if (!stream) {
@@ -120,7 +120,7 @@ loadCveReports()
         std::string cve, package;
 	char s[1024];
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/CVE-list", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/bugs/distros/%s/CVE-list", distroString);
 
         stream.open(s);
         if (!stream) {
@@ -596,7 +596,7 @@ main(int argc, char *argv[])
 	argc -= optind;
 	argv += optind;
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies.txt", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/embedded-code-copies.txt", distroString);
 	LoadEmbeds(s);
 	LoadCache();
 	LoadPackagesInfo();

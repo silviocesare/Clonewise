@@ -93,7 +93,7 @@ LoadCache()
 		std::ifstream stream;
 		char s[1024];
 
-		snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/cache/%s", "ubuntu", eIter->first.c_str());
+		snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/cache/%s", "ubuntu", eIter->first.c_str());
 		stream.open(s);
 		if (!stream)
 			continue;
@@ -202,10 +202,10 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 				std::map<std::string, std::set<std::string> > sig;
 				std::map<std::string, std::set<std::string> >::const_iterator sigIter;
 
-				filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + eIter->c_str();
+				filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + eIter->c_str();
 				LoadSignature(filename, sig);
 				if (!loadedSig) {
-					filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + embeddedLib;
+					filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + embeddedLib;
 					LoadSignature(filename, eSig);
 					loadedSig = true;
 				}
@@ -255,10 +255,10 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 			std::string filename;
 			std::map<std::string, std::set<std::string> > sig;
 
-			filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + cIter->first.c_str();
+			filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + cIter->first.c_str();
 			LoadSignature(filename, sig);
 			if (!loadedSig) {
-				filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + embeddedLib;
+				filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + embeddedLib;
 				LoadSignature(filename, eSig);
 				loadedSig = true;
 			}

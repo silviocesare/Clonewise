@@ -55,7 +55,7 @@ DoWork(int index)
 
 	strcpy(myName, name);
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/cache/%s", distroString, name);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/cache/%s", distroString, name);
 	if (0 && access(s, R_OK) == 0) {
 		outFd = fopen(s, "r");
 	} else {
@@ -131,7 +131,7 @@ main(int argc, char* argv[])
 		if (embeddedList.size() == 0) {
 			char s[1024];
 
-		        snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies", distroString);
+		        snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/embedded-code-copies", distroString);
 		        LoadEmbeddedCodeCopiesList(s);
 		}
 		for (	eIter  = embeddedList.begin(), xi = 0;
@@ -183,7 +183,7 @@ main(int argc, char* argv[])
 
 			MPI_Recv(result, size, MPI_CHAR, which, TAG1, MPI_COMM_WORLD, &status); 
 
-			snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/cache/%s", distroString, vPackages[r[0]].c_str());
+			snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/cache/%s", distroString, vPackages[r[0]].c_str());
 			f = fopen(s, "w");
 			fwrite(result, 1, size, f);
 			fclose(f), f = NULL;

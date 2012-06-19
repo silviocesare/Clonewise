@@ -258,7 +258,7 @@ loadFeatureExceptions()
 	std::ifstream stream;
 	char s[1024];
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/feature-exceptions", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/feature-exceptions", distroString);
 	stream.open(s);
 	if (!stream) {
 		fprintf(stderr, "Couldn't open feature-exceptions\n");
@@ -891,10 +891,10 @@ trainModel()
 	int c, total;
 
 	srand(0);
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/embedded-code-copies", distroString);
 	LoadEmbeddedCodeCopiesList(s);
 
-	snprintf(testFilename, sizeof(testFilename), "/var/lib/Clonewise/distros/%s/weka/training.arff", distroString);
+	snprintf(testFilename, sizeof(testFilename), "/var/lib/Clonewise/clones/weka/training.arff");
 
 	testStream.open(testFilename);
 	if (!testStream) {
@@ -919,17 +919,17 @@ trainModel()
 
 #if 0
 	// feature selection on training set
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.attributeSelection.WrapperSubsetEval -B weka.classifiers.trees.RandomForest -F 5 -T 0.01 -R 1 -- -I 10 -K 0 -S 1 -i /var/lib/Clonewise/distros/%s/weka/training.arff");
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.attributeSelection.WrapperSubsetEval -B weka.classifiers.trees.RandomForest -F 5 -T 0.01 -R 1 -- -I 10 -K 0 -S 1 -i /var/lib/Clonewise/clones/weka/training.arff");
 #endif
 
 	// generate new training set based on feature selection
 	rmString = "3,4,7,9,11,17,19,21,23,24,25";
-//	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.filters.unsupervised.attribute.Remove -R %s -i /var/lib/Clonewise/distros/%s/weka/training.arff -o /var/lib/Clonewise/distros/%s/weka/training_featureselection.arff", rmString.c_str(), distroString, distroString);
-	snprintf(cmd, sizeof(cmd), "cp /var/lib/Clonewise/distros/%s/weka/training.arff /var/lib/Clonewise/distros/%s/weka/training_featureselection.arff", distroString, distroString);
+//	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.filters.unsupervised.attribute.Remove -R %s -i /var/lib/Clonewise/clones/weka/training.arff -o /var/lib/Clonewise/clones/weka/training_featureselection.arff", rmString.c_str());
+	snprintf(cmd, sizeof(cmd), "cp /var/lib/Clonewise/clones/weka/training.arff /var/lib/Clonewise/clones/weka/training_featureselection.arff");
 	system(cmd);
 
 	// train model
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/distros/%s/weka/model -t /var/lib/Clonewise/distros/%s/weka/training_featureselection.arff", distroString, distroString);
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -I 10 -K 0 -S 1 -d /var/lib/Clonewise/clones/weka/model -t /var/lib/Clonewise/clones/weka/training_featureselection.arff");
 	system(cmd);
 }
 
@@ -997,7 +997,7 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 	snprintf(cmd, sizeof(cmd), "cp %s %s", testFilename, testFilename2);
 
 	system(cmd);
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -l /var/lib/Clonewise/distros/%s/weka/model -T %s -p 0", distroString, testFilename2);
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -l /var/lib/Clonewise/clones/weka/model -T %s -p 0", testFilename2);
 	p = popen(cmd, "r");
 	if (p == NULL) {
 		unlink(testFilename);
@@ -1070,7 +1070,7 @@ LoadPackagesInfo()
 	if (numPackages != 0)
 		return;
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/packages", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/packages", distroString);
 	stream.open(s);
 	if (!stream) {
 		fprintf(stderr, "Couldn't open packages\n");
@@ -1123,10 +1123,10 @@ LoadExtensions()
 	std::ifstream stream;
 	char s[1024];
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/extensions", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/extensions", distroString);
 	stream.open(s);
 	if (!stream) {
-		fprintf(stderr, "Couldn't open extensions\n");
+		fprintf(stderr, "Couldn't open %s\n", s);
 		exit(1);
 	}
 	while (!stream.eof()) {
@@ -1153,7 +1153,7 @@ LoadEverything()
 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
 	std::map<std::string, float>::iterator idfIter;
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/.done", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/.done", distroString);
 	if (access(s, R_OK) != 0)
 		BuildDatabase();
 
@@ -1161,11 +1161,11 @@ LoadEverything()
 	LoadPackagesInfo();
 	loadFeatureExceptions();
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/features", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/features", distroString);
 	stream.open(s);
 	if (!stream) {
 		BuildFeatures();
-		snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/features", distroString);
+		snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/features", distroString);
 		stream.open(s);
 		if (!stream) {
 			fprintf(stderr, "Can't open features\n");
@@ -1204,7 +1204,7 @@ LoadEverything()
 			maxWeight = idfIter->second;
 		}
 	}
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/ignore-list-for-features", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/ignore-list-for-features", distroString);
 	stream.open(s);
 	if (!stream) {
 		fprintf(stderr, "Couldn't open ignore-these-features\n");
@@ -1217,19 +1217,19 @@ LoadEverything()
 		featureSet.insert(s);
 	}
 	stream.close();
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/ignore-these-false-positives", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/ignore-these-false-positives", distroString);
 	ReadIgnoreList(s);
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/ignore-these-fixed", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/ignore-these-fixed", distroString);
 	ReadIgnoreList(s);
 	for (	pIter  = packages.begin();
 		pIter != packages.end();
 		pIter++)
 	{
-		filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + pIter->first;
+		filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + pIter->first;
 		LoadSignature(filename, packagesSignatures[pIter->first]);
 	}
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/weka/model", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/weka/model");
 	if (access(s, R_OK) != 0) {
 		if (getuid() != 0) {
 			fprintf(stderr, "Need to be root to build database.\n");
@@ -1293,13 +1293,13 @@ CreateFeatures()
 
 	LoadPackagesInfo();
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/raw-features", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/raw-features", distroString);
 	rawFeaturesFile.open(s);
 	if (!rawFeaturesFile) {
 		fprintf(stderr, "Couldn't open raw-features\n");
 		exit(1);
 	}
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/files-count", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/files-count", distroString);
 	fileCountFile.open(s);
 	if (!rawFeaturesFile) {
 		fprintf(stderr, "Couldn't open files-count\n");
@@ -1312,7 +1312,7 @@ CreateFeatures()
 		std::string filename;
 		int i;
 
-		filename = std::string("/var/lib/Clonewise/distros/") + distroString + std::string("/signatures/") + pIter->first;
+		filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + pIter->first;
 		stream.open(filename.c_str());
 		if (!stream) {
 			errorLog("Couldn't open %s\n", filename.c_str());
@@ -1336,14 +1336,14 @@ CreateFeatures()
 	rawFeaturesFile.close();
 	fileCountFile.close();
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/features", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/features", distroString);
 	featuresFile.open(s);
 	if (!featuresFile) {
 		fprintf(stderr, "Couldn't open features\n");
 		exit(1);
 	}
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/features/raw-features", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/raw-features", distroString);
 	stream.open(s);
 	if (!stream) {
 		fprintf(stderr, "Couldn't open raw-features\n");

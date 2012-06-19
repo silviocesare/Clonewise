@@ -38,7 +38,7 @@ main(int argc, char *argv[])
 	argc -= optind;
 	argv += optind;
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies.txt", distroString);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/embedded-code-copies.txt", distroString);
 	LoadEmbeds(s);
 	LoadCache();
 

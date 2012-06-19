@@ -12,11 +12,6 @@
 #include "Clonewise.h"
 #include "Clonewise-lib-Cache.h"
 
-static void
-Usage(const char *argv0)
-{
-}
-
 std::map<std::string, std::map<std::string, EmbedType> > embeddedsState;
 std::map<std::string, std::set<std::string> > embeddeds;
 std::map<std::string, std::map<std::string, std::list<Match> > > cache;
@@ -29,8 +24,11 @@ LoadEmbeds(const char *filename)
 	std::ifstream stream;
 	std::string lib, package;
 	bool start = false;
+
 	stream.open(filename);
 	if (!stream) {
+		fprintf(stderr, "Couldn't open %s\n", filename);
+		exit(1);
 	}
 	while (!stream.eof()) {
 		char s[1024];

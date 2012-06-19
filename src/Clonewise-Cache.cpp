@@ -14,15 +14,22 @@
 static void
 Usage(const char *argv0)
 {
+	fprintf(stderr, "Usage: %s [-d distroString]\n", argv0);
+	exit(1);
 }
 
 int
 main(int argc, char *argv[])
 {
 	int ch;
+	char s[1024];
 
-	while ((ch = getopt(argc, argv, "")) != EOF) {
+	while ((ch = getopt(argc, argv, "d:")) != EOF) {
 		switch (ch) {
+		case 'd':
+			distroString = optarg;
+			break;
+
 		default:
 			Usage(argv[0]);
 		}
@@ -31,7 +38,8 @@ main(int argc, char *argv[])
 	argc -= optind;
 	argv += optind;
 
-	LoadEmbeds("/var/lib/Clonewise/distros/ubuntu/embedded-code-copies.txt");
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies.txt", distroString);
+	LoadEmbeds(s);
 	LoadCache();
 
 	if (argc == 0) {

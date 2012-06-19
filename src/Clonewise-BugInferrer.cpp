@@ -50,7 +50,6 @@ bool useStdin = false;
 std::map<std::string, DOMNode *> cvesByXml;
 XercesDOMParser *parser;
 std::map<std::string, std::string> cpeMap;
-std::list<std::string> packageList;
 std::map<std::string, std::list<VulnReport> > vulnReportsByPackage;
 std::map<std::string, std::list<VulnReport> > vulnReportsByEmbeddedPackage;
 std::map<std::string, VulnCVEReport> vulnCVEReportsByPackage;
@@ -58,15 +57,21 @@ std::map<std::string, VulnCVEReport> vulnCVEReportsByPackage;
 static void
 Usage(const char *argv0)
 {
+	fprintf(stderr, "Usage: %s [-d distroString] [-s] [-v verbosity] [package1 ...]\n", argv0);
+	exit(1);
 }
 
 void
 loadCpes()
 {
 	std::ifstream stream;
+	char s[1024];
 
-        stream.open("/var/lib/Clonewise/distros/ubuntu/CPE-list");
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/CPE-list", distroString);
+        stream.open(s);
         if (!stream) {
+		fprintf(stderr, "Can't open %s\n", s);
+		exit(1);
         }
         while (!stream.eof()) {
                 char s[1024];
@@ -87,9 +92,14 @@ void
 loadNotPackages()
 {
 	std::ifstream stream;
+	char s[1024];
 
-        stream.open("/var/lib/Clonewise/distros/ubuntu/these-are-not-packages");
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/these-are-not-packages", distroString);
+
+        stream.open(s);
         if (!stream) {
+		fprintf(stderr, "Can't open %s\n", s);
+		exit(1);
         }
         while (!stream.eof()) {
                 char s[1024];
@@ -108,9 +118,14 @@ loadCveReports()
 {
 	std::ifstream stream;
         std::string cve, package;
+	char s[1024];
 
-        stream.open("/var/lib/Clonewise/distros/ubuntu/CVE-list");
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/CVE-list", distroString);
+
+        stream.open(s);
         if (!stream) {
+		fprintf(stderr, "Can't open %s\n", s);
+		exit(1);
         }
         while (!stream.eof()) {
                 char s[1024];
@@ -431,11 +446,11 @@ extractHistoricCveInfo(const std::string &cve, std::string &vulnPackage, std::se
 }
 
 void
-PrintVulnReport(const VulnReport &v, const std::string &package)
+PrintVulnReport(const VulnReport &v, std::set<std::string> &packages)
 {
 	std::set<std::string>::const_iterator sIter;
 	std::set<std::string>::const_iterator cIter;
-	std::set<std::string> packages;
+	std::set<std::string>::const_iterator pIter;
 
 	printf("# SUMMARY: %s\n", v.summary.c_str());
 	printf("#\n\n");
@@ -450,15 +465,19 @@ PrintVulnReport(const VulnReport &v, const std::string &package)
 	}
 	printf("#\n\n");
 
-	if (v.tracked.find(package) != v.tracked.end()) {
-		printf("# Debian tracks the following package as affected:\n");
-		{
-			printf("#\t%s\n", package.c_str());
+	for (	pIter  = packages.begin();
+		pIter != packages.end();
+		pIter++)
+	{
+		if (v.tracked.find(*pIter) != v.tracked.end()) {
+			printf("# Debian tracks the following package as affected:\n");
+			{
+				printf("#\t%s\n", pIter->c_str());
+			}
+			printf("#\n\n");
 		}
-		printf("#\n\n");
 	}
 
-	packages.insert(package);
 	ShowMissingLibs(v.vulnPackage, v.cveName, true, v.vulnSources, v.tracked, v.functions, packages);
 }
 
@@ -553,19 +572,20 @@ main(int argc, char *argv[])
 {
 	int ch;
 	const char *argv0 = argv[0];
+	char s[1024];
 
-	while ((ch = getopt(argc, argv, "v:sp:")) != EOF) {
+	while ((ch = getopt(argc, argv, "v:sd:")) != EOF) {
 		switch (ch) {
-		case 'p':
-			packageList.push_back(optarg);
-			break;
-
 		case 's':
 			useStdin = true;
 			break;
 
 		case 'v':
 			verbose = atoi(optarg);
+			break;
+
+		case 'd':
+			distroString = optarg;
 			break;
 
 		default:
@@ -576,7 +596,8 @@ main(int argc, char *argv[])
 	argc -= optind;
 	argv += optind;
 
-	LoadEmbeds("/var/lib/Clonewise/distros/ubuntu/embedded-code-copies.txt");
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/distros/%s/embedded-code-copies.txt", distroString);
+	LoadEmbeds(s);
 	LoadCache();
 	LoadPackagesInfo();
 	LoadExtensions();
@@ -621,7 +642,10 @@ main(int argc, char *argv[])
 				vIter != pIter->second.end();
 				vIter++)
 			{
-				PrintVulnReport(*vIter, pIter->first);
+				std::set<std::string> packages;
+
+				packages.insert(pIter->first);
+				PrintVulnReport(*vIter, packages);
 			}
 			printf("#\n#\n\n");
 		}

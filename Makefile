@@ -30,7 +30,8 @@ install:
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/clones/cache
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise/weka
 	$(INSTALL) -d $(DESTDIR)/usr/bin
-#	$(INSTALL) -m644 ./config/* $(DESTDIR)/var/lib/Clonewise
+	$(INSTALL) -m644 ./config/clones/extensions $(DESTDIR)/var/lib/Clonewise/clones
+	$(INSTALL) -m644 ./config/clones/weka/model $(DESTDIR)/var/lib/Clonewise/clones/weka
 	$(INSTALL) ./bin/* $(DESTDIR)/usr/bin
 
 clean:

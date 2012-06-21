@@ -5,9 +5,18 @@ INSTALL = install
 CC = g++
 MPICC = mpic++
 
-COMMON_SOURCES = src/Clonewise-Cache.cpp src/Clonewise.cpp src/Clonewise-lib-Cache.cpp libs/munkres-2/munkres.cpp src/Clonewise-main.cpp
-CLONEWISE_SOURCES = $(COMMON_SOURCES) src/Clonewise-MakeCache.cpp src/main.cpp
-BUGINFERRER_SOURCES = $(COMMON_SOURCES) src/Clonewise-BugInferrer.cpp
+COMMON_SOURCES =	src/Clonewise-Cache.cpp \
+			src/Clonewise.cpp \
+			src/Clonewise-lib-Cache.cpp \
+			libs/munkres-2/munkres.cpp \
+			src/Clonewise-main.cpp
+
+CLONEWISE_SOURCES =	$(COMMON_SOURCES) \
+			src/Clonewise-MakeCache.cpp \
+			src/main.cpp
+
+BUGINFERRER_SOURCES =	$(COMMON_SOURCES) \
+			src/Clonewise-BugInferrer.cpp
 
 CLONEWISE_OBJECTS = $(CLONEWISE_SOURCES:.cpp=.o)
 BUGINFERRER_OBJECTS = $(BUGINFERRER_SOURCES:.cpp=.o)

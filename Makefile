@@ -6,19 +6,13 @@ INSTALL = install
 CC = g++
 MPICC = mpic++
 
-all: Clonewise-MakeCache Clonewise Clonewise-Cache Clonewise-BugInferrer
+all: Clonewise Clonewise-BugInferrer
 
-Clonewise-BugInferrer: src/Clonewise-Cache.cpp src/Clonewise.cpp
+Clonewise-BugInferrer: src/Clonewise-Cache.cpp src/Clonewise.cpp src/Clonewise-BugInferrer.cpp
 	$(CC) $(CFLAGS) -o bin/Clonewise-BugInferrer src/Clonewise-BugInferrer.cpp src/Clonewise-lib-Cache.cpp src/Clonewise.cpp libs/munkres-2/munkres.cpp $(INCLUDES) $(LDFLAGS)
 
-Clonewise-Cache: src/Clonewise-Cache.cpp src/Clonewise.cpp
-	$(CC) $(CFLAGS) -o bin/Clonewise-Cache src/Clonewise-lib-Cache.cpp src/Clonewise-Cache.cpp src/Clonewise.cpp libs/munkres-2/munkres.cpp $(INCLUDES) $(LDFLAGS)
-
-Clonewise: src/Clonewise.cpp src/Clonewise-main.cpp
-	$(CC) $(CFLAGS) -o bin/Clonewise libs/munkres-2/munkres.cpp src/Clonewise-main.cpp src/Clonewise.cpp $(INCLUDES) $(LDFLAGS)
-
-Clonewise-MakeCache: src/Clonewise.cpp src/Clonewise-MakeCache.cpp
-	$(MPICC) $(CFLAGS) -o bin/Clonewise-MakeCache libs/munkres-2/munkres.cpp src/Clonewise-MakeCache.cpp src/Clonewise.cpp $(INCLUDES) $(LDFLAGS)
+Clonewise: src/Clonewise-Cache.cpp src/Clonewise.cpp src/Clonewise-main.cpp src/Clonewise-lib-Cache.cpp src/main.cpp src/Clonewise-MakeCache.cpp
+	$(MPICC) $(CFLAGS) -o bin/Clonewise src/Clonewise-lib-Cache.cpp src/Clonewise-Cache.cpp src/Clonewise.cpp src/main.cpp src/Clonewise-main.cpp src/Clonewise-MakeCache.cpp libs/munkres-2/munkres.cpp $(INCLUDES) $(LDFLAGS)
 
 install:
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise

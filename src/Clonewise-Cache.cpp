@@ -19,7 +19,7 @@ Usage(const char *argv0)
 }
 
 int
-main(int argc, char *argv[])
+Clonewise_query_cache(int argc, char *argv[])
 {
 	int ch;
 	char s[1024];

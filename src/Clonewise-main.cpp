@@ -26,7 +26,7 @@ Usage(const char *argv0)
 }
 
 int
-main(int argc, char *argv[])
+Clonewise_query(int argc, char *argv[])
 {
 	const char *argv0;
 	int ch;

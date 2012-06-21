@@ -89,7 +89,7 @@ Usage(const char *argv0)
 }
 
 int
-main(int argc, char* argv[])
+Clonewise_make_cache(int argc, char* argv[])
 { 
 	int np, me; 
 	int xi;

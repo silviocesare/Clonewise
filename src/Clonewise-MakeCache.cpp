@@ -84,7 +84,7 @@ bool embeddedOnly = true;
 void
 Usage(const char *argv0)
 {
-	fprintf(stderr, "Usage: %s [-d distroString] [-a]\n", argv0);
+	fprintf(stderr, "Usage: %s [-d distroString] [-j numThreads] [-a]\n", argv0);
 	exit(1);
 }
 
@@ -101,8 +101,12 @@ main(int argc, char* argv[])
 	MPI_Comm_size(MPI_COMM_WORLD, &np);
 	MPI_Comm_rank(MPI_COMM_WORLD, &me);
 
-	while ((ch = getopt(argc, argv, "ad:")) != EOF) {
+	while ((ch = getopt(argc, argv, "ad:j:")) != EOF) {
 		switch (ch) {
+		case 'j':
+			omp_set_num_threads(atoi(optarg));
+			break;
+
 		case 'a':
 			embeddedOnly = false;
 			break;

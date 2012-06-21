@@ -20,8 +20,8 @@
 static void
 Usage(const char *argv0)
 {
-	fprintf(stderr, "Usage: %s [-v level] [-o xml] [-d distro] [-estr] signature ...\n", argv0);
-	fprintf(stderr, "       %s -a [-v level] [-o xml] [-d distro] [-est]\n", argv0);
+	fprintf(stderr, "Usage: %s [-v level] [-o xml] [-d distro] [-j numThreads] [-estr] signature ...\n", argv0);
+	fprintf(stderr, "       %s -a [-v level] [-o xml] [-d distro] [-j numThreads] [-est]\n", argv0);
 	exit(1);
 }
 
@@ -31,12 +31,13 @@ main(int argc, char *argv[])
 	const char *argv0;
 	int ch;
 
-#if 0
-	omp_set_num_threads(2);
-#endif
 	argv0 = argv[0];
-	while ((ch = getopt(argc, argv, "d:eo:starv:")) != EOF) {
+	while ((ch = getopt(argc, argv, "j:d:eo:starv:")) != EOF) {
 		switch (ch) {
+		case 'j':
+			omp_set_num_threads(atoi(optarg));
+			break;
+
 		case 'd':
 			distroString = optarg;
 			break;

@@ -1167,6 +1167,13 @@ LoadExtensions()
 	stream.close();
 }
 
+void
+Clonewise_build_database(int argc, char *argv[])
+{
+	ClonewiseInit();
+	LoadEverything();
+}
+
 int
 LoadEverything()
 {

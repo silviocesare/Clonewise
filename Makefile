@@ -2,17 +2,26 @@ LDFLAGS = -lrt -lm -lfuzzy -lxerces-c
 INCLUDES = -I src -I libs/munkres-2
 CFLAGS = -fopenmp -g
 INSTALL = install
-
 CC = g++
 MPICC = mpic++
 
+COMMON_SOURCES = src/Clonewise-Cache.cpp src/Clonewise.cpp src/Clonewise-lib-Cache.cpp libs/munkres-2/munkres.cpp src/Clonewise-main.cpp
+CLONEWISE_SOURCES = $(COMMON_SOURCES) src/Clonewise-MakeCache.cpp src/main.cpp
+BUGINFERRER_SOURCES = $(COMMON_SOURCES) src/Clonewise-BugInferrer.cpp
+
+CLONEWISE_OBJECTS = $(CLONEWISE_SOURCES:.cpp=.o)
+BUGINFERRER_OBJECTS = $(BUGINFERRER_SOURCES:.cpp=.o)
+
 all: Clonewise Clonewise-BugInferrer
 
-Clonewise-BugInferrer: src/Clonewise-Cache.cpp src/Clonewise.cpp src/Clonewise-BugInferrer.cpp
-	$(CC) $(CFLAGS) -o bin/Clonewise-BugInferrer src/Clonewise-BugInferrer.cpp src/Clonewise-lib-Cache.cpp src/Clonewise.cpp libs/munkres-2/munkres.cpp $(INCLUDES) $(LDFLAGS)
+%.o : %.cpp
+	$(MPICC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-Clonewise: src/Clonewise-Cache.cpp src/Clonewise.cpp src/Clonewise-main.cpp src/Clonewise-lib-Cache.cpp src/main.cpp src/Clonewise-MakeCache.cpp
-	$(MPICC) $(CFLAGS) -o bin/Clonewise src/Clonewise-lib-Cache.cpp src/Clonewise-Cache.cpp src/Clonewise.cpp src/main.cpp src/Clonewise-main.cpp src/Clonewise-MakeCache.cpp libs/munkres-2/munkres.cpp $(INCLUDES) $(LDFLAGS)
+Clonewise-BugInferrer: $(BUGINFERRER_OBJECTS)
+	$(MPICC) $(CFLAGS) -o bin/Clonewise-BugInferrer $(BUGINFERRER_OBJECTS) $(LDFLAGS)
+
+Clonewise: $(CLONEWISE_OBJECTS)
+	$(MPICC) $(CFLAGS) -o bin/Clonewise $(CLONEWISE_OBJECTS) $(LDFLAGS)
 
 install:
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise
@@ -30,4 +39,4 @@ install:
 	$(INSTALL) ./bin/* $(DESTDIR)/usr/bin
 
 clean:
-	rm -f *.o bin/Clonewise
+	rm -f *.o bin/Clonewise bin/Clonewise-BugInferrer

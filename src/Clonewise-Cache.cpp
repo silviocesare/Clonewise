@@ -24,6 +24,8 @@ main(int argc, char *argv[])
 	int ch;
 	char s[1024];
 
+	ClonewiseInit();
+
 	while ((ch = getopt(argc, argv, "d:")) != EOF) {
 		switch (ch) {
 		case 'd':

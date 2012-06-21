@@ -574,6 +574,8 @@ main(int argc, char *argv[])
 	const char *argv0 = argv[0];
 	char s[1024];
 
+	ClonewiseInit();
+
 	while ((ch = getopt(argc, argv, "v:sd:")) != EOF) {
 		switch (ch) {
 		case 's':

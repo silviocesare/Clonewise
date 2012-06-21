@@ -50,6 +50,8 @@ extern std::set<std::string> extensions;
 extern bool reportError;
 extern bool useRelativePathForSignature;
 
+void ClonewiseInit();
+void ClonweiseCleanup();
 void LoadSignature(std::string name, std::map<std::string, std::set<std::string> > &signature);
 void LoadPackagesInfo();
 void LoadExtensions();

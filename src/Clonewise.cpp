@@ -1062,6 +1062,29 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 }
 
 void
+ClonewiseInit()
+{
+	static char dString[1024];
+	std::ifstream stream;
+	char s[1024];
+
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/default-distribution");
+	stream.open(s);
+	if (!stream) {
+		fprintf(stderr, "Couldn't open %s\n", s);
+		exit(1);
+	}
+	stream.getline(dString, sizeof(dString));
+	distroString = dString;
+	stream.close();
+}
+
+void
+ClonewiseCleanup()
+{
+}
+
+void
 LoadPackagesInfo()
 {
 	std::ifstream stream;

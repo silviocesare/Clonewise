@@ -31,6 +31,8 @@ main(int argc, char *argv[])
 	const char *argv0;
 	int ch;
 
+	ClonewiseInit();
+
 	argv0 = argv[0];
 	while ((ch = getopt(argc, argv, "j:d:eo:starv:")) != EOF) {
 		switch (ch) {

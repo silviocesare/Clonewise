@@ -16,8 +16,8 @@ int Clonewise_make_cache(int argc, char *argv[]);
 Command commands[] = {
 	{ "build-database", Clonewise_build_database },
 	{ "query", Clonewise_query },
-	{ "query-cache", Clonewise_query_cache },
 	{ "make-cache", Clonewise_make_cache },
+	{ "query-cache", Clonewise_query_cache },
 	{ NULL, NULL },
 };
 

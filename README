@@ -1,0 +1,4 @@
+Clonewise is a tool to detect package clones and infer outstanding
+security vulnerabilities from those clones that are out of date.
+
+Silvio Cesare <silvio.cesare@gmail.com>

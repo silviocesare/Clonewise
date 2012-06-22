@@ -1,11 +1,16 @@
 #!/bin/bash
 
-DISTRO=ubuntu
-
 if [ "$(id -u)" != 0 ]; then
 	echo "Error. Must be superuser to build database."
 	exit 1
 fi
+
+DISTRO="$(grep ^`DISTRIB_ID /etc/lsb-release|cut -d= -f2)-$(grep ^DISTRIB_RELEASE /etc/lsb-release|cut -d= -f2)"
+
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO/downloads
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO/features
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO/signatures
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO/cache
 
 cd /var/lib/Clonewise/clones/distros/$DISTRO/downloads
 list=$(apt-cache pkgnames)

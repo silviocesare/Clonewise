@@ -1,0 +1,20 @@
+libmms CLONED_IN_SOURCE ia32-libs
+		MATCH uri.c/uri.c (5.767224)
+	libmms CLONED_IN_PACKAGE ia32-libs
+libmms CLONED_IN_SOURCE mimms
+	libmms CLONED_IN_PACKAGE mimms
+libmms CLONED_IN_SOURCE xine-lib
+		MATCH mms.c/mms.c (7.102225)
+		MATCH mmsh.c/mmsh.c (7.730834)
+	libmms CLONED_IN_PACKAGE libxine-dev
+	libmms CLONED_IN_PACKAGE libxine1-x
+	libmms CLONED_IN_PACKAGE libxine1-gnome
+	libmms CLONED_IN_PACKAGE libxine1-plugins
+	libmms CLONED_IN_PACKAGE libxine1-console
+	libmms CLONED_IN_PACKAGE libxine1-misc-plugins
+	libmms CLONED_IN_PACKAGE libxine1-all-plugins
+	libmms CLONED_IN_PACKAGE libxine1-bin
+	libmms CLONED_IN_PACKAGE libxine1-dbg
+	libmms CLONED_IN_PACKAGE libxine1-ffmpeg
+	libmms CLONED_IN_PACKAGE libxine1-doc
+	libmms CLONED_IN_PACKAGE libxine1

@@ -1,0 +1,175 @@
+python-clientform CLONED_IN_SOURCE bibus
+		MATCH clientform.py/clientform.py (8.423981)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE bibus-doc-en
+	python-clientform CLONED_IN_PACKAGE bibus
+python-clientform CLONED_IN_SOURCE editra
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/text.py (5.403556)
+	python-clientform CLONED_IN_PACKAGE editra
+python-clientform CLONED_IN_SOURCE epigrass
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE epigrass
+	python-clientform CLONED_IN_PACKAGE epigrass-doc
+python-clientform CLONED_IN_SOURCE funkload
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE funkload
+python-clientform CLONED_IN_SOURCE gaphor
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE gaphor
+python-clientform CLONED_IN_SOURCE gearman-interface
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-gearman.libgearman
+	python-clientform CLONED_IN_PACKAGE python3-gearman.libgearman
+python-clientform CLONED_IN_SOURCE gunicorn
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/test.py (4.123300)
+	python-clientform CLONED_IN_PACKAGE gunicorn
+python-clientform CLONED_IN_SOURCE kid
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-kid
+python-clientform CLONED_IN_SOURCE lxml
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/test.py (4.123300)
+	python-clientform CLONED_IN_PACKAGE python3-lxml
+	python-clientform CLONED_IN_PACKAGE python-lxml
+	python-clientform CLONED_IN_PACKAGE python3-lxml-dbg
+	python-clientform CLONED_IN_PACKAGE python-lxml-dbg
+	python-clientform CLONED_IN_PACKAGE python-lxml-doc
+python-clientform CLONED_IN_SOURCE model-builder
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE model-builder
+python-clientform CLONED_IN_SOURCE myghty
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-myghty
+python-clientform CLONED_IN_SOURCE pebl
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-pebl
+	python-clientform CLONED_IN_PACKAGE python-pebl-dbg
+	python-clientform CLONED_IN_PACKAGE python-pebl-doc
+python-clientform CLONED_IN_SOURCE pisa
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH simple.py/simple.py (5.699401)
+	python-clientform CLONED_IN_PACKAGE python-pisa
+python-clientform CLONED_IN_SOURCE plywood
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE plywood
+python-clientform CLONED_IN_SOURCE pydicom
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-dicom
+python-clientform CLONED_IN_SOURCE python-mechanize
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/test.py (4.123300)
+	python-clientform CLONED_IN_PACKAGE python-mechanize
+python-clientform CLONED_IN_SOURCE python-reportlab
+		MATCH example.py/examples.py (7.245326)
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/test.py (4.123300)
+	python-clientform CLONED_IN_PACKAGE python-reportlab
+	python-clientform CLONED_IN_PACKAGE python-reportlab-doc
+	python-clientform CLONED_IN_PACKAGE python-renderpm
+	python-clientform CLONED_IN_PACKAGE python-reportlab-accel-dbg
+	python-clientform CLONED_IN_PACKAGE python-renderpm-dbg
+	python-clientform CLONED_IN_PACKAGE python-reportlab-accel
+python-clientform CLONED_IN_SOURCE python-repoze.who
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-repoze.who
+python-clientform CLONED_IN_SOURCE python-scrapy
+		MATCH clientform.py/clientform.py (8.423981)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/test.py (4.123300)
+		MATCH testclientform.py/testclientform.py (9.117128)
+	python-clientform CLONED_IN_PACKAGE python-scrapy-doc
+	python-clientform CLONED_IN_PACKAGE python-scrapy
+python-clientform CLONED_IN_SOURCE pywebdav
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-webdav
+python-clientform CLONED_IN_SOURCE simplejson
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-simplejson
+python-clientform CLONED_IN_SOURCE sleekxmpp
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/test.py (4.123300)
+	python-clientform CLONED_IN_PACKAGE python-sleekxmpp
+	python-clientform CLONED_IN_PACKAGE python3-sleekxmpp
+python-clientform CLONED_IN_SOURCE tilecache
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/test.py (4.123300)
+	python-clientform CLONED_IN_PACKAGE tilecache
+python-clientform CLONED_IN_SOURCE turbogears
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-turbogears
+python-clientform CLONED_IN_SOURCE turbogears2
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-turbogears2
+python-clientform CLONED_IN_SOURCE twill
+		MATCH clientform.py/clientform.py (8.423981)
+		MATCH setup.py/setup.py (2.336070)
+	python-clientform CLONED_IN_PACKAGE python-twill
+python-clientform CLONED_IN_SOURCE wxwidgets2.6
+		MATCH example.py/example.py (5.367624)
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH simple.py/sample.py (6.674781)
+		MATCH test.py/text.py (5.403556)
+	python-clientform CLONED_IN_PACKAGE libwxbase2.6-0
+	python-clientform CLONED_IN_PACKAGE wx2.6-doc
+	python-clientform CLONED_IN_PACKAGE wx2.6-headers
+	python-clientform CLONED_IN_PACKAGE python-wxgtk2.6
+	python-clientform CLONED_IN_PACKAGE libwxbase2.6-dbg
+	python-clientform CLONED_IN_PACKAGE libwxbase2.6-dev
+	python-clientform CLONED_IN_PACKAGE python-wxtools
+	python-clientform CLONED_IN_PACKAGE python-wxgtk2.6-dbg
+	python-clientform CLONED_IN_PACKAGE libwxgtk2.6-0
+	python-clientform CLONED_IN_PACKAGE libwxgtk2.6-dbg
+	python-clientform CLONED_IN_PACKAGE libwxgtk2.6-dev
+	python-clientform CLONED_IN_PACKAGE wx-common
+	python-clientform CLONED_IN_PACKAGE wx2.6-examples
+	python-clientform CLONED_IN_PACKAGE wx2.6-i18n
+	python-clientform CLONED_IN_PACKAGE python-wxversion
+python-clientform CLONED_IN_SOURCE wxwidgets2.8
+		MATCH example.py/example.py (5.367624)
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH simple.py/sample.py (6.674781)
+		MATCH test.py/text.py (5.403556)
+	python-clientform CLONED_IN_PACKAGE libwxbase2.8-0
+	python-clientform CLONED_IN_PACKAGE python-wxgtk2.8
+	python-clientform CLONED_IN_PACKAGE libwxgtk2.8-dbg
+	python-clientform CLONED_IN_PACKAGE libwxgtk2.8-dev
+	python-clientform CLONED_IN_PACKAGE wx2.8-examples
+	python-clientform CLONED_IN_PACKAGE libwxgtk2.8-0
+	python-clientform CLONED_IN_PACKAGE wx2.8-doc
+	python-clientform CLONED_IN_PACKAGE libwxbase2.8-dbg
+	python-clientform CLONED_IN_PACKAGE libwxbase2.8-dev
+	python-clientform CLONED_IN_PACKAGE python-wxgtk2.8-dbg
+	python-clientform CLONED_IN_PACKAGE wx2.8-i18n
+	python-clientform CLONED_IN_PACKAGE wx2.8-headers
+python-clientform CLONED_IN_SOURCE zodb
+		MATCH ezsetup.py/ezsetup.py (5.403556)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/tests.py (4.716525)
+	python-clientform CLONED_IN_PACKAGE python-zodb

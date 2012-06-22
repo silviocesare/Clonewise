@@ -1,0 +1,40 @@
+libgpg-error CLONED_IN_SOURCE febootstrap
+		MATCH init.c/init.c (3.836466)
+		MATCH strerror.c/strerror.c (4.568528)
+	libgpg-error CLONED_IN_PACKAGE febootstrap
+libgpg-error CLONED_IN_SOURCE gnupg2
+		MATCH init.c/init.c (3.836466)
+		MATCH wgettext.c/wgettext.c (8.423981)
+	libgpg-error CLONED_IN_PACKAGE gnupg-agent
+	libgpg-error CLONED_IN_PACKAGE gpgsm
+	libgpg-error CLONED_IN_PACKAGE gnupg2
+libgpg-error CLONED_IN_SOURCE ia32-libs
+		MATCH codefromerrno.c/codefromerrno.c (9.117128)
+		MATCH codetoerrno.c/codetoerrno.c (9.117128)
+		MATCH gpgerror.c/gpgerror.c (9.117128)
+		MATCH init.c/cinit.c (7.864365)
+		MATCH mkerrcodes.c/mkerrcodes.c (8.711663)
+		MATCH mkwerrmap.c/mkwerrmap.c (9.117128)
+		MATCH strerror.c/strerror.c (4.568528)
+		MATCH strerrorsym.c/strerrorsym.c (9.117128)
+		MATCH strsource.c/strsource.c (8.711663)
+		MATCH strsourcesym.c/strsourcesym.c (9.117128)
+		MATCH tsyserror.c/tsyserror.c (9.117128)
+		MATCH wgettext.c/dgettext.c (4.754029)
+	libgpg-error CLONED_IN_PACKAGE ia32-libs
+libgpg-error CLONED_IN_SOURCE libprelude
+		MATCH mkerrcodes.c/mkerrcodes.c (8.711663)
+		MATCH strerror.c/strerror.c (4.568528)
+		MATCH strsource.c/strsource.c (8.711663)
+	libgpg-error CLONED_IN_PACKAGE libprelude-dev
+	libgpg-error CLONED_IN_PACKAGE libprelude2-dbg
+	libgpg-error CLONED_IN_PACKAGE python-prelude
+	libgpg-error CLONED_IN_PACKAGE libprelude2
+	libgpg-error CLONED_IN_PACKAGE libprelude-perl
+libgpg-error CLONED_IN_SOURCE newlib
+		MATCH init.c/init.c (3.836466)
+		MATCH strerror.c/strerror.c (4.568528)
+		MATCH wgettext.c/dgettext.c (4.754029)
+	libgpg-error CLONED_IN_PACKAGE newlib-source
+	libgpg-error CLONED_IN_PACKAGE libnewlib0
+	libgpg-error CLONED_IN_PACKAGE libnewlib-dev

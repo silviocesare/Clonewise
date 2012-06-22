@@ -1,0 +1,8 @@
+oscpack CLONED_IN_SOURCE spring
+		MATCH oscoutboundpacketstream.c/oscoutboundpacketstream.c (8.711663)
+		MATCH osctypes.c/osctypes.c (8.711663)
+	oscpack CLONED_IN_PACKAGE spring
+	oscpack CLONED_IN_PACKAGE spring-javaai
+	oscpack CLONED_IN_PACKAGE spring-common
+	oscpack CLONED_IN_PACKAGE spring-dbg
+	oscpack CLONED_IN_PACKAGE spring-engine

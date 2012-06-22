@@ -1,0 +1,32 @@
+exo CLONED_IN_SOURCE libfm
+		MATCH exoiconview.c/exoiconview.c (9.117128)
+		MATCH exomarshal.c/exomarshal.c (9.117128)
+		MATCH exoprivate.c/exoprivate.c (9.117128)
+		MATCH exostring.c/exostring.c (9.117128)
+		MATCH exotreeview.c/exotreeview.c (9.117128)
+	exo CLONED_IN_PACKAGE libfm1-dbg
+	exo CLONED_IN_PACKAGE libfm-data
+	exo CLONED_IN_PACKAGE libfm-gtk1
+	exo CLONED_IN_PACKAGE libfm-dev
+	exo CLONED_IN_PACKAGE libfm1
+	exo CLONED_IN_PACKAGE libfm-gtk-data
+exo CLONED_IN_SOURCE libxfce4ui
+		MATCH xfceheading.c/xfceheading.c (8.423981)
+		MATCH xfcetitleddialog.c/xfcetitleddialog.c (8.423981)
+	exo CLONED_IN_PACKAGE libxfce4ui-1-0
+	exo CLONED_IN_PACKAGE glade-xfce
+	exo CLONED_IN_PACKAGE xfce-keyboard-shortcuts
+	exo CLONED_IN_PACKAGE libxfce4ui-1-dbg
+	exo CLONED_IN_PACKAGE libxfce4ui-1-dev
+exo CLONED_IN_SOURCE libxfcegui4
+		MATCH xfceheading.c/xfceheading.c (8.423981)
+		MATCH xfcetitleddialog.c/xfcetitleddialog.c (8.423981)
+	exo CLONED_IN_PACKAGE libxfcegui4-4
+	exo CLONED_IN_PACKAGE libxfcegui4-4-dbg
+	exo CLONED_IN_PACKAGE libxfcegui4-dev
+exo CLONED_IN_SOURCE xfce4-terminal
+		MATCH main.c/main.c (1.999517)
+		MATCH xfceheading.c/xfceheading.c (8.423981)
+		MATCH xfcetitleddialog.c/xfcetitleddialog.c (8.423981)
+	exo CLONED_IN_PACKAGE xfce4-terminal
+	exo CLONED_IN_PACKAGE xfce4-terminal-dbg

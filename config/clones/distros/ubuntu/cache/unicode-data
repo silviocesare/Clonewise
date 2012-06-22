@@ -1,0 +1,404 @@
+unicode-data CLONED_IN_SOURCE binutils-z80
+	unicode-data CLONED_IN_PACKAGE binutils-z80
+unicode-data CLONED_IN_SOURCE boost-mpi-source1.46
+	unicode-data CLONED_IN_PACKAGE libboost-graph-parallel1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-graph-parallel1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-mpi1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-mpi-python1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-mpi1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost1.46-all-dev
+	unicode-data CLONED_IN_PACKAGE libboost-mpi-python1.46-dev
+unicode-data CLONED_IN_SOURCE boost1.46
+	unicode-data CLONED_IN_PACKAGE libboost-thread1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-filesystem1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-regex1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-program-options1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-random1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-graph1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-system1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-python1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-signals1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-program-options1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-date-time1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-test1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-iostreams1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-wave1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-graph1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-date-time1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost1.46-dbg
+	unicode-data CLONED_IN_PACKAGE libboost1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost1.46-doc
+	unicode-data CLONED_IN_PACKAGE libboost-iostreams1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-thread1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-math1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-python1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-signals1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-system1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-serialization1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-serialization1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-wave1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-math1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-regex1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-random1.46.1
+	unicode-data CLONED_IN_PACKAGE libboost-filesystem1.46-dev
+	unicode-data CLONED_IN_PACKAGE libboost-test1.46-dev
+unicode-data CLONED_IN_SOURCE brother-lpr-drivers-bh7
+	unicode-data CLONED_IN_PACKAGE brother-lpr-drivers-bh7
+unicode-data CLONED_IN_SOURCE cdfs-src
+	unicode-data CLONED_IN_PACKAGE cdfs-src
+unicode-data CLONED_IN_SOURCE charmap.app
+	unicode-data CLONED_IN_PACKAGE charmap.app
+unicode-data CLONED_IN_SOURCE cl-rsm-mod
+	unicode-data CLONED_IN_PACKAGE cl-rsm-mod
+unicode-data CLONED_IN_SOURCE clisp
+	unicode-data CLONED_IN_PACKAGE clisp-module-wildcard
+	unicode-data CLONED_IN_PACKAGE clisp-module-rawsock
+	unicode-data CLONED_IN_PACKAGE clisp-module-pcre
+	unicode-data CLONED_IN_PACKAGE clisp-module-bindings-glibc
+	unicode-data CLONED_IN_PACKAGE clisp-module-dbus
+	unicode-data CLONED_IN_PACKAGE clisp
+	unicode-data CLONED_IN_PACKAGE clisp-module-postgresql
+	unicode-data CLONED_IN_PACKAGE clisp-dev
+	unicode-data CLONED_IN_PACKAGE clisp-doc
+	unicode-data CLONED_IN_PACKAGE clisp-module-gdbm
+	unicode-data CLONED_IN_PACKAGE clisp-module-clx
+	unicode-data CLONED_IN_PACKAGE clisp-module-zlib
+	unicode-data CLONED_IN_PACKAGE clisp-module-berkeley-db
+unicode-data CLONED_IN_SOURCE css-mode
+	unicode-data CLONED_IN_PACKAGE css-mode
+unicode-data CLONED_IN_SOURCE cvsdelta
+	unicode-data CLONED_IN_PACKAGE cvsdelta
+unicode-data CLONED_IN_SOURCE dovecot
+	unicode-data CLONED_IN_PACKAGE dovecot-dbg
+	unicode-data CLONED_IN_PACKAGE dovecot-dev
+	unicode-data CLONED_IN_PACKAGE dovecot-postfix
+	unicode-data CLONED_IN_PACKAGE dovecot-common
+	unicode-data CLONED_IN_PACKAGE dovecot-managesieved
+	unicode-data CLONED_IN_PACKAGE dovecot-sieve
+	unicode-data CLONED_IN_PACKAGE dovecot-pgsql
+	unicode-data CLONED_IN_PACKAGE dovecot-sqlite
+	unicode-data CLONED_IN_PACKAGE dovecot-imapd
+	unicode-data CLONED_IN_PACKAGE dovecot-gssapi
+	unicode-data CLONED_IN_PACKAGE mail-stack-delivery
+	unicode-data CLONED_IN_PACKAGE dovecot-ldap
+	unicode-data CLONED_IN_PACKAGE dovecot-lmtpd
+	unicode-data CLONED_IN_PACKAGE dovecot-mysql
+	unicode-data CLONED_IN_PACKAGE dovecot-pop3d
+unicode-data CLONED_IN_SOURCE emdebian-archive-keyring
+	unicode-data CLONED_IN_PACKAGE emdebian-archive-keyring
+unicode-data CLONED_IN_SOURCE frama-c
+	unicode-data CLONED_IN_PACKAGE frama-c
+	unicode-data CLONED_IN_PACKAGE frama-c-base
+unicode-data CLONED_IN_SOURCE freebsd-manpages
+	unicode-data CLONED_IN_PACKAGE freebsd-manpages
+unicode-data CLONED_IN_SOURCE freetable
+	unicode-data CLONED_IN_PACKAGE freetable
+unicode-data CLONED_IN_SOURCE fretsonfire-songs-sectoid
+	unicode-data CLONED_IN_PACKAGE fretsonfire-songs-sectoid
+unicode-data CLONED_IN_SOURCE fribidi
+	unicode-data CLONED_IN_PACKAGE libfribidi0
+	unicode-data CLONED_IN_PACKAGE libfribidi-dev
+unicode-data CLONED_IN_SOURCE gnulib
+	unicode-data CLONED_IN_PACKAGE gnulib
+unicode-data CLONED_IN_SOURCE grub2
+	unicode-data CLONED_IN_PACKAGE grub-efi-amd64
+	unicode-data CLONED_IN_PACKAGE grub-ieee1275
+	unicode-data CLONED_IN_PACKAGE grub2
+	unicode-data CLONED_IN_PACKAGE grub-coreboot
+	unicode-data CLONED_IN_PACKAGE grub-coreboot-bin
+	unicode-data CLONED_IN_PACKAGE grub-pc
+	unicode-data CLONED_IN_PACKAGE grub-ieee1275-bin
+	unicode-data CLONED_IN_PACKAGE grub-linuxbios
+	unicode-data CLONED_IN_PACKAGE grub-efi-ia32
+	unicode-data CLONED_IN_PACKAGE grub-rescue-pc
+	unicode-data CLONED_IN_PACKAGE grub-pc-bin
+	unicode-data CLONED_IN_PACKAGE grub-efi-amd64-bin
+	unicode-data CLONED_IN_PACKAGE grub-efi
+	unicode-data CLONED_IN_PACKAGE grub-emu
+	unicode-data CLONED_IN_PACKAGE grub-common
+	unicode-data CLONED_IN_PACKAGE grub-efi-ia32-bin
+	unicode-data CLONED_IN_PACKAGE grub2-common
+	unicode-data CLONED_IN_PACKAGE grub-firmware-qemu
+unicode-data CLONED_IN_SOURCE gsfonts-x11
+	unicode-data CLONED_IN_PACKAGE gsfonts-x11
+unicode-data CLONED_IN_SOURCE haskell-hjavascript
+	unicode-data CLONED_IN_PACKAGE libghc-hjavascript-dev
+	unicode-data CLONED_IN_PACKAGE libghc-hjavascript-doc
+	unicode-data CLONED_IN_PACKAGE libghc-hjavascript-prof
+unicode-data CLONED_IN_SOURCE heimdal
+	unicode-data CLONED_IN_PACKAGE libkdc2-heimdal
+	unicode-data CLONED_IN_PACKAGE heimdal-docs
+	unicode-data CLONED_IN_PACKAGE heimdal-kdc
+	unicode-data CLONED_IN_PACKAGE heimdal-kcm
+	unicode-data CLONED_IN_PACKAGE heimdal-servers-x
+	unicode-data CLONED_IN_PACKAGE libkafs0-heimdal
+	unicode-data CLONED_IN_PACKAGE heimdal-servers
+	unicode-data CLONED_IN_PACKAGE libroken18-heimdal
+	unicode-data CLONED_IN_PACKAGE libhdb9-heimdal
+	unicode-data CLONED_IN_PACKAGE libasn1-8-heimdal
+	unicode-data CLONED_IN_PACKAGE libkadm5srv8-heimdal
+	unicode-data CLONED_IN_PACKAGE libotp0-heimdal
+	unicode-data CLONED_IN_PACKAGE libgssapi3-heimdal
+	unicode-data CLONED_IN_PACKAGE heimdal-clients-x
+	unicode-data CLONED_IN_PACKAGE libwind0-heimdal
+	unicode-data CLONED_IN_PACKAGE libkadm5clnt7-heimdal
+	unicode-data CLONED_IN_PACKAGE heimdal-multidev
+	unicode-data CLONED_IN_PACKAGE libsl0-heimdal
+	unicode-data CLONED_IN_PACKAGE heimdal-clients
+	unicode-data CLONED_IN_PACKAGE libhcrypto4-heimdal
+	unicode-data CLONED_IN_PACKAGE libhx509-5-heimdal
+	unicode-data CLONED_IN_PACKAGE libheimbase1-heimdal
+	unicode-data CLONED_IN_PACKAGE libheimntlm0-heimdal
+	unicode-data CLONED_IN_PACKAGE heimdal-dbg
+	unicode-data CLONED_IN_PACKAGE heimdal-dev
+	unicode-data CLONED_IN_PACKAGE libkrb5-26-heimdal
+unicode-data CLONED_IN_SOURCE ichthux-konqueror-shortcuts
+	unicode-data CLONED_IN_PACKAGE ichthux-konqueror-shortcuts
+unicode-data CLONED_IN_SOURCE icu
+	unicode-data CLONED_IN_PACKAGE libicu44
+	unicode-data CLONED_IN_PACKAGE icu-doc
+	unicode-data CLONED_IN_PACKAGE lib32icu-dev
+	unicode-data CLONED_IN_PACKAGE libicu-dev
+	unicode-data CLONED_IN_PACKAGE libicu44-dbg
+	unicode-data CLONED_IN_PACKAGE lib32icu44
+unicode-data CLONED_IN_SOURCE icu4j
+	unicode-data CLONED_IN_PACKAGE libicu4j-java
+unicode-data CLONED_IN_SOURCE icu4j-4.2
+	unicode-data CLONED_IN_PACKAGE libicu4j-4.2-java
+unicode-data CLONED_IN_SOURCE icu4j-4.4
+	unicode-data CLONED_IN_PACKAGE libicu4j-4.4-java
+unicode-data CLONED_IN_SOURCE imgtex
+	unicode-data CLONED_IN_PACKAGE imgtex
+unicode-data CLONED_IN_SOURCE iprelay
+	unicode-data CLONED_IN_PACKAGE iprelay
+unicode-data CLONED_IN_SOURCE java-wrappers
+	unicode-data CLONED_IN_PACKAGE java-wrappers
+unicode-data CLONED_IN_SOURCE jsymphonic
+	unicode-data CLONED_IN_PACKAGE jsymphonic
+unicode-data CLONED_IN_SOURCE krb5
+	unicode-data CLONED_IN_PACKAGE libkrb5-3
+	unicode-data CLONED_IN_PACKAGE libk5crypto3
+	unicode-data CLONED_IN_PACKAGE krb5-user
+	unicode-data CLONED_IN_PACKAGE krb5-kdc-ldap
+	unicode-data CLONED_IN_PACKAGE krb5-doc
+	unicode-data CLONED_IN_PACKAGE krb5-pkinit
+	unicode-data CLONED_IN_PACKAGE krb5-kdc
+	unicode-data CLONED_IN_PACKAGE libkrb5-dbg
+	unicode-data CLONED_IN_PACKAGE libkrb5-dev
+	unicode-data CLONED_IN_PACKAGE libkrb53
+	unicode-data CLONED_IN_PACKAGE libgssrpc4
+	unicode-data CLONED_IN_PACKAGE libkrb5support0
+	unicode-data CLONED_IN_PACKAGE krb5-admin-server
+	unicode-data CLONED_IN_PACKAGE krb5-gss-samples
+	unicode-data CLONED_IN_PACKAGE libkadm5clnt-mit8
+	unicode-data CLONED_IN_PACKAGE libkadm5srv-mit8
+	unicode-data CLONED_IN_PACKAGE libkdb5-5
+	unicode-data CLONED_IN_PACKAGE krb5-multidev
+	unicode-data CLONED_IN_PACKAGE libgssapi-krb5-2
+unicode-data CLONED_IN_SOURCE language-pack-aa-base
+	unicode-data CLONED_IN_PACKAGE language-pack-aa-base
+unicode-data CLONED_IN_SOURCE language-pack-gnome-aa-base
+	unicode-data CLONED_IN_PACKAGE language-pack-gnome-aa-base
+unicode-data CLONED_IN_SOURCE language-pack-gnome-ia-base
+	unicode-data CLONED_IN_PACKAGE language-pack-gnome-ia-base
+unicode-data CLONED_IN_SOURCE language-pack-gnome-ig-base
+	unicode-data CLONED_IN_PACKAGE language-pack-gnome-ig-base
+unicode-data CLONED_IN_SOURCE language-pack-gnome-kl-base
+	unicode-data CLONED_IN_PACKAGE language-pack-gnome-kl-base
+unicode-data CLONED_IN_SOURCE language-pack-gnome-mhr-base
+	unicode-data CLONED_IN_PACKAGE language-pack-gnome-mhr-base
+unicode-data CLONED_IN_SOURCE language-pack-gnome-mt-base
+	unicode-data CLONED_IN_PACKAGE language-pack-gnome-mt-base
+unicode-data CLONED_IN_SOURCE language-pack-gnome-nan-base
+	unicode-data CLONED_IN_PACKAGE language-pack-gnome-nan-base
+unicode-data CLONED_IN_SOURCE language-pack-gnome-yo-base
+	unicode-data CLONED_IN_PACKAGE language-pack-gnome-yo-base
+unicode-data CLONED_IN_SOURCE language-pack-ia-base
+	unicode-data CLONED_IN_PACKAGE language-pack-ia-base
+unicode-data CLONED_IN_SOURCE language-pack-ps-base
+	unicode-data CLONED_IN_PACKAGE language-pack-ps-base
+unicode-data CLONED_IN_SOURCE linux-meta
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-net-oneiric-server
+	unicode-data CLONED_IN_PACKAGE linux-tools
+	unicode-data CLONED_IN_PACKAGE linux-virtual
+	unicode-data CLONED_IN_PACKAGE linux-server
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-cw-3.2-oneiric-server
+	unicode-data CLONED_IN_PACKAGE linux-source
+	unicode-data CLONED_IN_PACKAGE linux-generic
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-cw-3.1-oneiric-generic-pae
+	unicode-data CLONED_IN_PACKAGE linux-generic-pae
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-headers-oneiric-generic-pae
+	unicode-data CLONED_IN_PACKAGE linux-headers-server
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-headers-oneiric-server
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-cw-3.1-oneiric-generic
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-cw-3.2-oneiric-generic-pae
+	unicode-data CLONED_IN_PACKAGE linux-image
+	unicode-data CLONED_IN_PACKAGE linux-headers-virtual
+	unicode-data CLONED_IN_PACKAGE linux-image-virtual
+	unicode-data CLONED_IN_PACKAGE linux-image-generic-pae
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-cw-3.2-oneiric-generic
+	unicode-data CLONED_IN_PACKAGE linux-headers-generic
+	unicode-data CLONED_IN_PACKAGE linux-crashdump
+	unicode-data CLONED_IN_PACKAGE linux-image-generic
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-net-oneiric-generic-pae
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-net-oneiric-generic
+	unicode-data CLONED_IN_PACKAGE linux-headers-generic-pae
+	unicode-data CLONED_IN_PACKAGE linux-image-extra-virtual
+	unicode-data CLONED_IN_PACKAGE linux-image-server
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-headers-oneiric-generic
+	unicode-data CLONED_IN_PACKAGE linux-backports-modules-cw-3.1-oneiric-server
+unicode-data CLONED_IN_SOURCE luola-nostalgy
+	unicode-data CLONED_IN_PACKAGE luola-nostalgy
+unicode-data CLONED_IN_SOURCE mauve
+	unicode-data CLONED_IN_PACKAGE mauve
+unicode-data CLONED_IN_SOURCE mbrola
+	unicode-data CLONED_IN_PACKAGE mbrola
+unicode-data CLONED_IN_SOURCE mbrola-af1
+	unicode-data CLONED_IN_PACKAGE mbrola-af1
+unicode-data CLONED_IN_SOURCE mbrola-br3
+	unicode-data CLONED_IN_PACKAGE mbrola-br3
+unicode-data CLONED_IN_SOURCE mbrola-cz2
+	unicode-data CLONED_IN_PACKAGE mbrola-cz2
+unicode-data CLONED_IN_SOURCE mbrola-hu1
+	unicode-data CLONED_IN_PACKAGE mbrola-hu1
+unicode-data CLONED_IN_SOURCE mbrola-it3
+	unicode-data CLONED_IN_PACKAGE mbrola-it3
+unicode-data CLONED_IN_SOURCE mbrola-it4
+	unicode-data CLONED_IN_PACKAGE mbrola-it4
+unicode-data CLONED_IN_SOURCE mbrola-la1
+	unicode-data CLONED_IN_PACKAGE mbrola-la1
+unicode-data CLONED_IN_SOURCE mbrola-sw1
+	unicode-data CLONED_IN_PACKAGE mbrola-sw1
+unicode-data CLONED_IN_SOURCE mbrola-sw2
+	unicode-data CLONED_IN_PACKAGE mbrola-sw2
+unicode-data CLONED_IN_SOURCE mediawiki
+	unicode-data CLONED_IN_PACKAGE mediawiki
+	unicode-data CLONED_IN_PACKAGE mediawiki-math
+unicode-data CLONED_IN_SOURCE menu-xdg
+	unicode-data CLONED_IN_PACKAGE menu-xdg
+unicode-data CLONED_IN_SOURCE moodle
+	unicode-data CLONED_IN_PACKAGE moodle
+unicode-data CLONED_IN_SOURCE odot
+	unicode-data CLONED_IN_PACKAGE odot
+unicode-data CLONED_IN_SOURCE openoffice.org-hyphenation-pl
+	unicode-data CLONED_IN_PACKAGE hyphen-pl
+unicode-data CLONED_IN_SOURCE opensrs-client
+	unicode-data CLONED_IN_PACKAGE libopensrs-perl
+unicode-data CLONED_IN_SOURCE page-crunch
+	unicode-data CLONED_IN_PACKAGE page-crunch
+unicode-data CLONED_IN_SOURCE paredit-el
+	unicode-data CLONED_IN_PACKAGE paredit-el
+unicode-data CLONED_IN_SOURCE patcher
+	unicode-data CLONED_IN_PACKAGE patcher
+unicode-data CLONED_IN_SOURCE pocketpc-cab
+	unicode-data CLONED_IN_PACKAGE pocketpc-cab
+unicode-data CLONED_IN_SOURCE prevu
+	unicode-data CLONED_IN_PACKAGE prevu
+unicode-data CLONED_IN_SOURCE qemuctl
+	unicode-data CLONED_IN_PACKAGE qemuctl
+unicode-data CLONED_IN_SOURCE rails
+	unicode-data CLONED_IN_PACKAGE libactionmailer-ruby1.8
+	unicode-data CLONED_IN_PACKAGE ruby-activeresource
+	unicode-data CLONED_IN_PACKAGE libactionpack-ruby
+	unicode-data CLONED_IN_PACKAGE ruby-activerecord
+	unicode-data CLONED_IN_PACKAGE libactivesupport-ruby1.9.1
+	unicode-data CLONED_IN_PACKAGE libactivesupport-ruby1.8
+	unicode-data CLONED_IN_PACKAGE libactivesupport-ruby
+	unicode-data CLONED_IN_PACKAGE rails
+	unicode-data CLONED_IN_PACKAGE libactionpack-ruby1.8
+	unicode-data CLONED_IN_PACKAGE libactiveresource-ruby1.8
+	unicode-data CLONED_IN_PACKAGE libactionmailer-ruby
+	unicode-data CLONED_IN_PACKAGE rails-ruby1.8
+	unicode-data CLONED_IN_PACKAGE ruby-actionpack
+	unicode-data CLONED_IN_PACKAGE libactiveresource-ruby
+	unicode-data CLONED_IN_PACKAGE rails-doc
+	unicode-data CLONED_IN_PACKAGE libactiverecord-ruby1.8
+	unicode-data CLONED_IN_PACKAGE libactiverecord-ruby
+	unicode-data CLONED_IN_PACKAGE ruby-activesupport
+	unicode-data CLONED_IN_PACKAGE ruby-actionmailer
+	unicode-data CLONED_IN_PACKAGE libactiverecord-ruby1.9.1
+unicode-data CLONED_IN_SOURCE rcolorbrewer
+	unicode-data CLONED_IN_PACKAGE r-cran-rcolorbrewer
+unicode-data CLONED_IN_SOURCE samba
+	unicode-data CLONED_IN_PACKAGE libsmbclient
+	unicode-data CLONED_IN_PACKAGE smbclient
+	unicode-data CLONED_IN_PACKAGE libwbclient-dev
+	unicode-data CLONED_IN_PACKAGE libwbclient0
+	unicode-data CLONED_IN_PACKAGE libpam-smbpass
+	unicode-data CLONED_IN_PACKAGE samba-common
+	unicode-data CLONED_IN_PACKAGE samba-dbg
+	unicode-data CLONED_IN_PACKAGE samba-doc
+	unicode-data CLONED_IN_PACKAGE swat
+	unicode-data CLONED_IN_PACKAGE samba-tools
+	unicode-data CLONED_IN_PACKAGE samba
+	unicode-data CLONED_IN_PACKAGE libsmbclient-dev
+	unicode-data CLONED_IN_PACKAGE samba-common-bin
+	unicode-data CLONED_IN_PACKAGE winbind
+	unicode-data CLONED_IN_PACKAGE samba-doc-pdf
+unicode-data CLONED_IN_SOURCE samba4
+	unicode-data CLONED_IN_PACKAGE libdcerpc0
+	unicode-data CLONED_IN_PACKAGE libsamba-policy-dev
+	unicode-data CLONED_IN_PACKAGE samba4-dev
+	unicode-data CLONED_IN_PACKAGE libsamdb0
+	unicode-data CLONED_IN_PACKAGE libdcerpc-dev
+	unicode-data CLONED_IN_PACKAGE libtorture-dev
+	unicode-data CLONED_IN_PACKAGE samba4
+	unicode-data CLONED_IN_PACKAGE libdcerpc-server0
+	unicode-data CLONED_IN_PACKAGE winbind4
+	unicode-data CLONED_IN_PACKAGE python-samba
+	unicode-data CLONED_IN_PACKAGE libndr-standard0
+	unicode-data CLONED_IN_PACKAGE libsamba-util-dev
+	unicode-data CLONED_IN_PACKAGE libsamba-hostconfig-dev
+	unicode-data CLONED_IN_PACKAGE samba4-common-bin
+	unicode-data CLONED_IN_PACKAGE libtorture0
+	unicode-data CLONED_IN_PACKAGE libndr-standard-dev
+	unicode-data CLONED_IN_PACKAGE libregistry0
+	unicode-data CLONED_IN_PACKAGE libdcerpc-server-dev
+	unicode-data CLONED_IN_PACKAGE samba4-clients
+	unicode-data CLONED_IN_PACKAGE libparse-pidl-perl
+	unicode-data CLONED_IN_PACKAGE libsamdb-dev
+	unicode-data CLONED_IN_PACKAGE registry-tools
+	unicode-data CLONED_IN_PACKAGE libregistry-dev
+	unicode-data CLONED_IN_PACKAGE libndr-dev
+	unicode-data CLONED_IN_PACKAGE libsamba-util0
+	unicode-data CLONED_IN_PACKAGE samba4-testsuite
+	unicode-data CLONED_IN_PACKAGE libsamba-policy0
+	unicode-data CLONED_IN_PACKAGE libsamba-hostconfig0
+	unicode-data CLONED_IN_PACKAGE samba-dsdb-modules
+	unicode-data CLONED_IN_PACKAGE libndr0
+	unicode-data CLONED_IN_PACKAGE libgensec-dev
+	unicode-data CLONED_IN_PACKAGE libgensec0
+unicode-data CLONED_IN_SOURCE saxonb
+	unicode-data CLONED_IN_PACKAGE libsaxonb-java
+	unicode-data CLONED_IN_PACKAGE libsaxonb-java-doc
+unicode-data CLONED_IN_SOURCE sbcl
+	unicode-data CLONED_IN_PACKAGE sbcl-source
+	unicode-data CLONED_IN_PACKAGE sbcl
+	unicode-data CLONED_IN_PACKAGE sbcl-doc
+unicode-data CLONED_IN_SOURCE select-xface
+	unicode-data CLONED_IN_PACKAGE select-xface
+unicode-data CLONED_IN_SOURCE silgraphite2.0
+	unicode-data CLONED_IN_PACKAGE libgraphite-dev
+	unicode-data CLONED_IN_PACKAGE libgraphite3-dbg
+	unicode-data CLONED_IN_PACKAGE libgraphite3
+unicode-data CLONED_IN_SOURCE sjfonts
+	unicode-data CLONED_IN_PACKAGE ttf-sjfonts
+unicode-data CLONED_IN_SOURCE sword-comm-scofield
+	unicode-data CLONED_IN_PACKAGE sword-comm-scofield
+unicode-data CLONED_IN_SOURCE syslinux
+	unicode-data CLONED_IN_PACKAGE syslinux
+	unicode-data CLONED_IN_PACKAGE extlinux
+	unicode-data CLONED_IN_PACKAGE syslinux-common
+unicode-data CLONED_IN_SOURCE texlive-bin
+	unicode-data CLONED_IN_PACKAGE libkpathsea5
+	unicode-data CLONED_IN_PACKAGE texlive-binaries
+	unicode-data CLONED_IN_PACKAGE libkpathsea-dev
+unicode-data CLONED_IN_SOURCE tkdiff
+	unicode-data CLONED_IN_PACKAGE tkdiff
+unicode-data CLONED_IN_SOURCE typo3-src
+	unicode-data CLONED_IN_PACKAGE typo3-dummy
+	unicode-data CLONED_IN_PACKAGE typo3
+	unicode-data CLONED_IN_PACKAGE typo3-database
+	unicode-data CLONED_IN_PACKAGE typo3-src-4.5
+unicode-data CLONED_IN_SOURCE ubuntustudio-menu
+	unicode-data CLONED_IN_PACKAGE ubuntustudio-menu

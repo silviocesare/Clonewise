@@ -1,0 +1,66 @@
+glew CLONED_IN_SOURCE blender
+		MATCH glew.c/glew.c (6.977062)
+	glew CLONED_IN_PACKAGE blender-dbg
+	glew CLONED_IN_PACKAGE blender
+glew CLONED_IN_SOURCE glew1.5
+		MATCH glew.c/glew.c (6.977062)
+		MATCH glewhead.c/glewhead.c (9.117128)
+		MATCH glewinfo.c/glewinfo.c (8.711663)
+		MATCH glewinfogl.c/glewinfogl.c (9.117128)
+		MATCH glewinfoglx.c/glewinfogl.c (9.117128)
+		MATCH glewinfohead.c/glewinfohead.c (9.117128)
+		MATCH glewinfotail.c/glewinfotail.c (9.117128)
+		MATCH glewinfowgl.c/glewinfogl.c (9.117128)
+		MATCH glewinitgl.c/glewinitgl.c (9.117128)
+		MATCH glewinitglx.c/glewinitgl.c (9.117128)
+		MATCH glewinittail.c/glewinfotail.c (9.117128)
+		MATCH glewinitwgl.c/glewinitgl.c (9.117128)
+		MATCH glewstrglx.c/glewstrglx.c (9.117128)
+		MATCH glewstrhead.c/glewstrhead.c (9.117128)
+		MATCH glewstrtail.c/glewstrtail.c (9.117128)
+		MATCH glewstrwgl.c/glewstrwgl.c (9.117128)
+		MATCH glewutils.c/glewutils.c (9.117128)
+		MATCH make.pl/make.pl (7.864365)
+		MATCH makedeffun.pl/makedeffun.pl (9.117128)
+		MATCH makedefvar.pl/makedefvar.pl (9.117128)
+		MATCH makeheader.pl/makeheader.pl (9.117128)
+		MATCH makehtml.pl/makehtml.pl (7.864365)
+		MATCH makeinfo.pl/makeinfo.pl (9.117128)
+		MATCH makeinfolist.pl/makeinfolist.pl (9.117128)
+		MATCH makeinit.pl/makeinit.pl (9.117128)
+		MATCH makelist.pl/makelist.pl (9.117128)
+		MATCH makestr.pl/makestr.pl (9.117128)
+		MATCH makestructfun.pl/makestructfun.pl (9.117128)
+		MATCH makestructvar.pl/makestructvar.pl (9.117128)
+		MATCH parsespec.pl/parsespec.pl (9.117128)
+		MATCH spec.pm/spec.pm (7.325368)
+		MATCH visualinfo.c/visualinfo.c (8.711663)
+	glew CLONED_IN_PACKAGE libglewmx1.5-dev
+	glew CLONED_IN_PACKAGE libglew1.5
+	glew CLONED_IN_PACKAGE glew-utils1.5
+	glew CLONED_IN_PACKAGE libglewmx1.5
+	glew CLONED_IN_PACKAGE libglew1.5-dev
+glew CLONED_IN_SOURCE nvidia-cg-toolkit
+		MATCH glew.c/glew.c (6.977062)
+		MATCH glewinfo.c/glewinfo.c (8.711663)
+		MATCH visualinfo.c/visualinfo.c (8.711663)
+	glew CLONED_IN_PACKAGE nvidia-cg-toolkit
+glew CLONED_IN_SOURCE ogre
+		MATCH glew.c/glew.c (6.977062)
+	glew CLONED_IN_PACKAGE libogre-1.7.3
+	glew CLONED_IN_PACKAGE ogre-tools
+	glew CLONED_IN_PACKAGE blender-ogrexml
+	glew CLONED_IN_PACKAGE ogre-doc
+	glew CLONED_IN_PACKAGE libogre-dev
+	glew CLONED_IN_PACKAGE libogre-1.7.3-dbg
+glew CLONED_IN_SOURCE quesoglc
+		MATCH glew.c/glew.c (6.977062)
+	glew CLONED_IN_PACKAGE libglc0
+	glew CLONED_IN_PACKAGE libglc-dev
+glew CLONED_IN_SOURCE rlvm
+		MATCH glew.c/glew.c (6.977062)
+	glew CLONED_IN_PACKAGE rlvm
+glew CLONED_IN_SOURCE trigger-rally
+		MATCH glew.c/glew.c (6.977062)
+	glew CLONED_IN_PACKAGE trigger-rally
+	glew CLONED_IN_PACKAGE trigger

@@ -1,0 +1,12 @@
+tslib CLONED_IN_SOURCE ia32-libs
+		MATCH fbutils.c/pbutils.c (9.117128)
+		MATCH fontx.c/font.c (4.573833)
+		MATCH linear.c/linear.c (6.409078)
+		MATCH testutils.c/gtestutils.c (9.117128)
+		MATCH tsconfig.c/osconfig.c (7.613050)
+		MATCH tserror.c/tsterror.c (9.117128)
+		MATCH tsopen.c/osopen.c (7.864365)
+		MATCH tsprint.c/isprint.c (7.412380)
+		MATCH tsread.c/thread.c (4.434997)
+		MATCH tstest.c/fstest.c (8.711663)
+	tslib CLONED_IN_PACKAGE ia32-libs

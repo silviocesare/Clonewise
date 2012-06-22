@@ -1,0 +1,160 @@
+jquery CLONED_IN_SOURCE cvxopt
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE python-cvxopt
+jquery CLONED_IN_SOURCE doxygen
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE doxygen-doc
+	jquery CLONED_IN_PACKAGE doxygen-gui
+	jquery CLONED_IN_PACKAGE doxygen
+	jquery CLONED_IN_PACKAGE doxygen-latex
+jquery CLONED_IN_SOURCE drupal6
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE drupal6
+jquery CLONED_IN_SOURCE fontmatrix
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE fontmatrix
+jquery CLONED_IN_SOURCE gammu
+	jquery CLONED_IN_PACKAGE libgammu-i18n
+	jquery CLONED_IN_PACKAGE gammu
+	jquery CLONED_IN_PACKAGE gammu-smsd
+	jquery CLONED_IN_PACKAGE python-gammu-dbg
+	jquery CLONED_IN_PACKAGE libgammu-dbg
+	jquery CLONED_IN_PACKAGE libgammu-dev
+	jquery CLONED_IN_PACKAGE python-gammu-doc
+	jquery CLONED_IN_PACKAGE gammu-doc
+	jquery CLONED_IN_PACKAGE libgammu7
+	jquery CLONED_IN_PACKAGE python-gammu
+	jquery CLONED_IN_PACKAGE libgsmsd7
+jquery CLONED_IN_SOURCE genshi
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE python-genshi-doc
+	jquery CLONED_IN_PACKAGE python-genshi
+jquery CLONED_IN_SOURCE glom
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE glom-doc
+	jquery CLONED_IN_PACKAGE libglom-1.18-dev
+	jquery CLONED_IN_PACKAGE glom
+	jquery CLONED_IN_PACKAGE libglom-1.18-0
+jquery CLONED_IN_SOURCE glpi
+		MATCH script.js/script.js (6.514438)
+	jquery CLONED_IN_PACKAGE glpi
+jquery CLONED_IN_SOURCE ia32-libs
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH script.js/script.js (6.514438)
+	jquery CLONED_IN_PACKAGE ia32-libs
+jquery CLONED_IN_SOURCE jsonbot
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE jsonbot
+jquery CLONED_IN_SOURCE libmojomojo-perl
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE libmojomojo-perl
+jquery CLONED_IN_SOURCE libofx
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE libofx4
+	jquery CLONED_IN_PACKAGE libofx4-dbg
+	jquery CLONED_IN_PACKAGE ofx
+	jquery CLONED_IN_PACKAGE libofx-dev
+	jquery CLONED_IN_PACKAGE libofx-doc
+jquery CLONED_IN_SOURCE libramaze-ruby
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE libramaze-ruby1.9.1
+	jquery CLONED_IN_PACKAGE libramaze-ruby1.8
+	jquery CLONED_IN_PACKAGE libramaze-ruby
+jquery CLONED_IN_SOURCE libvigraimpex
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE libvigraimpex-dev
+	jquery CLONED_IN_PACKAGE libvigraimpex-doc
+	jquery CLONED_IN_PACKAGE python-vigra
+	jquery CLONED_IN_PACKAGE python-vigra-doc
+	jquery CLONED_IN_PACKAGE libvigraimpex2
+jquery CLONED_IN_SOURCE mahara
+		MATCH attributes.js/attributes.js (7.412380)
+		MATCH css.js/css.js (7.171218)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH jsonp.js/json.js (6.313767)
+		MATCH xhr.js/xhr.js (8.423981)
+	jquery CLONED_IN_PACKAGE mahara-apache2
+	jquery CLONED_IN_PACKAGE mahara
+	jquery CLONED_IN_PACKAGE mahara-mediaplayer
+jquery CLONED_IN_SOURCE nut
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE nut-snmp
+	jquery CLONED_IN_PACKAGE nut-cgi
+	jquery CLONED_IN_PACKAGE nut-doc
+	jquery CLONED_IN_PACKAGE nut-monitor
+	jquery CLONED_IN_PACKAGE libupsclient1-dev
+	jquery CLONED_IN_PACKAGE libupsclient1
+	jquery CLONED_IN_PACKAGE nut-xml
+	jquery CLONED_IN_PACKAGE python-nut
+	jquery CLONED_IN_PACKAGE nut-client
+	jquery CLONED_IN_PACKAGE libups-nut-perl
+	jquery CLONED_IN_PACKAGE nut
+	jquery CLONED_IN_PACKAGE nut-server
+jquery CLONED_IN_SOURCE phatch
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE phatch
+	jquery CLONED_IN_PACKAGE phatch-cli
+	jquery CLONED_IN_PACKAGE phatch-doc
+jquery CLONED_IN_SOURCE piwigo
+		MATCH css.js/css.js (7.171218)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH script.js/scripts.js (8.018516)
+	jquery CLONED_IN_PACKAGE piwigo-pgsql
+	jquery CLONED_IN_PACKAGE piwigo-mysql
+	jquery CLONED_IN_PACKAGE piwigo-sqlite
+	jquery CLONED_IN_PACKAGE piwigo
+jquery CLONED_IN_SOURCE prewikka
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE prewikka
+jquery CLONED_IN_SOURCE python-django
+		MATCH core.js/core.js (7.325368)
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE python-django-doc
+	jquery CLONED_IN_PACKAGE python-django
+jquery CLONED_IN_SOURCE rabbit
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE rabbit
+	jquery CLONED_IN_PACKAGE rabbit-mode
+jquery CLONED_IN_SOURCE roundup
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE roundup
+jquery CLONED_IN_SOURCE sqlalchemy
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE python-sqlalchemy
+	jquery CLONED_IN_PACKAGE python3-sqlalchemy
+	jquery CLONED_IN_PACKAGE python-sqlalchemy-doc
+	jquery CLONED_IN_PACKAGE python-sqlalchemy-ext
+jquery CLONED_IN_SOURCE textpattern
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE php-textile
+	jquery CLONED_IN_PACKAGE textpattern
+jquery CLONED_IN_SOURCE trac
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE trac
+jquery CLONED_IN_SOURCE wordpress
+		MATCH effects.js/effects.js (6.226756)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH jsonp.js/json.js (6.313767)
+	jquery CLONED_IN_PACKAGE wordpress-l10n
+	jquery CLONED_IN_PACKAGE wordpress
+jquery CLONED_IN_SOURCE xbmc
+		MATCH core.js/core.js (7.325368)
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE xbmc-eventclients-xbmc-send
+	jquery CLONED_IN_PACKAGE xbmc-eventclients-dev
+	jquery CLONED_IN_PACKAGE xbmc-eventclients-ps3
+	jquery CLONED_IN_PACKAGE xbmc-live
+	jquery CLONED_IN_PACKAGE xbmc-bin
+	jquery CLONED_IN_PACKAGE xbmc
+	jquery CLONED_IN_PACKAGE xbmc-eventclients-common
+	jquery CLONED_IN_PACKAGE xbmc-eventclients-wiiremote
+	jquery CLONED_IN_PACKAGE xbmc-standalone
+	jquery CLONED_IN_PACKAGE xbmc-skin-confluence
+	jquery CLONED_IN_PACKAGE xbmc-data
+	jquery CLONED_IN_PACKAGE xbmc-eventclients-j2me
+jquery CLONED_IN_SOURCE yocto-reader
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE yocto-reader
+jquery CLONED_IN_SOURCE zekr
+		MATCH jquery.js/jquery.js (4.981961)
+	jquery CLONED_IN_PACKAGE zekr

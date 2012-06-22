@@ -1,0 +1,6 @@
+libxss CLONED_IN_SOURCE ia32-libs
+	libxss CLONED_IN_PACKAGE ia32-libs
+libxss CLONED_IN_SOURCE vnc4
+		MATCH xscrnsaver.c/xscrnsaver.c (9.117128)
+	libxss CLONED_IN_PACKAGE xvnc4viewer
+	libxss CLONED_IN_PACKAGE vnc4server

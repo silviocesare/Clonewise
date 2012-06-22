@@ -1,0 +1,50 @@
+nusoap CLONED_IN_SOURCE ampache
+		MATCH classnusoapbase.php/classnusoapbase.php (8.711663)
+		MATCH classsoapclient.php/classsoapclient.php (8.711663)
+		MATCH classsoapfault.php/classsoapfault.php (8.711663)
+		MATCH classsoapparser.php/classsoapparser.php (8.711663)
+		MATCH classsoapserver.php/classsoapserver.php (8.711663)
+		MATCH classsoaptransporthttp.php/classsoaptransporthttp.php (8.711663)
+		MATCH classsoapval.php/classsoapval.php (8.711663)
+		MATCH classwsdl.php/classwsdl.php (8.711663)
+		MATCH classwsdlcache.php/classwsdlcache.php (8.711663)
+		MATCH classxmlschema.php/classxmlschema.php (8.711663)
+	nusoap CLONED_IN_PACKAGE ampache
+nusoap CLONED_IN_SOURCE ipplan
+		MATCH client.php/client.php (6.977062)
+	nusoap CLONED_IN_PACKAGE ipplan
+nusoap CLONED_IN_SOURCE mantis
+		MATCH classnusoapbase.php/classnusoapbase.php (8.711663)
+		MATCH classsoapclient.php/classsoapclient.php (8.711663)
+		MATCH classsoapfault.php/classsoapfault.php (8.711663)
+		MATCH classsoapparser.php/classsoapparser.php (8.711663)
+		MATCH classsoapserver.php/classsoapserver.php (8.711663)
+		MATCH classsoaptransporthttp.php/classsoaptransporthttp.php (8.711663)
+		MATCH classsoapval.php/classsoapval.php (8.711663)
+		MATCH classwsdl.php/classwsdl.php (8.711663)
+		MATCH classwsdlcache.php/classwsdlcache.php (8.711663)
+		MATCH classxmlschema.php/classxmlschema.php (8.711663)
+		MATCH nusoap.php/nusoap.php (8.018516)
+		MATCH nusoapmime.php/nusoapmime.php (9.117128)
+	nusoap CLONED_IN_PACKAGE mantis
+nusoap CLONED_IN_SOURCE moodle
+		MATCH client.php/client.php (6.977062)
+		MATCH nusoap.php/nusoap.php (8.018516)
+	nusoap CLONED_IN_PACKAGE moodle
+nusoap CLONED_IN_SOURCE obm
+		MATCH client.php/client.php (6.977062)
+	nusoap CLONED_IN_PACKAGE obm-ui
+	nusoap CLONED_IN_PACKAGE obm-conf
+	nusoap CLONED_IN_PACKAGE obm-core
+	nusoap CLONED_IN_PACKAGE obm
+	nusoap CLONED_IN_PACKAGE obm-storage
+nusoap CLONED_IN_SOURCE phpgacl
+		MATCH nusoap.php/nusoap.php (8.018516)
+	nusoap CLONED_IN_PACKAGE phpgacl
+nusoap CLONED_IN_SOURCE poker-network
+		MATCH nusoap.php/nusoap.php (8.018516)
+	nusoap CLONED_IN_PACKAGE poker-web
+	nusoap CLONED_IN_PACKAGE python-poker2d
+	nusoap CLONED_IN_PACKAGE python-poker-prizes
+	nusoap CLONED_IN_PACKAGE python-poker-network
+	nusoap CLONED_IN_PACKAGE python-poker-stats

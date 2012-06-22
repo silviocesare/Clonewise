@@ -1,0 +1,2 @@
+xdotool CLONED_IN_SOURCE keynav
+	xdotool CLONED_IN_PACKAGE keynav

@@ -1,0 +1,86 @@
+enet CLONED_IN_SOURCE assaultcube
+		MATCH callbacks.c/callbacks.c (4.651220)
+		MATCH compress.c/compress.c (4.674477)
+		MATCH host.c/host.c (5.667140)
+		MATCH list.c/list.c (3.844128)
+		MATCH packet.c/packet.c (5.310465)
+		MATCH peer.c/peer.c (6.478071)
+		MATCH protocol.c/protocol.c (5.128144)
+		MATCH unix.c/unix.c (5.440827)
+		MATCH win.c/win.c (5.006254)
+	enet CLONED_IN_PACKAGE assaultcube
+enet CLONED_IN_SOURCE enigma
+		MATCH callbacks.c/callbacks.c (4.651220)
+		MATCH host.c/host.c (5.667140)
+		MATCH list.c/list.c (3.844128)
+		MATCH packet.c/packet.c (5.310465)
+		MATCH peer.c/peer.c (6.478071)
+		MATCH protocol.c/protocol.c (5.128144)
+		MATCH unix.c/unix.c (5.440827)
+		MATCH win.c/win.c (5.006254)
+	enet CLONED_IN_PACKAGE enigma
+	enet CLONED_IN_PACKAGE enigma-doc
+	enet CLONED_IN_PACKAGE enigma-data
+enet CLONED_IN_SOURCE graphicsmagick
+		MATCH compress.c/compress.c (4.674477)
+		MATCH list.c/list.c (3.844128)
+	enet CLONED_IN_PACKAGE libgraphicsmagick3
+	enet CLONED_IN_PACKAGE graphicsmagick-libmagick-dev-compat
+	enet CLONED_IN_PACKAGE graphicsmagick-dbg
+	enet CLONED_IN_PACKAGE libgraphicsmagick++3
+	enet CLONED_IN_PACKAGE libgraphicsmagick1-dev
+	enet CLONED_IN_PACKAGE libgraphics-magick-perl
+	enet CLONED_IN_PACKAGE libgraphicsmagick++1-dev
+	enet CLONED_IN_PACKAGE graphicsmagick
+	enet CLONED_IN_PACKAGE graphicsmagick-imagemagick-compat
+enet CLONED_IN_SOURCE ia32-libs
+		MATCH callbacks.c/callback.c (5.266980)
+		MATCH compress.c/compress.c (4.674477)
+		MATCH host.c/host.c (5.667140)
+		MATCH list.c/clist.c (7.102225)
+		MATCH packet.c/packed.c (8.423981)
+		MATCH peer.c/peer.c (6.478071)
+		MATCH protocol.c/protocol.c (5.128144)
+		MATCH unix.c/unix.c (5.440827)
+		MATCH win.c/win.c (5.006254)
+	enet CLONED_IN_PACKAGE ia32-libs
+enet CLONED_IN_SOURCE libcommoncpp2
+		MATCH peer.c/peer.c (6.478071)
+		MATCH unix.c/unix.c (5.440827)
+	enet CLONED_IN_PACKAGE libcommoncpp2-dev
+	enet CLONED_IN_PACKAGE libcommoncpp2-doc
+	enet CLONED_IN_PACKAGE libccgnu2-1.7-0
+enet CLONED_IN_SOURCE mana
+		MATCH callbacks.c/callbacks.c (4.651220)
+		MATCH compress.c/compress.c (4.674477)
+		MATCH host.c/host.c (5.667140)
+		MATCH list.c/list.c (3.844128)
+		MATCH packet.c/packet.c (5.310465)
+		MATCH peer.c/peer.c (6.478071)
+		MATCH protocol.c/protocol.c (5.128144)
+		MATCH unix.c/unix.c (5.440827)
+		MATCH win.c/win.c (5.006254)
+	enet CLONED_IN_PACKAGE mana-data
+	enet CLONED_IN_PACKAGE mana
+	enet CLONED_IN_PACKAGE mana-dbg
+enet CLONED_IN_SOURCE sauerbraten
+		MATCH callbacks.c/callbacks.c (4.651220)
+		MATCH compress.c/compress.c (4.674477)
+		MATCH host.c/host.c (5.667140)
+		MATCH list.c/list.c (3.844128)
+		MATCH packet.c/packet.c (5.310465)
+		MATCH peer.c/peer.c (6.478071)
+		MATCH protocol.c/protocol.c (5.128144)
+		MATCH unix.c/unix.c (5.440827)
+		MATCH win.c/win.c (5.006254)
+	enet CLONED_IN_PACKAGE sauerbraten-server
+	enet CLONED_IN_PACKAGE sauerbraten-dbg
+	enet CLONED_IN_PACKAGE sauerbraten
+enet CLONED_IN_SOURCE texlive-bin
+		MATCH compress.c/compress.c (4.674477)
+		MATCH list.c/glist.c (7.507690)
+		MATCH unix.c/unix.c (5.440827)
+		MATCH win.c/win.c (5.006254)
+	enet CLONED_IN_PACKAGE libkpathsea5
+	enet CLONED_IN_PACKAGE texlive-binaries
+	enet CLONED_IN_PACKAGE libkpathsea-dev

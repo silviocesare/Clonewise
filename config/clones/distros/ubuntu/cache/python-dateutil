@@ -1,0 +1,22 @@
+python-dateutil CLONED_IN_SOURCE matplotlib
+		MATCH easter.py/easter.py (9.117128)
+		MATCH init.py/init.py (2.310852)
+		MATCH parser.py/parser.py (5.332938)
+		MATCH relativedelta.py/relativedelta.py (8.423981)
+		MATCH rrule.py/rrule.py (8.711663)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/text.py (5.403556)
+		MATCH tz.py/tz.py (8.018516)
+		MATCH tzwin.py/tzwin.py (9.117128)
+	python-dateutil CLONED_IN_PACKAGE python-matplotlib
+	python-dateutil CLONED_IN_PACKAGE python-matplotlib-data
+	python-dateutil CLONED_IN_PACKAGE python-matplotlib-dbg
+	python-dateutil CLONED_IN_PACKAGE python-matplotlib-doc
+python-dateutil CLONED_IN_SOURCE phatch
+		MATCH init.py/init.py (2.310852)
+		MATCH relativedelta.py/relativedelta.py (8.423981)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH test.py/text.py (5.403556)
+	python-dateutil CLONED_IN_PACKAGE phatch
+	python-dateutil CLONED_IN_PACKAGE phatch-cli
+	python-dateutil CLONED_IN_PACKAGE phatch-doc

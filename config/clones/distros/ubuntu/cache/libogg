@@ -1,0 +1,24 @@
+libogg CLONED_IN_SOURCE ia32-libs
+		MATCH bitwise.c/bitwise.c (7.171218)
+		MATCH framing.c/framing.c (7.613050)
+		MATCH strdup.c/estrdup.c (8.018516)
+	libogg CLONED_IN_PACKAGE ia32-libs
+libogg CLONED_IN_SOURCE paraview
+		MATCH bitwise.c/bitwise.c (7.171218)
+		MATCH framing.c/framing.c (7.613050)
+	libogg CLONED_IN_PACKAGE paraview-dev
+	libogg CLONED_IN_PACKAGE paraview-doc
+	libogg CLONED_IN_PACKAGE paraview
+	libogg CLONED_IN_PACKAGE paraview-python
+libogg CLONED_IN_SOURCE vtk
+		MATCH bitwise.c/bitwise.c (7.171218)
+		MATCH framing.c/framing.c (7.613050)
+	libogg CLONED_IN_PACKAGE libvtk5.6
+	libogg CLONED_IN_PACKAGE python-vtk
+	libogg CLONED_IN_PACKAGE libvtk5-dev
+	libogg CLONED_IN_PACKAGE vtk-doc
+	libogg CLONED_IN_PACKAGE libvtk5.6-qt4
+	libogg CLONED_IN_PACKAGE libvtk5-qt4-dev
+	libogg CLONED_IN_PACKAGE libvtk-java
+	libogg CLONED_IN_PACKAGE vtk-examples
+	libogg CLONED_IN_PACKAGE tcl-vtk

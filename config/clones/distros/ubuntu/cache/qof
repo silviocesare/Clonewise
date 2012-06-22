@@ -1,0 +1,148 @@
+qof CLONED_IN_SOURCE amule
+		MATCH md.c/md.c (3.554525)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE amule
+	qof CLONED_IN_PACKAGE amule-daemon
+	qof CLONED_IN_PACKAGE amule-gnome-support
+	qof CLONED_IN_PACKAGE amule-common
+	qof CLONED_IN_PACKAGE amule-utils
+	qof CLONED_IN_PACKAGE amule-utils-gui
+qof CLONED_IN_SOURCE amule-adunanza
+		MATCH md.c/md.c (3.554525)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE amule-adunanza
+	qof CLONED_IN_PACKAGE amule-adunanza-daemon
+	qof CLONED_IN_PACKAGE amule-adunanza-utils-gui
+	qof CLONED_IN_PACKAGE amule-adunanza-utils
+qof CLONED_IN_SOURCE bluez
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE bluez-alsa
+	qof CLONED_IN_PACKAGE bluetooth
+	qof CLONED_IN_PACKAGE libbluetooth-dev
+	qof CLONED_IN_PACKAGE bluez-pcmcia-support
+	qof CLONED_IN_PACKAGE bluez-gstreamer
+	qof CLONED_IN_PACKAGE bluez-cups
+	qof CLONED_IN_PACKAGE bluez-compat
+	qof CLONED_IN_PACKAGE bluez
+	qof CLONED_IN_PACKAGE bluez-utils
+	qof CLONED_IN_PACKAGE bluez-audio
+	qof CLONED_IN_PACKAGE libbluetooth3
+qof CLONED_IN_SOURCE bochs
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE bochs-sdl
+	qof CLONED_IN_PACKAGE bochsbios
+	qof CLONED_IN_PACKAGE sb16ctrl-bochs
+	qof CLONED_IN_PACKAGE bochs-term
+	qof CLONED_IN_PACKAGE bochs-svga
+	qof CLONED_IN_PACKAGE bochs-x
+	qof CLONED_IN_PACKAGE bochs
+	qof CLONED_IN_PACKAGE bochs-wx
+	qof CLONED_IN_PACKAGE bximage
+	qof CLONED_IN_PACKAGE bochs-doc
+qof CLONED_IN_SOURCE esmtp
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE esmtp
+	qof CLONED_IN_PACKAGE esmtp-run
+qof CLONED_IN_SOURCE genparse
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE genparse
+qof CLONED_IN_SOURCE gnucash
+		MATCH doxygenmainpage.c/doxygenmainpage.c (8.423981)
+		MATCH guid.c/guid.c (6.814543)
+		MATCH kvpframe.c/kvpframe.c (9.117128)
+		MATCH kvputil.c/kvputil.c (9.117128)
+		MATCH md.c/md.c (3.554525)
+		MATCH qofbackend.c/qofbackend.c (9.117128)
+		MATCH qofbook.c/qofbook.c (9.117128)
+		MATCH qofbookmerge.c/qofbookmerge.c (9.117128)
+		MATCH qofchoice.c/qofchoice.c (9.117128)
+		MATCH qofclass.c/qofclass.c (9.117128)
+		MATCH qofevent.c/qofevent.c (9.117128)
+		MATCH qofid.c/qofid.c (9.117128)
+		MATCH qofinstance.c/qofinstance.c (9.117128)
+		MATCH qoflog.c/qoflog.c (9.117128)
+		MATCH qofmath.c/qofmath.c (9.117128)
+		MATCH qofobject.c/qofobject.c (9.117128)
+		MATCH qofquery.c/qofquery.c (9.117128)
+		MATCH qofquerycore.c/qofquerycore.c (9.117128)
+		MATCH qofreference.c/qofreference.c (9.117128)
+		MATCH qofsession.c/qofsession.c (9.117128)
+		MATCH qofutil.c/qofutil.c (9.117128)
+		MATCH testbookmerge.c/testbookmerge.c (9.117128)
+		MATCH testdate.c/testdate.c (6.919903)
+		MATCH testenginestuff.c/testenginestuff.c (9.117128)
+		MATCH testguid.c/testguid.c (9.117128)
+		MATCH testnumeric.c/testnumeric.c (7.730834)
+		MATCH testobject.c/testobject.c (6.719233)
+		MATCH testquerynew.c/testquerynew.c (9.117128)
+		MATCH testrecursive.c/testrecursive.c (9.117128)
+		MATCH teststuff.c/teststuff.c (8.711663)
+	qof CLONED_IN_PACKAGE gnucash
+	qof CLONED_IN_PACKAGE gnucash-dbg
+	qof CLONED_IN_PACKAGE gnucash-common
+qof CLONED_IN_SOURCE gstreamer0.10-ffmpeg
+		MATCH md.c/md.c (3.554525)
+		MATCH mem.c/mem.c (4.813063)
+		MATCH parser.c/hparser.c (7.730834)
+	qof CLONED_IN_PACKAGE gstreamer0.10-ffmpeg-dbg
+	qof CLONED_IN_PACKAGE gstreamer0.10-ffmpeg
+qof CLONED_IN_SOURCE ia32-libs
+		MATCH guid.c/pguid.c (9.117128)
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH md.c/md.c (3.554525)
+		MATCH mem.c/mem.c (4.813063)
+		MATCH parser.c/lparser.c (6.254927)
+		MATCH testdate.c/testgdate.c (9.117128)
+		MATCH testevent.c/textevent.c (8.200837)
+		MATCH testnumeric.c/testnumeric.c (7.730834)
+		MATCH testobject.c/testgobject.c (8.711663)
+		MATCH testrecursive.c/testrecurse.c (9.117128)
+	qof CLONED_IN_PACKAGE ia32-libs
+qof CLONED_IN_SOURCE icmake
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE icmake
+	qof CLONED_IN_PACKAGE icmake-doc
+qof CLONED_IN_SOURCE libcommoncpp2
+		MATCH md.c/md.c (3.554525)
+		MATCH testdate.c/testdate.c (6.919903)
+	qof CLONED_IN_PACKAGE libcommoncpp2-dev
+	qof CLONED_IN_PACKAGE libcommoncpp2-doc
+	qof CLONED_IN_PACKAGE libccgnu2-1.7-0
+qof CLONED_IN_SOURCE libtrace3
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE libtrace3
+	qof CLONED_IN_PACKAGE libpacketdump3-dev
+	qof CLONED_IN_PACKAGE libtrace-tools
+	qof CLONED_IN_PACKAGE libtrace3-dev
+	qof CLONED_IN_PACKAGE libpacketdump3
+qof CLONED_IN_SOURCE luatex
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH md.c/md.c (3.554525)
+		MATCH parser.c/lparser.c (6.254927)
+	qof CLONED_IN_PACKAGE luatex
+qof CLONED_IN_SOURCE mswatch
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE watch-maildirs
+	qof CLONED_IN_PACKAGE mswatch
+qof CLONED_IN_SOURCE strongswan
+		MATCH md.c/md.c (3.554525)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE strongswan-ikev1
+	qof CLONED_IN_PACKAGE strongswan-ikev2
+	qof CLONED_IN_PACKAGE strongswan-dbg
+	qof CLONED_IN_PACKAGE strongswan-starter
+	qof CLONED_IN_PACKAGE strongswan
+	qof CLONED_IN_PACKAGE libstrongswan
+	qof CLONED_IN_PACKAGE strongswan-nm
+qof CLONED_IN_SOURCE whitedune
+		MATCH lexer.c/lexer.c (5.344367)
+		MATCH parser.c/parser.c (3.849270)
+	qof CLONED_IN_PACKAGE whitedune
+	qof CLONED_IN_PACKAGE whitedune-docs

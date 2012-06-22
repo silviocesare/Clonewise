@@ -1,0 +1,683 @@
+libbsd CLONED_IN_SOURCE arp-scan
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE arp-scan
+libbsd CLONED_IN_SOURCE asterisk
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/dlist.c (6.765753)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH unvis.c/unvis.c (7.613050)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE asterisk-mysql
+	libbsd CLONED_IN_PACKAGE asterisk-mobile
+	libbsd CLONED_IN_PACKAGE asterisk
+	libbsd CLONED_IN_PACKAGE asterisk-voicemail-imapstorage
+	libbsd CLONED_IN_PACKAGE asterisk-ooh323
+	libbsd CLONED_IN_PACKAGE asterisk-dbg
+	libbsd CLONED_IN_PACKAGE asterisk-dev
+	libbsd CLONED_IN_PACKAGE asterisk-doc
+	libbsd CLONED_IN_PACKAGE asterisk-h323
+	libbsd CLONED_IN_PACKAGE asterisk-mp3
+	libbsd CLONED_IN_PACKAGE asterisk-dahdi
+	libbsd CLONED_IN_PACKAGE asterisk-modules
+	libbsd CLONED_IN_PACKAGE asterisk-voicemail-odbcstorage
+	libbsd CLONED_IN_PACKAGE asterisk-voicemail
+	libbsd CLONED_IN_PACKAGE asterisk-config
+libbsd CLONED_IN_SOURCE bsd-mailx
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE bsd-mailx
+libbsd CLONED_IN_SOURCE bsdgames
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE bsdgames
+libbsd CLONED_IN_SOURCE bsdgames-nonfree
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE bsdgames-nonfree
+libbsd CLONED_IN_SOURCE dsniff
+		MATCH err.c/err.c (5.235564)
+		MATCH md.c/md.c (3.554525)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE dsniff
+libbsd CLONED_IN_SOURCE elektra
+		MATCH bsdgetopt.c/bsdgetopt.c (8.711663)
+		MATCH helper.c/helper.c (5.440827)
+	libbsd CLONED_IN_PACKAGE libelektra-cpp-dev
+	libbsd CLONED_IN_PACKAGE libelektra-dev
+	libbsd CLONED_IN_PACKAGE libelektratools-dev
+	libbsd CLONED_IN_PACKAGE libelektra-cpp0
+	libbsd CLONED_IN_PACKAGE elektra-bin
+	libbsd CLONED_IN_PACKAGE elektra-doc
+	libbsd CLONED_IN_PACKAGE libelektratools2
+	libbsd CLONED_IN_PACKAGE libelektra3
+libbsd CLONED_IN_SOURCE ezstream
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strtonum.c/strtonum.c (7.102225)
+	libbsd CLONED_IN_PACKAGE ezstream
+libbsd CLONED_IN_SOURCE falconpl
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH md.c/md.c (3.554525)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH unvis.c/unvis.c (7.613050)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE libfalcon-engine1
+	libbsd CLONED_IN_PACKAGE falconpl-dbg
+	libbsd CLONED_IN_PACKAGE falconpl-dev
+	libbsd CLONED_IN_PACKAGE falconpl
+	libbsd CLONED_IN_PACKAGE libfalcon-engine1-dbg
+libbsd CLONED_IN_SOURCE fdm
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strtonum.c/strtonum.c (7.102225)
+	libbsd CLONED_IN_PACKAGE fdm
+libbsd CLONED_IN_SOURCE fetchmail
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE fetchmailconf
+	libbsd CLONED_IN_PACKAGE fetchmail
+libbsd CLONED_IN_SOURCE file
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE python-magic-dbg
+	libbsd CLONED_IN_PACKAGE libmagic-dev
+	libbsd CLONED_IN_PACKAGE python-magic
+	libbsd CLONED_IN_PACKAGE file
+	libbsd CLONED_IN_PACKAGE libmagic1
+libbsd CLONED_IN_SOURCE freeradius
+		MATCH md.c/md.c (3.554525)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE freeradius-krb5
+	libbsd CLONED_IN_PACKAGE libfreeradius2
+	libbsd CLONED_IN_PACKAGE freeradius-common
+	libbsd CLONED_IN_PACKAGE freeradius-postgresql
+	libbsd CLONED_IN_PACKAGE freeradius-utils
+	libbsd CLONED_IN_PACKAGE freeradius-dialupadmin
+	libbsd CLONED_IN_PACKAGE freeradius-iodbc
+	libbsd CLONED_IN_PACKAGE freeradius-mysql
+	libbsd CLONED_IN_PACKAGE freeradius-dbg
+	libbsd CLONED_IN_PACKAGE freeradius
+	libbsd CLONED_IN_PACKAGE libfreeradius-dev
+	libbsd CLONED_IN_PACKAGE freeradius-ldap
+libbsd CLONED_IN_SOURCE freetds
+		MATCH md.c/md.c (3.554525)
+		MATCH readpassphrase.c/readpassphrase.c (8.018516)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE tdsodbc
+	libbsd CLONED_IN_PACKAGE freetds-common
+	libbsd CLONED_IN_PACKAGE freetds-bin
+	libbsd CLONED_IN_PACKAGE libct4
+	libbsd CLONED_IN_PACKAGE freetds-dev
+	libbsd CLONED_IN_PACKAGE libsybdb5
+libbsd CLONED_IN_SOURCE heimdal
+		MATCH err.c/err.c (5.235564)
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH fpurge.c/purge.c (7.864365)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/klist.c (8.200837)
+		MATCH reallocf.c/realloc.c (5.440827)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH unvis.c/unvis.c (7.613050)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE libkdc2-heimdal
+	libbsd CLONED_IN_PACKAGE heimdal-docs
+	libbsd CLONED_IN_PACKAGE heimdal-kdc
+	libbsd CLONED_IN_PACKAGE heimdal-kcm
+	libbsd CLONED_IN_PACKAGE heimdal-servers-x
+	libbsd CLONED_IN_PACKAGE libkafs0-heimdal
+	libbsd CLONED_IN_PACKAGE heimdal-servers
+	libbsd CLONED_IN_PACKAGE libroken18-heimdal
+	libbsd CLONED_IN_PACKAGE libhdb9-heimdal
+	libbsd CLONED_IN_PACKAGE libasn1-8-heimdal
+	libbsd CLONED_IN_PACKAGE libkadm5srv8-heimdal
+	libbsd CLONED_IN_PACKAGE libotp0-heimdal
+	libbsd CLONED_IN_PACKAGE libgssapi3-heimdal
+	libbsd CLONED_IN_PACKAGE heimdal-clients-x
+	libbsd CLONED_IN_PACKAGE libwind0-heimdal
+	libbsd CLONED_IN_PACKAGE libkadm5clnt7-heimdal
+	libbsd CLONED_IN_PACKAGE heimdal-multidev
+	libbsd CLONED_IN_PACKAGE libsl0-heimdal
+	libbsd CLONED_IN_PACKAGE heimdal-clients
+	libbsd CLONED_IN_PACKAGE libhcrypto4-heimdal
+	libbsd CLONED_IN_PACKAGE libhx509-5-heimdal
+	libbsd CLONED_IN_PACKAGE libheimbase1-heimdal
+	libbsd CLONED_IN_PACKAGE libheimntlm0-heimdal
+	libbsd CLONED_IN_PACKAGE heimdal-dbg
+	libbsd CLONED_IN_PACKAGE heimdal-dev
+	libbsd CLONED_IN_PACKAGE libkrb5-26-heimdal
+libbsd CLONED_IN_SOURCE honeyd
+		MATCH err.c/err.c (5.235564)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE honeyd
+	libbsd CLONED_IN_PACKAGE honeyd-common
+libbsd CLONED_IN_SOURCE hybserv
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE hybserv
+libbsd CLONED_IN_SOURCE ia32-libs
+		MATCH arcrandom.c/orcrandom.c (9.117128)
+		MATCH err.c/err.c (5.235564)
+		MATCH flopen.c/dlopen.c (6.344539)
+		MATCH fpurge.c/fpurge.c (6.977062)
+		MATCH getpeereid.c/getpeereid.c (7.613050)
+		MATCH helper.c/helper.c (5.440827)
+		MATCH inetnetpton.c/inetnetpton.c (7.412380)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/clist.c (7.102225)
+		MATCH pidfile.c/pidfile.c (6.442979)
+		MATCH progname.c/progname.c (5.839983)
+		MATCH reallocf.c/realloc.c (5.440827)
+		MATCH setmode.c/xsetmode.c (8.423981)
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+		MATCH strlcat.c/strcat.c (6.919903)
+		MATCH strlcpy.c/strcpy.c (6.765753)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE ia32-libs
+libbsd CLONED_IN_SOURCE isakmpd
+		MATCH arcrandom.c/arcrandom.c (7.412380)
+		MATCH md.c/md.c (3.554525)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE isakmpd
+libbsd CLONED_IN_SOURCE kbuild
+		MATCH err.c/err.c (5.235564)
+		MATCH md.c/md.c (3.554525)
+		MATCH setmode.c/setmode.c (7.864365)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strmode.c/strmode.c (8.018516)
+	libbsd CLONED_IN_PACKAGE kbuild
+libbsd CLONED_IN_SOURCE ladvd
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE ladvd
+libbsd CLONED_IN_SOURCE libbsd-arc4random-perl
+		MATCH arcrandom.c/arcrandom.c (7.412380)
+	libbsd CLONED_IN_PACKAGE libbsd-arc4random-perl
+libbsd CLONED_IN_SOURCE libdispatch
+		MATCH arcrandom.c/arcrandom.c (7.412380)
+		MATCH fgetln.c/fgetln.c (7.102225)
+	libbsd CLONED_IN_PACKAGE libdispatch-dev
+	libbsd CLONED_IN_PACKAGE libdispatch0
+libbsd CLONED_IN_SOURCE libdumbnet
+		MATCH err.c/err.c (5.235564)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE python-dumbnet
+	libbsd CLONED_IN_PACKAGE libdumbnet1
+	libbsd CLONED_IN_PACKAGE libdumbnet-dev
+libbsd CLONED_IN_SOURCE libevent
+		MATCH arcrandom.c/arcrandom.c (7.412380)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE libevent-extra-2.0-5
+	libbsd CLONED_IN_PACKAGE libevent-openssl-2.0-5
+	libbsd CLONED_IN_PACKAGE libevent-pthreads-2.0-5
+	libbsd CLONED_IN_PACKAGE libevent-2.0-5
+	libbsd CLONED_IN_PACKAGE libevent-dbg
+	libbsd CLONED_IN_PACKAGE libevent-dev
+	libbsd CLONED_IN_PACKAGE libevent-core-2.0-5
+libbsd CLONED_IN_SOURCE libsmbios
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE python-libsmbios
+	libbsd CLONED_IN_PACKAGE smbios-utils
+	libbsd CLONED_IN_PACKAGE libsmbios2
+	libbsd CLONED_IN_PACKAGE libsmbios-dev
+	libbsd CLONED_IN_PACKAGE libsmbios-doc
+libbsd CLONED_IN_SOURCE libtar
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strmode.c/strmode.c (8.018516)
+	libbsd CLONED_IN_PACKAGE libtar0
+	libbsd CLONED_IN_PACKAGE libtar-dev
+libbsd CLONED_IN_SOURCE libtirpc
+		MATCH getpeereid.c/getpeereid.c (7.613050)
+	libbsd CLONED_IN_PACKAGE libtirpc1
+	libbsd CLONED_IN_PACKAGE libtirpc-dev
+libbsd CLONED_IN_SOURCE likewise-open
+		MATCH err.c/err.c (5.235564)
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH flopen.c/dlopen.c (6.344539)
+		MATCH getpeereid.c/getpeereid.c (7.613050)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/klist.c (8.200837)
+		MATCH progname.c/progname.c (5.839983)
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH unvis.c/unvis.c (7.613050)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE likewise-open
+	libbsd CLONED_IN_PACKAGE likewise-open5
+	libbsd CLONED_IN_PACKAGE likewise-open5-libs
+	libbsd CLONED_IN_PACKAGE likewise-open-gui
+	libbsd CLONED_IN_PACKAGE likewise-open5-eventlog
+	libbsd CLONED_IN_PACKAGE likewise-open5-netlogon
+	libbsd CLONED_IN_PACKAGE likewise-open5-lsass
+	libbsd CLONED_IN_PACKAGE likewise-open5-gui
+	libbsd CLONED_IN_PACKAGE likewise-open5-rpc
+libbsd CLONED_IN_SOURCE linux-ftpd
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE ftpd
+libbsd CLONED_IN_SOURCE linux-ftpd-ssl
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE ftpd-ssl
+libbsd CLONED_IN_SOURCE lpr
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE lpr
+libbsd CLONED_IN_SOURCE luatex
+		MATCH err.c/err.c (5.235564)
+		MATCH md.c/md.c (3.554525)
+		MATCH progname.c/progname.c (5.839983)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strtonum.c/strtonum.c (7.102225)
+	libbsd CLONED_IN_PACKAGE luatex
+libbsd CLONED_IN_SOURCE mg
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strtonum.c/strtonum.c (7.102225)
+	libbsd CLONED_IN_PACKAGE mg
+libbsd CLONED_IN_SOURCE mgp
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE mgp
+libbsd CLONED_IN_SOURCE mksh
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE mksh
+libbsd CLONED_IN_SOURCE munge
+		MATCH md.c/md.c (3.554525)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE munge
+	libbsd CLONED_IN_PACKAGE libmunge2
+	libbsd CLONED_IN_PACKAGE libmunge-dev
+libbsd CLONED_IN_SOURCE mysql-5.1
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH unvis.c/unvis.c (7.613050)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE mysql-server
+	libbsd CLONED_IN_PACKAGE libmysqlclient16-dev
+	libbsd CLONED_IN_PACKAGE mysql-testsuite
+	libbsd CLONED_IN_PACKAGE libmysqlclient-dev
+	libbsd CLONED_IN_PACKAGE mysql-server-core-5.1
+	libbsd CLONED_IN_PACKAGE libmysqlclient16
+	libbsd CLONED_IN_PACKAGE libmysqld-dev
+	libbsd CLONED_IN_PACKAGE mysql-client-core-5.1
+	libbsd CLONED_IN_PACKAGE libmysqld-pic
+	libbsd CLONED_IN_PACKAGE mysql-client
+	libbsd CLONED_IN_PACKAGE mysql-source-5.1
+	libbsd CLONED_IN_PACKAGE mysql-common
+	libbsd CLONED_IN_PACKAGE mysql-server-5.1
+	libbsd CLONED_IN_PACKAGE mysql-client-5.1
+libbsd CLONED_IN_SOURCE mysql-cluster-7.0
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH unvis.c/unvis.c (7.613050)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE mysql-cluster-client
+	libbsd CLONED_IN_PACKAGE mysql-cluster-server
+	libbsd CLONED_IN_PACKAGE mysql-cluster-server-5.1
+	libbsd CLONED_IN_PACKAGE mysql-cluster-client-5.1
+libbsd CLONED_IN_SOURCE netcat-openbsd
+		MATCH readpassphrase.c/readpassphrase.c (8.018516)
+	libbsd CLONED_IN_PACKAGE netcat-openbsd
+libbsd CLONED_IN_SOURCE netkit-telnet
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+	libbsd CLONED_IN_PACKAGE telnet
+	libbsd CLONED_IN_PACKAGE telnetd
+libbsd CLONED_IN_SOURCE netkit-telnet-ssl
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+	libbsd CLONED_IN_PACKAGE telnetd-ssl
+	libbsd CLONED_IN_PACKAGE telnet-ssl
+libbsd CLONED_IN_SOURCE newlib
+		MATCH flopen.c/dlopen.c (6.344539)
+		MATCH fpurge.c/fpurge.c (6.977062)
+		MATCH inetnetpton.c/inetnetpton.c (7.412380)
+		MATCH reallocf.c/realloc.c (5.440827)
+		MATCH strlcat.c/strcat.c (6.919903)
+		MATCH strlcpy.c/strcpy.c (6.765753)
+	libbsd CLONED_IN_PACKAGE newlib-source
+	libbsd CLONED_IN_PACKAGE libnewlib0
+	libbsd CLONED_IN_PACKAGE libnewlib-dev
+libbsd CLONED_IN_SOURCE nmap
+		MATCH err.c/err.c (5.235564)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE nmap
+	libbsd CLONED_IN_PACKAGE zenmap
+libbsd CLONED_IN_SOURCE nsd3
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE nsd3
+	libbsd CLONED_IN_PACKAGE nsd
+libbsd CLONED_IN_SOURCE openafs
+		MATCH err.c/err.c (5.235564)
+		MATCH fpurge.c/purge.c (7.864365)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE libkopenafs1
+	libbsd CLONED_IN_PACKAGE openafs-fuse
+	libbsd CLONED_IN_PACKAGE openafs-dbserver
+	libbsd CLONED_IN_PACKAGE openafs-krb5
+	libbsd CLONED_IN_PACKAGE libafsrpc1
+	libbsd CLONED_IN_PACKAGE openafs-dbg
+	libbsd CLONED_IN_PACKAGE openafs-doc
+	libbsd CLONED_IN_PACKAGE openafs-fileserver
+	libbsd CLONED_IN_PACKAGE openafs-modules-source
+	libbsd CLONED_IN_PACKAGE libpam-openafs-kaserver
+	libbsd CLONED_IN_PACKAGE openafs-modules-dkms
+	libbsd CLONED_IN_PACKAGE openafs-client
+	libbsd CLONED_IN_PACKAGE openafs-kpasswd
+	libbsd CLONED_IN_PACKAGE libafsauthent1
+	libbsd CLONED_IN_PACKAGE libopenafs-dev
+libbsd CLONED_IN_SOURCE openbsd-inetd
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE openbsd-inetd
+libbsd CLONED_IN_SOURCE openipmi
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/ilist.c (9.117128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH unvis.c/unvis.c (7.613050)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE libopenipmi-dev
+	libbsd CLONED_IN_PACKAGE openipmi
+	libbsd CLONED_IN_PACKAGE libopenipmi0
+libbsd CLONED_IN_SOURCE openssh
+		MATCH readpassphrase.c/readpassphrase.c (8.018516)
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strmode.c/strmode.c (8.018516)
+		MATCH strtonum.c/strtonum.c (7.102225)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE openssh-server
+	libbsd CLONED_IN_PACKAGE ssh-krb5
+	libbsd CLONED_IN_PACKAGE openssh-client
+	libbsd CLONED_IN_PACKAGE ssh
+	libbsd CLONED_IN_PACKAGE ssh-askpass-gnome
+libbsd CLONED_IN_SOURCE pax
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strmode.c/strmode.c (8.018516)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE pax
+libbsd CLONED_IN_SOURCE pcsc-lite
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE libpcsclite1
+	libbsd CLONED_IN_PACKAGE libpcsclite-dev
+	libbsd CLONED_IN_PACKAGE pcscd
+libbsd CLONED_IN_SOURCE pimd
+		MATCH pidfile.c/pidfile.c (6.442979)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE pimd
+libbsd CLONED_IN_SOURCE postgresql-8.4
+		MATCH inetnetpton.c/inetnetpton.c (7.412380)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE postgresql-8.4
+	libbsd CLONED_IN_PACKAGE postgresql-server-dev-8.4
+	libbsd CLONED_IN_PACKAGE postgresql-contrib-8.4
+	libbsd CLONED_IN_PACKAGE postgresql-plpython-8.4
+	libbsd CLONED_IN_PACKAGE postgresql-client-8.4
+	libbsd CLONED_IN_PACKAGE postgresql-doc-8.4
+	libbsd CLONED_IN_PACKAGE postgresql-plperl-8.4
+	libbsd CLONED_IN_PACKAGE postgresql-pltcl-8.4
+libbsd CLONED_IN_SOURCE postgresql-9.1
+		MATCH getpeereid.c/getpeereid.c (7.613050)
+		MATCH inetnetpton.c/inetnetpton.c (7.412380)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE postgresql-plperl-9.1
+	libbsd CLONED_IN_PACKAGE postgresql-pltcl-9.1
+	libbsd CLONED_IN_PACKAGE libecpg6
+	libbsd CLONED_IN_PACKAGE postgresql-9.1
+	libbsd CLONED_IN_PACKAGE postgresql-9.1-dbg
+	libbsd CLONED_IN_PACKAGE postgresql-server-dev-9.1
+	libbsd CLONED_IN_PACKAGE postgresql-contrib-9.1
+	libbsd CLONED_IN_PACKAGE postgresql-plpython-9.1
+	libbsd CLONED_IN_PACKAGE postgresql-client-9.1
+	libbsd CLONED_IN_PACKAGE libecpg-dev
+	libbsd CLONED_IN_PACKAGE libpq-dev
+	libbsd CLONED_IN_PACKAGE libpq5
+	libbsd CLONED_IN_PACKAGE libpgtypes3
+	libbsd CLONED_IN_PACKAGE postgresql-doc-9.1
+	libbsd CLONED_IN_PACKAGE libecpg-compat3
+libbsd CLONED_IN_SOURCE qutecom
+		MATCH err.c/err.c (5.235564)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/nist.c (7.864365)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE qutecom-data
+	libbsd CLONED_IN_PACKAGE qutecom-dbg
+	libbsd CLONED_IN_PACKAGE qutecom
+libbsd CLONED_IN_SOURCE rdate
+		MATCH arcrandom.c/arcrandom.c (7.412380)
+	libbsd CLONED_IN_PACKAGE rdate
+libbsd CLONED_IN_SOURCE samba
+		MATCH md.c/md.c (3.554525)
+		MATCH pidfile.c/pidfile.c (6.442979)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE libsmbclient
+	libbsd CLONED_IN_PACKAGE smbclient
+	libbsd CLONED_IN_PACKAGE libwbclient-dev
+	libbsd CLONED_IN_PACKAGE libwbclient0
+	libbsd CLONED_IN_PACKAGE libpam-smbpass
+	libbsd CLONED_IN_PACKAGE samba-common
+	libbsd CLONED_IN_PACKAGE samba-dbg
+	libbsd CLONED_IN_PACKAGE samba-doc
+	libbsd CLONED_IN_PACKAGE swat
+	libbsd CLONED_IN_PACKAGE samba-tools
+	libbsd CLONED_IN_PACKAGE samba
+	libbsd CLONED_IN_PACKAGE libsmbclient-dev
+	libbsd CLONED_IN_PACKAGE samba-common-bin
+	libbsd CLONED_IN_PACKAGE winbind
+	libbsd CLONED_IN_PACKAGE samba-doc-pdf
+libbsd CLONED_IN_SOURCE samba4
+		MATCH md.c/md.c (3.554525)
+		MATCH pidfile.c/pidfile.c (6.442979)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE libdcerpc0
+	libbsd CLONED_IN_PACKAGE libsamba-policy-dev
+	libbsd CLONED_IN_PACKAGE samba4-dev
+	libbsd CLONED_IN_PACKAGE libsamdb0
+	libbsd CLONED_IN_PACKAGE libdcerpc-dev
+	libbsd CLONED_IN_PACKAGE libtorture-dev
+	libbsd CLONED_IN_PACKAGE samba4
+	libbsd CLONED_IN_PACKAGE libdcerpc-server0
+	libbsd CLONED_IN_PACKAGE winbind4
+	libbsd CLONED_IN_PACKAGE python-samba
+	libbsd CLONED_IN_PACKAGE libndr-standard0
+	libbsd CLONED_IN_PACKAGE libsamba-util-dev
+	libbsd CLONED_IN_PACKAGE libsamba-hostconfig-dev
+	libbsd CLONED_IN_PACKAGE samba4-common-bin
+	libbsd CLONED_IN_PACKAGE libtorture0
+	libbsd CLONED_IN_PACKAGE libndr-standard-dev
+	libbsd CLONED_IN_PACKAGE libregistry0
+	libbsd CLONED_IN_PACKAGE libdcerpc-server-dev
+	libbsd CLONED_IN_PACKAGE samba4-clients
+	libbsd CLONED_IN_PACKAGE libparse-pidl-perl
+	libbsd CLONED_IN_PACKAGE libsamdb-dev
+	libbsd CLONED_IN_PACKAGE registry-tools
+	libbsd CLONED_IN_PACKAGE libregistry-dev
+	libbsd CLONED_IN_PACKAGE libndr-dev
+	libbsd CLONED_IN_PACKAGE libsamba-util0
+	libbsd CLONED_IN_PACKAGE samba4-testsuite
+	libbsd CLONED_IN_PACKAGE libsamba-policy0
+	libbsd CLONED_IN_PACKAGE libsamba-hostconfig0
+	libbsd CLONED_IN_PACKAGE samba-dsdb-modules
+	libbsd CLONED_IN_PACKAGE libndr0
+	libbsd CLONED_IN_PACKAGE libgensec-dev
+	libbsd CLONED_IN_PACKAGE libgensec0
+libbsd CLONED_IN_SOURCE scanssh
+		MATCH arcrandom.c/arcrandom.c (7.412380)
+		MATCH err.c/err.c (5.235564)
+		MATCH md.c/md.c (3.554525)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE scanssh
+libbsd CLONED_IN_SOURCE softflowd
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE softflowd
+libbsd CLONED_IN_SOURCE sudo
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE sudo-ldap
+	libbsd CLONED_IN_PACKAGE sudo
+libbsd CLONED_IN_SOURCE sup
+		MATCH setproctitle.c/setproctitle.c (6.409078)
+	libbsd CLONED_IN_PACKAGE sup
+libbsd CLONED_IN_SOURCE tcpreplay
+		MATCH err.c/err.c (5.235564)
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE tcpreplay
+libbsd CLONED_IN_SOURCE texlive-bin
+		MATCH err.c/err.c (5.235564)
+		MATCH md.c/md.c (3.554525)
+		MATCH nlist.c/glist.c (7.507690)
+		MATCH progname.c/progname.c (5.839983)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strtonum.c/strtonum.c (7.102225)
+	libbsd CLONED_IN_PACKAGE libkpathsea5
+	libbsd CLONED_IN_PACKAGE texlive-binaries
+	libbsd CLONED_IN_PACKAGE libkpathsea-dev
+libbsd CLONED_IN_SOURCE tmux
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strtonum.c/strtonum.c (7.102225)
+		MATCH unvis.c/unvis.c (7.613050)
+		MATCH vis.c/vis.c (6.591399)
+	libbsd CLONED_IN_PACKAGE tmux
+libbsd CLONED_IN_SOURCE tnftp
+		MATCH err.c/err.c (5.235564)
+		MATCH fgetln.c/fgetln.c (7.102225)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE tnftp
+libbsd CLONED_IN_SOURCE transcode
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE transcode-doc
+	libbsd CLONED_IN_PACKAGE transcode-utils
+	libbsd CLONED_IN_PACKAGE transcode
+libbsd CLONED_IN_SOURCE trickle
+		MATCH err.c/err.c (5.235564)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE trickle
+libbsd CLONED_IN_SOURCE uim
+		MATCH getpeereid.c/getpeereid.c (7.613050)
+		MATCH helper.c/helper.c (5.440827)
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strtonum.c/strtonum.c (7.102225)
+	libbsd CLONED_IN_PACKAGE uim-pinyin
+	libbsd CLONED_IN_PACKAGE uim-prime
+	libbsd CLONED_IN_PACKAGE uim-el
+	libbsd CLONED_IN_PACKAGE uim-qt
+	libbsd CLONED_IN_PACKAGE uim-canna
+	libbsd CLONED_IN_PACKAGE uim-m17nlib
+	libbsd CLONED_IN_PACKAGE uim-common
+	libbsd CLONED_IN_PACKAGE uim-viqr
+	libbsd CLONED_IN_PACKAGE libuim-data
+	libbsd CLONED_IN_PACKAGE uim-byeoru
+	libbsd CLONED_IN_PACKAGE uim-tcode
+	libbsd CLONED_IN_PACKAGE libuim6
+	libbsd CLONED_IN_PACKAGE uim-fep
+	libbsd CLONED_IN_PACKAGE uim-anthy
+	libbsd CLONED_IN_PACKAGE uim-hangul
+	libbsd CLONED_IN_PACKAGE uim-qt3
+	libbsd CLONED_IN_PACKAGE uim-skk
+	libbsd CLONED_IN_PACKAGE uim-utils
+	libbsd CLONED_IN_PACKAGE uim-xim
+	libbsd CLONED_IN_PACKAGE libuim6-dbg
+	libbsd CLONED_IN_PACKAGE uim-gtk2.0
+	libbsd CLONED_IN_PACKAGE uim
+	libbsd CLONED_IN_PACKAGE uim-applet-kde
+	libbsd CLONED_IN_PACKAGE libuim-dev
+	libbsd CLONED_IN_PACKAGE uim-ipa-x-sampa
+	libbsd CLONED_IN_PACKAGE uim-latin
+libbsd CLONED_IN_SOURCE unworkable
+		MATCH err.c/err.c (5.235564)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strtonum.c/strtonum.c (7.102225)
+	libbsd CLONED_IN_PACKAGE unworkable
+libbsd CLONED_IN_SOURCE varnish
+		MATCH flopen.c/flopen.c (8.423981)
+	libbsd CLONED_IN_PACKAGE libvarnishapi-dev
+	libbsd CLONED_IN_PACKAGE varnish
+	libbsd CLONED_IN_PACKAGE libvarnishapi1
+	libbsd CLONED_IN_PACKAGE varnish-dbg
+	libbsd CLONED_IN_PACKAGE varnish-doc
+libbsd CLONED_IN_SOURCE wmii2
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+		MATCH strtonum.c/strtonum.c (7.102225)
+	libbsd CLONED_IN_PACKAGE wmii2
+libbsd CLONED_IN_SOURCE xine-ui
+		MATCH nlist.c/list.c (3.844128)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE xine-console
+	libbsd CLONED_IN_PACKAGE xine-ui
+	libbsd CLONED_IN_PACKAGE xine-dbg
+libbsd CLONED_IN_SOURCE xorg-server
+		MATCH nlist.c/xlist.c (8.711663)
+		MATCH setmode.c/setmode.c (7.864365)
+		MATCH strlcat.c/strlcat.c (5.332938)
+		MATCH strlcpy.c/strlcpy.c (4.890294)
+	libbsd CLONED_IN_PACKAGE xserver-xfbdev
+	libbsd CLONED_IN_PACKAGE xdmx-tools
+	libbsd CLONED_IN_PACKAGE xserver-xorg-core
+	libbsd CLONED_IN_PACKAGE xserver-common
+	libbsd CLONED_IN_PACKAGE xserver-xorg-dev
+	libbsd CLONED_IN_PACKAGE xdmx
+	libbsd CLONED_IN_PACKAGE xserver-xephyr
+	libbsd CLONED_IN_PACKAGE xserver-xorg-core-dbg
+	libbsd CLONED_IN_PACKAGE xvfb
+	libbsd CLONED_IN_PACKAGE xnest

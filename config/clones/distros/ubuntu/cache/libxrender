@@ -1,0 +1,33 @@
+libxrender CLONED_IN_SOURCE ia32-libs
+		MATCH addtrap.c/addtrap.c (9.117128)
+		MATCH color.c/color.c (4.600789)
+		MATCH composite.c/composite.c (6.552179)
+		MATCH cursor.c/cursor.c (5.065343)
+		MATCH fillrect.c/fillrct.c (8.711663)
+		MATCH fillrects.c/fillrcts.c (8.711663)
+		MATCH filter.c/filter.c (4.208157)
+		MATCH glyph.c/glyph.c (6.765753)
+		MATCH picture.c/picture.c (6.096703)
+		MATCH poly.c/poly.c (6.146714)
+		MATCH trap.c/trap.c (6.632221)
+		MATCH tri.c/tri.c (7.507690)
+		MATCH xrender.c/irender.c (8.018516)
+	libxrender CLONED_IN_PACKAGE ia32-libs
+libxrender CLONED_IN_SOURCE ksh
+		MATCH trap.c/trap.c (6.632221)
+	libxrender CLONED_IN_PACKAGE ksh
+libxrender CLONED_IN_SOURCE vnc4
+		MATCH color.c/color.c (4.600789)
+		MATCH composite.c/composite.c (6.552179)
+		MATCH cursor.c/cursor.c (5.065343)
+		MATCH fillrect.c/fillrct.c (8.711663)
+		MATCH fillrects.c/fillrcts.c (8.711663)
+		MATCH filter.c/filter.c (4.208157)
+		MATCH glyph.c/glyph.c (6.765753)
+		MATCH picture.c/picture.c (6.096703)
+		MATCH poly.c/poly.c (6.146714)
+		MATCH trap.c/trap.c (6.632221)
+		MATCH tri.c/tri.c (7.507690)
+		MATCH xrender.c/grender.c (9.810275)
+	libxrender CLONED_IN_PACKAGE xvnc4viewer
+	libxrender CLONED_IN_PACKAGE vnc4server

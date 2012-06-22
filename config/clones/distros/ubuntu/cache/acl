@@ -1,0 +1,20 @@
+acl CLONED_IN_SOURCE attr
+		MATCH highwateralloc.c/highwateralloc.c (9.117128)
+		MATCH nextline.c/nextline.c (8.711663)
+		MATCH quote.c/quote.c (5.898252)
+		MATCH unquote.c/unquote.c (9.117128)
+		MATCH walktree.c/walktree.c (9.117128)
+	acl CLONED_IN_PACKAGE attr
+	acl CLONED_IN_PACKAGE libattr1-dev
+	acl CLONED_IN_PACKAGE libattr1
+acl CLONED_IN_SOURCE ia32-libs
+		MATCH aclentries.c/aclentries.c (8.018516)
+		MATCH aclerror.c/alerror.c (9.117128)
+		MATCH copyacl.c/copyacl.c (8.018516)
+		MATCH parse.c/cparse.c (7.730834)
+		MATCH quote.c/quote.c (5.898252)
+		MATCH sequence.c/gsequence.c (8.711663)
+		MATCH setacl.c/secacl.c (8.711663)
+		MATCH usergroup.c/usergroup.c (8.423981)
+		MATCH walktree.c/walkrtree.c (8.711663)
+	acl CLONED_IN_PACKAGE ia32-libs

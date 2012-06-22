@@ -1,0 +1,35 @@
+uudeview CLONED_IN_SOURCE dnprogs
+		MATCH fptools.c/fptools.c (8.423981)
+		MATCH uucheck.c/uucheck.c (8.423981)
+		MATCH uuencode.c/uuencode.c (6.719233)
+		MATCH uulib.c/uulib.c (8.423981)
+		MATCH uunconc.c/uunconc.c (8.423981)
+		MATCH uuscan.c/uuscan.c (8.423981)
+		MATCH uustring.c/uustring.c (8.423981)
+		MATCH uuutil.c/uuutil.c (8.423981)
+	uudeview CLONED_IN_PACKAGE dnet-common
+	uudeview CLONED_IN_PACKAGE dnet-progs
+	uudeview CLONED_IN_PACKAGE libdnet
+	uudeview CLONED_IN_PACKAGE libdnet-dev
+uudeview CLONED_IN_SOURCE libconvert-uulib-perl
+		MATCH crc.c/crc.c (4.073703)
+		MATCH fptools.c/fptools.c (8.423981)
+		MATCH uucheck.c/uucheck.c (8.423981)
+		MATCH uuencode.c/uuencode.c (6.719233)
+		MATCH uulib.c/uulib.c (8.423981)
+		MATCH uunconc.c/uunconc.c (8.423981)
+		MATCH uuscan.c/uuscan.c (8.423981)
+		MATCH uustring.c/uustring.c (8.423981)
+		MATCH uuutil.c/uuutil.c (8.423981)
+	uudeview CLONED_IN_PACKAGE libconvert-uulib-perl
+uudeview CLONED_IN_SOURCE pan
+		MATCH crc.c/crc.c (4.073703)
+		MATCH fptools.c/fptools.c (8.423981)
+		MATCH uucheck.c/uucheck.c (8.423981)
+		MATCH uuencode.c/uuencode.c (6.719233)
+		MATCH uulib.c/uulib.c (8.423981)
+		MATCH uunconc.c/uunconc.c (8.423981)
+		MATCH uuscan.c/uuscan.c (8.423981)
+		MATCH uustring.c/uustring.c (8.423981)
+		MATCH uuutil.c/uuutil.c (8.423981)
+	uudeview CLONED_IN_PACKAGE pan

@@ -1,0 +1,501 @@
+prototypejs CLONED_IN_SOURCE activeldap
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE libactiveldap-ruby-doc
+	prototypejs CLONED_IN_PACKAGE libactiveldap-ruby1.8
+	prototypejs CLONED_IN_PACKAGE libactiveldap-ruby
+prototypejs CLONED_IN_SOURCE activemq
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE libactivemq-java-doc
+	prototypejs CLONED_IN_PACKAGE activemq
+	prototypejs CLONED_IN_PACKAGE libactivemq-java
+prototypejs CLONED_IN_SOURCE ampache
+	prototypejs CLONED_IN_PACKAGE ampache
+prototypejs CLONED_IN_SOURCE asterisk
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE asterisk-mysql
+	prototypejs CLONED_IN_PACKAGE asterisk-mobile
+	prototypejs CLONED_IN_PACKAGE asterisk
+	prototypejs CLONED_IN_PACKAGE asterisk-voicemail-imapstorage
+	prototypejs CLONED_IN_PACKAGE asterisk-ooh323
+	prototypejs CLONED_IN_PACKAGE asterisk-dbg
+	prototypejs CLONED_IN_PACKAGE asterisk-dev
+	prototypejs CLONED_IN_PACKAGE asterisk-doc
+	prototypejs CLONED_IN_PACKAGE asterisk-h323
+	prototypejs CLONED_IN_PACKAGE asterisk-mp3
+	prototypejs CLONED_IN_PACKAGE asterisk-dahdi
+	prototypejs CLONED_IN_PACKAGE asterisk-modules
+	prototypejs CLONED_IN_PACKAGE asterisk-voicemail-odbcstorage
+	prototypejs CLONED_IN_PACKAGE asterisk-voicemail
+	prototypejs CLONED_IN_PACKAGE asterisk-config
+prototypejs CLONED_IN_SOURCE audacious
+	prototypejs CLONED_IN_PACKAGE audacious
+	prototypejs CLONED_IN_PACKAGE libaudclient2
+	prototypejs CLONED_IN_PACKAGE libaudcore1
+	prototypejs CLONED_IN_PACKAGE audacious-dbg
+	prototypejs CLONED_IN_PACKAGE audacious-dev
+prototypejs CLONED_IN_SOURCE auth2db
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE auth2db
+	prototypejs CLONED_IN_PACKAGE auth2db-common
+	prototypejs CLONED_IN_PACKAGE auth2db-filters
+	prototypejs CLONED_IN_PACKAGE auth2db-frontend
+prototypejs CLONED_IN_SOURCE choqok
+	prototypejs CLONED_IN_PACKAGE choqok
+prototypejs CLONED_IN_SOURCE collabtive
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE collabtive
+prototypejs CLONED_IN_SOURCE convirt
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE convirt
+prototypejs CLONED_IN_SOURCE coq-doc
+	prototypejs CLONED_IN_PACKAGE coq-doc-pdf
+	prototypejs CLONED_IN_PACKAGE coq-doc
+	prototypejs CLONED_IN_PACKAGE coq-doc-html
+prototypejs CLONED_IN_SOURCE debian-timeline
+	prototypejs CLONED_IN_PACKAGE debian-timeline
+prototypejs CLONED_IN_SOURCE debtags
+	prototypejs CLONED_IN_PACKAGE debtags
+prototypejs CLONED_IN_SOURCE dosbox
+	prototypejs CLONED_IN_PACKAGE dosbox
+prototypejs CLONED_IN_SOURCE duma
+	prototypejs CLONED_IN_PACKAGE duma
+prototypejs CLONED_IN_SOURCE efte
+	prototypejs CLONED_IN_PACKAGE efte
+prototypejs CLONED_IN_SOURCE etckeeper
+	prototypejs CLONED_IN_PACKAGE etckeeper
+prototypejs CLONED_IN_SOURCE fbb
+	prototypejs CLONED_IN_PACKAGE fbb
+prototypejs CLONED_IN_SOURCE fookebox
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE fookebox
+prototypejs CLONED_IN_SOURCE fusionforge
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE gforge-plugin-mediawiki
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-scmdarcs
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-gravatar
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-hudson
+	prototypejs CLONED_IN_PACKAGE gforge-mta-exim4
+	prototypejs CLONED_IN_PACKAGE gforge-plugin-globalsearch
+	prototypejs CLONED_IN_PACKAGE gforge
+	prototypejs CLONED_IN_PACKAGE gforge-mta-courier
+	prototypejs CLONED_IN_PACKAGE gforge-common
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-oslc
+	prototypejs CLONED_IN_PACKAGE fusionforge-minimal
+	prototypejs CLONED_IN_PACKAGE gforge-web-apache2-vhosts
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-globalsearch
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-projectlabels
+	prototypejs CLONED_IN_PACKAGE gforge-web-apache
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-contribtracker
+	prototypejs CLONED_IN_PACKAGE gforge-web-apache2
+	prototypejs CLONED_IN_PACKAGE gforge-shell-postgresql
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-extratabs
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-scmbzr
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-scmcvs
+	prototypejs CLONED_IN_PACKAGE gforge-lists-mailman
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-scmgit
+	prototypejs CLONED_IN_PACKAGE gforge-ftp-proftpd
+	prototypejs CLONED_IN_PACKAGE gforge-mta-postfix
+	prototypejs CLONED_IN_PACKAGE gforge-dns-bind9
+	prototypejs CLONED_IN_PACKAGE gforge-plugin-extratabs
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-scmsvn
+	prototypejs CLONED_IN_PACKAGE fusionforge-full
+	prototypejs CLONED_IN_PACKAGE gforge-db-postgresql
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-mediawiki
+	prototypejs CLONED_IN_PACKAGE gforge-plugin-projectlabels
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-scmhg
+	prototypejs CLONED_IN_PACKAGE gforge-plugin-scmgit
+	prototypejs CLONED_IN_PACKAGE fusionforge-standard
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-scmarch
+	prototypejs CLONED_IN_PACKAGE fusionforge-plugin-blocks
+prototypejs CLONED_IN_SOURCE fusioninventory-for-glpi
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE fusioninventory-for-glpi
+prototypejs CLONED_IN_SOURCE gbrowse
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE gbrowse
+	prototypejs CLONED_IN_PACKAGE gbrowse-data
+	prototypejs CLONED_IN_PACKAGE gbrowse-calign
+prototypejs CLONED_IN_SOURCE git-cola
+	prototypejs CLONED_IN_PACKAGE git-cola
+prototypejs CLONED_IN_SOURCE gmtp
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE gmtp
+prototypejs CLONED_IN_SOURCE gollem
+	prototypejs CLONED_IN_PACKAGE gollem
+prototypejs CLONED_IN_SOURCE gosa
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-sudo-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-ssh-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-systems
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-rolemanagement
+	prototypejs CLONED_IN_PACKAGE gosa-desktop
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-fai
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-mit-krb5-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-dns
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-kolab
+	prototypejs CLONED_IN_PACKAGE smarty3-gettext
+	prototypejs CLONED_IN_PACKAGE gosa-dev
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-webdav
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-phpgw-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-phpscheduleit
+	prototypejs CLONED_IN_PACKAGE gosa-schema
+	prototypejs CLONED_IN_PACKAGE gosa-help-de
+	prototypejs CLONED_IN_PACKAGE gosa-help-en
+	prototypejs CLONED_IN_PACKAGE gosa-help-fr
+	prototypejs CLONED_IN_PACKAGE gosa-help-nl
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-opsi
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-ssh
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-netatalk
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-phpgw
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-pptp
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-nagios-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-rsyslog
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-pptp-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-dhcp-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-uw-imap
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-dhcp
+	prototypejs CLONED_IN_PACKAGE smarty3-gosa
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-phpscheduleit-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-sudo
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-openxchange
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-dns-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-openxchange-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-scalix
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-samba
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-pureftpd
+	prototypejs CLONED_IN_PACKAGE gosa
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-squid
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-pureftpd-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-goto
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-kolab-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-fai-schema
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-gofax
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-ldapmanager
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-gofon
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-connectivity
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-opengroupware
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-mit-krb5
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-nagios
+	prototypejs CLONED_IN_PACKAGE gosa-plugin-mail
+prototypejs CLONED_IN_SOURCE hivex
+	prototypejs CLONED_IN_PACKAGE libhivex0-dbg
+	prototypejs CLONED_IN_PACKAGE libhivex-ocaml
+	prototypejs CLONED_IN_PACKAGE libwin-hivex-perl
+	prototypejs CLONED_IN_PACKAGE python-hivex
+	prototypejs CLONED_IN_PACKAGE libhivex0
+	prototypejs CLONED_IN_PACKAGE libhivex-bin
+	prototypejs CLONED_IN_PACKAGE libhivex-dev
+	prototypejs CLONED_IN_PACKAGE libhivex-ocaml-dev
+prototypejs CLONED_IN_SOURCE hobix
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE hobix
+prototypejs CLONED_IN_SOURCE horae
+	prototypejs CLONED_IN_PACKAGE horae
+prototypejs CLONED_IN_SOURCE horde3
+	prototypejs CLONED_IN_PACKAGE horde3
+	prototypejs CLONED_IN_PACKAGE pear-horde-channel
+prototypejs CLONED_IN_SOURCE initramfs-tools
+	prototypejs CLONED_IN_PACKAGE initramfs-tools
+	prototypejs CLONED_IN_PACKAGE initramfs-tools-bin
+prototypejs CLONED_IN_SOURCE jclicmoodle
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE jclicmoodle
+prototypejs CLONED_IN_SOURCE jenkins
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE jenkins-tomcat
+	prototypejs CLONED_IN_PACKAGE jenkins-cli
+	prototypejs CLONED_IN_PACKAGE libjenkins-java
+	prototypejs CLONED_IN_PACKAGE jenkins
+	prototypejs CLONED_IN_PACKAGE jenkins-external-job-monitor
+	prototypejs CLONED_IN_PACKAGE libjenkins-plugin-parent-java
+	prototypejs CLONED_IN_PACKAGE jenkins-slave
+	prototypejs CLONED_IN_PACKAGE jenkins-common
+prototypejs CLONED_IN_SOURCE jifty
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE jifty
+	prototypejs CLONED_IN_PACKAGE libjifty-perl
+prototypejs CLONED_IN_SOURCE jquery
+	prototypejs CLONED_IN_PACKAGE libjs-jquery
+prototypejs CLONED_IN_SOURCE jruby
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE jruby
+prototypejs CLONED_IN_SOURCE jscropperui
+	prototypejs CLONED_IN_PACKAGE libjs-cropper
+prototypejs CLONED_IN_SOURCE knowledgeroot
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE knowledgeroot
+prototypejs CLONED_IN_SOURCE kronolith2
+	prototypejs CLONED_IN_PACKAGE kronolith2
+prototypejs CLONED_IN_SOURCE libaws
+	prototypejs CLONED_IN_PACKAGE libaws2.7-dev
+	prototypejs CLONED_IN_PACKAGE libaws-bin
+	prototypejs CLONED_IN_PACKAGE libaws-dbg
+	prototypejs CLONED_IN_PACKAGE libaws-doc
+	prototypejs CLONED_IN_PACKAGE libaws2.7
+prototypejs CLONED_IN_SOURCE libcgi-application-plugin-ajaxupload-perl
+	prototypejs CLONED_IN_PACKAGE libcgi-application-plugin-ajaxupload-perl
+prototypejs CLONED_IN_SOURCE libfile-dircompare-perl
+	prototypejs CLONED_IN_PACKAGE libfile-dircompare-perl
+prototypejs CLONED_IN_SOURCE libgettext-rails-ruby
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE libgettext-rails-ruby1.8
+	prototypejs CLONED_IN_PACKAGE libgettext-rails-ruby
+	prototypejs CLONED_IN_PACKAGE libgettext-rails-ruby-doc
+prototypejs CLONED_IN_SOURCE libgraphics-color-perl
+	prototypejs CLONED_IN_PACKAGE libgraphics-color-perl
+prototypejs CLONED_IN_SOURCE libhtml-tableextract-perl
+	prototypejs CLONED_IN_PACKAGE libhtml-tableextract-perl
+prototypejs CLONED_IN_SOURCE libipc-run3-perl
+	prototypejs CLONED_IN_PACKAGE libipc-run3-perl
+prototypejs CLONED_IN_SOURCE libisoburn
+	prototypejs CLONED_IN_PACKAGE libisoburn-dbg
+	prototypejs CLONED_IN_PACKAGE libisoburn-dev
+	prototypejs CLONED_IN_PACKAGE libisoburn-doc
+	prototypejs CLONED_IN_PACKAGE xorriso
+	prototypejs CLONED_IN_PACKAGE libisoburn1
+prototypejs CLONED_IN_SOURCE libjson-ruby
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE libjson-ruby1.8
+	prototypejs CLONED_IN_PACKAGE edit-json
+	prototypejs CLONED_IN_PACKAGE libjson-ruby
+	prototypejs CLONED_IN_PACKAGE libjson-ruby-doc
+prototypejs CLONED_IN_SOURCE liblocale-rails-ruby
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE liblocale-rails-ruby1.8
+	prototypejs CLONED_IN_PACKAGE liblocale-rails-ruby
+prototypejs CLONED_IN_SOURCE libopenid-ruby
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE libopenid-ruby
+	prototypejs CLONED_IN_PACKAGE libopenid-ruby1.8
+prototypejs CLONED_IN_SOURCE libtext-mediawikiformat-perl
+	prototypejs CLONED_IN_PACKAGE libtext-mediawikiformat-perl
+prototypejs CLONED_IN_SOURCE libtext-micromason-perl
+	prototypejs CLONED_IN_PACKAGE libtext-micromason-perl
+prototypejs CLONED_IN_SOURCE libv8
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE libv8-dbg
+	prototypejs CLONED_IN_PACKAGE libv8-dev
+	prototypejs CLONED_IN_PACKAGE libv8-3.1.8.22
+prototypejs CLONED_IN_SOURCE libxkbcommon
+	prototypejs CLONED_IN_PACKAGE libxkbcommon-dev
+	prototypejs CLONED_IN_PACKAGE libxkbcommon0
+prototypejs CLONED_IN_SOURCE libxpm
+	prototypejs CLONED_IN_PACKAGE libxpm4-dbg
+	prototypejs CLONED_IN_PACKAGE xpmutils
+	prototypejs CLONED_IN_PACKAGE libxpm4
+	prototypejs CLONED_IN_PACKAGE libxpm-dev
+prototypejs CLONED_IN_SOURCE libzrtpcpp
+	prototypejs CLONED_IN_PACKAGE libzrtpcpp-1.4-0
+	prototypejs CLONED_IN_PACKAGE libzrtpcpp-dev
+prototypejs CLONED_IN_SOURCE lucene2
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE liblucene2-java-doc
+	prototypejs CLONED_IN_PACKAGE liblucene2-java
+prototypejs CLONED_IN_SOURCE mantis
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE mantis
+prototypejs CLONED_IN_SOURCE mcollective
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE mcollective
+	prototypejs CLONED_IN_PACKAGE mcollective-doc
+	prototypejs CLONED_IN_PACKAGE mcollective-client
+	prototypejs CLONED_IN_PACKAGE mcollective-common
+	prototypejs CLONED_IN_PACKAGE mcollective-middleware
+prototypejs CLONED_IN_SOURCE mediatomb
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE mediatomb-daemon
+	prototypejs CLONED_IN_PACKAGE mediatomb
+	prototypejs CLONED_IN_PACKAGE mediatomb-common
+prototypejs CLONED_IN_SOURCE merb
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE libmerb-slices-ruby
+	prototypejs CLONED_IN_PACKAGE libmerb-helpers-ruby
+	prototypejs CLONED_IN_PACKAGE libmerb-ruby-doc
+	prototypejs CLONED_IN_PACKAGE libmerb-core-ruby
+	prototypejs CLONED_IN_PACKAGE libmerb-haml-ruby
+	prototypejs CLONED_IN_PACKAGE libmerb-core-ruby1.8
+	prototypejs CLONED_IN_PACKAGE merb-core
+	prototypejs CLONED_IN_PACKAGE merb-slices
+	prototypejs CLONED_IN_PACKAGE libmerb-slices-ruby1.8
+	prototypejs CLONED_IN_PACKAGE libmerb-helpers-ruby1.8
+	prototypejs CLONED_IN_PACKAGE libmerb-assets-ruby1.8
+	prototypejs CLONED_IN_PACKAGE libmerb-param-protection-ruby1.8
+	prototypejs CLONED_IN_PACKAGE libmerb-haml-ruby1.8
+	prototypejs CLONED_IN_PACKAGE libmerb-assets-ruby
+	prototypejs CLONED_IN_PACKAGE libmerb-param-protection-ruby
+prototypejs CLONED_IN_SOURCE mlpost
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE mlpost
+	prototypejs CLONED_IN_PACKAGE libmlpost-ocaml-dev
+	prototypejs CLONED_IN_PACKAGE libmlpost-ocaml-doc
+prototypejs CLONED_IN_SOURCE mythtv
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE mythtv-database
+	prototypejs CLONED_IN_PACKAGE mythmusic
+	prototypejs CLONED_IN_PACKAGE mythtv
+	prototypejs CLONED_IN_PACKAGE mytharchive
+	prototypejs CLONED_IN_PACKAGE mythbrowser
+	prototypejs CLONED_IN_PACKAGE libmyth-dev
+	prototypejs CLONED_IN_PACKAGE mythtv-themes
+	prototypejs CLONED_IN_PACKAGE mythtv-theme-metallurgy
+	prototypejs CLONED_IN_PACKAGE mythplugins
+	prototypejs CLONED_IN_PACKAGE mythgallery
+	prototypejs CLONED_IN_PACKAGE mythgame
+	prototypejs CLONED_IN_PACKAGE libmyth-python
+	prototypejs CLONED_IN_PACKAGE mythtv-common
+	prototypejs CLONED_IN_PACKAGE mythweb
+	prototypejs CLONED_IN_PACKAGE mythtv-theme-childish
+	prototypejs CLONED_IN_PACKAGE mythtv-backend
+	prototypejs CLONED_IN_PACKAGE mythtv-theme-graphite
+	prototypejs CLONED_IN_PACKAGE mythtv-dbg
+	prototypejs CLONED_IN_PACKAGE mythtv-doc
+	prototypejs CLONED_IN_PACKAGE mythnetvision
+	prototypejs CLONED_IN_PACKAGE libmythtv-perl
+	prototypejs CLONED_IN_PACKAGE mythtv-backend-master
+	prototypejs CLONED_IN_PACKAGE mythtv-theme-arclight
+	prototypejs CLONED_IN_PACKAGE mythweather
+	prototypejs CLONED_IN_PACKAGE mythvideo
+	prototypejs CLONED_IN_PACKAGE mythtv-frontend
+	prototypejs CLONED_IN_PACKAGE mythtv-theme-mythbuntu
+	prototypejs CLONED_IN_PACKAGE libmyth-0.24-0
+	prototypejs CLONED_IN_PACKAGE mythzoneminder
+	prototypejs CLONED_IN_PACKAGE mythnews
+	prototypejs CLONED_IN_PACKAGE mythtv-transcode-utils
+prototypejs CLONED_IN_SOURCE octopussy
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE octopussy
+prototypejs CLONED_IN_SOURCE otrs2
+	prototypejs CLONED_IN_PACKAGE otrs
+	prototypejs CLONED_IN_PACKAGE otrs2
+prototypejs CLONED_IN_SOURCE piwigo
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE piwigo-pgsql
+	prototypejs CLONED_IN_PACKAGE piwigo-mysql
+	prototypejs CLONED_IN_PACKAGE piwigo-sqlite
+	prototypejs CLONED_IN_PACKAGE piwigo
+prototypejs CLONED_IN_SOURCE pkgbinarymangler
+	prototypejs CLONED_IN_PACKAGE dh-translations
+	prototypejs CLONED_IN_PACKAGE pkgbinarymangler
+prototypejs CLONED_IN_SOURCE poker-network
+	prototypejs CLONED_IN_PACKAGE poker-web
+	prototypejs CLONED_IN_PACKAGE python-poker2d
+	prototypejs CLONED_IN_PACKAGE python-poker-prizes
+	prototypejs CLONED_IN_PACKAGE python-poker-network
+	prototypejs CLONED_IN_PACKAGE python-poker-stats
+prototypejs CLONED_IN_SOURCE pydhcplib
+	prototypejs CLONED_IN_PACKAGE python-pydhcplib
+prototypejs CLONED_IN_SOURCE pylucene
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE pylucene
+prototypejs CLONED_IN_SOURCE python-django-debug-toolbar
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE python-django-debug-toolbar
+prototypejs CLONED_IN_SOURCE qtractor
+	prototypejs CLONED_IN_PACKAGE qtractor
+	prototypejs CLONED_IN_PACKAGE qtractor-dbg
+prototypejs CLONED_IN_SOURCE rabbit
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE rabbit
+	prototypejs CLONED_IN_PACKAGE rabbit-mode
+prototypejs CLONED_IN_SOURCE radiotray
+	prototypejs CLONED_IN_PACKAGE radiotray
+prototypejs CLONED_IN_SOURCE raidutils
+	prototypejs CLONED_IN_PACKAGE dpt-i2o-raidutils
+	prototypejs CLONED_IN_PACKAGE raidutils
+prototypejs CLONED_IN_SOURCE redmine
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE redmine-mysql
+	prototypejs CLONED_IN_PACKAGE redmine
+	prototypejs CLONED_IN_PACKAGE redmine-sqlite
+	prototypejs CLONED_IN_PACKAGE redmine-pgsql
+prototypejs CLONED_IN_SOURCE request-tracker3.8
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE rt3.8-apache2
+	prototypejs CLONED_IN_PACKAGE rt3.8-db-mysql
+	prototypejs CLONED_IN_PACKAGE request-tracker3.8
+	prototypejs CLONED_IN_PACKAGE rt3.8-db-sqlite
+	prototypejs CLONED_IN_PACKAGE rt3.8-db-postgresql
+	prototypejs CLONED_IN_PACKAGE rt3.8-clients
+prototypejs CLONED_IN_SOURCE rt-extension-emailcompletion
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE rt3.8-extension-emailcompletion
+prototypejs CLONED_IN_SOURCE ruby-actionpack-2.3
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE ruby-actionpack-2.3
+prototypejs CLONED_IN_SOURCE ruby-json
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE ruby-json
+prototypejs CLONED_IN_SOURCE ruby-json-pure
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE ruby-json-pure
+prototypejs CLONED_IN_SOURCE ruby-rails-2.3
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE ruby-rails-2.3
+prototypejs CLONED_IN_SOURCE ruby-shoulda-matchers
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE ruby-shoulda-matchers
+prototypejs CLONED_IN_SOURCE scriptaculous
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE libjs-scriptaculous
+prototypejs CLONED_IN_SOURCE smokeping
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE smokeping
+prototypejs CLONED_IN_SOURCE stapler
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE libstapler-java
+	prototypejs CLONED_IN_PACKAGE libstapler-java-doc
+prototypejs CLONED_IN_SOURCE syscp
+	prototypejs CLONED_IN_PACKAGE syscp
+prototypejs CLONED_IN_SOURCE thin
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE thin1.8
+	prototypejs CLONED_IN_PACKAGE thin
+prototypejs CLONED_IN_SOURCE typo3-src
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE typo3-dummy
+	prototypejs CLONED_IN_PACKAGE typo3
+	prototypejs CLONED_IN_PACKAGE typo3-database
+	prototypejs CLONED_IN_PACKAGE typo3-src-4.5
+prototypejs CLONED_IN_SOURCE unison
+	prototypejs CLONED_IN_PACKAGE unison
+	prototypejs CLONED_IN_PACKAGE unison-gtk
+prototypejs CLONED_IN_SOURCE v4l2ucp
+	prototypejs CLONED_IN_PACKAGE v4l2ucp
+prototypejs CLONED_IN_SOURCE webcit
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE citadel-webcit
+	prototypejs CLONED_IN_PACKAGE webcit-dbg
+	prototypejs CLONED_IN_PACKAGE citadel-suite
+prototypejs CLONED_IN_SOURCE wims
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE flydraw
+	prototypejs CLONED_IN_PACKAGE wims-modules
+	prototypejs CLONED_IN_PACKAGE wims
+prototypejs CLONED_IN_SOURCE wordpress
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE wordpress-l10n
+	prototypejs CLONED_IN_PACKAGE wordpress
+prototypejs CLONED_IN_SOURCE xneur
+	prototypejs CLONED_IN_PACKAGE libxneur
+	prototypejs CLONED_IN_PACKAGE libxneur-dev
+	prototypejs CLONED_IN_PACKAGE xneur-dbg
+	prototypejs CLONED_IN_PACKAGE xneur
+prototypejs CLONED_IN_SOURCE xplanet
+	prototypejs CLONED_IN_PACKAGE xplanet
+	prototypejs CLONED_IN_PACKAGE xplanet-images
+prototypejs CLONED_IN_SOURCE zabbix
+		MATCH prototype.js/prototype.js (5.802942)
+	prototypejs CLONED_IN_PACKAGE zabbix-server-mysql
+	prototypejs CLONED_IN_PACKAGE zabbix-proxy-pgsql
+	prototypejs CLONED_IN_PACKAGE zabbix-agent
+	prototypejs CLONED_IN_PACKAGE zabbix-frontend-php
+	prototypejs CLONED_IN_PACKAGE zabbix-proxy-mysql
+	prototypejs CLONED_IN_PACKAGE zabbix-server-pgsql
+prototypejs CLONED_IN_SOURCE zgv
+	prototypejs CLONED_IN_PACKAGE zgv
+prototypejs CLONED_IN_SOURCE zope.app.renderer
+	prototypejs CLONED_IN_PACKAGE python-zope.app.renderer
+prototypejs CLONED_IN_SOURCE zope.password
+	prototypejs CLONED_IN_PACKAGE python-zope.password
+prototypejs CLONED_IN_SOURCE zope.session
+	prototypejs CLONED_IN_PACKAGE python-zope.session

@@ -1,0 +1,11 @@
+squirrelmail CLONED_IN_SOURCE wordpress
+		MATCH classpop.php/classpop.php (8.018516)
+		MATCH functions.php/functions.php (6.283915)
+		MATCH image.php/image.php (6.674781)
+		MATCH index.php/index.php (4.656983)
+		MATCH options.php/options.php (7.325368)
+		MATCH plugin.php/plugin.php (7.102225)
+		MATCH search.php/search.php (6.026085)
+		MATCH strings.php/string.php (7.325368)
+	squirrelmail CLONED_IN_PACKAGE wordpress-l10n
+	squirrelmail CLONED_IN_PACKAGE wordpress

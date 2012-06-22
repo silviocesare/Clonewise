@@ -1,0 +1,16 @@
+libept CLONED_IN_SOURCE adept
+		MATCH apt.c/apt.c (8.423981)
+		MATCH debdbparser.c/debdbparser.c (9.117128)
+		MATCH debtags.c/debtags.c (8.711663)
+		MATCH local.c/local.c (5.667140)
+		MATCH packagerecord.c/packagerecord.c (9.117128)
+		MATCH path.c/path.c (4.686311)
+		MATCH popcon.c/popcon.c (9.117128)
+		MATCH popconindexer.c/popconindexer.c (9.117128)
+		MATCH progresscallback.c/progresscallback.c (9.117128)
+		MATCH recordparser.c/recordparser.c (8.711663)
+		MATCH sourcedir.c/sourcedir.c (9.117128)
+		MATCH test.c/test.c (3.518706)
+		MATCH version.c/version.c (3.674710)
+		MATCH vocabulary.c/vocabulary.c (8.423981)
+	libept CLONED_IN_PACKAGE adept

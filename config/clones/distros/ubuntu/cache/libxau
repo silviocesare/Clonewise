@@ -1,0 +1,35 @@
+libxau CLONED_IN_SOURCE ia32-libs
+		MATCH audispose.c/audispose.c (8.423981)
+		MATCH aufilename.c/aufilename.c (8.423981)
+		MATCH augetaddr.c/augetaddr.c (8.423981)
+		MATCH augetbest.c/augetbest.c (8.200837)
+		MATCH aulock.c/alock.c (8.423981)
+		MATCH auread.c/auread.c (8.423981)
+		MATCH autest.c/aatest.c (8.711663)
+		MATCH auunlock.c/auunlock.c (8.423981)
+		MATCH auwrite.c/auwrite.c (8.423981)
+	libxau CLONED_IN_PACKAGE ia32-libs
+libxau CLONED_IN_SOURCE tightvnc
+		MATCH audispose.c/audispose.c (8.423981)
+		MATCH aufilename.c/aufilename.c (8.423981)
+		MATCH augetaddr.c/augetaddr.c (8.423981)
+		MATCH augetbest.c/augetbest.c (8.200837)
+		MATCH aulock.c/aulock.c (8.423981)
+		MATCH auread.c/auread.c (8.423981)
+		MATCH autest.c/autest.c (8.423981)
+		MATCH auunlock.c/auunlock.c (8.423981)
+		MATCH auwrite.c/auwrite.c (8.423981)
+	libxau CLONED_IN_PACKAGE tightvncserver
+	libxau CLONED_IN_PACKAGE xtightvncviewer
+libxau CLONED_IN_SOURCE vnc4
+		MATCH audispose.c/audispose.c (8.423981)
+		MATCH aufilename.c/aufilename.c (8.423981)
+		MATCH augetaddr.c/augetaddr.c (8.423981)
+		MATCH augetbest.c/augetbest.c (8.200837)
+		MATCH aulock.c/aulock.c (8.423981)
+		MATCH auread.c/auread.c (8.423981)
+		MATCH autest.c/autest.c (8.423981)
+		MATCH auunlock.c/auunlock.c (8.423981)
+		MATCH auwrite.c/auwrite.c (8.423981)
+	libxau CLONED_IN_PACKAGE xvnc4viewer
+	libxau CLONED_IN_PACKAGE vnc4server

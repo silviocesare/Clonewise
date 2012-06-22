@@ -1,0 +1,13 @@
+libxxf86vm CLONED_IN_SOURCE ia32-libs
+		MATCH xfvmode.c/xfvmode.c (8.018516)
+	libxxf86vm CLONED_IN_PACKAGE ia32-libs
+libxxf86vm CLONED_IN_SOURCE libsdl1.2
+		MATCH xfvmode.c/xfvmode.c (8.018516)
+	libxxf86vm CLONED_IN_PACKAGE libsdl1.2debian-oss
+	libxxf86vm CLONED_IN_PACKAGE libsdl1.2debian-alsa
+	libxxf86vm CLONED_IN_PACKAGE libsdl1.2-dev
+	libxxf86vm CLONED_IN_PACKAGE libsdl1.2debian
+	libxxf86vm CLONED_IN_PACKAGE libsdl1.2debian-pulseaudio
+	libxxf86vm CLONED_IN_PACKAGE libsdl1.2debian-all
+	libxxf86vm CLONED_IN_PACKAGE libsdl1.2debian-esd
+	libxxf86vm CLONED_IN_PACKAGE libsdl1.2debian-nas

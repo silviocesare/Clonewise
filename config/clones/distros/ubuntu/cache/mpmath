@@ -1,0 +1,209 @@
+mpmath CLONED_IN_SOURCE calibre
+		MATCH backend.py/backend.py (6.376288)
+		MATCH conf.py/conf.py (4.416647)
+		MATCH functions.py/functions.py (6.632221)
+		MATCH init.py/init.py (2.310852)
+		MATCH math.py/math.py (6.977062)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH zeta.py/meta.py (6.591399)
+	mpmath CLONED_IN_PACKAGE calibre-bin
+	mpmath CLONED_IN_PACKAGE calibre
+mpmath CLONED_IN_SOURCE connectomeviewer
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE connectomeviewer
+mpmath CLONED_IN_SOURCE ipython
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH math.py/path.py (6.226756)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE ipython
+mpmath CLONED_IN_SOURCE joblib
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-joblib
+mpmath CLONED_IN_SOURCE kaa-metadata
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-kaa-metadata
+mpmath CLONED_IN_SOURCE mayavi2
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH runtests.py/runtests.py (5.165884)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE mayavi2
+mpmath CLONED_IN_SOURCE migrate
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-migrate
+mpmath CLONED_IN_SOURCE moovida
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH math.py/path.py (6.226756)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-moovida
+	mpmath CLONED_IN_PACKAGE elisa
+	mpmath CLONED_IN_PACKAGE moovida
+mpmath CLONED_IN_SOURCE paste
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-paste
+mpmath CLONED_IN_SOURCE pebl
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-pebl
+	mpmath CLONED_IN_PACKAGE python-pebl-dbg
+	mpmath CLONED_IN_PACKAGE python-pebl-doc
+mpmath CLONED_IN_SOURCE python-apptools
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH testpickle.py/testspickle.py (9.810275)
+	mpmath CLONED_IN_PACKAGE python-apptools
+mpmath CLONED_IN_SOURCE python-chaco
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-chaco
+mpmath CLONED_IN_SOURCE python-enable
+		MATCH conf.py/conf.py (4.416647)
+		MATCH ellipe.py/ellipse.py (7.613050)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH testconvert.py/tstconvert.py (9.810275)
+	mpmath CLONED_IN_PACKAGE python-enable
+mpmath CLONED_IN_SOURCE python-envisage
+		MATCH conf.py/conf.py (4.416647)
+		MATCH functions.py/function.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-envisage
+mpmath CLONED_IN_SOURCE python-pyface
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-pyface
+mpmath CLONED_IN_SOURCE python-scrapy
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-scrapy-doc
+	mpmath CLONED_IN_PACKAGE python-scrapy
+mpmath CLONED_IN_SOURCE python-tgext.admin
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-tgext.admin
+mpmath CLONED_IN_SOURCE python-traitsbackendqt
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-traitsbackendqt
+mpmath CLONED_IN_SOURCE python-traitsgui
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-traitsgui
+mpmath CLONED_IN_SOURCE python-traitsui
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE python-traitsui
+mpmath CLONED_IN_SOURCE sympy
+		MATCH approximation.py/approximation.py (9.117128)
+		MATCH backend.py/backend.py (6.376288)
+		MATCH calculus.py/calculus.py (9.117128)
+		MATCH conf.py/conf.py (4.416647)
+		MATCH conftest.py/conftest.py (6.674781)
+		MATCH ctxbase.py/ctxbase.py (9.117128)
+		MATCH ctxfp.py/ctxfp.py (9.117128)
+		MATCH ctxmppython.py/ctxmppython.py (9.117128)
+		MATCH differentiation.py/differentiation.py (8.711663)
+		MATCH elefun.py/elefun.py (9.117128)
+		MATCH ellipe.py/ellipse.py (7.613050)
+		MATCH elliptic.py/elliptic.py (9.117128)
+		MATCH extrapolation.py/extrapolation.py (9.117128)
+		MATCH factorials.py/factorials.py (9.117128)
+		MATCH functiondocs.py/functiondocs.py (9.117128)
+		MATCH functions.py/function.py (6.919903)
+		MATCH gammazeta.py/gammazeta.py (9.117128)
+		MATCH hyper.py/hyper.py (9.117128)
+		MATCH hypergeometric.py/hypergeometric.py (9.117128)
+		MATCH identification.py/identification.py (8.711663)
+		MATCH init.py/init.py (2.310852)
+		MATCH intmath.py/intmath.py (9.117128)
+		MATCH linalg.py/linalg.py (8.711663)
+		MATCH math.py/math.py (6.977062)
+		MATCH matrices.py/matrices.py (9.117128)
+		MATCH mpc.py/mpc.py (7.864365)
+		MATCH mpf.py/mpf.py (9.117128)
+		MATCH mpi.py/mpi.py (7.864365)
+		MATCH odes.py/ode.py (9.117128)
+		MATCH optimization.py/optimization.py (8.711663)
+		MATCH pidigits.py/pidigits.py (9.117128)
+		MATCH plotting.py/plotting.py (8.711663)
+		MATCH polynomials.py/polynomial.py (8.711663)
+		MATCH qfunctions.py/functions.py (6.632221)
+		MATCH quadrature.py/quadrature.py (8.200837)
+		MATCH rational.py/rational.py (8.018516)
+		MATCH rszeta.py/rszeta.py (9.117128)
+		MATCH runtests.py/runtests.py (5.165884)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH testbasicops.py/testbasicops.py (9.117128)
+		MATCH testbitwise.py/testbitwise.py (9.117128)
+		MATCH testcalculus.py/testcalculus.py (9.117128)
+		MATCH testcompatibility.py/testcompatibility.py (9.117128)
+		MATCH testconvert.py/testconvert.py (8.200837)
+		MATCH testdiff.py/testdiff.py (7.507690)
+		MATCH testdivision.py/testdivision.py (9.117128)
+		MATCH testelliptic.py/testelliptic.py (9.117128)
+		MATCH testfp.py/testfp.py (9.117128)
+		MATCH testfunctions.py/testfunctions.py (7.613050)
+		MATCH testgammazeta.py/testgammazeta.py (9.117128)
+		MATCH testidentify.py/testidentify.py (8.711663)
+		MATCH testinterval.py/testinterval.py (8.711663)
+		MATCH testlinalg.py/testlinalg.py (8.423981)
+		MATCH testmatrices.py/testmatrices.py (9.117128)
+		MATCH testmpmath.py/testmpmath.py (8.711663)
+		MATCH testode.py/testode.py (8.711663)
+		MATCH testpickle.py/testpickle.py (7.171218)
+		MATCH testpower.py/testpower.py (9.117128)
+		MATCH testquad.py/testquad.py (8.711663)
+		MATCH testrootfinding.py/testrootfinding.py (9.117128)
+		MATCH testspecial.py/testspecial.py (8.423981)
+		MATCH teststr.py/teststr.py (8.200837)
+		MATCH testsummation.py/testsummation.py (9.117128)
+		MATCH testtrig.py/testtrig.py (9.117128)
+		MATCH testvisualization.py/testvisualization.py (9.117128)
+		MATCH torture.py/torture.py (8.423981)
+		MATCH usertools.py/usertools.py (9.117128)
+		MATCH visualization.py/visualization.py (9.117128)
+		MATCH zeta.py/zeta.py (9.117128)
+	mpmath CLONED_IN_PACKAGE python-sympy
+mpmath CLONED_IN_SOURCE tilecache
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE tilecache
+mpmath CLONED_IN_SOURCE tortoisehg
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE tortoisehg-nautilus
+	mpmath CLONED_IN_PACKAGE tortoisehg
+mpmath CLONED_IN_SOURCE trac
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	mpmath CLONED_IN_PACKAGE trac
+mpmath CLONED_IN_SOURCE zeitgeist
+		MATCH conf.py/conf.py (4.416647)
+		MATCH init.py/init.py (2.310852)
+	mpmath CLONED_IN_PACKAGE zeitgeist
+	mpmath CLONED_IN_PACKAGE zeitgeist-core

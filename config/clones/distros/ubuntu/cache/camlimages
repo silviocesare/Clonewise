@@ -1,0 +1,5 @@
+camlimages CLONED_IN_SOURCE advi
+		MATCH geometry.ml/ageometry.ml (9.810275)
+		MATCH geometry.mli/ageometry.mli (9.810275)
+	camlimages CLONED_IN_PACKAGE advi
+	camlimages CLONED_IN_PACKAGE advi-examples

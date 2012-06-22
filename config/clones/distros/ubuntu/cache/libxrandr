@@ -1,0 +1,9 @@
+libxrandr CLONED_IN_SOURCE ia32-libs
+		MATCH xrandr.c/drandr.c (9.117128)
+		MATCH xrrconfig.c/xrrconfig.c (9.117128)
+		MATCH xrrcrtc.c/xrrcrtc.c (9.117128)
+		MATCH xrrmode.c/xrrmode.c (9.117128)
+		MATCH xrroutput.c/xrroutput.c (9.117128)
+		MATCH xrrproperty.c/xrrproperty.c (9.117128)
+		MATCH xrrscreen.c/xrrscreen.c (9.117128)
+	libxrandr CLONED_IN_PACKAGE ia32-libs

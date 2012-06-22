@@ -1,0 +1,119 @@
+txt2tags CLONED_IN_SOURCE calibre
+		MATCH pygettext.py/pygettext.py (7.102225)
+	txt2tags CLONED_IN_PACKAGE calibre-bin
+	txt2tags CLONED_IN_PACKAGE calibre
+txt2tags CLONED_IN_SOURCE fpc
+		MATCH config.inc/jconfig.inc (9.810275)
+		MATCH empty.inc/empty.inc (7.613050)
+		MATCH parsed.inc/parser.inc (9.117128)
+		MATCH raw.inc/draw.inc (9.810275)
+		MATCH text.inc/gtext.inc (9.810275)
+	txt2tags CLONED_IN_PACKAGE fp-units-rtl
+	txt2tags CLONED_IN_PACKAGE fp-units-base
+	txt2tags CLONED_IN_PACKAGE fp-units-fv-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-i386-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-multimedia
+	txt2tags CLONED_IN_PACKAGE fp-units-fcl-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-gnome1
+	txt2tags CLONED_IN_PACKAGE fp-units-rtl-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-compiler-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-utils
+	txt2tags CLONED_IN_PACKAGE fp-units-gnome1-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-net-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-db
+	txt2tags CLONED_IN_PACKAGE fp-docs
+	txt2tags CLONED_IN_PACKAGE fp-units-fv
+	txt2tags CLONED_IN_PACKAGE fp-units-db-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-docs-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-gtk2-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-math-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-gtk2
+	txt2tags CLONED_IN_PACKAGE fpc
+	txt2tags CLONED_IN_PACKAGE fpc-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-math
+	txt2tags CLONED_IN_PACKAGE fp-units-base-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-ide
+	txt2tags CLONED_IN_PACKAGE fp-units-multimedia-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-i386
+	txt2tags CLONED_IN_PACKAGE fp-units-gtk-2.4.4
+	txt2tags CLONED_IN_PACKAGE fpc-source-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-utils-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-misc
+	txt2tags CLONED_IN_PACKAGE fp-compiler
+	txt2tags CLONED_IN_PACKAGE fp-units-gfx-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-fcl
+	txt2tags CLONED_IN_PACKAGE fp-units-gfx
+	txt2tags CLONED_IN_PACKAGE fp-units-misc-2.4.4
+	txt2tags CLONED_IN_PACKAGE fp-units-gtk
+	txt2tags CLONED_IN_PACKAGE fpc-source
+	txt2tags CLONED_IN_PACKAGE fp-units-net
+	txt2tags CLONED_IN_PACKAGE fp-ide-2.4.4
+txt2tags CLONED_IN_SOURCE gaphor
+		MATCH pygettext.py/pygettext.py (7.102225)
+		MATCH run.py/run.py (5.802942)
+	txt2tags CLONED_IN_PACKAGE gaphor
+txt2tags CLONED_IN_SOURCE hotwire
+		MATCH pygettext.py/pygettext.py (7.102225)
+	txt2tags CLONED_IN_PACKAGE hotwire
+txt2tags CLONED_IN_SOURCE lazarus
+		MATCH empty.inc/empty.inc (7.613050)
+	txt2tags CLONED_IN_PACKAGE lazarus-ide-gtk2
+	txt2tags CLONED_IN_PACKAGE lcl-qt4
+	txt2tags CLONED_IN_PACKAGE lcl-utils
+	txt2tags CLONED_IN_PACKAGE lazarus-doc
+	txt2tags CLONED_IN_PACKAGE lcl
+	txt2tags CLONED_IN_PACKAGE lazarus
+	txt2tags CLONED_IN_PACKAGE lazarus-ide
+	txt2tags CLONED_IN_PACKAGE lazarus-src
+	txt2tags CLONED_IN_PACKAGE lcl-gtk2
+	txt2tags CLONED_IN_PACKAGE lcl-nogui
+	txt2tags CLONED_IN_PACKAGE lcl-units
+	txt2tags CLONED_IN_PACKAGE lazarus-ide-qt4
+txt2tags CLONED_IN_SOURCE mailman
+		MATCH pygettext.py/pygettext.py (7.102225)
+	txt2tags CLONED_IN_PACKAGE mailman
+txt2tags CLONED_IN_SOURCE pysolfc
+		MATCH pygettext.py/pygettext.py (7.102225)
+	txt2tags CLONED_IN_PACKAGE pysolfc
+txt2tags CLONED_IN_SOURCE python2.6
+		MATCH pygettext.py/pygettext.py (7.102225)
+		MATCH run.py/run.py (5.802942)
+	txt2tags CLONED_IN_PACKAGE libpython2.6
+	txt2tags CLONED_IN_PACKAGE python2.6
+	txt2tags CLONED_IN_PACKAGE python2.6-minimal
+	txt2tags CLONED_IN_PACKAGE idle-python2.6
+	txt2tags CLONED_IN_PACKAGE python2.6-dbg
+	txt2tags CLONED_IN_PACKAGE python2.6-dev
+	txt2tags CLONED_IN_PACKAGE python2.6-doc
+	txt2tags CLONED_IN_PACKAGE python2.6-examples
+txt2tags CLONED_IN_SOURCE python2.7
+		MATCH pygettext.py/pygettext.py (7.102225)
+		MATCH run.py/run.py (5.802942)
+	txt2tags CLONED_IN_PACKAGE libpython2.7
+	txt2tags CLONED_IN_PACKAGE python2.7
+	txt2tags CLONED_IN_PACKAGE idle-python2.7
+	txt2tags CLONED_IN_PACKAGE python2.7-examples
+	txt2tags CLONED_IN_PACKAGE python2.7-minimal
+	txt2tags CLONED_IN_PACKAGE python2.7-dbg
+	txt2tags CLONED_IN_PACKAGE python2.7-dev
+	txt2tags CLONED_IN_PACKAGE python2.7-doc
+txt2tags CLONED_IN_SOURCE python3.2
+		MATCH pygettext.py/pygettext.py (7.102225)
+		MATCH run.py/run.py (5.802942)
+	txt2tags CLONED_IN_PACKAGE python3.2-minimal
+	txt2tags CLONED_IN_PACKAGE libpython3.2
+	txt2tags CLONED_IN_PACKAGE python3.2
+	txt2tags CLONED_IN_PACKAGE python3.2-examples
+	txt2tags CLONED_IN_PACKAGE idle-python3.2
+	txt2tags CLONED_IN_PACKAGE python3.2-dbg
+	txt2tags CLONED_IN_PACKAGE python3.2-dev
+	txt2tags CLONED_IN_PACKAGE python3.2-doc
+txt2tags CLONED_IN_SOURCE roundup
+		MATCH pygettext.py/pygettext.py (7.102225)
+	txt2tags CLONED_IN_PACKAGE roundup
+txt2tags CLONED_IN_SOURCE turbogears
+		MATCH pygettext.py/pygettext.py (7.102225)
+	txt2tags CLONED_IN_PACKAGE python-turbogears
+txt2tags CLONED_IN_SOURCE zope.app.locales
+		MATCH pygettext.py/pygettext.py (7.102225)
+	txt2tags CLONED_IN_PACKAGE python-zope.app.locales

@@ -1,0 +1,55 @@
+pyparsing CLONED_IN_SOURCE bauble
+		MATCH pyparsing.py/pyparsing.py (7.730834)
+		MATCH setup.py/setup.py (2.336070)
+	pyparsing CLONED_IN_PACKAGE bauble
+pyparsing CLONED_IN_SOURCE boa-constructor
+		MATCH configparse.py/configparser.py (7.325368)
+		MATCH pyparsing.py/pyparsing.py (7.730834)
+	pyparsing CLONED_IN_PACKAGE boa-constructor
+pyparsing CLONED_IN_SOURCE calibre
+		MATCH configparse.py/configbase.py (8.711663)
+		MATCH list.py/lit.py (8.200837)
+		MATCH pyparsing.py/pyparsing.py (7.730834)
+		MATCH setup.py/setup.py (2.336070)
+	pyparsing CLONED_IN_PACKAGE calibre-bin
+	pyparsing CLONED_IN_PACKAGE calibre
+pyparsing CLONED_IN_SOURCE dbf
+		MATCH epydoc.js/epydoc.js (6.409078)
+		MATCH setup.py/setup.py (2.336070)
+	pyparsing CLONED_IN_PACKAGE python-dbf
+	pyparsing CLONED_IN_PACKAGE python-dbf-doc
+pyparsing CLONED_IN_SOURCE matplotlib
+		MATCH pyparsing.py/pyparsing.py (7.730834)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH sparser.py/parser.py (5.332938)
+	pyparsing CLONED_IN_PACKAGE python-matplotlib
+	pyparsing CLONED_IN_PACKAGE python-matplotlib-data
+	pyparsing CLONED_IN_PACKAGE python-matplotlib-dbg
+	pyparsing CLONED_IN_PACKAGE python-matplotlib-doc
+pyparsing CLONED_IN_SOURCE ntop
+		MATCH epydoc.js/epydoc.js (6.409078)
+	pyparsing CLONED_IN_PACKAGE ntop
+	pyparsing CLONED_IN_PACKAGE ntop-data
+pyparsing CLONED_IN_SOURCE polybori
+		MATCH pyparsing.py/pyparsing.py (7.730834)
+	pyparsing CLONED_IN_PACKAGE libpolybori-dev
+	pyparsing CLONED_IN_PACKAGE python-polybori
+	pyparsing CLONED_IN_PACKAGE libpolybori-0.5.0-0
+pyparsing CLONED_IN_SOURCE pygccxml
+		MATCH epydoc.js/epydoc.js (6.409078)
+		MATCH setup.py/setup.py (2.336070)
+	pyparsing CLONED_IN_PACKAGE python-pygccxml
+pyparsing CLONED_IN_SOURCE python-simpy
+		MATCH epydoc.js/epydoc.js (6.409078)
+		MATCH setup.py/setup.py (2.336070)
+	pyparsing CLONED_IN_PACKAGE python-simpy-doc
+	pyparsing CLONED_IN_PACKAGE python-simpy-gui
+	pyparsing CLONED_IN_PACKAGE python-simpy
+pyparsing CLONED_IN_SOURCE twill
+		MATCH pyparsing.py/pyparsing.py (7.730834)
+		MATCH setup.py/setup.py (2.336070)
+	pyparsing CLONED_IN_PACKAGE python-twill
+pyparsing CLONED_IN_SOURCE zhpy
+		MATCH pyparsing.py/pyparsing.py (7.730834)
+		MATCH setup.py/setup.py (2.336070)
+	pyparsing CLONED_IN_PACKAGE python-zhpy

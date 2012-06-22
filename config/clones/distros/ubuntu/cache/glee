@@ -1,0 +1,19 @@
+glee CLONED_IN_SOURCE love
+		MATCH glee.c/glee.c (8.200837)
+	glee CLONED_IN_PACKAGE love
+	glee CLONED_IN_PACKAGE love-dbg
+	glee CLONED_IN_PACKAGE love-doc
+glee CLONED_IN_SOURCE qcake
+		MATCH glee.c/glee.c (8.200837)
+	glee CLONED_IN_PACKAGE qcake
+	glee CLONED_IN_PACKAGE qcake-data
+glee CLONED_IN_SOURCE stellarium
+		MATCH glee.c/glee.c (8.200837)
+	glee CLONED_IN_PACKAGE stellarium-data
+	glee CLONED_IN_PACKAGE stellarium
+glee CLONED_IN_SOURCE warzone2100
+		MATCH glee.c/glee.c (8.200837)
+	glee CLONED_IN_PACKAGE warzone2100-dbg
+	glee CLONED_IN_PACKAGE warzone2100-data
+	glee CLONED_IN_PACKAGE warzone2100-music
+	glee CLONED_IN_PACKAGE warzone2100

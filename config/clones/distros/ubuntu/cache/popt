@@ -1,0 +1,18 @@
+popt CLONED_IN_SOURCE ia32-libs
+		MATCH lookup.c/lookup.c (5.403556)
+		MATCH popt.c/popt.c (7.171218)
+		MATCH poptconfig.c/poptconfig.c (7.325368)
+		MATCH popthelp.c/popthelp.c (7.245326)
+		MATCH poptint.c/poptint.c (9.117128)
+		MATCH poptparse.c/poptparse.c (7.245326)
+		MATCH tdict.c/dict.c (5.310465)
+		MATCH test.c/dtest.c (7.412380)
+	popt CLONED_IN_PACKAGE ia32-libs
+popt CLONED_IN_SOURCE silc-client
+		MATCH popt.c/popt.c (7.171218)
+		MATCH poptconfig.c/poptconfig.c (7.325368)
+		MATCH popthelp.c/popthelp.c (7.245326)
+		MATCH poptparse.c/poptparse.c (7.245326)
+	popt CLONED_IN_PACKAGE silc
+	popt CLONED_IN_PACKAGE irssi-plugin-silc
+	popt CLONED_IN_PACKAGE irssi-plugin-silc-dbg

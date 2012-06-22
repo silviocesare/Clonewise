@@ -1,0 +1,2509 @@
+Embedded code copies
+====================
+
+This file collects source packages that embed code from other projects.
+This is considered bad for fixing security flaws because the fix needs
+to be applied in multiple source packages.
+
+Format:
+<srcpkg> (<optional comment about srcpkg>)
+	- <embedding srcpkg> <status> (<sort>; bug #<number>)
+	NOTE: optional comments about the linkage of the embedding srcpkg
+
+status: version number fixing the embedded copy
+	<unfixed> if the issue is not yet fixed
+	<removed> if the package was removed from the archive
+	<itp> if the package is in the process of being packaged
+	<not-affected> if the package does not use the embedded copy
+	<unknown> if the version number can not be determined
+	<unfixable> for unavoidable cases (e.g., forks that add real value)
+sort: static (linking statically against a lib)
+      embed (embeds a copy of the library into another source package)
+      modified-embed (embeds a code copy that differs from upstream code)
+      fork (a full-blown fork of another source package)
+      old-version (an older version of essentially the same code)
+
+The srcpkg might be some string to identify the code if there is no
+specific source package.
+
+Everything up to the next line is ignored.
+---BEGIN
+poppler
+	- pdftohtml <unknown>
+	[sarge] - pdftohtml <unfixed>
+	[etch] - pdftohtml <unfixed>
+	NOTE: has been replaced by poppler-utils
+	- kdegraphics 4:4.2.2-1 (embed; bug #436164)
+	- texlive-base 3.0-12 (embed)
+	- texlive-bin 2007-1 (embed)
+	- koffice 1:2.0.0-1 (embed; bug #436163)
+	- libextractor 0.5.12-1 (embed)
+	NOTE: libextractor is using its own pdf decoder now
+	- ipe <unfixed> (embed)
+	NOTE: embeds small parts with renamed source files: ipestdfonts.cpp, ipefonts.cpp, ipedct.cpp
+	- ruby-gnome2 <unknown> (embed)
+	- pdfedit <unfixed> (embed; bug #510794)
+	- swftools <removed> (embed; bug #551293)
+	- xpdf 3.02-9 (fork)
+
+pdksh (no longer developed since 1999)
+	- mksh <unfixable> (fork)
+	- posh <unfixable> (fork)
+
+ppmd
+	- libcomplearn-mod-ppmd <unfixed> (fork)
+	NOTE: discussion in #458152
+
+libevent
+	- transmission 1.71-1 (embed; bug #529372)
+	- chromium-browser 5.0.375.29~r46008-1
+	- dnsproxy <unknown> (embed)
+
+lrmi
+	- read-edid 2.0.0-1 (embed; bug #495131)
+	- s3switch <unfixed> (embed)
+	- xresprobe <unfixed> (embed)
+	- zhcon <unfixed> (embed)
+
+php-htmlpurifier
+	- mahara 1.2.5-1 (embed)
+	- knowledgeroot 0.9.9.5-5 (embed)
+	- moodle <unfixed> (embed)
+
+peercast
+	- gnome-peercast <removed> (embed)
+	[etch] - gnome-peercast <unfixed> (embed)
+
+silc-toolkit
+	- silc-client 1.1~beta6-1 (embed)
+
+icclib
+	- ghostscript <unfixed> (embed)
+	- argyll <unfixed> (embed)
+
+libusb
+        - argyll <unfixed> (embed)
+        - ia32-libs <unfixable> (embed)
+
+dietlibc
+	- ccontrol 0.9.1+20071204-1 (static)
+	- mksh <unfixable> (static)
+	NOTE: /bin/mksh-static only, and only on some arches (others use eglibc)
+
+libmikmod
+	- pysol-sound-server <unfixed> (modified-embed)
+	- sdl-mixer1.2 <unfixed> (embed)
+	TODO: report bug
+	- uqm 0.6.2.dfsg-8 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- black-box 1.4.6-2.2 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+
+libiax
+	- iaxmodem <unfixable> (embed; bug #548885)
+
+spandsp
+	- iaxmodem <unfixable> (embed; bug #548885)
+
+python-paramiko
+	- fabric 0.9.0-2 (embed; bug #561398)
+
+zlib (lots of apps embed a copy, but link dynamically, but there are a few exceptions)
+	- dpkg 1.15.6 (static)
+	NOTE: see 18196.48620.491996.624772@davenant.relativity.greenend.org.uk on debian-devel for discussion
+	- rsync <unfixed> (embed)
+	- cherokee <unfixed> (embed)
+	NOTE: somehow derived code base
+	- mono <unfixed> (embed)
+	TODO: check mozilla
+	- linux-2.6 <unfixed> (embed)
+	- pvpgn 1.7.8-2 (embed)
+	- mrtg 2.12.2-1 (embed)
+	- rpm <unknown> (embed)
+	NOTE: pinged anibal since when rpm was fixed
+	- tuxcmd-modules <unfixed> (embed)
+	- zsync <unfixed>
+	- tra <unfixed>
+	- sash <unfixed>
+	- nsis <unfixed>
+	- pyfits 1:2.3.1-1
+	- mseide-msegui <unfixed>
+	NOTE: mseide
+	- mirrordir <unfixed>
+	- poco <unfixed>
+	- klibc <unfixed>
+	- emboss 6.3.1-1 (embed) 
+	- ghostscript 8.71~dfsg2-6 (embed)
+        NOTE: ghostscript fixed sometime before this, but this is the version i checked 
+	- freeimage <unfixed>
+	- clamav <unfixed> (fork)
+	NOTE: from the changelog: "libclamav6 does indeed duplicate parts of the zlib code, but there is not way around that"
+	- tuxonice-userui <unfixed> (static)
+	- plt-scheme <unfixed>
+	- perl <unfixed>
+	- paraview <unfixed>
+	- velvet 0.7.56~nozlibcopy-1
+	- gcvs <unfixed>
+	- dump <unfixed>
+	- aide <unfixed> (static)
+	- dar <unfixed> (static)
+	- avfs <unfixed>
+	- fpc <unfixed>
+	- winff <unfixed>
+	NOTE: inherited from fpc, see #472304
+	- lazarus <unfixed>
+	NOTE: inherited from fpc, see #472304
+	- erlang <unfixed> (embed)
+	- gamera 3.2.3-1 (embed)
+	- python2.4 <unfixed> (embed; bug #553403)
+	- python2.5 <unfixed> (embed; bug #553403)
+        - texlive-bin <unknown> (embed)
+        - sudo <unknown> (embed)
+        NOTE: source package embeds zlib but it isn't built and doesn't seem to be used anyway
+
+dulwich
+        - hg-git 0.1.0-1 (embed; bug #541996)
+
+libvigraimpex
+        - hugin <unfixed> (embed; bug #542259)
+	- enblend-enfuse <unfixed> (embed; bug #542258)
+	- gamera 3.2.3-1 (embed)
+
+libbz2
+	- dpkg 1.15.6 (static)
+	- amd64-libs <unfixed> (static)
+	NOTE: let's call it "static"
+	- dar <unfixed> (static)
+	- dump <unfixed> (static)
+	- unalz 0.64-1 (embed)
+	NOTE: has code, by the maint, to use the system version but links against the internal copy
+        - clamav <unfixed> (embed)
+        NOTE: libclamav/nsis/bzlib*
+	- pristine-tar <unfixable> (modified-embed)
+	NOTE: compression code only, not uncompression
+	- r-base-core-ra 1.2.8 (static)
+	- r-base-core 2.11.1 (static)
+	NOTE: links dynamically in squeeze, statically in lenny
+	- rpm <unfixed> (static)
+	NOTE: lsb-rpm package is statically linked, normal rpm links dynamically
+
+libyahoo2
+	- centerim <unfixed> (embed; bug #559783)
+
+libmsn
+	- centerim <unfixed> (embed; bug #559783)
+
+libgadu
+	- centerim <unfixed> (embed; bug #559783)
+	- pidgin <not-affected> (links dynamically since initial release; fixed in gaim)
+	- gaim 1:2.0.0+beta3-3 (embed; bug #360280)
+	- kdenetwork 4:3.3.2-5 (embed)
+	NOTE: from kdenetwork: kopete
+	- ekg 1:1.8~rc0-1 (embed)
+	- kadu 0.6.0.2-3 (embed; bug #504430)
+	- gadu <itp> (embed)
+
+xmlrpc (which package is the "origin" of this code?)
+	- drupal <unfixed> (embed)
+	- phpgroupware <unfixed> (embed)
+	- egroupware <unfixed> (embed)
+	- phpwiki <unfixed> (embed)
+	- php4 <removed> (embed)
+	TODO: check, php-pear, IIRC this was reorganized some weeks ago?
+
+shtool (affects build-time only)
+	- mysql-ocaml <unfixed> (embed)
+	- php4 <removed> (embed)
+	- php5 <unfixed> (embed)
+
+xulrunner
+	- iceape <unfixed> (embed; bug #561749)
+	- iceweasel 2.0.0.19 (embed)
+	- icedove <unfixed> (embed; bug #561750)
+	- kompozer <unfixed> (embed; bug #532168)
+	- galeon 2.0.2-4 (embed)
+	- epiphany-browser 2.14.3-8 (embed)
+	- conkeror 0.9~git080629-2 (embed)
+	- kazehakase 0.4.2-1 (embed)
+
+xli
+	- xloadimage <unfixed> (embed)
+
+lesstif (beware: two different lesstif APIs supported in one package, MOTIF 1.2 discarded upstream)
+	- openmotif <unfixed> (embed)
+
+libxpm 
+	- lesstif2 <unfixed> (embed; bug #575750)
+        - ia32-libs <unfixable> (embed)
+
+kerberized apps with BSD origin
+	- krb4 <removed> (embed)
+	- krb5 <unfixed> (embed)
+	- heimdal <unfixed> (embed)
+
+grip (which pkg is the origin?)
+	- libcdaudio <unfixed>
+	- grip <unfixed>
+	- gnome-vfs <unfixed>
+	TODO: check vfs2 as well
+
+fudforum
+	[etch] - phpgroupware <unfixed> (embed)
+	NOTE: phpgroupware-fudforum
+	[sarge] - egroupware-fudforum <removed> (embed)
+
+libbsd
+	- rdate 1:1.2-3 (embed)
+	- atheme-services <unfixed>
+	- libbsd-arc4random-perl <not-affected> (modified-embed)
+	NOTE: code not used, it links dynamically against libbsd instead
+	- isakmpd <unfixed>
+	- bsdgames <unfixed> (embed)
+	- bsd-mailx <unfixed> (embed)
+	- netcat-openbsd <unfixed> (embed; bug #550611)
+	- openssh <unfixed> (embed)
+	- unworkable <unfixed> (embed)
+	- mksh <unfixed> (modified-embed)
+	NOTE: strlcpy(), only used in /bin/mksh-static on eglibc arches
+	NOTE: FIXME, we should only have one entry: - mksh <not-affected> (modified-embed)
+	NOTE: strlcpy() on dietlibc arches; {g,s}etmode(); both unused
+        - ia32-libs <unfixable> (embed)
+
+cvs
+	- gcvs <unfixed> (embed)
+	NOTE: see cvsunix/src in tarball
+
+pcre3
+	- php4 <removed> (embed)
+	- analog 2:5.23-0woody1 (embed)
+	- chicken 3.2.7-2 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- goffice <unfixed> (embed)
+	NOTE: libgoffice-*
+	- hypermail 2.2.0.dfsg-2 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- privoxy 3.0.9-1 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- vfu 4.06-4.1 (embed; bug #450754)
+	- tf5 5.0beta7-1 (embed)
+	- monotone 0.43-1 (embed)
+	NOTE: this only affects versions >= 0.37
+	- glib2.0 2.15.2-1 (embed)
+	- apache2 2.0.53-4 (embed)
+	- exim4 4.10-0.srh20.12 (embed)
+	- yacas <unfixed> (embed)
+	NOTE: <= 1.0.x; is using pcre to scan text, can execute shell commands via the syntax anyway
+	- gtamsanalyzer.app 0.42-5 (embed)
+	- tin 980117-1 (embed)
+	- kazehakase 0.5.2-1
+	- webkit 1.0.1-1 (embed)
+	- qt4-x11 <unfixed> (embed)
+	NOTE: embedded via webkit copy
+	- erlang <unfixed> (embed)
+	- ssed <unfixed> (embed)
+	- ircd-hybrid <unfixed> (static)
+	- emboss <unfixed> (fork)
+	- cherokee <unfixed> (embed)
+	- oftc-hybrid 1.6.9.dfsg-1 (embed)
+	- ratbox-services <unfixed> (embed)
+	- squeak-vm <unfixed> (embed)
+	- tinymux <unfixed> (embed)
+
+tiff
+	- wxwindows2.4 2.2.1 (embed)
+	- gamera 3.2.3-1 (embed)
+	- freeimage <unfixed> (embed)
+	- libtk-img <unfixed> (embed)
+	NOTE: there are two copies, one under tiff/ other under libtiff/
+	- gdal <unfixed>
+        - ia32-libs <unfixable> (embed)
+
+uudeview
+	- libconvert-uulib-perl <unfixed> (embed)
+	- pan <unfixed> (embed)
+
+sqlite
+	- amarok <unfixed> (embed)
+	- monotone 0.43-1 (embed)
+	- iceweasel <unfixed> (embed)
+	- heimdal <unfixed> (embed; bug #559616)
+
+util-linux
+	- loop-aes-utils <unfixed> (embed)
+	NOTE: contains code from util-linux' mount in the mount-aes-udeb
+        - ia32-libs <unfixable> (embed)
+
+sylpheed
+	- sylpheed-claws <unfixed> (fork)
+
+phpsysinfo
+	- egroupware <unfixed> (embed)
+	- phpgroupware <unfixed> (embed)
+
+phpldapadmin
+	[sarge] - egroupware <unfixed> (embed)
+	NOTE: removed from egroupware after sarge
+
+chmlib
+	- kchmviewer <unknown> (embed)
+
+ffmpeg (libavcodec/libavformat)
+	- mplayer 1.0~rc2-14 (embed; bug #395252)
+	- kino 1.0.0-1
+	- vlc <not-affected> (Links dynamically since initial release)
+	- smilutils 0.3.0-10
+        NOTE: smilutils likely fixed earlier, marking Etch's version as fixed
+	- motion 3.1.19-1
+	- gstreamer0.10-ffmpeg 0.10.3-2
+	- xmovie <removed> (static)
+	TODO: gimp-gap (potentially using ffmpeg code as well)
+        - avifile 1:0.7.48~20090503.ds-1 (embed; bug #538750)
+	- audacity 1.3.7-2 (embed; bug #512278)
+	- chromium-browser <unfixed> (fork)
+	- libav <unfixed>
+
+faad2
+	- mplayer 1.0~rc2-20 (embed)
+	- avifile <unfixed> (embed; bug #538750)
+	- ffmpeg-debian <removed> (embed)
+
+libmad (MPEG decoding lib)
+	- xine-lib <unfixed> (embed)
+	- avifile 1:0.7.48~20090503.ds-1 (embed) [./plugins/libmad/*]
+	TODO: check ocaml-mad, madplay, pymad, xmms-mad, xmms2
+
+libdts
+	- xine-lib <unfixed> (embed)
+
+flac
+	- xine-lib <unfixed> (embed)
+        - ia32-libs <unfixable> (embed)
+
+liba52
+	- a52dec <unfixed> (embed)
+	- xine-lib <unfixed> (embed)
+
+mpeg2dec (libmpeg2)
+	- xine-lib <unfixed> (embed)
+
+libmpeg3
+	- squeak-vm <unfixed> (embed)
+
+libntlm
+	- wget <unfixed> (fork; bug #550436)
+	- curl <unfixed> (fork; bug #550437)
+	- cntlm <unfixed> (fork; bug #550438)
+
+uw-imap
+	- pine <unfixed> (embed)
+	- alpine <unfixed> (embed)
+
+imagemagick
+	- graphicsmagick <unfixed> (fork)
+
+python-urlgrabber
+	- mercurial <unfixed> (embed; bug #531062)
+	- w3af <unfixed> (embed; bug #555372)
+	[experimental] - harvestman <unfixed> (embed; bug #555373)
+
+beautifulsoup
+	- python-mechanize <unfixed> (embed; bug #555349)
+	- zope2.11 <removed> (embed; bug #555350)
+	- twill <unknown> (embed)
+
+halibut
+	- nsis <unfixed> (fork)
+
+libghttp
+	- hotway <unfixed> (embed)
+
+libsndfile
+	- ardour 1:2.7.1-1 (embed)
+        - ia32-libs <unfixable> (embed)
+
+glibmm2.4
+	- ardour 1:2.7.1-1 (embed)
+
+libgnomecanvasmm2.6
+	- ardour 1:2.7.1-1 (embed)
+
+libsigc++-2.0
+	- ardour 1:2.7.1-1 (embed)
+        - ia32-libs <unfixable> (embed)
+
+soundtouch
+	- ardour 1:2.7.1-1 (embed)
+
+libmms
+	- xine-lib <unfixed> (embed)
+	- mimms <unfixed> (embed)
+
+fckeditor
+	- knowledgeroot 0.9.8.5-3 (embed; bug #461555)
+	- moin 1.8.2-2 (embed; bug #452599)
+	- karrigell <removed> (embed; bug #452598)
+	- gforge 4.6.99+svn6225-1 (embed)
+	- request-tracker3.8 <unfixed> (embed)
+	- otrs2 <unfixed> (embed)
+
+ipatlas (not packaged in Debian)
+	- moodle <unfixed> (embed; bug #507185)
+
+libphp-phpmailer
+	- moodle <unfixed> (embed; bug #507185)
+	- mahara <unfixed> (embed)
+	- symfony <unfixed> (embed; bug #566778)
+	[etch] - phpgroupware <unfixed> (embed)
+	NOTE: phpgroupware-felamimail is only in etch
+	- egroupware <unfixed> (embed; bug #504283)
+	- glpi <unfixed>
+
+htmlArea (not packaged in Debian)
+	- moodle <unfixed> (embed)
+
+giflib
+	- wine <unfixed> (embed; bug #466181)
+
+bennu (not packaged in Debian, http://bennu.sourceforge.net)
+	- moodle <unfixed> (embed)
+
+smarty
+	- moodle 1.8.2-2 (embed; bug #471158)
+	- gallery2 2.2.5-2 (embed; bug #471160)
+	- mahara 0.9.2-2 (embed; bug #471201)
+	- gosa 2.4beta1-1 (embed; bug #471200)
+
+TinyMCE
+	- wordpress 2.5.1-3 (embed; bug #478257)
+	- moodle <unfixed> (embed; bug #507185)
+	- knowledgeroot <unfixed> (embed)
+	- joomla <itp> (bug #326398)
+	- mahara 1.2.6-1 (embed; #597752)
+
+scintilla (upstream provides static lib, rejected shared lib http://sf.net/support/tracker.php?aid=2488121)
+	- scite <unfixed> (embed)
+	- qscintilla <unfixed> (embed)
+	- qscintilla2 <unfixed> (embed)
+	- geany <unfixed> (fork)
+	- anjuta <unfixed> (embed)
+
+libphp-adodb
+	- moodle <unfixed> (embed; bug #507185)
+	NOTE: also AdoDB-XML Schema
+	- gallery2 <unfixed> (embed)
+	- phppgadmin <unfixed> (embed)
+	- egroupware <unfixed> (embed)
+	- phpwiki <unfixed> (embed)
+	- torrentflux 2.0beta1-2 (embed)
+	- ipplan <unfixed> (embed)
+	- typo3-src <unfixed> (embed)
+	- cacti <unknown> (embed)
+	[sarge] - cacti <unfixed> (embed)
+	NOTE: dependency exists, but internal version is used
+	- gforge 4.7~rc2-6 (embed)
+	- mahara <unfixed> (embed)
+
+gzip
+	- linux-2.6 <unfixed> (embed) [lib/inflate.c]
+	- klibc <unfixed> (embed)
+	NOTE: based on linux-kernel gzip code
+	- busybox <unfixed> (embed)
+	- pristine-tar <unfixed> (modified-embed)
+	NOTE: compression code only, not uncompression
+        - ncompress <unfixed> (old-version)
+
+neon
+	- cadaver 0.22.3+debian-1 (embed; bug #188381)
+	- gnome-vfs2 <unfixed> (embed; bug #395874)
+	[etch] - litmus <unfixed> (embed; #395875)
+	- litmus <removed> (embed; #395875)
+	[sarge] - screem <unfixed> (embed)
+	- sitecopy 1:0.16.0-1 (embed; bug #395876)
+	[etch] - tla <unfixed> (embed; bug #395877)
+	[sarge] - tla <unfixed> (embed; bug #395877)
+
+libmodplug
+	- gst-plugins-bad0.10 0.10.10.2-1 (embed)
+
+libvncserver
+	- vino <unfixed> (embed)
+
+putty
+	- filezilla <unfixed> (embed)
+
+tinyxml
+	- filezilla <unfixed>
+	- crystalspace <unfixed> (embed)
+	- libwfut <unfixed> (embed)
+	- rarian <unfixed> (embed)
+	- bulletml <unfixed> (embed)
+	- pokerth <unfixed> (embed)
+	- qutecom <unfixed> (embed)
+	- sofa-framework <unfixed> (embed)
+	- yate <unfixed> (embed)
+	- antigrav <unfixed> (embed)
+	- balder2d <unfixed> (embed)
+	- cal3d <unfixed> (embed)
+	- criticalmass <unfixed> (embed)
+	- ember <unfixed> (embed)
+	- epiphany <unfixed> (embed)
+	- gambit <unfixed> (embed)
+	- noiz2sa <unfixed> (embed)
+	- ogre <unfixed> (embed)
+	- opencity <unfixed> (embed)
+	- openmovieeditor <unfixed> (embed)
+	- pouetchess <unfixed> (embed)
+	- tecnoballz <unfixed> (embed)
+	- trigger-rally <unfixed> (embed)
+	- xmoto <unfixed> (embed)
+	- mapnik <unknown> (embed)
+	NOTE: uses a different XML parser by default
+	- rrootage 0.23a-6 <embed>
+	NOTE: links to libbulltetml
+	- boson <unknown> (embed)
+	NOTE: the embedded code is unused
+	- cppcheck <unfixed> (embed)
+	NOTE: introduced in 1.47, will use system's version in 1.48
+	[squeeze] - cppcheck <not-affected>
+
+gv
+	- evince <unfixed> (embed)
+	NOTE: ps/ tree from gv 3.5.8
+	NOTE: evince-gtk is affected (a component of evince source package)
+
+libXbae
+	- paw <unfixed> (embed)
+
+libgtkhtml
+	- claws-mail-extra-plugins <unfixed> (fork)
+
+libXaw
+	- paw <unfixed> (embed)
+	NOTE: I plan to deal with the above two cases after Etch release. -- KevinMcCarty
+        - ia32-libs <unfixable> (embed)
+
+libgd2
+	- graphviz 2.16-1 (embed)
+	NOTE: lib/gd seems to be 2.0.33
+	- wml 2.0.11ds2-1 (embed)
+	- libwmf <unfixed> (embed)
+	NOTE: derived from gd 1.6.3, but only used to write images
+	- plt-scheme <unfixed> (embed; bug #601525)
+        - texlive-bin 2009-1 (embed)
+
+rar
+	- unrar-nonfree <unfixed> (embed)
+
+unrar-free (maybe this code is derived from the original rar, too?)
+	- clamav <unfixed> (embed)
+	NOTE: seems to be disabled in default config
+
+mplayer (DirectMedia Object loader)
+	- xine-lib <unfixed> (embed)
+	NOTE: src/libw32dll/
+	- vlc <unfixed> (embed)
+	NOTE: modules/codec/dmo/
+	- mplayer 1.0~rc2-20 (embed)
+
+libwpd (WordPerfect converter)
+	- openoffice.org <unfixed> (embed)
+
+fsplib (http://sourceforge.net/projects/fsp/)
+	- gftp <unfixed> (embed)
+	NOTE: lib/fsplib version 0.3
+
+sprng
+        - tree-puzzle <unfixed> (embed)
+
+librpcsecgss
+	- krb5 <unfixed> (embed)
+
+jasper
+	- ghostscript 8.64~dfsg-2 (embed)
+
+libiris
+	- psi <unfixed> (embed)
+	- kdenetwork <unfixed> (embed)
+	NOTE: kopete embeds libiris but links dynamically to libidn
+	- kdegames <unfixed> (embed)
+	NOTE: ksirk/kde4
+	
+libidn
+	- monotone 0.43-1 (embed)
+	- psi <unfixed> (embed)
+	NOTE: psi embeds libiris which embeds libidn
+	- kdegames <unfixed> (embed)
+	NOTE: kdegames/kde4 embeds libiris which embeds libidn
+        - ia32-libs <unfixable> (embed)
+
+lua5.1
+	- monotone 0.43-1 (embed)
+	- nmap 5.00-1 (embed; bug #527997)
+	[lenny] - nmap <unfixed> (embed; bug #527997)
+	- ocropus <unfixed> (embed)
+	- enigma <unfixed> (embed)
+	NOTE: requires lua built with C++
+	- freeciv <unfixed> (embed)
+	- spring <unfixed> (embed)
+
+libbotan
+	- monotone 0.43-1 (embed)
+
+NetXX
+	- monotone 0.43-1 (embed)
+
+libgc
+	- mono <unfixed> (embed)
+
+lzma
+	- p7zip <unfixed> (embed)
+	- xz-utils <unfixed> (fork)
+	- r-base <unfixed> (embed)
+	NOTE: lzma support not yet in lenny or in r-base-core-ra 1.2.8
+
+lzo
+	- grub2 <unfixed> (embed)
+
+yassl
+	- mysql-dfsg-5.0 <unfixed> (embed)
+	- mysql-5.1 <unfixed> (embed)
+
+pax code
+	- tar <unfixed> (embed)
+	- cpio <unfixed> (embed)
+
+t1lib
+	- tetex-bin 2.0.2-1 (embed)
+	- texlive-bin <unknown> (embed)
+	- grace 5.1.14-2 (embed)
+        - evince <unfixed> (embed)
+        NOTE: at least parseafm code, maybe more?
+        - vftool <unfixed> (embed)
+        NOTE: just parseafm code it seems
+
+guichan
+	- boswars <unfixed> (embed)
+	NOTE: maintainer notified us, working on it
+
+tolua
+	- boswars <unfixed> (embed)
+	NOTE: maintainer notified us, working on it
+	NOTE: actually tolua++
+	- ocropus <unfixed> (embed)
+	NOTE: actually tolua++
+	- freeciv <unfixed> (embed)
+	NOTE: actually tolua++
+	- enigma <unfixed> (embed)
+
+asio-dev
+	- luxrender <removed> (embed)
+
+xine-lib
+	- vlc <unfixed> (embed)
+	NOTE: only parts included in modules/access/rtsp
+
+netpbm
+	- tcl8.3 <unfixed> (embed)
+	- tcl8.4 <unfixed> (embed)
+	- tcl8.5 <unfixed> (embed)
+	NOTE: generic/tkImgGIF.c
+
+tk8.5
+	- tk8.0 <removed> (old-version)
+	- tk8.3 <unfixed> (old-version)
+	- tk8.4 <unfixed> (old-version)
+	- perl-tk <unfixable> (fork)
+
+samba
+	- mc 2:4.6.2~git20080311-1 (embed)
+	NOTE: maintainer is aware of this, currently searching a solution
+
+plib1.8.4c2
+	- boson <unfixed> (fork)
+	NOTE: embedding the font pieces of plib, based on the header file it is forked, contains "Added by AB for boson." and similar
+
+fribidi
+	- quesoglc 0.7.2-2 (embed)
+
+glew
+	- quesoglc <unfixed> (embed; bug #489341)
+	NOTE: waiting on GLEW_MX version of glew (see bug #474488)
+	- trigger 0.5.2.1-2 (embed)
+	NOTE: http://lists.debian.org/debian-devel-games/2009/12/msg00007.html
+	- trigger-rally 0.5.2.1-2 (embed)
+	NOTE: http://lists.debian.org/debian-devel-games/2009/12/msg00007.html
+	- chromium-browser 5.0.375.70~r48679-2
+
+minorGems (pabs contacted upstream about shared lib, he considers minorGems an 'ever-evolving collection of reusable code fragments' for his own use)
+	- transcend <unfixed> (embed)
+	- cultivation <unfixed> (embed)
+	- passage <unfixed> (embed)
+	- gravitation <unfixed> (embed)
+
+tar
+	- libarchive <unfixed> (embed)
+	NOTE: FreeBSD tar (tar/bsdtar.c) in libarchive 1.2 and higher. libarchive ends up statically linked into bsdtar executable
+
+cpio
+	- libarchive <unfixed> (embed)
+	NOTE: cpio included in libarchive 2.2 and higher, but not compiled until libarchive 2.4.11-1 (as bsdcpio package)
+
+kde4libs
+	- kdelibs <unfixable> (old-version)
+
+webkit
+	- qt4-x11 <unfixed> (embed; bug #479851)
+        [etch] - qt4-x11 <not-affected> (webkit support introduced in version 4.4)
+	- kde4libs <unfixable> (fork)
+	NOTE: kde4lib's khtml and webkit were forked from khtml (this tracking, which seems 
+	NOTE: reversed genesis-wise, is used because of so much other stuff in kde4libs)
+	- chromium-browser <unfixed> (fork)
+
+ftgl
+	- blender 2.46+dfsg-1 (embed)
+	- vtk <unfixed> (embed)
+	- paraview <unfixed> (embed)
+	NOTE: as part of its copy of vtk
+	- tulip <unfixed> (embed)
+	NOTE: depends on -dev but string found on binary
+	- root-system <unknown> (embed)
+	NOTE: depends on -dev package; not confirmed at source
+	- rgl <unknown> (embed)
+	NOTE: not sure if it is built
+	- mysql-gui-tools <unknown> (embed)
+	NOTE: not sure if it is built
+	- k3d <unfixed> (embed)
+	- extremetuxracer <unknown> (embed)
+	NOTE: not sure if it is built
+	- critterding <unknown> (embed)
+	- lightspeed <unfixed>
+	NOTE: depends on -dev but string found on binary
+
+wv
+	- abiword <unfixed>
+
+qemu
+	- kvm <removed> (embed; bug #543159)
+	- qemu-kvm <unfixed> (embed; bug #560853)
+	NOTE: kvm superceded by qemu-kvm, which is just user interface (no modules)
+	- xen-3 3.4.2-2 (embed; bug #560856)
+	- xen-unstable <unfixed> (embed; bug #560856)
+
+vgabios
+	- kvm <removed> (embed; bug #489442)
+        - qemu-kvm <unfixed> (embed)
+
+bochs
+	- kvm <removed> (embed; bug #489442)
+        - qemu-kvm <unfixed> (embed)
+
+speex
+	- vorbis-tools <unfixed> (embed)
+	NOTE: while comiled against libspeex-dev, ogg123/speex_format.c is compiled with embedded code copied from speexdec.c
+	- gst-plugins-good0.10 <unfixed> (embed)
+	- xine-lib <unfixed> (embed)
+	- libfishsound <unfixed> (embed)
+	- libannodex <removed> (embed)
+	- opal 3.4.2~dfsg-2 (embed)
+	- mumble 1.2.0~beta1-1 (embed)
+	- vlc <unfixed> (embed)
+	- xmms-speex <unfixed> (embed)
+	- libsdl-sound1.2 <unfixed> (embed)
+	- sweep <unfixed> (embed)
+
+libreadline
+	- magic <itp> (old-version)
+
+opcode
+	- ode <unfixed> (embed)
+	NOTE: opcode is not a package in debian, it is just embedded
+	NOTE: http://www.codercorner.com/Opcode.htm
+
+gimpact 
+	- ode <unfixed> (embed)
+	NOTE: gimpact is not a package in debian, it is just embedded
+	NOTE: http://gimpact.sf.net
+
+mochikit
+	- mahara <unfixed> (embed)
+	NOTE: they require extra patches, still unmerged upstream
+	- ntop <unfixed> (embed)
+	- coherence 0.6.2-1 (embed)
+	- paste <unfixed> (embed)
+	- turbogears <unfixed> (embed)
+	- plone3 <removed> (embed)
+	- xulrunner <unfixed> (embed)
+	- libjifty-plugin-chart-perl <unfixed> (embed)
+	- sabnzbdplus <unfixed> (embed)
+	- tgmochikit <unfixed> (embed)
+
+prototypejs
+	- netbeans-ide 6.0.1+dfsg-2 (embed)
+	- auth2db 0.2.5-2+dfsg-1 (embed; bug #555218)
+	- webcit <unfixed> (embed; bug #555219)
+	- asterisk 1:1.6.2.0~rc3-1 (embed)
+	- libjson-ruby 1.1.4-1 (embed; bug #555224)
+	- lucene2 2.9.1+ds1-2 (embed; bug #555226)
+	- horde3 <unfixed> (embed)
+	- knowledgeroot 0.9.8.5-4 (embed; bug #555230)
+	- mediatomb 0.12.0~svn2018-5 (embed; bug #555233)
+	- mt-daapd 0.9~r1696.dfsg-6lenny2 (embed)
+	- ebug-http <unfixed> (embed; bug #555236)
+	- libaws 2.7-1 (embed; bug #555222)
+	- phpgedview <removed> (embed)
+	- poker-network 1.7.6-1 (embed; bug #555238)
+	- rails 2.1.0-6 (embed)
+	- wordpress 2.5.0-2 (embed; bug #555243)
+	- zope <not-affected> (the prototypejs embed is not in any of the obvious zope packages, e.g. zope2.9, zope2.10, zope2.11, and zope3)
+	TODO: search through all of the other zope packages
+	- ampache 3.4.1-2 (embed)
+	- exaile 0.2.14+debian-2.1 (embed; bug #555245)
+	- hobix 0.5~svn20070319-4 (embed; bug #555247)
+	- zabbix 1.6.6-4 (embed; bug #555250)
+	- chora2 2.1.1+debian0-1 (embed; bug #555253)
+	- gollem 1.1.1+debian0-1 (embed; bug # 555254)
+	- jscropperui 1.2.1-1 (embed; bug #555257)
+	- scriptaculous <not-affected> (uses system prototype.js since initial upload; bug #555260)
+	- ingo1 1.2.3+debian0-1 (embed; bug #555261)
+	- kronolith2 2.3.3+debian0-1 (embed; bug #555262)
+	- activeldap 1.2.1-1 (embed)			
+	- libv8 <not-affected> (contains a google-specific implementation of prototype.js)
+	- mantis 1.1.2+dfsg-1 (embed; bug #555265)
+	- otrs2 2.3.4-6 (embed; bug #555267)
+	- webcalendar 1.2~b1-2 (embed; bug #555269)
+	- redmine 0.9.0~svn2907-1 (embed; bug #555270)
+	- jifty 0.90519-1 (embed; bug #555271)
+	- jquery 1.4-1 (embed; bug #555272)
+	- passenger 2.2.5debian1-1 (embed; bug #555273)
+	- plone3 <removed> (embed; bug #555275)
+	- wesnoth <not-affected> (prototype.js not included in any of the binary packages; bug #555277)
+	- libhtml-prototype-perl 1.48-3 (embed; bug #538920)
+	- xulrunner <unfixed> (embed)
+	NOTE: included in iceweasel/xulrunner unit tests directory, so may not be security-relevant
+	- jclicmoodle <unfixed> (embed)
+	- git-cola <unfixed> (embed)
+
+gdb
+	- insight <unfixed> (embed)
+
+e2fsprogs
+	- ldiskfsprogs <unfixable> (fork)
+        - ia32-libs <unfixable> (embed)
+
+quazip (not packaged in Debian)
+	- qcake <unfixed> (embed)
+	NOTE: starting with upstream version 0.6.4
+
+exo
+	- pcmanfm <unfixed> (embed; bug #499677)
+	NOTE: slightly modified source code
+
+xfce4-taskmanager
+	- lxtask <unfixed> (embed)
+	NOTE: old fork, maybe outdated
+
+isync
+	- postler <unfixed> (embed; bug #628798)
+
+java
+	- openjdk-6 <unfixed>
+	- sun-java5 <unfixed>
+	- sun-java6 <unfixed>
+
+libphp-snoopy
+	- ampache 3.4.1-2 (embed; bug #504169)
+	- gforge 4.6.99+svn6094-2 (embed)
+	- mahara 1.0.5-2 (embed; bug #504170)
+	- pixelpost 1.7.1-5 (embed; bug #504171)
+	- mediamate 0.9.3.6-5 (embed; bug #504172)
+	- opendb <removed> (embed; bug #504173)
+	[etch] - opendb <unfixed> (embed; bug #504173)
+	- wordpress 2.5.1-9 (embed; bug #443948)
+	- moodle <unfixed> (embed; bug #507185)
+	[etch] - phpgroupware <unfixed> (embed)
+	NOTE: phpgroupware-felamimail
+	- magpierss 0.72-3 (embed; bug #431089)
+
+jquery
+        - jsonbot <unfixed> (embed; bug #625524)
+	- zekr <unfixed> (embed)
+	- wordpress <unknown> (embed)
+	- yocto-reader <unfixed> (embed)
+	- textpattern <unfixed> (embed)
+	- genshi 0.5.1-1 (embed)
+	NOTE: compressed file under examples/ dir
+	- prewikka <unfixed> (embed)
+	- libramaze-ruby <unfixed> (embed)
+	- drupal6 <unfixed> (embed)
+	- b2evolution <unfixed> (embed)
+	- wesnoth <unfixed> (embed)
+	- gammu 1.28.95-1 (embed)
+	- trac <unfixed> (embed; bug #645339) 
+
+tablesorter (jquery plugin, not packaged yet)
+	- wesnoth <unfixed> (embed)
+
+kses
+	- wordpress <unfixed> (embed; bug #504242)
+	NOTE: their copy has all methods renamed to wp_<foo>
+	NOTE: kses isn't in Debian, RFP: #504240
+	- moodle <unfixed> (embed; bug #507185)
+	- egroupware <unfixed> (embed)
+
+magpierss
+	- wordpress <unfixed> (embed; bug #504242)
+	- moodle <unfixed>
+
+php-gettext
+	- wordpress 2.8.4-1 (embed; bug #504242)
+	- docbookwiki <unfixed> (embed)
+	- knowledgeroot 0.9.9.5-1
+	NOTE: non-free
+
+libphp-ixr (name may change, it is the Incutio XML-RPC)
+	- wordpress <unfixed> (embed; bug #504242)
+	NOTE: libphp-ixr isn't in Debian, RFP: #504236
+	- dokuwiki <unfixed> (embed)
+	- textpattern <unfixed> (embed)
+
+libphp-cas
+	- glpi <unfixed> (embed)
+	- moodle <unfixed> (embed; bug #505984)
+
+scriptaculous (prototype.js is among the embeds in the following)
+	- glpi <unfixed> (embed)
+	- libaws <unfixed> (embed; bug #555222)
+	- op-panel <unfixed> (embed)
+	- symfony <unfixed> (embed)
+	NOTE: maintainer says there are extra incompatible changes required
+	- pixelpost 1.7.1-6 (embed)
+	- webhelpers <unfixed> (embed)
+	- qwik <removed> (embed; bug #555241)
+	- smokeping <unfixed> (embed)
+	- turba2 <unfixed> (embed)
+	- typo3-src 4.2.3-1 (embed)
+	- request-tracker3.6 <unfixed> (embed)
+	- request-tracker3.8 <unfixed> (embed)
+	- rt-extension-emailcompletion <not-affected> (prototype.js not included in the binary package)
+	- wordpress 2.5.0-2 (embed)
+	- libhtml-prototype-perl 1.48-3 (embed)
+
+libmarkdown-php
+	- moodle <unfixed> (embed; bug #507185)
+	- pixelpost 1.7.1-6 (embed)
+
+php-openid
+	- wordpress-openid 3.3.2-1 (embed)
+
+geshi
+	- dokuwiki 0.0.20080505-3.1 (embed)
+	- pgfouine 1.0-1.1 (embed)
+	- websvn 2.1.0-1 (embed)
+
+webcalendar
+	- gforge 4.7~rc2-6 (embed; bug #504758)
+
+libical
+	- kdepim <unknown> (fork)
+	NOTE: fixed at some point during 4.0
+	- kdepimlibs 4.2.0-1 (fork)
+	- claws-mail-extra-plugins <unfixed> (fork)
+
+harfbuzz
+	- qt4-x11 <unfixed> (embed)
+	- pango1.0 <unfixed> (embed)
+	- fontmatrix <unfixed> (embed)
+
+libzip
+	- php5 <unfixable> (modified-embed)
+	- odt2txt <unfixed> (embed; bug #523808)
+
+json.php (not packaged; should be replaced with php's built-in functions)
+	- moodle <unfixed>
+	- yui <unfixed>
+	- gallery2 <unfixed>
+	- dokuwiki <unfixed>
+	- typo3-src <unfixed>
+
+php-fpdf
+	- tcpdf <itp> (fork)
+	- moodle <unfixed>
+	- phpwiki <unfixed>
+	- egroupware <unfixed>
+	- ldap-account-manager <unfixed> (fork)
+
+tcpdf (itp: #495985)
+	- moodle <unfixed>
+	- phpmyadmin <unfixed>
+
+typo3
+	- moodle <unfixed>
+
+spreadsheet_writeexcel (PHP port of libspreadsheet-writeexcel-perl; itp: #487557)
+	- moodle <unfixed>
+	- gosa <unfixed>
+
+php-ole (itp: #487558)
+	- moodle <unfixed>
+
+pieforms (http://www.catalyst.net.nz)
+	- mahara <unfixed>
+
+savant2 (http://phpsavant.com)
+	- egroupware <unfixed>
+
+rssparser (http://nwow.org)
+	- egroupware <unfixed>
+	- phpgroupware <unfixed>
+
+lcms
+	- openjdk-6 <unfixed> (fork)
+        - gimp 2.4.0~rc2-2
+        - ia32-libs <unfixable> (embed)
+
+libphp-phplayersmenu
+	- diogenes <unfixed>
+	- phpldapadmin <unfixed>
+
+libphp-pclzip
+	- docvert <unfixed>
+	- moodle <unfixed>
+	- egroupware <unfixed>
+
+libphp-simplepie
+	- dokuwiki <unfixed>
+	- wordpress <unfixed>
+
+libphp-jpgraph
+	- egroupware <unfixed>
+
+php-simpletest
+	- moodle <unfixed>
+
+libpng
+	- doxygen 1.5.6-2 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- gdal 1.5.2-3 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- iceweasel <not-affected> (uses xulrunner)
+	- icedove 1.5.0.13+1.5.0.15b.dfsg1+prepatch080614i-0etch1, 2.0.0.19-1 (embed)
+	- iceape 1.0.13~pre080614i-0etch1 (embed)
+	- libfltk1.1 1.1.9-6 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- libtk-img <unfixed> (embed)
+	- htmldoc 1.8.27-3 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- xulrunner 1.9.0.13-1 (embed)
+	[lenny] - xulrunner 1.9.0.11-0lenny1
+	[etch] - xulrunner 1.8.0.15~pre080614i-0etch1 (embed)
+	- gamera 3.2.3-1 (embed)
+	- freeimage <unfixed> (embed)
+	- syslinux-common <unfixable> (embed)
+	- tuxonice-userui <unfixed> (static)
+	- texlive-bin 2007.dfsg.2-1~lenny2 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- vice 1.22.dfsg1-0.1 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- visualboyadvance 1.8.0-4 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+        - ia32-libs <unfixable> (embed)
+
+irssi
+	- silc-client <unfixed> (embed)
+	NOTE: Seems to be a pre-0.8.12 version that is used in irssi-plugin-silc
+
+extc
+	- mtasc <unfixed> (embed)
+	- haxe <unfixed> (embed)
+
+swflib
+	- mtasc <unfixed> (embed)
+	- haxe <unfixed> (embed)
+
+libitext-java
+	- bouncycastle 2.1.4-1 (embed)
+
+python-ply
+	- pyke <unfixed> (embed; bug #555363)
+	- pywbem 0.7.0-4 (embed; bug #555364)
+	- sepolgen <unfixed> (embed; bug #555365)
+	- zope-textindexng3 <unknown> (embed)
+	- iceweasel <not-affected> (uses xulrunner)
+	- xulrunner <unknown> (embed)
+	- wireshark <not-affected> (python-ply modules are not installed into binary packages; see #554613)
+
+libdumbnet (libdnet upstream)
+	- nmap <unfixed> (fork)
+
+gcc-4.4
+	- gcc-mingw32 <unfixed> (embed)
+
+camlimages
+	- advi <unfixed> (static; bug #550441)
+
+memcached
+	- memcachedb <unfixed> (embed)
+
+yajl
+	- argyll <unfixed> (embed; bug #544223)
+	NOTE: reference, confirmed by build logs: http://lists.debian.org/debian-mentors/2009/08/msg00062.html
+
+nusoap
+	- gforge 4.8.2-1 (embed)
+	- ampache <unfixed> (embed)
+	- poker-network <unfixed> (embed)
+	- moodle <unfixed> (embed)
+	NOTE: code is not used when running under php5 and soap is enabled
+	- phpwiki <unfixed> (embed)
+	- gallery2 <unfixed> (embed)
+	- typo3-src <unfixed> (embed)
+	- phpgacl 3.3.7-7 (embed)
+	- mantis 1.1.8+dfsg-1 (embed)
+
+libept
+	- adept <unfixed> (embed; bug #540649)
+
+libvorbis
+	- iceweasel <not-affected> (uses xulrunner)
+	- xulrunner <unfixed> (embed; bug #540959)
+	[etch] - xulrunner <not-affected> (introduced in firefox 3.5)
+	[lenny] - xulrunner <not-affected> (introduced in firefox 3.5)
+	- iceape <unfixed> (embed)
+	[etch] - iceape <not-affected> (introduced in 2.0)
+	[lenny] - iceape <not-affected> (introduced in 2.0)
+        - ia32-libs <unfixable> (embed)
+
+cairo
+	- iceweasel <not-affected> (uses xulrunner)
+	- xulrunner 1.8.0.15~pre080614i-0etch1 (embed)
+
+liboggz
+	- iceweasel <not-affected> (uses xulrunner)
+	- xulrunner <unfixed> (embed; bug #540959)
+	[etch] - xulrunner <not-affected> (introduced in firefox 3.5)
+	[lenny] - xulrunner <not-affected> (introduced in firefox 3.5)
+	- iceape <unfixed> (embed)
+	[etch] - iceape <not-affected> (introduced in 2.0)
+	[lenny] - iceape <not-affected> (introduced in 2.0)
+
+liboggplay
+	- iceweasel <not-affected> (uses xulrunner)
+	- xulrunner <unfixed> (embed; bug #540959)
+	[etch] - xulrunner <not-affected> (introduced in firefox 3.5)
+	[lenny] - xulrunner <not-affected> (introduced in firefox 3.5)
+	- iceape <unfixed> (embed)
+	[etch] - iceape <not-affected> (introduced in 2.0)
+	[lenny] - iceape <not-affected> (introduced in 2.0)
+
+php-net-dnsbl
+	- serendipity <unfixed> (embed; bug #541740; package in NEW)
+
+php-onyx-rss
+	- serendipity <unfixed> (embed; bug #541740; wontfix: only one script, own package is overkill, appears not to be duplicated in Debian)
+
+php-text-wiki
+	- serendipity <unfixed> (embed; bug #541740; package in NEW)
+
+php-xml-rpc
+	- serendipity <unfixed> (embed; bug #541740; package in NEW)
+
+polarssl (does not have a shared library)
+	- pdkim <itp> (embed; bug #543150)
+	- xyssl <unfixed> (old-version)
+
+pidgin (libpurple)
+	- gaim <removed> (old-version)
+	- qutecom 2.2~rc3.hg396~dfsg1-6 (embed; bug #559785)
+	- wengophone <unfixed> (embed; bug #601425)
+
+icu
+	- webkit 1.0.1-1 (embed; bug #547214)
+	- texlive-bin <unfixed> (fork)
+	NOTE: texlive upstream working with icu upstream to merge their changes
+	- chromium-browser 5.0.375.29~r46008-3
+
+cyrus-imapd-2.2
+	- kolab-cyrus-imapd <unfixed> (fork)
+	- dovecot 1:1.2.1-1 (embed) [/dovecot-sieve/src/libsieve/*]
+
+python-cxx-dev
+	- freecad 0.9.2646.3-1 (embed; bug #547936)
+
+zipios++
+	- freecad 0.9.2646.3-1 (embed; bug #547941)
+	- enigma 0.92.3-3 (embed)
+	NOTE: likely fixed earlier, marking etch's version as fixed
+
+linux-2.6
+	- kvm <removed> (embed; bug #549973) [./kernel/*]
+	- linux-kbuild-2.6 <unfixed> (embed; bug #550379) [./kbuild/*]
+	- kernel-source-2.6.8 <removed> (old-version)
+	- kernel-source-2.4.27 <removed> (old-version)
+	- kernel-source-2.4.24 <removed> (old-version)
+	- kernel-source-2.2.25 <removed> (old-version)
+	- kernel-source-2.2.20 <removed> (old-version)
+
+libfdt (not yet packaged separately for debian; http://www.jdl.com/software/)
+	- kvm <removed> (embed) [./libfdt/*]
+	- qemu-kvm <unfixed> (embed) [./libfdt/*]
+
+qweb (not packaged)
+	- ajaxterm <unfixed>
+
+opensaml2
+	- opensaml <removed> (old-version)
+
+shibboleth-sp2
+	- shibboleth-sp <removed> (old-version)
+
+tuxonice-userui
+	- suspend2-userui <removed> (old-version)
+
+expat
+	- w3c-libwww <removed> (embed; bug #551941)
+	[etch] - w3c-libwww <unfixed> (embed; bug #551941) [./modules/expat/*]
+	- python-xml <unfixed> (embed; bug #551940) [./extensions/expat/*]
+	- python2.5 <unfixable> (embed; bug #553403) [./Modules/expat/*]
+	- python2.4 <unfixable> (embed; bug #553403)
+	- python2.7 2.7-6 (embed)
+	- mcabber 0.10.0-1 (low; bug #601053)
+	- python-4suite <unfixed> (embed; bug #516935)
+	- wxwindows2.4 <removed> (embed)
+	- wxwidgets2.6 2.6.3.2.2-4 (embed)
+	- wxwidgets2.8 2.8.10.1-2 (embed)
+	- albert <unfixed> (embed; bug #600974)
+	- celementtree 1.0.5-8 (embed)
+	NOTE: Maybe that was fixed even earlier
+	- centerim <unfixed> (embed; bug #559783)
+	- audacity 1.3.2-1 (embed)
+	- matanza <unfixed> (embed)
+	- tdom 0.8.3~20080525-1 (embed)
+	- udunits 2.1.8-4 (embed)
+	- apr-util 1.2 (embed)
+	- ayttm <unfxed> (embed; bug #561006)
+	- cableswig <unfixed> (embed)
+	- cadaver <unfixed> (embed)
+	- cmake 2.6.0-6 (embed)
+	- coin3 <unfixed> (embed)
+	- cvsnt 2.5.03.2382-3.3+lenny1 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- dasher 4.7.3-1 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+        - emboss 6.3.1-1 (embed)
+	- gdcm 2.0.14-2 (embed)
+	- ghostscript 8.71~dfsg-2 (embed)
+	- grmonitor <removed> (embed)
+	- iceape <unfixed> (embed)
+	- insighttoolkit 3.16.0-1 (embed)
+        NOTE: insighttoolkit might've been fixed earlier
+	- jabber 1.4.3-3.4 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- libparagui1.1 1.0.2-1 (embed)
+	- libspiff1 0.8.3-1 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- paraview 3.6.2-1 (embed)
+	- poco 1.3.6p1-1 (embed)
+	- scorched3d 41.3dfsg-1+b1 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- simgear <unfixed> (embed)
+	- sitecopy 1:0.16.0-1
+	- smart <unfixed> (embed)
+        NOTE: smart embeds celementree, and it includes expat
+	- swish-e <not-affected> (Linked against libxml, which is used instead)
+	- tla 1.3.5+dfsg-15 (embed)
+	- vtk 4.1.20030227-1 (embed)
+	- wbxml2 <not-affected> (expat code is only used on Mac OS X, see #560941)
+	- xmlrpc-c <unfixed> (embed)
+	- iceweasel <unfixed> (embed)
+	- kompozer <unfixed> (embed)
+	- vxl 1.13.0-2 (embed)
+	- xulrunner <unfixed> (embed)
+	- xmame 0.106-2.1 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- apache2 2.2 (embed)
+	- texlive-bin <not-affected> (Embedded code not compiled in)
+	- vnc4 <unfixed> (embed)
+	- xotcl 1.6.6-1 (embed)
+	- chromium-browser 5.0.375.29~r46008-3
+        - ia32-libs <unfixable> (embed)
+
+xerces-c
+	- xerces-c2 <unfixed> (old-version)
+	- xerces27 <removed> (old-version)
+
+md5 (RSA's version; not the gnu version provided by coreutils)
+	- w3c-libwww <removed> (embed; bug #551942)
+	[etch] - w3c-libwww <unfixed> (embed; bug #551942) [./modules/md5/*]
+
+libparagui1.1
+        - asc <unfixable> (fork)
+
+enet
+	- sauerbraten <unfixed> (embed; #497194)
+
+eglibc
+	- glibc <removed> (old-version)
+	- mksh <unfixable> (static)
+	  NOTE: /bin/mksh-static only, and only on some arches (others use dietlibc)
+
+galib
+	- gamera 3.2.3-1 (embed)
+
+configobj
+	- bzr <unfixed> (embed; bug #555336)
+	- elisa <unfixed> (embed; bug #555337)
+	- gaupol <unfixed> (embed; bug #555338)
+	- ipython <unfixed> (embed; bug #555339)
+	- pida <unfixed> (embed; bug #555340)
+	- psychopy <unfixed> (embed; bug #555341)
+	- rest2web <unfixed> (embed; bug #555342)
+	- auth2db <unknown> (embed)
+	- dynagen <unknown> (embed)
+	- iceweasel <unknown> (embed)
+	- sabnzbdplus <unknown> (embed)
+	- xulrunner <unknown> (embed)
+	- nipy <not-affected> (part of an example [/examples/neurospin/neurospy/configobj.py], which is not installed into binary packages)
+
+python-clientform
+	- bibus <unfixed> (embed; bug #555332)
+	- zope2.10 <unfixed> (embed; bug #555333)
+	- zope2.11 <removed> (embed; bug #555334)
+	- python-mechanize <unknown> (embed)
+	- twill <unknown> (embed)
+
+python-mechanize
+	- zope2.10 <unfixed> (embed; bug #555337)
+	- zope2.11 <removed> (embed; bug #555338)
+	- twill <unknown> (embed; bug #555339)
+
+pexpect
+	- duplicity 0.6.06-1 (embed; bug #555361)
+	- hplip <unfixed> (embed; bug #555362)
+	- smart <unfixed> (embed; bug #555363)
+
+pyparsing
+	- bauble <unfixed> (embed; bug #555366)
+	- boa-constructor 0.6.1-8 (embed; bug #555367)
+	- calibre <unfixed> (embed; bug #555368)
+	- matplotlib <unfixed> (embed; bug #531024)
+	- zhpy 1.7.3.1-1 (embed; bug #555370)
+	- polybori <unknown> (embed)
+	- python-whoosh <unknown> (embed)
+	- twill <unknown> (embed)
+	- zope-textindexng3 <unknown> (embed)
+
+python-pysqlite2
+	- python2.4 <unfixed> (embed; bug #553403)
+	- python2.5 <unfixed> (embed; bug #553403)
+
+celementtree
+	- python2.5 <unfixed> (embed)
+	- smart <unfixed> (embed)
+
+elementtree
+	- python2.5 <unfixed> (embed)
+	- python2.6 <unfixed> (embed)
+	- bzr <unfixed> (embed; bug #555343)
+	- gedit 2.28.2-1 (embed; bug #555344)
+	- smart <unfixed> (embed)
+	- solfege <unfixed> (embed; bug #555345)
+	- w3af <unfixed> (embed; bug #555346)
+	- python-qt4 <unknown> (embed)
+	- sphinx <unknown> (embed)
+	- python-nltk <itp> (embed)
+
+python2.5
+	- python2.4 <unfixed> (old-version)
+	- jython <unfixed> (embed)
+	NOTE: embeds many stdlib modules
+	- python-django <unfixed> (embed; bug #555419)
+	NOTE: embeds stdlib modules: doctest, decimal
+	- gamera 3.2.3-1 (embed)
+	NOTE: embeds stdlib modules: ConfigParser, optparse, sets, textwrap 
+	- boa-constructor <unfixed> (embed; bug #555426)
+	NOTE: embeds stdlib modules: ConfigParser, tarfile, zipfile, xmlrpclib
+	- nicotine <unfixed> (embed; bug #555427)
+	NOTE: embeds stdlib modules: ConfigParser
+	- museek+ <unfixed> (embed; bug #555428)
+	NOTE: embeds stdlib modules: ConfigParser
+	- vegastrike-data <removed> (embed)
+	NOTE: embeds many stdlib modules
+	- codespeak-lib 1.1.1-1 (embed; bug #555420)
+	NOTE: embeds stdlib modules: doctest, optparse, subprocess, textwrap 	
+	- config-manager <unfixed> (embed; bug #555423)
+	NOTE: embeds stdlib modules: optparse
+	- jhbuild 2.28.0-1 (embed; bug #555421)
+	NOTE: embeds stdlib modules: optparse, subprocess
+	- smart <unfixed> (embed; bug #555432)
+	NOTE: embeds stdlib modules: optparse
+	- pyprotocols 1.0a.svn20070625-5 (embed; bug #555433)
+	NOTE: embeds stdlib modules: doctest
+	- ruledispatch 0.5a.svn20080510-4 (embed; bug #555434)
+	NOTE: embeds stdlib modules: doctest
+	- distribute <unfixed> (embed)
+	NOTE: embeds stdlib modules: doctest
+	- python-setuptools <unfixed> (embed; bug #555435)
+	NOTE: embeds stdlib modules: doctest
+	- zope.testing <unfixed> (embed; bug #555436)
+	NOTE: embeds stdlib modules: doctest
+	- translate-toolkit <unfixed> (embed; bug #555422)
+	NOTE: embeds stdlib modules: textwrap, contextlib
+	- libtpclient-py <unfixed> (embed; bug #555424)
+	NOTE: embeds stdlib modules: subprocess
+	- grass <unfixed> (embed; bug #555425)
+	NOTE: embeds stdlib modules: subprocess
+	- coherence <unfixed> (embed; bug #555429)
+	NOTE: embeds stdlib modules: uuid
+	- python-django-extensions 0.4.2pre+git200911182050-1 (embed; bug #555430)
+	NOTE: embeds stdlib modules: uuid
+	- setroubleshoot <removed> (embed; bug #555431)
+	NOTE: embeds stdlib modules: uuid
+	- linkchecker <unfixed> (embed; bug #555414)
+	NOTE: embeds msgfmt.py script
+	- imdbpy <unfixed> (embed)
+	NOTE: embeds msgfmt.py script
+	- kiwi <unfixed> (embed)
+	NOTE: embeds msgfmt.py script
+	- moin <unfixed> (embed)
+	NOTE: embeds msgfmt.py script, stdlib modules: cgitb, difflib, tarfile
+	- plone3 <removed> (embed)
+	NOTE: embeds msgfmt.py script
+	- roundup <unfixed> (embed)
+	NOTE: embeds msgfmt.py script, stdlib modules: cgitb
+	- rednotebook <unfixed> (embed; bug #555415)
+	NOTE: embeds msgfmt.py script
+	- turbogears <unfixed> (embed)
+	NOTE: embeds msgfmt.py script
+	- elisa <unfixed> (embed)
+	NOTE: embeds msgfmt.py script, stdlib modules: uuid
+	- calibre <unfixed> (embed)
+	NOTE: embeds msgfmt.py script, stdlib modules: zipfile
+	- mailman 1:2.1.13-1 (embed; #555416)
+	NOTE: embeds msgfmt.py script
+	- python-docutils <unknown> (embed)
+	NOTE: embeds stdlib modules: optparse, textwrap
+	- python-imaging <unknown> (embed)
+	NOTE: embeds stdlib modules: doctest
+	- python-mechanize <unknown> (embed)
+	NOTE: embeds stdlib modules: doctest
+	- twill <unknown> (embed)
+	NOTE: embeds stdlib modules: subprocess
+	- zeroc-ice <unknown> (embed)
+	NOTE: embeds stdlib modules: subprocess
+	- wxwidgets2.8 <unknown> (embed)
+	NOTE: embeds stdlib modules: subprocess
+	- cycle <unknown> (embed)
+	NOTE: embeds msgfmt.py script
+	- deluge <unknown> (embed)
+	NOTE: embeds msgfmt.py script
+	- opendict <unknown> (embed)
+	NOTE: embeds msgfmt.py script
+	- openerp-client <unknown> (embed)
+	NOTE: embeds msgfmt.py script
+	- rapidsvn <unknown> (embed)
+	NOTE: embeds msgfmt.py script
+	- wammu <unknown> (embed)
+	NOTE: embeds msgfmt.py script
+	- gaphor <unknown> (embed)
+	NOTE: embeds msgfmt.py script
+	- pida <unknown> (embed)
+	NOTE: embeds msgfmt.py script
+	- python-formencode <unknown> (embed)
+	NOTE: embeds msgfmt.py script
+	- duplicity <unfixed> (embed)
+	NOTE: embeds stdlib module: urlparse, tarfile
+	- pygopherd <unfixed> (embed)
+	NOTE: embeds stdlib module: zipfile
+
+argparse
+	- twill <unfixed> (embed; bug #555347)
+	- ipython <unfixed> (embed; bug #555348)
+
+coherence
+	- elisa <unfixed> (embed; bug #555335)
+
+simpletal
+	- plastex <unfixed> (embed; bug #555371)
+
+flickrpc (not packaged in Debian, http://burtonini.com/bzr/flickrpc/)
+	- postr <unfixed> (embed)
+	- elisa <unfixed> (embed)
+
+simplegeneric (not packaged in Debian, http://pypi.python.org/pypi/simplegeneric)
+	- apertium-tolk <unfixed> (embed)
+	- ipython <unfixed> (embed)
+	- virtaal <unfixed> (embed)
+
+distribute
+	- setuptools <removed> (old-version)
+
+rails
+	- jruby1.2 <removed> (embed) [./bench/rails/*]
+	NOTE: jruby is in non-free, it probably includes rails too
+	- libgettext-ruby <unfixed> (embed) [./samples/rails/*]
+	- libopenid-ruby <unfixed> (embed) [./examples/rails_openid/*]
+	- thin <unfixed> (embed) [./spec/rails_app/*]
+	NOTE: this is a subdirectory of examples, which in general is a non-issue, but may
+	NOTE: be dangerous if developers are naively basing their code off of the examples
+	NOTE: prototype.js is among the example files
+
+lucene2 (prototype.js is among the embeds in the following)
+	- lucene <unfixed> (old-version)
+	- pylucene <unfixed> (embed)
+	- libpdfbox-java <unfixed> (embed)
+	- libfontbox-java <unfixed> (embed)
+	- libjempbox-java <unfixed> (embed)
+	- solr <unfixed> (embed)
+
+unicode-data
+	- syslinux <unfixed> (embed)
+	- camomile <unfixed> (embed)
+	- fribidi <unfixed> (embed)
+	- m17n-db <unfixed> (embed)
+	- sbcl <unfixed> (embed)
+	- heimdal <unfixed> (embed)
+	- icu <unfixed> (embed)
+	- icu4j <unfixed> (embed)
+	- krb5 <unfixed> (embed)
+	- moodle <unfixed> (embed)
+	- openldap <unfixed> (embed)
+	- pike7.6 <unfixed> (embed)
+	- samba <unfixed> (embed)
+	- samba4 <unfixed> (embed)
+	- cmucl <unfixed> (embed)
+	- typo3-src <unfixed> (embed)
+	- mauve <unfixed> (embed)
+	- texlive-bin <unfixed> (embed)
+	- ypsilon <unfixed> (embed)
+	- jeuclid <unfixed> (embed)
+	- charmap.app <unfixed> (embed)
+	- clisp <unfixed> (embed)
+	- gnulib <unfixed> (embed)
+	- opensrs-client <unfixed> (embed)
+	- saxonb <unfixed> (embed)
+	- rails <unfixed> (embed)
+
+feedparser
+	- rawdog <unfixed> (embed; bug #383422)
+	- miro <unfixed> (embed; bug #555351)
+	- calibre <unfixed> (embed; bug #555352)
+	- freevo <unfixed> (embed; bug #555353)
+	- pida <unfixed> (embed; bug #555354)
+	- planet-venus <unfixed> (embed; bug #555355)
+	- plone3 <removed> (embed; bug #555356)
+	- exaile 0.2.14+debian-1 (embed)
+	- screenlets 0.1.2-3 (embed)
+	NOTE: included twice
+
+agg:
+	- matplotlib <unfixed> (embed: bug #377271)
+	- contextfree <unfixed> (embed)
+	NOTE: since 2.2-1 it links statically to system libagg, but still uses the embedded copy
+	- exactimage <unfixed> (embed)
+	- python-enable <unfixed> (embed)
+	- mapnik 0.5.1-3 (embed)
+	NOTE: links statically to agg, but shared library is not available (bug #377271)
+
+vtk
+	- paraview <unfixable> (embed; bug #495426)
+	- libmesh <unfixed>
+	NOTE: embeds exodus; not sure if there's a version external to vtk
+
+txt2tags
+	- rednotebook <unfixed> (embed)
+
+htmltextview (not packaged in Debian, http://www.gnome.org/~gjc/htmltextview.py)
+	- gajim <unfixed> (embed)
+	- emesene <unfixed> (embed)
+	- convirt <unfixed> (embed)
+	- pida <unfixed> (embed)
+	- rednotebook <unfixed> (embed)
+
+horde3 (prototype.js is among the embeds in the following)
+	- mnemo2 <unfixed> (embed)
+	- nag2 <unfixed> (embed)
+	- wordpress <unfixed> (embed)
+	NOTE: Text_Diff (wp-includes/Text/Diff*)
+
+cimg
+	- gmic <unfixed> (embed)
+
+mootools
+	- kdenetwork <unfixed> (embed)
+	- gallery <unfixed> (embed)
+	- jspwiki <unfixed> (embed)
+	- vdr-plugin-live <unfixed> (embed)
+	- perl-doc-html <unfixed> (embed)
+
+openldap
+	- openldap2.3 <removed> (old-version)
+        - ia32-libs <unfixable> (embed)
+
+grub2
+	- grub <unfixed> (old-version)
+
+gnupginterface
+	- duplicity <unfixed> (embed)
+
+python-dateutil
+	- awn-extras-applets <unfixed> (embed)
+	- matplotlib <unknown> (embed)
+
+cups
+	- cupsys <removed> (old-version)
+        - ia32-libs <unfixable> (embed)
+
+yui
+	- bcfg2 <not-affected> (present in source but not included in any binary files)
+	- serendipity 1.5.3-1 (embed; bug #557746)
+	- moodle 1.8.2.dfsg-5 (embed)
+	- jifty 0.91117-1 (embed; bug #557748)
+	- webgui 7.7.26-1 (embed)
+	- loggerhead 1.17-1 (embed)
+	- otrs2 2.4.7+dfsg1-1 (embed; bug #592146)
+
+quake3 (vanilla source not packaged in debian)
+	- openarena <unfixable> (fork)
+
+quake2 (vanilla source not packaged in debian)
+	- alien-arena <unfixable> (fork)
+	- warsow <unfixable> (fork)
+
+quake (vanilla source not packaged in debian)
+        - darkplaces <unfixable> (fork)
+        - quakespasm <unfixable> (fork)
+        - nexuiz 2.5.2+dp-1 (old-version)
+        NOTE: before 2.5.2+dp this was an outdated version of darkplaces
+
+libtheora
+	- iceweasel <not-affected> (uses xulrunner)
+	- xulrunner <unfixed> (embed; bug #540959)
+	[etch] - xulrunner <not-affected> (introduced in firefox 3.5)
+	[lenny] - xulrunner <not-affected> (introduced in firefox 3.5)
+	- iceape <unfixed> (embed; bug #559276)
+	[etch] - iceape <not-affected> (introduced in iceape 2.0)
+	[lenny] - iceape <not-affected> (introduced in iceape 2.0)
+
+dtoa
+	- bfilter <unfixed> (embed)
+	- cacao <removed> (embed)
+	- cdrdao <unfixed> (embed)
+	- classpath <unfixed> (embed)
+	- freej <unfixed> (embed)
+	- iceape <unfixed> (embed)
+	- iceweasel <unfixed> (embed)
+	- jscoverage <unfixed> (embed)
+	- kde4libs <unfixed> (embed)
+	- kdelibs <unfixed> (embed)
+	- kompozer <unfixed> (embed)
+	- libv8 <unfixed> (embed)
+	- mono <unfixed> (embed)
+	- newlib <unfixed> (embed)
+	- nspr <unfixed> (embed)
+	- php5 <unfixed> (embed)
+	- polyml <unfixed> (embed)
+	- qt4-x11 <unfixed> (embed)
+	- rhino <unfixed> (embed)
+	NOTE: code translated to Java
+	- ruby1.8 <unfixed> (embed)
+	- ruby1.9 <unfixed> (embed)
+	- ruby1.9.1 <unfixed> (embed)
+	- sdd <unfixed> (embed)
+	- sfind <unfixed> (embed)
+	- star <unfixed> (embed)
+	- tinymux <unfixed> (embed)
+	- virtualbox-ose <unfixed> (embed)
+	- webkit <unfixed> (embed)
+	- xulrunner <unfixed> (embed)
+
+ipc (not packaged in Debian; see http://mozdev.org/pipermail/enigmail/2009-November/011678.html)
+	- firegpg <unfixed> (embed)
+	- enigmail <unfixed> (embed)
+
+ptmalloc (not packaged in Debian)
+	- crystalspace <unfixed> (embed)
+	- qt4-x11 <unfixed> (embed)
+
+svgalib
+	- usplash <unfixed> (embed)
+        - ia32-libs <unfixable> (embed)
+
+bogl
+	- usplash <unfixed> (embed)
+
+taglist
+	- usplash <unfixed> (embed)
+
+portaudio
+	- audacity <unfixed> (embed; bug #323711)
+
+nyquist
+	- audacity <unfixed> (embed)
+	NOTE: embeds a forked nyquist with support for a shared library
+
+vamp-plugin-sdk
+	- audacity <unfixed> (embed)
+
+wordpress
+	- libwordpress-xmlrpc-perl <removed> (embed) [./xmlrpc.php]
+        - wordpress-mu <removed> (fork)
+
+php5
+	- php4 <removed> (old-version)
+
+classpath
+	- libgnucrypto-java <removed> (embed; bug #559788)
+
+libtool
+	- apr <unfixed> (static; bug #489625)
+	NOTE: ships copy of libtool in libapr1-dev; was 'embed' before 1.3.2-3
+	- arts <unfixed> (embed)
+	- bochs 2.4.2-1 (embed; bug #560884)
+	- camserv <unfixed> (embed)
+	- collectd 4.8.2-1 (embed)
+	- courier-authlib 0.58-4 (embed)
+        NOTE: The etch version of courier-authlib was the earliest version checked, might be fixed earlier
+	- cvsnt 2.5.04.3236-1.2 (embed)
+	- dico <not-affected> (Uses the system copy of ltdl)
+	- freeradius 0.1+20010527-1 (embed)
+        NOTE: Earliest reference I could find from the changelog is from 27 May 2001
+	- ggobi 2.1.9~20091212-1 (embed)
+	- glame 2.0.1-4 (embed)
+        NOTE: The etch version of glame was the earliest version checked, might be fixed earlier
+	- gnash 0.8.7-2 (embed)
+	- gnu-smalltalk <unfixed> (embed; bug #566777)
+	- google-gadgets 0.10.5-0.3 (embed)
+        NOTE: 0.10.5-0.3 was the earliest version checked, was fixed earlier
+	- graphicsmagick 1.3.5-6 (embed)
+	- graphviz 2.8-3 (embed)
+        NOTE: The etch version of graphviz was the earliest version checked, might be fixed earlier
+	- guile-1.6 1.6.8-7 (embed)
+	- hamlib 1.2.11-1 (embed)
+	- hercules 3.06-1.2 (embed)
+	- jags 1.0.4-3 (embed; bug #560864)
+	- kdelibs <unfixed> (embed)
+	- libannodex <removed> (embed)
+	- libextractor 0.5.23+dfsg-4 (embed)
+	- libmcrypt <not-affected> (libtool source present but not included in any of the binary packages)
+	- libtunepimp 0.5.3-7.3 (embed)
+	- mp4h 1.3.1-4.1 (embed)
+	- naim <removed> (embed)
+	- parser-mysql <unfixed> (embed)
+	- pinball 0.3.1-11 (embed)
+	- redland <unfixed> (embed)
+	- siproxd 1:0.8.1-2 (embed; bug #657070)
+	- ski <unfixed> (embed)
+	- synfig 0.62.00-1 (embed)
+	- unixodbc 2.2.4-5 (embed)
+	- xmlsec1 <not-affected> (Doesn't enable dynamic loading of crypto modules)
+	- clamav 0.95+dfsg-1 (embed)
+	- imagemagick 6:6.2.3.1-1 (embed)
+	- hypre 2.4.0b-5 (embed)
+	- lam <unfixed> (embed)
+	- openmpi <unfixable> (embed; bug #559386)
+	- parser <unfixed> (embed)
+	- pdsh 2.18-5 (embed; bug #560892)
+	- sbnc 1.2-8 (embed)
+	- sdcc <unfixed> (embed)
+	- wml <not-affected> (The embedded ltdl isn't used, instead mp4h is used, see 559841)
+	- proftpd-dfsg <unfixed> (embed; bug #561748)
+	- babel 1.4.0.dfsg-5 (embed)
+	- libprelude 0.9.14-2 (embed)
+	- heartbeat 2.1.4-7 (embed)
+	NOTE: From Squeeze onwards the system copy of ltdl is used, use the current version from Squeeze,
+	NOTE: might've been fixed earlier
+	- gcc-* <unknown> (embed)
+        - ia32-libs <unfixable> (embed)
+
+ocamlgsl
+	- orpie 1.5.1-7.1 (embed; bug #550058)
+
+xdotool
+	- keynav <unfixed> (embed; bug #560103)
+
+bulletphysics (not packaged; RFP bug #476284; http://www.bulletphysics.org/)
+	- supertuxkart <unfixed> (embed)
+	- blender <unfixed> (embed)
+	- critterding <unfixed> (embed)
+	NOTE: http://lists.debian.org/4B5A7549.4090801@gmail.com
+
+ghostscript
+	- gs-gpl <removed> (old-version)
+
+icedove
+	- thunderbird <removed> (old-version)
+
+sizzlejs (not packaged in Debian, http://sizzlejs.com/)
+	- jquery <unfixed> (embed)
+
+sed
+	- ssed <unfixed> (fork)
+
+phpatomlib (http://code.google.com/p/phpatomlib)
+	- wordpress <unfixed> (embed)
+
+Services_JSON (http://pear.php.net/package/Services_JSON)
+	- wordpress <unfixed> (embed)
+
+phpass (http://www.openwall.com/phpass/)
+	- gallery2 <unfixed> (embed)
+	- wordpress <unfixed> (embed)
+	- typo3-src <unfixed> (modified-embed)
+	NOTE: file refers to drupal, maybe there's a copy somewhere there
+	NOTE: a copyright owner search didn't match anything
+	- libauthen-passphrase-perl <unfixable> (fork)
+	NOTE: perl implementation of phpass
+	- phpbb3 <unfixed>
+	NOTE: hash identifier modified: s/P/H/; recent version 0.3 of phpass recognises it
+
+squirrelmail
+	- wordpress <unfixed> (embed)
+	NOTE: class-pop3.php
+
+ezSQL (http://www.woyano.com/jv/ezsql)
+	- wordpress <unfixable> (fork)
+	NOTE: wp-db.php
+
+Diff.php (Clay Loveless' version/killersoft.com)
+	- php-versioncontrol-svn <unfixed>
+
+libm (provided by libc)
+	- spring <unfixed> (embed)
+	NOTE: embedded by embedded copy of streflop
+	- megaglest <unfixed> (embed)
+	NOTE: embedded by embedded copy of streflop
+	- aide <unfixed> (static)
+	- busybox <unfixed> (static)
+	- mindi-busybox <unfixed> (static)
+	- qemu <unfixed> (static)
+	NOTE: qemu-user-static
+	- tuxonice-userui <unfixed> (static)
+	- zsh <unfixed> (static)
+	NOTE: zsh-static
+	- tripwire <unfixed>
+
+streflop (http://nicolas.brodu.numerimoire.net/en/programmation/streflop/)
+	- spring <unfixed> (modified-embed)
+	NOTE: old, modified version of streflop
+	- megaglest <unfixed> (modified-embed)
+	NOTE: megaglest uses the same streflop code as spring
+
+minizip
+	- spring <unfixed> (embed)
+
+oscpack
+	- spring <unfixed> (embed)
+
+hpiutil2
+	- spring <unfixed> (embed)
+
+p7zip
+	- spring <unfixed> (embed)
+
+pythonqt (doesn't seem to be python-qtN, unknown source)
+	- fontmatrix <unfixed> (embed)
+	- elmerfem <unfixed> (embed)
+
+iepngfix (not packaged in Debian; http://www.twinhelix.com/css/iepngfix/)
+	- docvert <unfixed> (embed)
+	- jifty <unfixed> (embed)
+	- kdenetwork <unfixed> (embed)
+	- mediatomb <unfixed> (embed) 
+	- plastex <unfixed> (embed) 
+	- plone3 <removed> (embed)
+	- python-chaco <unfixed> (embed) 
+	- python-docutils <unfixed> (embed)
+	- s5 <unfixed> (embed) 
+	- zope2.10 <unfixed> (embed)
+	- zope2.11 <removed> (embed)
+	- cython <not-affcted> (embed)
+	NOTE: part of documentation, which is not installed into the binary package
+
+python-docutils
+	- zope2.10 <unfixed> (embed)
+	- zope2.11 <removed> (embed)
+
+tesseract
+	- ocropus <unfixed> (static)
+
+antlr
+	- kdevelop <unfixed> (embed)
+
+libxerces2
+        - openjdk-6 <unfixed> (embed)
+
+kfreebsd-8
+        - kfreebsd-7 <unfixed> (old-version)
+        - kfreebsd-6 <removed> (old-version)
+
+ruby1.9.1
+        - ruby1.9 <unfixed> (old-version)
+        - ruby1.8 <unfixed> (old-version)
+
+maildrop
+        - courier <unfixed> (embed) [./maildrop]
+
+glee
+	- warzone2100 <not-affected> (embed)
+
+phing
+	- symfony <unfixed> (embed)
+
+pake
+	- symfony <unfixed> (embed)
+
+propel
+	- symfony <unfixed> (embed)
+
+creole
+	- symfony <unfixed> (embed)
+
+hfsutils
+	- cdrkit <unfixed> (embed; bug #570187)
+	NOTE: embeds hfsutils code in genisoimage
+
+cdrkit
+	- grub2 <unfixed> (embed; bug #570156)
+	NOTE: genisoimage imported into grub-mkisofs
+
+kdebase-workspace
+        - kdebase <unfixed> (old-version)
+
+file
+	- php5 <unfixable> (modified-embed)
+	[lenny] - php5 <not-affected>
+
+cdb
+	- php5 <unfixed> (embed)
+
+libmbfl (itp: #570708)
+	- php5 <unfixed> (embed)
+	NOTE: PHP is actually the current upstream, ITP is of that code
+
+libonig
+	- php5 5.3.2-1 (embed)
+
+xmlrpc-epi
+	- php5 <unfixed> (embed)
+
+swt-gtk
+        - eclipse <unfixed> (embed; bug #538808)
+
+txt2html
+        - wml 2.0.11ds2-1 (embed)
+
+ca-certificates
+        - nss <not-affected> (certificates are in source, but not included in any of the binary packages)
+
+openexr
+	- freeimage <unfixed> (embed)
+
+libmng
+	- freeimage <unfixed> (embed)
+
+openjpeg
+	- freeimage <unfixed> (embed)
+
+libjpeg6b
+	- freeimage <unfixed> (embed)
+        - ia32-libs <unfixable> (embed)
+
+libjpeg (don't know what exact version)
+	- dcmtk <unfixed>
+	- gdcm <unfixed>
+	- insighttoolkit <unfixed>
+	- openarena 0.8.5-5+exp1 (bug #495966)
+	- outguess <unfixed>
+	- squeak-vm <unfixed> (embed)
+	- tremulous <unfixed>
+	- tuxonice-userui <unfixed> (static)
+	- fpc <unfixed> (static)
+	- lazarus <unfixed> (static)
+	NOTE: inherited from fpc, see #472304
+	- mseide-msegui <unfixed> (static)
+	NOTE: inherited from fpc, see #472304
+	- easymp3gain <unfixed> (static)
+	NOTE: inherited from fpc, see #472304
+	- winff <unfixed> (static)
+	NOTE: inherited from fpc, see #472304
+        - texlive-bin <not-affected> (included in upstream source as dependency of libgd2, but not built or included in any of the binary packages)
+
+
+lxr
+	- lxr-cvs <unfixed> (embed)
+
+libfile-copy-recursive-perl
+	- r-base <unfixed> (embed; bug #577427)
+	- r-base-core-ra <unfixed> (embed; bug #577429)
+
+delimmatch
+	- r-base <unfixed> (embed; bug #577433)
+	- r-base-core-ra <unfixed> (embed; bug #577434)
+
+libsmf (ITP: #572558)
+	- denemo <unfixed> (embed)
+	NOTE: http://lists.debian.org/debian-mentors/2010/04/msg00269.html
+
+libselinux
+        - dpkg 1.15.6 (static)
+        - ia32-libs <unfixable> (embed)
+
+xinha (ITP: #479708)
+	- horde3 <unfixed>
+	- serendipity <unfixed>
+	- openacs <unfixed>
+	- dotlrn <unfixed>
+
+dvipng
+        - texlive-bin <not-affected> (code present in source but not included in the binary packages)
+
+dvipdfmx
+        - texlive-bin <unfixed> (embed)
+        NOTE: this is intentionally part of the package now, and the separate dvipdfmx package has been removed from sid/squeeze
+
+lcdf-typetools
+        - texlive-bin 2009-1 (embed)
+
+tex4ht
+        - texlive-bin 2009-1 (embed)
+
+freetype
+        - texlive-bin 2009-1 (embed)
+        - ia32-libs <unfixable> (embed)
+
+freetype2
+        - texlive-bin 2009-1 (embed)
+	- tuxonice-userui <unfixed> (static)
+	- instantbird <unfixed>
+	- qt4-x11 <unknown> (embed)
+	- vtk <unknown> (embed)
+	- paraview <unknown> (embed)
+	NOTE: from embedded copy of vtk
+
+silgraphite
+        - texlive-bin <unfixed> (embed)
+
+unzip
+        - texlive-bin 2009-1 (embed)
+
+jbig2dec
+        - ghostscript 8.71~dfsg2-1 (embed)
+
+libxml2
+	- chromium-browser 5.0.375.29~r46008-1
+        - ia32-libs <unfixable> (embed)
+
+protobuf
+	- chromium-browser 5.0.375.70~r48679-2
+
+libv8
+	- chromium-browser 5.0.375.38~r46659-1
+
+nspr
+	- chromium-browser 5.0.375.29~r46008-3
+        - ia32-libs <unfixable> (embed)
+
+yasm
+	- chromium-browser 5.0.375.29~r46008-2
+
+libxslt
+	- chromium-browser 5.0.375.29~r46008-1
+        - ia32-libs <unfixable> (embed)
+
+miniupnpc
+	- warzone2100 2.3.7-2
+	NOTE: code still present in tarball but removed during build and unused
+	- vino 3.2.2-1
+	NOTE: code still present in tarball but removed during build and unused
+
+iniparser (not packaged in Debian; RFP bug #582657)
+	- warzone2100 <unfixed> (modified-embed)
+
+pyglet
+	- sympy <unfixed> (embed; bug #459716)
+
+mpmath
+	- sympy <unfixed> (embed; bug #541746)
+
+openssh
+	- libpam-ssh <unfixed> (embed; bug #598522)
+
+curl
+	- cmake 2.6.0-6 (embed)
+        NOTE: Might be fixed earlier. Lenny version recorded.
+	- criticalmass <unfixed> (static; bug #599061)
+	- wengophone 2.1.0~beta1-svn9983-1 (embed)
+        - ia32-libs <unfixable> (embed)
+
+lib3ds
+	- boson <unfixed> (embed; bug #600900)
+	- openscenegraph <unfixed> (embed; bug #601181)
+
+xcftools
+	- gnome-xcf-thumbnailer <unfixed> (embed)
+
+simplejson
+	- exaile <unfixed> (embed; bug #604547)
+
+libasycns
+        - loudmouth <unfixed> (embed; bug #566143)
+
+plplot
+        - emboss <unfixed> (fork)
+
+acl
+        - ia32-libs <unfixable> (embed)
+
+arts
+        - ia32-libs <unfixable> (embed)
+
+attr
+        - ia32-libs <unfixable> (embed)
+
+audiofile
+        - ia32-libs <unfixable> (embed)
+
+avahi
+        - ia32-libs <unfixable> (embed)
+
+celt
+        - ia32-libs <unfixable> (embed)
+
+coreutils
+        - ia32-libs <unfixable> (embed)
+
+cyrus-sasl2
+        - ia32-libs <unfixable> (embed)
+
+db4.8
+        - ia32-libs <unfixable> (embed)
+
+dbus
+        - ia32-libs <unfixable> (embed)
+
+directfb
+        - ia32-libs <unfixable> (embed)
+
+esound
+        - ia32-libs <unfixable> (embed)
+
+fltk1.1
+        - ia32-libs <unfixable> (embed)
+
+fontconfig
+        - ia32-libs <unfixable> (embed)
+
+freeglut
+        - ia32-libs <unfixable> (embed)
+
+gcc-3.3
+        - ia32-libs <unfixable> (embed)
+
+gdbm
+        - ia32-libs <unfixable> (embed)
+
+gnutls26
+        - ia32-libs <unfixable> (embed)
+
+hal
+        - ia32-libs <unfixable> (embed)
+
+isdnutils
+        - ia32-libs <unfixable> (embed)
+
+jack-audio-connection-kit
+        - ia32-libs <unfixable> (embed)
+
+keyutils
+        - ia32-libs <unfixable> (embed)
+
+krb5
+        - ia32-libs <unfixable> (embed)
+
+lesstif2
+        - ia32-libs <unfixable> (embed)
+
+libaio
+        - ia32-libs <unfixable> (embed)
+
+libasyncns
+        - ia32-libs <unfixable> (embed)
+
+libcap2
+        - ia32-libs <unfixable> (embed)
+
+libdrm
+        - ia32-libs <unfixable> (embed)
+
+libedit
+        - ia32-libs <unfixable> (embed)
+
+libexif
+        - ia32-libs <unfixable> (embed)
+
+libgcrypt11
+        - ia32-libs <unfixable> (embed)
+
+libgpg-error
+        - ia32-libs <unfixable> (embed)
+
+libgphoto2
+        - ia32-libs <unfixable> (embed)
+
+libice
+        - ia32-libs <unfixable> (embed)
+
+libieee1284
+        - ia32-libs <unfixable> (embed)
+
+libjpeg8
+        - ia32-libs <unfixable> (embed)
+
+libnss-ldap
+        - ia32-libs <unfixable> (embed)
+
+libogg
+        - ia32-libs <unfixable> (embed)
+
+libpam-ldap
+        - ia32-libs <unfixable> (embed)
+
+libsamplerate
+        - ia32-libs <unfixable> (embed)
+
+libsdl1.2
+        - ia32-libs <unfixable> (embed)
+
+libsm
+        - ia32-libs <unfixable> (embed)
+
+libssh2
+        - ia32-libs <unfixable> (embed)
+
+libtasn1-3
+        - ia32-libs <unfixable> (embed)
+
+libx11
+        - ia32-libs <unfixable> (embed)
+
+libx86
+        - ia32-libs <unfixable> (embed)
+
+libxau
+        - ia32-libs <unfixable> (embed)
+
+libxcb
+        - ia32-libs <unfixable> (embed)
+
+libxcomposite
+        - ia32-libs <unfixable> (embed)
+
+libxcursor
+        - ia32-libs <unfixable> (embed)
+
+libxdamage
+        - ia32-libs <unfixable> (embed)
+
+libxdmcp
+        - ia32-libs <unfixable> (embed)
+
+libxext
+        - ia32-libs <unfixable> (embed)
+
+libxfixes
+        - ia32-libs <unfixable> (embed)
+
+libxi
+        - ia32-libs <unfixable> (embed)
+
+libxinerama
+        - ia32-libs <unfixable> (embed)
+
+libxmu
+        - ia32-libs <unfixable> (embed)
+
+libxp
+        - ia32-libs <unfixable> (embed)
+
+libxrandr
+        - ia32-libs <unfixable> (embed)
+
+libxrender
+        - ia32-libs <unfixable> (embed)
+
+libxss
+        - ia32-libs <unfixable> (embed)
+
+libxt
+        - ia32-libs <unfixable> (embed)
+
+libxtst
+        - ia32-libs <unfixable> (embed)
+
+libxv
+        - ia32-libs <unfixable> (embed)
+
+libxxf86vm
+        - ia32-libs <unfixable> (embed)
+
+lzo2
+        - ia32-libs <unfixable> (embed)
+
+mesa
+        - ia32-libs <unfixable> (embed)
+
+mpg123
+        - ia32-libs <unfixable> (embed)
+
+nas
+        - ia32-libs <unfixable> (embed)
+
+nss
+        - ia32-libs <unfixable> (embed)
+
+openal-soft
+        - ia32-libs <unfixable> (embed)
+
+openssl
+        - ia32-libs <unfixable> (embed)
+
+pam
+        - ia32-libs <unfixable> (embed)
+
+popt
+        - ia32-libs <unfixable> (embed)
+
+pulseaudio
+        - ia32-libs <unfixable> (embed)
+
+sane-backends
+        - ia32-libs <unfixable> (embed)
+
+sqlite3
+        - ia32-libs <unfixable> (embed)
+	- chromium-browser <unfixed> (embed)
+
+sysfsutils
+        - ia32-libs <unfixable> (embed)
+
+tcp-wrappers
+        - ia32-libs <unfixable> (embed)
+
+tdb
+	      - thunar 1.2.1-3 (old-version)
+        - ia32-libs <unfixable> (embed)
+
+tslib
+        - ia32-libs <unfixable> (embed)
+
+unixodbc
+        - ia32-libs <unfixable> (embed)
+
+xaw3d
+        - ia32-libs <unfixable> (embed)
+
+xbitmaps
+        - ia32-libs <unfixable> (embed)
+
+xcb-util
+        - ia32-libs <unfixable> (embed)
+
+xcursor-themes
+        - ia32-libs <unfixable> (embed)
+
+xft
+        - ia32-libs <unfixable> (embed)
+
+dicomparser
+	- vtk <unfixed>
+	- paraview <unfixed>
+	NOTE: as part of its copy of vtk
+	- insighttoolkit <unfixed>
+
+proj
+	- vtk <unfixed>
+	- paraview <unfixed>
+	NOTE: as part of its copy of vtk
+	- therion <unfixed>
+	- python-pyproj 1.8.6-1
+
+netcdf
+	- vtk <unfixed>
+	- paraview <unfixed>
+	NOTE: as part of its copy of vtk
+
+insighttoolkit
+	- vtk <unfixed> (embed)
+	NOTE: embeds at least MetaIO
+	- paraview <unfixed> (embed)
+	NOTE: embeds at least MetaIO
+
+gl2ps
+	- vtk <unfixed>
+	- paraview <unfixed>
+	NOTE: as part of its copy of vtk
+	- avogadro <unfixed>
+	- gabedit <unknown> (embed)
+	NOTE: not sure if it is built
+	- drawxtl <unfixed> (embed)
+	- rgl <unfixed> (embed)
+	- gmsh <unfixed>
+	- mcrl2 <unfixed> (embed)
+	- mysql-gui-tools <unknown> (embed)
+	NOTE: not sure if it is built
+	- opencascade <unfixed> (embed)
+	- orsa <unfixed> (embed)
+	- qtiplot <unfixed> (embed)
+	- qwtplot3d <unfixed> (embed)
+	- root-system <unknown> (embed)
+	NOTE: not sure if it is built
+	- scilab <unfixed> (embed)
+	- snd <unknown> (embed)
+	NOTE: not sure if it is built
+	- xmakemol <unfixed> (embed)
+
+qwtplot3d
+	- qtiplot <unfixed>
+
+parseafm (from Adobe)
+	- vftool <unfixed>
+	- gnustep-back <unknown>
+	NOTE: looks like it isn't built
+	- evince <unfixed>
+
+bugzilla
+        - perl <unknown>
+        - libcgi-pm-perl <unknown>
+
+isc-dhcp
+        - dhcp3 <unfixable> (old-version)
+        - dhcp <unfixable> (old-version)
+
+chipmunk (ITP: #623274)
+	- xmoto <unfixed> (embed; bug #623299)
+	- libtuxcap <unfixed> (embed; bug #623300)
+
+libsigsegv
+	- gawk 3.1.8+dfsg-0.1
+
+pdfrw
+        - rst2pdf <unfixed> (embed; bug #638607)
+
+bind9
+        - isc-dhcp <unfixed> (embed; bug #643569)
+        NOTE: introduced in upstream 4.2 series
+
+qof
+	- gnucash <unfixed> (embed; bug #556245)
+
+feathery (not packaged in Debian, http://sourceforge.net/projects/feathery/)
+	- megaglest <unfixed> (modified-embed)
+
+acsccid
+	- ccid 1.3.11 <unfixed> (fork)
+	- openct <unfixed> (modified-embed)
+	- towitoko <unfixed> (modified-embed)
+
+ccid
+	- openct <unfixed> (modified-embed)
+	- towitoko <unfixed> (modified-embed)

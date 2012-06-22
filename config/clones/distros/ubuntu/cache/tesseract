@@ -1,0 +1,7 @@
+tesseract CLONED_IN_SOURCE ocropus
+		MATCH cutil.c/util.c (3.004553)
+		MATCH debug.c/ldebug.c (6.313767)
+		MATCH memry.c/memory.c (4.321337)
+		MATCH output.c/output.c (4.394175)
+	tesseract CLONED_IN_PACKAGE ocropus
+	tesseract CLONED_IN_PACKAGE ocropus-data

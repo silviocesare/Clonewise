@@ -1,0 +1,6 @@
+ca-certificates CLONED_IN_SOURCE nss
+	ca-certificates CLONED_IN_PACKAGE libnss3
+	ca-certificates CLONED_IN_PACKAGE libnss3-dbg
+	ca-certificates CLONED_IN_PACKAGE libnss3-dev
+	ca-certificates CLONED_IN_PACKAGE libnss3-tools
+	ca-certificates CLONED_IN_PACKAGE libnss3-1d

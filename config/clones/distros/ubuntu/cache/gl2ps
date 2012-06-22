@@ -1,0 +1,96 @@
+gl2ps CLONED_IN_SOURCE avogadro
+		MATCH glps.c/glps.c (6.977062)
+		MATCH glpstest.c/glpstest.c (8.423981)
+		MATCH glpstestsimple.c/glpstestsimple.c (8.711663)
+	gl2ps CLONED_IN_PACKAGE libavogadro1
+	gl2ps CLONED_IN_PACKAGE python-avogadro
+	gl2ps CLONED_IN_PACKAGE avogadro-data
+	gl2ps CLONED_IN_PACKAGE avogadro
+	gl2ps CLONED_IN_PACKAGE libavogadro-dev
+gl2ps CLONED_IN_SOURCE drawxtl
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE drawxtl
+gl2ps CLONED_IN_SOURCE gabedit
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE gabedit
+gl2ps CLONED_IN_SOURCE gmsh
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE gmsh
+gl2ps CLONED_IN_SOURCE mcrl2
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE mcrl2
+gl2ps CLONED_IN_SOURCE mysql-gui-tools
+		MATCH glps.c/glps.c (6.977062)
+		MATCH glpstest.c/glpstest.c (8.423981)
+		MATCH glpstestsimple.c/glpstestsimple.c (8.711663)
+	gl2ps CLONED_IN_PACKAGE mysql-query-browser
+	gl2ps CLONED_IN_PACKAGE mysql-admin
+	gl2ps CLONED_IN_PACKAGE mysql-gui-tools-common
+gl2ps CLONED_IN_SOURCE paraview
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE paraview-dev
+	gl2ps CLONED_IN_PACKAGE paraview-doc
+	gl2ps CLONED_IN_PACKAGE paraview
+	gl2ps CLONED_IN_PACKAGE paraview-python
+gl2ps CLONED_IN_SOURCE qtiplot
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE qtiplot-doc
+	gl2ps CLONED_IN_PACKAGE qtiplot
+gl2ps CLONED_IN_SOURCE qwtplot3d
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE libqwtplot3d-doc
+	gl2ps CLONED_IN_PACKAGE libqwtplot3d-qt4-0
+	gl2ps CLONED_IN_PACKAGE libqwtplot3d-qt4-dev
+gl2ps CLONED_IN_SOURCE rgl
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE r-cran-rgl
+gl2ps CLONED_IN_SOURCE scilab
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE scilab-full-bin-dbg
+	gl2ps CLONED_IN_PACKAGE scilab-cli
+	gl2ps CLONED_IN_PACKAGE scilab-doc
+	gl2ps CLONED_IN_PACKAGE scilab-full-bin
+	gl2ps CLONED_IN_PACKAGE scilab-doc-fr
+	gl2ps CLONED_IN_PACKAGE scilab-doc-ja
+	gl2ps CLONED_IN_PACKAGE libscilab2-java
+	gl2ps CLONED_IN_PACKAGE scilab-data
+	gl2ps CLONED_IN_PACKAGE scilab-test
+	gl2ps CLONED_IN_PACKAGE libscilab-java
+	gl2ps CLONED_IN_PACKAGE scilab-minimal-bin
+	gl2ps CLONED_IN_PACKAGE scilab-include
+	gl2ps CLONED_IN_PACKAGE scilab
+	gl2ps CLONED_IN_PACKAGE scilab-doc-pt-br
+	gl2ps CLONED_IN_PACKAGE scilab-minimal-bin-dbg
+gl2ps CLONED_IN_SOURCE snd
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE snd-nox-alsa
+	gl2ps CLONED_IN_PACKAGE snd-doc
+	gl2ps CLONED_IN_PACKAGE snd-gtk
+	gl2ps CLONED_IN_PACKAGE snd-nox
+	gl2ps CLONED_IN_PACKAGE snd-gtk-jack
+	gl2ps CLONED_IN_PACKAGE snd
+	gl2ps CLONED_IN_PACKAGE snd-gtk-pulse
+gl2ps CLONED_IN_SOURCE ugene
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE ugene-data
+	gl2ps CLONED_IN_PACKAGE ugene
+gl2ps CLONED_IN_SOURCE vtk
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE libvtk5.6
+	gl2ps CLONED_IN_PACKAGE python-vtk
+	gl2ps CLONED_IN_PACKAGE libvtk5-dev
+	gl2ps CLONED_IN_PACKAGE vtk-doc
+	gl2ps CLONED_IN_PACKAGE libvtk5.6-qt4
+	gl2ps CLONED_IN_PACKAGE libvtk5-qt4-dev
+	gl2ps CLONED_IN_PACKAGE libvtk-java
+	gl2ps CLONED_IN_PACKAGE vtk-examples
+	gl2ps CLONED_IN_PACKAGE tcl-vtk
+gl2ps CLONED_IN_SOURCE xmakemol
+		MATCH glps.c/glps.c (6.977062)
+	gl2ps CLONED_IN_PACKAGE xmakemol
+gl2ps CLONED_IN_SOURCE yade
+		MATCH glps.c/glps.c (6.977062)
+		MATCH glpstest.c/glpstest.c (8.423981)
+	gl2ps CLONED_IN_PACKAGE yade-dbg
+	gl2ps CLONED_IN_PACKAGE yade-doc
+	gl2ps CLONED_IN_PACKAGE yade

@@ -1,0 +1,122 @@
+configobj CLONED_IN_SOURCE auth2db
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	configobj CLONED_IN_PACKAGE auth2db
+	configobj CLONED_IN_PACKAGE auth2db-common
+	configobj CLONED_IN_PACKAGE auth2db-filters
+	configobj CLONED_IN_PACKAGE auth2db-frontend
+configobj CLONED_IN_SOURCE bzr
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	configobj CLONED_IN_PACKAGE python-bzrlib-dbg
+	configobj CLONED_IN_PACKAGE python-bzrlib.tests
+	configobj CLONED_IN_PACKAGE python-bzrlib
+	configobj CLONED_IN_PACKAGE bzr
+	configobj CLONED_IN_PACKAGE bzr-doc
+configobj CLONED_IN_SOURCE dynagen
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH validate.py/validate.py (6.674781)
+	configobj CLONED_IN_PACKAGE dynagen
+configobj CLONED_IN_SOURCE enigmail
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+	configobj CLONED_IN_PACKAGE enigmail
+configobj CLONED_IN_SOURCE feed2omb
+		MATCH configobj.py/configobj.py (6.919903)
+	configobj CLONED_IN_PACKAGE feed2omb
+configobj CLONED_IN_SOURCE gaupol
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	configobj CLONED_IN_PACKAGE gaupol
+	configobj CLONED_IN_PACKAGE python-aeidon
+configobj CLONED_IN_SOURCE gns3
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH validate.py/validate.py (6.674781)
+	configobj CLONED_IN_PACKAGE gns3
+configobj CLONED_IN_SOURCE ipython
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH validate.py/validate.py (6.674781)
+	configobj CLONED_IN_PACKAGE ipython
+configobj CLONED_IN_SOURCE lightning-extension
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+	configobj CLONED_IN_PACKAGE xul-ext-gdata-provider
+	configobj CLONED_IN_PACKAGE xul-ext-lightning
+	configobj CLONED_IN_PACKAGE xul-ext-calendar-timezones
+configobj CLONED_IN_SOURCE moovida
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH validate.py/validate.py (6.674781)
+	configobj CLONED_IN_PACKAGE python-moovida
+	configobj CLONED_IN_PACKAGE elisa
+	configobj CLONED_IN_PACKAGE moovida
+configobj CLONED_IN_SOURCE nipy
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH validate.py/validate.py (6.674781)
+	configobj CLONED_IN_PACKAGE python-nipy
+	configobj CLONED_IN_PACKAGE python-nipy-lib-dbg
+	configobj CLONED_IN_PACKAGE python-nipy-doc
+	configobj CLONED_IN_PACKAGE python-nipy-lib
+configobj CLONED_IN_SOURCE pida
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	configobj CLONED_IN_PACKAGE pida
+configobj CLONED_IN_SOURCE psychopy
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	configobj CLONED_IN_PACKAGE psychopy
+configobj CLONED_IN_SOURCE pymt
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	configobj CLONED_IN_PACKAGE python-pymt
+configobj CLONED_IN_SOURCE pysolfc
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH validate.py/validate.py (6.674781)
+	configobj CLONED_IN_PACKAGE pysolfc
+configobj CLONED_IN_SOURCE python-numpy
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	configobj CLONED_IN_PACKAGE python-numpy-doc
+	configobj CLONED_IN_PACKAGE python-numpy
+	configobj CLONED_IN_PACKAGE python-numpy-dbg
+configobj CLONED_IN_SOURCE rest2web
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH validate.py/validate.py (6.674781)
+	configobj CLONED_IN_PACKAGE rest2web
+	configobj CLONED_IN_PACKAGE rest2web-doc
+configobj CLONED_IN_SOURCE sabnzbdplus
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+	configobj CLONED_IN_PACKAGE sabnzbdplus-theme-mobile
+	configobj CLONED_IN_PACKAGE sabnzbdplus
+	configobj CLONED_IN_PACKAGE sabnzbdplus-theme-smpl
+	configobj CLONED_IN_PACKAGE sabnzbdplus-theme-classic
+	configobj CLONED_IN_PACKAGE sabnzbdplus-theme-plush
+	configobj CLONED_IN_PACKAGE sabnzbdplus-theme-iphone
+configobj CLONED_IN_SOURCE sqlalchemy
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+	configobj CLONED_IN_PACKAGE python-sqlalchemy
+	configobj CLONED_IN_PACKAGE python3-sqlalchemy
+	configobj CLONED_IN_PACKAGE python-sqlalchemy-doc
+	configobj CLONED_IN_PACKAGE python-sqlalchemy-ext
+configobj CLONED_IN_SOURCE terminator
+		MATCH configobj.py/configobj.py (6.919903)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH validate.py/validate.py (6.674781)
+	configobj CLONED_IN_PACKAGE terminator

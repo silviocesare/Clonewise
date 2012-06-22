@@ -1,0 +1,16 @@
+simpletal CLONED_IN_SOURCE plastex
+		MATCH dummylogger.py/dummylogger.py (9.117128)
+		MATCH fixedhtmlparser.py/fixedhtmlparser.py (9.117128)
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH sgmlentitynames.py/sgmlentitynames.py (9.117128)
+		MATCH simpleelementtree.py/simpleelementtree.py (9.117128)
+		MATCH simpletal.py/simpletal.py (9.117128)
+		MATCH simpletalutils.py/simpletalutils.py (9.117128)
+	simpletal CLONED_IN_PACKAGE python-plastex-doc
+	simpletal CLONED_IN_PACKAGE python-plastex
+simpletal CLONED_IN_SOURCE pubtal
+		MATCH init.py/init.py (2.310852)
+		MATCH runtests.py/runtests.py (5.165884)
+		MATCH setup.py/setup.py (2.336070)
+	simpletal CLONED_IN_PACKAGE pubtal

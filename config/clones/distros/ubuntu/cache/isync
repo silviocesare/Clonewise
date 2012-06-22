@@ -1,0 +1,8 @@
+isync CLONED_IN_SOURCE postler
+		MATCH config.c/config.c (3.796560)
+		MATCH drvimap.c/drvimap.c (9.117128)
+		MATCH drvmaildir.c/drvmaildir.c (9.117128)
+		MATCH main.c/main.c (1.999517)
+		MATCH sync.c/sync.c (5.519816)
+		MATCH util.c/util.c (3.004553)
+	isync CLONED_IN_PACKAGE postler

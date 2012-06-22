@@ -1,0 +1,13 @@
+chmlib CLONED_IN_SOURCE wine1.2
+		MATCH chmlib.c/chmlib.c (8.711663)
+		MATCH lzx.c/lzx.c (8.423981)
+	chmlib CLONED_IN_PACKAGE wine1.2-dbg
+	chmlib CLONED_IN_PACKAGE wine1.2-dev
+	chmlib CLONED_IN_PACKAGE wine1.2
+	chmlib CLONED_IN_PACKAGE wine
+chmlib CLONED_IN_SOURCE wine1.3
+		MATCH chmlib.c/chmlib.c (8.711663)
+		MATCH lzx.c/lzx.c (8.423981)
+	chmlib CLONED_IN_PACKAGE wine1.3
+	chmlib CLONED_IN_PACKAGE wine1.3-dbg
+	chmlib CLONED_IN_PACKAGE wine1.3-dev

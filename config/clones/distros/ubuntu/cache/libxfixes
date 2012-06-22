@@ -1,0 +1,23 @@
+libxfixes CLONED_IN_SOURCE ia32-libs
+		MATCH cursor.c/cursor.c (5.065343)
+		MATCH region.c/region.c (5.732738)
+		MATCH saveset.c/saveset.c (8.711663)
+		MATCH selection.c/selection.c (5.479542)
+		MATCH xfixes.c/xfixes.c (8.200837)
+	libxfixes CLONED_IN_PACKAGE ia32-libs
+libxfixes CLONED_IN_SOURCE xorg-server
+		MATCH cursor.c/cursor.c (5.065343)
+		MATCH region.c/region.c (5.732738)
+		MATCH saveset.c/saveset.c (8.711663)
+		MATCH selection.c/selection.c (5.479542)
+		MATCH xfixes.c/xfixes.c (8.200837)
+	libxfixes CLONED_IN_PACKAGE xserver-xfbdev
+	libxfixes CLONED_IN_PACKAGE xdmx-tools
+	libxfixes CLONED_IN_PACKAGE xserver-xorg-core
+	libxfixes CLONED_IN_PACKAGE xserver-common
+	libxfixes CLONED_IN_PACKAGE xserver-xorg-dev
+	libxfixes CLONED_IN_PACKAGE xdmx
+	libxfixes CLONED_IN_PACKAGE xserver-xephyr
+	libxfixes CLONED_IN_PACKAGE xserver-xorg-core-dbg
+	libxfixes CLONED_IN_PACKAGE xvfb
+	libxfixes CLONED_IN_PACKAGE xnest

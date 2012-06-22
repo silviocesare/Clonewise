@@ -1,0 +1,37 @@
+beautifulsoup CLONED_IN_SOURCE gourmet
+		MATCH beautifulsoup.py/beautifulsoup.py (7.171218)
+		MATCH setup.py/setup.py (2.336070)
+	beautifulsoup CLONED_IN_PACKAGE gourmet
+beautifulsoup CLONED_IN_SOURCE indiv-screenlets
+		MATCH beautifulsoup.py/beautifulsoup.py (7.171218)
+		MATCH setup.py/setup.py (2.336070)
+	beautifulsoup CLONED_IN_PACKAGE screenlets-pack-basic
+	beautifulsoup CLONED_IN_PACKAGE screenlets-pack-all
+beautifulsoup CLONED_IN_SOURCE musescore
+		MATCH beautifulsoup.py/beautifulsoup.py (7.171218)
+	beautifulsoup CLONED_IN_PACKAGE mscore
+	beautifulsoup CLONED_IN_PACKAGE musescore-common
+	beautifulsoup CLONED_IN_PACKAGE musescore-soundfont-gm
+	beautifulsoup CLONED_IN_PACKAGE musescore
+	beautifulsoup CLONED_IN_PACKAGE mscore-common
+beautifulsoup CLONED_IN_SOURCE nagstamon
+		MATCH beautifulsoup.py/beautifulsoup.py (7.171218)
+		MATCH setup.py/setup.py (2.336070)
+	beautifulsoup CLONED_IN_PACKAGE nagstamon
+beautifulsoup CLONED_IN_SOURCE nodebox-web
+		MATCH beautifulsoup.py/beautifulsoup.py (7.171218)
+		MATCH setup.py/setup.py (2.336070)
+	beautifulsoup CLONED_IN_PACKAGE python-nodebox-web
+beautifulsoup CLONED_IN_SOURCE penguintv
+		MATCH beautifulsoup.py/beautifulsoup.py (7.171218)
+		MATCH setup.py/setup.py (2.336070)
+	beautifulsoup CLONED_IN_PACKAGE penguintv
+beautifulsoup CLONED_IN_SOURCE python-mechanize
+		MATCH beautifulsoup.py/beautifulsoup.py (7.171218)
+		MATCH setup.py/setup.py (2.336070)
+	beautifulsoup CLONED_IN_PACKAGE python-mechanize
+beautifulsoup CLONED_IN_SOURCE python-scrapy
+		MATCH beautifulsoup.py/beautifulsoup.py (7.171218)
+		MATCH setup.py/setup.py (2.336070)
+	beautifulsoup CLONED_IN_PACKAGE python-scrapy-doc
+	beautifulsoup CLONED_IN_PACKAGE python-scrapy

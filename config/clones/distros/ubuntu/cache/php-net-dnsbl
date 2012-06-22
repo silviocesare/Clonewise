@@ -1,0 +1,4 @@
+php-net-dnsbl CLONED_IN_SOURCE serendipity
+		MATCH dnsbl.php/dnsbl.php (9.117128)
+		MATCH surbl.php/surbl.php (9.117128)
+	php-net-dnsbl CLONED_IN_PACKAGE serendipity

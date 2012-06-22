@@ -1,0 +1,58 @@
+libphp-snoopy CLONED_IN_SOURCE fusionforge
+		MATCH snoopyclass.php/snoopyclass.php (9.117128)
+	libphp-snoopy CLONED_IN_PACKAGE gforge-plugin-mediawiki
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-scmdarcs
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-gravatar
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-hudson
+	libphp-snoopy CLONED_IN_PACKAGE gforge-mta-exim4
+	libphp-snoopy CLONED_IN_PACKAGE gforge-plugin-globalsearch
+	libphp-snoopy CLONED_IN_PACKAGE gforge
+	libphp-snoopy CLONED_IN_PACKAGE gforge-mta-courier
+	libphp-snoopy CLONED_IN_PACKAGE gforge-common
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-oslc
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-minimal
+	libphp-snoopy CLONED_IN_PACKAGE gforge-web-apache2-vhosts
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-globalsearch
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-projectlabels
+	libphp-snoopy CLONED_IN_PACKAGE gforge-web-apache
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-contribtracker
+	libphp-snoopy CLONED_IN_PACKAGE gforge-web-apache2
+	libphp-snoopy CLONED_IN_PACKAGE gforge-shell-postgresql
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-extratabs
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-scmbzr
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-scmcvs
+	libphp-snoopy CLONED_IN_PACKAGE gforge-lists-mailman
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-scmgit
+	libphp-snoopy CLONED_IN_PACKAGE gforge-ftp-proftpd
+	libphp-snoopy CLONED_IN_PACKAGE gforge-mta-postfix
+	libphp-snoopy CLONED_IN_PACKAGE gforge-dns-bind9
+	libphp-snoopy CLONED_IN_PACKAGE gforge-plugin-extratabs
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-scmsvn
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-full
+	libphp-snoopy CLONED_IN_PACKAGE gforge-db-postgresql
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-mediawiki
+	libphp-snoopy CLONED_IN_PACKAGE gforge-plugin-projectlabels
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-scmhg
+	libphp-snoopy CLONED_IN_PACKAGE gforge-plugin-scmgit
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-standard
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-scmarch
+	libphp-snoopy CLONED_IN_PACKAGE fusionforge-plugin-blocks
+libphp-snoopy CLONED_IN_SOURCE gmidimonitor
+	libphp-snoopy CLONED_IN_PACKAGE gmidimonitor
+libphp-snoopy CLONED_IN_SOURCE libomxalsa
+	libphp-snoopy CLONED_IN_PACKAGE libomxil-bellagio0-components-alsa
+libphp-snoopy CLONED_IN_SOURCE libomxvorbis
+	libphp-snoopy CLONED_IN_PACKAGE libomxil-bellagio0-components-vorbis
+libphp-snoopy CLONED_IN_SOURCE libomxxvideo
+	libphp-snoopy CLONED_IN_PACKAGE libomxil-bellagio0-components-xvideo
+libphp-snoopy CLONED_IN_SOURCE magpierss
+	libphp-snoopy CLONED_IN_PACKAGE libphp-magpierss
+libphp-snoopy CLONED_IN_SOURCE mahara
+	libphp-snoopy CLONED_IN_PACKAGE mahara-apache2
+	libphp-snoopy CLONED_IN_PACKAGE mahara
+	libphp-snoopy CLONED_IN_PACKAGE mahara-mediaplayer
+libphp-snoopy CLONED_IN_SOURCE rotter
+	libphp-snoopy CLONED_IN_PACKAGE rotter
+libphp-snoopy CLONED_IN_SOURCE wordpress
+	libphp-snoopy CLONED_IN_PACKAGE wordpress-l10n
+	libphp-snoopy CLONED_IN_PACKAGE wordpress

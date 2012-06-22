@@ -1,0 +1,40 @@
+libxinerama CLONED_IN_SOURCE ia32-libs
+		MATCH xinerama.c/xinerama.c (7.171218)
+	libxinerama CLONED_IN_PACKAGE ia32-libs
+libxinerama CLONED_IN_SOURCE libjogl-java
+		MATCH xinerama.c/xinerama.c (7.171218)
+	libxinerama CLONED_IN_PACKAGE libjogl-java
+	libxinerama CLONED_IN_PACKAGE libjogl-jni
+	libxinerama CLONED_IN_PACKAGE libjogl-java-doc
+libxinerama CLONED_IN_SOURCE libsdl1.2
+		MATCH xinerama.c/xinerama.c (7.171218)
+	libxinerama CLONED_IN_PACKAGE libsdl1.2debian-oss
+	libxinerama CLONED_IN_PACKAGE libsdl1.2debian-alsa
+	libxinerama CLONED_IN_PACKAGE libsdl1.2-dev
+	libxinerama CLONED_IN_PACKAGE libsdl1.2debian
+	libxinerama CLONED_IN_PACKAGE libsdl1.2debian-pulseaudio
+	libxinerama CLONED_IN_PACKAGE libsdl1.2debian-all
+	libxinerama CLONED_IN_PACKAGE libsdl1.2debian-esd
+	libxinerama CLONED_IN_PACKAGE libsdl1.2debian-nas
+libxinerama CLONED_IN_SOURCE vnc4
+		MATCH xinerama.c/xinerama.c (7.171218)
+	libxinerama CLONED_IN_PACKAGE xvnc4viewer
+	libxinerama CLONED_IN_PACKAGE vnc4server
+libxinerama CLONED_IN_SOURCE wine1.2
+		MATCH xinerama.c/xinerama.c (7.171218)
+	libxinerama CLONED_IN_PACKAGE wine1.2-dbg
+	libxinerama CLONED_IN_PACKAGE wine1.2-dev
+	libxinerama CLONED_IN_PACKAGE wine1.2
+	libxinerama CLONED_IN_PACKAGE wine
+libxinerama CLONED_IN_SOURCE wine1.3
+		MATCH xinerama.c/xinerama.c (7.171218)
+	libxinerama CLONED_IN_PACKAGE wine1.3
+	libxinerama CLONED_IN_PACKAGE wine1.3-dbg
+	libxinerama CLONED_IN_PACKAGE wine1.3-dev
+libxinerama CLONED_IN_SOURCE wmaker
+		MATCH xinerama.c/xinerama.c (7.171218)
+	libxinerama CLONED_IN_PACKAGE libwings-dev
+	libxinerama CLONED_IN_PACKAGE wmaker
+	libxinerama CLONED_IN_PACKAGE libwmaker0-dev
+	libxinerama CLONED_IN_PACKAGE libwraster3-dev
+	libxinerama CLONED_IN_PACKAGE libwraster3

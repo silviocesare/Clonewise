@@ -1,0 +1,57 @@
+jbig2dec CLONED_IN_SOURCE ia32-libs
+		MATCH getopt.c/getlopt.c (9.117128)
+		MATCH memcmp.c/memcmp.c (5.332938)
+		MATCH sha.c/sha.c (4.116543)
+		MATCH snprintf.c/asnprintf.c (5.898252)
+	jbig2dec CLONED_IN_PACKAGE ia32-libs
+jbig2dec CLONED_IN_SOURCE ike-scan
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH sha.c/sha.c (4.116543)
+	jbig2dec CLONED_IN_PACKAGE ike-scan
+jbig2dec CLONED_IN_SOURCE namazu2
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH memcmp.c/memcmp.c (5.332938)
+		MATCH snprintf.c/vsnprintf.c (5.277676)
+	jbig2dec CLONED_IN_PACKAGE libnmz7
+	jbig2dec CLONED_IN_PACKAGE namazu2-common
+	jbig2dec CLONED_IN_PACKAGE libnmz7-dev
+	jbig2dec CLONED_IN_PACKAGE namazu2-index-tools
+	jbig2dec CLONED_IN_PACKAGE namazu2
+jbig2dec CLONED_IN_SOURCE openswan
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH sha.c/sha.c (4.116543)
+	jbig2dec CLONED_IN_PACKAGE openswan
+	jbig2dec CLONED_IN_PACKAGE openswan-modules-dkms
+	jbig2dec CLONED_IN_PACKAGE openswan-dbg
+	jbig2dec CLONED_IN_PACKAGE openswan-doc
+	jbig2dec CLONED_IN_PACKAGE openswan-modules-source
+jbig2dec CLONED_IN_SOURCE pidgin
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH sha.c/sha.c (4.116543)
+	jbig2dec CLONED_IN_PACKAGE libpurple0
+	jbig2dec CLONED_IN_PACKAGE libpurple-bin
+	jbig2dec CLONED_IN_PACKAGE libpurple-dev
+	jbig2dec CLONED_IN_PACKAGE finch
+	jbig2dec CLONED_IN_PACKAGE pidgin-data
+	jbig2dec CLONED_IN_PACKAGE pidgin-dbg
+	jbig2dec CLONED_IN_PACKAGE pidgin-dev
+	jbig2dec CLONED_IN_PACKAGE pidgin
+	jbig2dec CLONED_IN_PACKAGE finch-dev
+jbig2dec CLONED_IN_SOURCE xbmc
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH jbig.c/jbig.c (8.018516)
+		MATCH memcmp.c/mmcmp.c (8.200837)
+		MATCH sha.c/sha.c (4.116543)
+		MATCH snprintf.c/asnprintf.c (5.898252)
+	jbig2dec CLONED_IN_PACKAGE xbmc-eventclients-xbmc-send
+	jbig2dec CLONED_IN_PACKAGE xbmc-eventclients-dev
+	jbig2dec CLONED_IN_PACKAGE xbmc-eventclients-ps3
+	jbig2dec CLONED_IN_PACKAGE xbmc-live
+	jbig2dec CLONED_IN_PACKAGE xbmc-bin
+	jbig2dec CLONED_IN_PACKAGE xbmc
+	jbig2dec CLONED_IN_PACKAGE xbmc-eventclients-common
+	jbig2dec CLONED_IN_PACKAGE xbmc-eventclients-wiiremote
+	jbig2dec CLONED_IN_PACKAGE xbmc-standalone
+	jbig2dec CLONED_IN_PACKAGE xbmc-skin-confluence
+	jbig2dec CLONED_IN_PACKAGE xbmc-data
+	jbig2dec CLONED_IN_PACKAGE xbmc-eventclients-j2me

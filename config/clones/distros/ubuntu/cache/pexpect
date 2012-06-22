@@ -1,0 +1,11 @@
+pexpect CLONED_IN_SOURCE duplicity
+		MATCH pexpect.py/pexpect.py (8.200837)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH uptime.py/duptime.py (9.810275)
+	pexpect CLONED_IN_PACKAGE duplicity
+pexpect CLONED_IN_SOURCE smart
+		MATCH pexpect.py/pexpect.py (8.200837)
+		MATCH setup.py/setup.py (2.336070)
+	pexpect CLONED_IN_PACKAGE smartpm
+	pexpect CLONED_IN_PACKAGE python-smartpm
+	pexpect CLONED_IN_PACKAGE smartpm-core

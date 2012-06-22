@@ -1,0 +1,314 @@
+argparse CLONED_IN_SOURCE connectomeviewer
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE connectomeviewer
+argparse CLONED_IN_SOURCE cvxopt
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-cvxopt
+argparse CLONED_IN_SOURCE fityk
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+	argparse CLONED_IN_PACKAGE fityk
+argparse CLONED_IN_SOURCE ganeti
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+	argparse CLONED_IN_PACKAGE ganeti2
+argparse CLONED_IN_SOURCE glance
+		MATCH conf.py/conf.py (4.416647)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE glance
+	argparse CLONED_IN_PACKAGE python-glance-doc
+	argparse CLONED_IN_PACKAGE python-glance
+argparse CLONED_IN_SOURCE glom
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+	argparse CLONED_IN_PACKAGE glom-doc
+	argparse CLONED_IN_PACKAGE libglom-1.18-dev
+	argparse CLONED_IN_PACKAGE glom
+	argparse CLONED_IN_PACKAGE libglom-1.18-0
+argparse CLONED_IN_SOURCE ipython
+		MATCH argparse.py/argparse.py (7.864365)
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE ipython
+argparse CLONED_IN_SOURCE jsonbot
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE jsonbot
+argparse CLONED_IN_SOURCE kaa-base
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-kaa-base
+argparse CLONED_IN_SOURCE keystone
+		MATCH conf.py/conf.py (4.416647)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE keystone-doc
+	argparse CLONED_IN_PACKAGE python-keystone
+	argparse CLONED_IN_PACKAGE keystone
+argparse CLONED_IN_SOURCE libvigraimpex
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+	argparse CLONED_IN_PACKAGE libvigraimpex-dev
+	argparse CLONED_IN_PACKAGE libvigraimpex-doc
+	argparse CLONED_IN_PACKAGE python-vigra
+	argparse CLONED_IN_PACKAGE python-vigra-doc
+	argparse CLONED_IN_PACKAGE libvigraimpex2
+argparse CLONED_IN_SOURCE mako
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python3-mako
+	argparse CLONED_IN_PACKAGE python-mako
+	argparse CLONED_IN_PACKAGE python-mako-doc
+argparse CLONED_IN_SOURCE mpi4py
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-mpi4py
+	argparse CLONED_IN_PACKAGE python-mpi4py-dbg
+	argparse CLONED_IN_PACKAGE python-mpi4py-doc
+argparse CLONED_IN_SOURCE openbabel
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE libopenbabel4
+	argparse CLONED_IN_PACKAGE libchemistry-openbabel-perl
+	argparse CLONED_IN_PACKAGE python-openbabel
+	argparse CLONED_IN_PACKAGE openbabel
+	argparse CLONED_IN_PACKAGE libopenbabel-dev
+	argparse CLONED_IN_PACKAGE libopenbabel-doc
+argparse CLONED_IN_SOURCE petsc4py
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-petsc4py
+argparse CLONED_IN_SOURCE phatch
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE phatch
+	argparse CLONED_IN_PACKAGE phatch-cli
+	argparse CLONED_IN_PACKAGE phatch-doc
+argparse CLONED_IN_SOURCE psycopg2
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-psycopg2-dbg
+	argparse CLONED_IN_PACKAGE python-psycopg2
+argparse CLONED_IN_SOURCE py-postgresql
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python3-postgresql
+argparse CLONED_IN_SOURCE py3cairo
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+	argparse CLONED_IN_PACKAGE python3-cairo
+	argparse CLONED_IN_PACKAGE python3-cairo-dev
+argparse CLONED_IN_SOURCE python-apsw
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-apsw-dbg
+	argparse CLONED_IN_PACKAGE python-apsw-doc
+	argparse CLONED_IN_PACKAGE python-apsw
+argparse CLONED_IN_SOURCE python-bsddb3
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python3-bsddb3
+	argparse CLONED_IN_PACKAGE python-bsddb3
+	argparse CLONED_IN_PACKAGE python-bsddb3-dbg
+	argparse CLONED_IN_PACKAGE python-bsddb3-doc
+	argparse CLONED_IN_PACKAGE python3-bsddb3-dbg
+argparse CLONED_IN_SOURCE python-kinterbasdb
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-kinterbasdb
+	argparse CLONED_IN_PACKAGE python-kinterbasdb-dbg
+argparse CLONED_IN_SOURCE python-llfuse
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python3-llfuse-dbg
+	argparse CLONED_IN_PACKAGE python3-llfuse
+	argparse CLONED_IN_PACKAGE python-llfuse
+	argparse CLONED_IN_PACKAGE python-llfuse-dbg
+	argparse CLONED_IN_PACKAGE python-llfuse-doc
+argparse CLONED_IN_SOURCE python-mock
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-mock
+argparse CLONED_IN_SOURCE python-qt4
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+	argparse CLONED_IN_PACKAGE python-qt4-phonon
+	argparse CLONED_IN_PACKAGE pyqt4-dev-tools
+	argparse CLONED_IN_PACKAGE python-qt4-sql-dbg
+	argparse CLONED_IN_PACKAGE python-qt4-phonon-dbg
+	argparse CLONED_IN_PACKAGE python-qt4-dbg
+	argparse CLONED_IN_PACKAGE python-qt4-dev
+	argparse CLONED_IN_PACKAGE python-qt4-doc
+	argparse CLONED_IN_PACKAGE python-qt4-gl
+	argparse CLONED_IN_PACKAGE python-qt4
+	argparse CLONED_IN_PACKAGE python-qt4-sql
+	argparse CLONED_IN_PACKAGE python-qt4-dbus-dbg
+	argparse CLONED_IN_PACKAGE python-qt4-gl-dbg
+	argparse CLONED_IN_PACKAGE python-qt4-dbus
+argparse CLONED_IN_SOURCE python-restkit
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-restkit
+argparse CLONED_IN_SOURCE python-werkzeug
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-werkzeug
+argparse CLONED_IN_SOURCE renpy
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-renpy
+	argparse CLONED_IN_PACKAGE renpy-demo
+	argparse CLONED_IN_PACKAGE renpy
+	argparse CLONED_IN_PACKAGE renpy-doc
+	argparse CLONED_IN_PACKAGE renpy-thequestion
+argparse CLONED_IN_SOURCE roundup
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE roundup
+argparse CLONED_IN_SOURCE sip4
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+	argparse CLONED_IN_PACKAGE python3-sip
+	argparse CLONED_IN_PACKAGE python-sip
+	argparse CLONED_IN_PACKAGE python3-sip-dbg
+	argparse CLONED_IN_PACKAGE python3-sip-dev
+	argparse CLONED_IN_PACKAGE python-sip-dbg
+	argparse CLONED_IN_PACKAGE python-sip-dev
+argparse CLONED_IN_SOURCE sphinx
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-sphinx
+	argparse CLONED_IN_PACKAGE libjs-sphinxdoc
+argparse CLONED_IN_SOURCE sqlalchemy
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE python-sqlalchemy
+	argparse CLONED_IN_PACKAGE python3-sqlalchemy
+	argparse CLONED_IN_PACKAGE python-sqlalchemy-doc
+	argparse CLONED_IN_PACKAGE python-sqlalchemy-ext
+argparse CLONED_IN_SOURCE swift
+		MATCH conf.py/conf.py (4.416647)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE swift-container
+	argparse CLONED_IN_PACKAGE swift-proxy
+	argparse CLONED_IN_PACKAGE swift-account
+	argparse CLONED_IN_PACKAGE swift-object
+	argparse CLONED_IN_PACKAGE swift-doc
+	argparse CLONED_IN_PACKAGE python-swift
+	argparse CLONED_IN_PACKAGE swift
+argparse CLONED_IN_SOURCE virtualenvwrapper
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE virtualenvwrapper
+argparse CLONED_IN_SOURCE vitables
+		MATCH conf.py/conf.py (4.416647)
+		MATCH doctools.js/doctools.js (6.146714)
+		MATCH jquery.js/jquery.js (4.981961)
+		MATCH searchindex.js/searchindex.js (6.254927)
+		MATCH searchtools.js/searchtools.js (6.146714)
+		MATCH setup.py/setup.py (2.336070)
+	argparse CLONED_IN_PACKAGE vitables

@@ -1,0 +1,23 @@
+yajl CLONED_IN_SOURCE argyll
+		MATCH jsonreformat.c/jsonreformat.c (9.117128)
+		MATCH jsonverify.c/jsonverify.c (9.117128)
+		MATCH yajl.c/yajl.c (8.711663)
+		MATCH yajlalloc.c/yajlalloc.c (9.117128)
+		MATCH yajlbuf.c/yajlbuf.c (8.711663)
+		MATCH yajlencode.c/yajlencode.c (8.711663)
+		MATCH yajlgen.c/yajlgen.c (8.711663)
+		MATCH yajllex.c/yajllex.c (8.711663)
+		MATCH yajlparser.c/yajlparser.c (8.711663)
+		MATCH yajltest.c/yajltest.c (9.117128)
+	yajl CLONED_IN_PACKAGE argyll-dbg
+	yajl CLONED_IN_PACKAGE argyll
+yajl CLONED_IN_SOURCE xqilla
+		MATCH yajl.c/yajl.c (8.711663)
+		MATCH yajlbuf.c/yajlbuf.c (8.711663)
+		MATCH yajlencode.c/yajlencode.c (8.711663)
+		MATCH yajlgen.c/yajlgen.c (8.711663)
+		MATCH yajllex.c/yajllex.c (8.711663)
+		MATCH yajlparser.c/yajlparser.c (8.711663)
+	yajl CLONED_IN_PACKAGE xqilla
+	yajl CLONED_IN_PACKAGE libxqilla5
+	yajl CLONED_IN_PACKAGE libxqilla-dev

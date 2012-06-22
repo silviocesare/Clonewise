@@ -1,0 +1,28 @@
+libphp-phpmailer CLONED_IN_SOURCE ampache
+		MATCH phpmailerlangar.php/phpmailerlangar.php (8.200837)
+		MATCH phpmailerlangzhcn.php/phpmailerlangca.php (7.864365)
+	libphp-phpmailer CLONED_IN_PACKAGE ampache
+libphp-phpmailer CLONED_IN_SOURCE glpi
+		MATCH classphpmailer.php/classphpmailer.php (7.507690)
+		MATCH classpop.php/classpop.php (8.018516)
+		MATCH classsmtp.php/classsmtp.php (7.507690)
+		MATCH phpmailerlangar.php/phpmailerlangar.php (8.200837)
+		MATCH phpmailerlangzhcn.php/phpmailerlangca.php (7.864365)
+	libphp-phpmailer CLONED_IN_PACKAGE glpi
+libphp-phpmailer CLONED_IN_SOURCE mahara
+		MATCH classphpmailer.php/classphpmailer.php (7.507690)
+		MATCH classpop.php/classpop.php (8.018516)
+		MATCH classsmtp.php/classsmtp.php (7.507690)
+		MATCH phpmailerlangar.php/phpmailerlangar.php (8.200837)
+		MATCH phpmailerlangzhcn.php/phpmailerlangca.php (7.864365)
+	libphp-phpmailer CLONED_IN_PACKAGE mahara-apache2
+	libphp-phpmailer CLONED_IN_PACKAGE mahara
+	libphp-phpmailer CLONED_IN_PACKAGE mahara-mediaplayer
+libphp-phpmailer CLONED_IN_SOURCE mantis
+		MATCH classphpmailer.php/classphpmailer.php (7.507690)
+		MATCH classpop.php/classpop.php (8.018516)
+		MATCH classsmtp.php/classsmtp.php (7.507690)
+		MATCH phpmailerlangar.php/phpmailerlangar.php (8.200837)
+		MATCH phpmailerlangzhcn.php/phpmailerlangca.php (7.864365)
+		MATCH testemail.php/testemail.php (9.117128)
+	libphp-phpmailer CLONED_IN_PACKAGE mantis

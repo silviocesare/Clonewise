@@ -1,0 +1,13 @@
+unrar-free CLONED_IN_SOURCE clamav
+		MATCH unpack.c/upack.c (8.711663)
+		MATCH unrar.c/untar.c (8.200837)
+	unrar-free CLONED_IN_PACKAGE clamav
+	unrar-free CLONED_IN_PACKAGE clamav-milter
+	unrar-free CLONED_IN_PACKAGE clamav-dbg
+	unrar-free CLONED_IN_PACKAGE clamav-base
+	unrar-free CLONED_IN_PACKAGE libclamav6
+	unrar-free CLONED_IN_PACKAGE clamav-docs
+	unrar-free CLONED_IN_PACKAGE libclamav-dev
+	unrar-free CLONED_IN_PACKAGE clamav-freshclam
+	unrar-free CLONED_IN_PACKAGE clamav-daemon
+	unrar-free CLONED_IN_PACKAGE clamav-testfiles

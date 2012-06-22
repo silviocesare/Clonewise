@@ -1,0 +1,30 @@
+php-xml-rpc CLONED_IN_SOURCE between
+		MATCH server.php/server.php (6.719233)
+	php-xml-rpc CLONED_IN_PACKAGE between
+php-xml-rpc CLONED_IN_SOURCE gallery2
+		MATCH server.php/server.php (6.719233)
+	php-xml-rpc CLONED_IN_PACKAGE gallery2
+php-xml-rpc CLONED_IN_SOURCE ipplan
+		MATCH server.php/server.php (6.719233)
+	php-xml-rpc CLONED_IN_PACKAGE ipplan
+php-xml-rpc CLONED_IN_SOURCE primrose
+		MATCH server.php/server.php (6.719233)
+	php-xml-rpc CLONED_IN_PACKAGE primrose
+php-xml-rpc CLONED_IN_SOURCE serendipity
+		MATCH dump.php/dump.php (8.018516)
+		MATCH rpc.php/rpc.php (8.018516)
+		MATCH server.php/server.php (6.719233)
+	php-xml-rpc CLONED_IN_PACKAGE serendipity
+php-xml-rpc CLONED_IN_SOURCE simplesamlphp
+		MATCH server.php/server.php (6.719233)
+	php-xml-rpc CLONED_IN_PACKAGE simplesamlphp
+php-xml-rpc CLONED_IN_SOURCE torrentflux
+		MATCH server.php/server.php (6.719233)
+	php-xml-rpc CLONED_IN_PACKAGE torrentflux
+php-xml-rpc CLONED_IN_SOURCE typo3-src
+		MATCH encode.php/encoder.php (7.613050)
+		MATCH server.php/server.php (6.719233)
+	php-xml-rpc CLONED_IN_PACKAGE typo3-dummy
+	php-xml-rpc CLONED_IN_PACKAGE typo3
+	php-xml-rpc CLONED_IN_PACKAGE typo3-database
+	php-xml-rpc CLONED_IN_PACKAGE typo3-src-4.5

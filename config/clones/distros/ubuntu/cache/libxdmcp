@@ -1,0 +1,40 @@
+libxdmcp CLONED_IN_SOURCE ia32-libs
+		MATCH array.c/array.c (4.826669)
+		MATCH fill.c/fill.c (6.442979)
+		MATCH flush.c/flush.c (6.552179)
+		MATCH key.c/key.c (5.379458)
+		MATCH read.c/lread.c (8.018516)
+		MATCH unwrap.c/unwrap.c (7.507690)
+		MATCH wrap.c/wrap.c (6.003613)
+		MATCH wraphelp.c/wraphelp.c (8.423981)
+		MATCH write.c/lwrite.c (8.423981)
+	libxdmcp CLONED_IN_PACKAGE ia32-libs
+libxdmcp CLONED_IN_SOURCE libx11
+		MATCH flush.c/flush.c (6.552179)
+	libxdmcp CLONED_IN_PACKAGE libx11-xcb-dev
+	libxdmcp CLONED_IN_PACKAGE libx11-xcb1-dbg
+	libxdmcp CLONED_IN_PACKAGE libx11-data
+	libxdmcp CLONED_IN_PACKAGE libx11-xcb1
+	libxdmcp CLONED_IN_PACKAGE libx11-6
+	libxdmcp CLONED_IN_PACKAGE libx11-dev
+	libxdmcp CLONED_IN_PACKAGE libx11-6-dbg
+libxdmcp CLONED_IN_SOURCE tightvnc
+		MATCH fill.c/fill.c (6.442979)
+		MATCH flush.c/flush.c (6.552179)
+		MATCH read.c/rhead.c (9.117128)
+		MATCH unwrap.c/unwrap.c (7.507690)
+		MATCH wrap.c/wrap.c (6.003613)
+		MATCH wraphelp.c/wraphelp.c (8.423981)
+	libxdmcp CLONED_IN_PACKAGE tightvncserver
+	libxdmcp CLONED_IN_PACKAGE xtightvncviewer
+libxdmcp CLONED_IN_SOURCE vnc4
+		MATCH array.c/uarray.c (8.200837)
+		MATCH fill.c/fill.c (6.442979)
+		MATCH flush.c/flush.c (6.552179)
+		MATCH key.c/key.c (5.379458)
+		MATCH read.c/pread.c (6.674781)
+		MATCH unwrap.c/unwrap.c (7.507690)
+		MATCH wrap.c/wrap.c (6.003613)
+		MATCH write.c/write.c (4.950463)
+	libxdmcp CLONED_IN_PACKAGE xvnc4viewer
+	libxdmcp CLONED_IN_PACKAGE vnc4server

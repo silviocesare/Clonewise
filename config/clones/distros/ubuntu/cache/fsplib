@@ -1,0 +1,7 @@
+fsplib CLONED_IN_SOURCE gftp
+		MATCH fsplib.c/fsplib.c (9.117128)
+		MATCH lock.c/lock.c (4.516970)
+	fsplib CLONED_IN_PACKAGE gftp-gtk
+	fsplib CLONED_IN_PACKAGE gftp-text
+	fsplib CLONED_IN_PACKAGE gftp-common
+	fsplib CLONED_IN_PACKAGE gftp

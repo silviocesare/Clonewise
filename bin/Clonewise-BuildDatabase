@@ -45,4 +45,9 @@ for i in $list; do
 	((count=count+1))
 done
 rm /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source
+
+cat /var/lib/Clonewise/clones/distro/$DISTRO/packages |cut -d/ -f1|while read package; do
+        apt-cache depends $package |grep "^  Depends:"|awk '{print $2}'> /var/lib/Clonewise/clones/distros/$DISTRO/depends/$package
+done
+
 touch /var/lib/Clonewise/clones/distros/$DISTRO/.done

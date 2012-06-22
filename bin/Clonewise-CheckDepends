@@ -1,9 +1,13 @@
 #!/bin/bash
 
-libBins=$(grep /$1$ /var/lib/Clonewise/distros/ubuntu/packages|cut -d/ -f1)
-bins=$(grep /$2$ /var/lib/Clonewise/distros/ubuntu/packages|cut -d/ -f1)
+DISTRO=Ubuntu-11.10
+libBins=$(grep /$1$ /var/lib/Clonewise/clones/distros/$DISTRO/packages|cut -d/ -f1)
+bins=$(grep /$2$ /var/lib/Clonewise/clones/distros/$DISTRO/packages|cut -d/ -f1)
 for i in $bins; do
-	depends=$(apt-cache depends $i|grep "^  Depends:"|awk '{print $2}')
+#	depends=$(apt-cache depends $i|grep "^  Depends:"|awk '{print $2}')
+	depends=$(cat /var/lib/Clonewise/clones/distros/$DISTRO/depends/$i)
+	echo $depends
+	[ "$depends" = "" ] && exit 0 # conservative
 	for l in $libBins; do
 		for d in $depends; do
 			if [ $d = $l ]; then

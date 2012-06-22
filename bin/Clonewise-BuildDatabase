@@ -7,11 +7,11 @@ if [ "$(id -u)" != 0 ]; then
 	exit 1
 fi
 
-cd /var/lib/Clonewise/distros/$DISTRO/downloads
+cd /var/lib/Clonewise/clones/distros/$DISTRO/downloads
 list=$(apt-cache pkgnames)
-rm -f /var/lib/Clonewise/distros/$DISTRO/.done
-rm -f /var/lib/Clonewise/distros/$DISTRO/packages
-rm -f /var/lib/Clonewise/distros/$DISTRO/.apt-source
+rm -f /var/lib/Clonewise/clones/distros/$DISTRO/.done
+rm -f /var/lib/Clonewise/clones/distros/$DISTRO/packages
+rm -f /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source
 count=0
 totlist=$(echo $list|wc -w)
 for i in $list; do

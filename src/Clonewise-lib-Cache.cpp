@@ -91,7 +91,7 @@ LoadCache()
 		std::ifstream stream;
 		char s[1024];
 
-		snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/cache/%s", "ubuntu", eIter->first.c_str());
+		snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/cache/%s", distroString, eIter->first.c_str());
 		stream.open(s);
 		if (!stream)
 			continue;

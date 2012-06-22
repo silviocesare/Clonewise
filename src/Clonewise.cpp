@@ -56,7 +56,7 @@ FILE *outFd = stdout;
 double maxWeight = 0.0;
 std::set<std::string> featureExceptions;
 bool approxFilename = true;
-const char *distroString = "ubuntu";
+const char *distroString = "ubuntu-11.10";
 OutputFormat_e outputFormat = CLONEWISE_OUTPUT_TEXT;
 bool useSSDeep = true;
 bool useExtensions = true;

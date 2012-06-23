@@ -1,8 +1,13 @@
 #!/bin/bash
 
-DISTRO=Ubuntu-11.10
-libBins=$(grep /$1$ /var/lib/Clonewise/clones/distros/$DISTRO/packages|cut -d/ -f1)
-bins=$(grep /$2$ /var/lib/Clonewise/clones/distros/$DISTRO/packages|cut -d/ -f1)
+if [ $# -ne 3 ]; then
+	echo "Usage: $0 distro lib package" > /dev/stderr
+	exit 1
+fi
+
+DISTRO=$1
+libBins=$(grep /$2$ /var/lib/Clonewise/clones/distros/$DISTRO/packages|cut -d/ -f1)
+bins=$(grep /$3$ /var/lib/Clonewise/clones/distros/$DISTRO/packages|cut -d/ -f1)
 for i in $bins; do
 	if [ -f /var/lib/Clonewise/clones/distros/$DISTRO/depends/$i ]; then
 		depends=$(cat /var/lib/Clonewise/clones/distros/$DISTRO/depends/$i)

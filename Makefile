@@ -8,33 +8,25 @@ CP = cp
 RM = rm
 MPICC = mpic++
 
-COMMON_SOURCES =	src/Clonewise-Cache.cpp \
-			src/Clonewise.cpp \
-			src/Clonewise-lib-Cache.cpp \
-			libs/munkres-2/munkres.cpp \
-			src/Clonewise-main.cpp
+SOURCES =	src/Clonewise-Cache.cpp \
+		src/Clonewise.cpp \
+		src/Clonewise-lib-Cache.cpp \
+		libs/munkres-2/munkres.cpp \
+		src/Clonewise-main.cpp \
+		src/Clonewise-MakeCache.cpp \
+		src/Clonewise-BugInferrer.cpp \
+		src/Clonewise-ParseDatabase.cpp \
+		src/main.cpp
 
-CLONEWISE_SOURCES =	$(COMMON_SOURCES) \
-			src/Clonewise-MakeCache.cpp \
-			src/Clonewise-ParseDatabase.cpp \
-			src/main.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
 
-BUGINFERRER_SOURCES =	$(COMMON_SOURCES) \
-			src/Clonewise-BugInferrer.cpp
-
-CLONEWISE_OBJECTS = $(CLONEWISE_SOURCES:.cpp=.o)
-BUGINFERRER_OBJECTS = $(BUGINFERRER_SOURCES:.cpp=.o)
-
-all: Clonewise Clonewise-BugInferrer
+all: Clonewise
 
 %.o : %.cpp
 	$(MPICC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-Clonewise-BugInferrer: $(BUGINFERRER_OBJECTS)
-	$(MPICC) $(CFLAGS) -o bin/Clonewise-BugInferrer $(BUGINFERRER_OBJECTS) $(LDFLAGS)
-
-Clonewise: $(CLONEWISE_OBJECTS)
-	$(MPICC) $(CFLAGS) -o bin/Clonewise $(CLONEWISE_OBJECTS) $(LDFLAGS)
+Clonewise: $(OBJECTS)
+	$(MPICC) $(CFLAGS) -o bin/Clonewise $(OBJECTS) $(LDFLAGS)
 
 install:
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise

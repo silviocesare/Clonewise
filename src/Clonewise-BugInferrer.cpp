@@ -568,7 +568,7 @@ DoWork(const char *cveName)
 }
 
 int
-main(int argc, char *argv[])
+Clonewise_find_bugs(int argc, char *argv[])
 {
 	int ch;
 	const char *argv0 = argv[0];

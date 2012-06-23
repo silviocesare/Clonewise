@@ -15,7 +15,8 @@
 
 enum EmbedType {
         EMBED_FIXED,
-        EMBED_UNFIXED
+        EMBED_UNFIXED,
+	EMBED_UNFIXED_STATIC
 };
 
 struct Match {

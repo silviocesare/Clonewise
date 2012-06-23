@@ -62,8 +62,19 @@ LoadEmbeds(const char *filename)
 					str[j] = 0;
 					package = str;
 					embeddeds[lib].insert(package);
-					if (strncmp(&s[i], " <unfixed>", 10) == 0 || strncmp(&s[i], " <unfixable>", 12) == 0) {
-						embeddedsState[lib][package] = EMBED_UNFIXED;
+					if (strncmp(&s[i], " <unfixed>", 10) == 0) {
+						if (strncmp(&s[i + 10], " (static", 8) == 0) {
+							embeddedsState[lib][package] = EMBED_UNFIXED_STATIC;
+						} else {
+							embeddedsState[lib][package] = EMBED_UNFIXED;
+						}
+					} else if (strncmp(&s[i], " <unfixable>", 12) == 0) {
+						if (strncmp(&s[i + 12], " (static", 8) == 0) {
+						
+							embeddedsState[lib][package] = EMBED_UNFIXED_STATIC;
+						} else {
+							embeddedsState[lib][package] = EMBED_UNFIXED;
+						}
 					} else {
 						embeddedsState[lib][package] = EMBED_FIXED;
 					}

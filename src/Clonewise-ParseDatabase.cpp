@@ -10,8 +10,21 @@
 static void
 Usage(const char *argv0)
 {
-	fprintf(stderr, "Usage: %s [-fu]\n", argv0);
+	fprintf(stderr, "Usage: %s [-fu] [-o xml]\n", argv0);
 	exit(1);
+}
+
+static void
+PrintClone(const char *embeddedLib, const char *package)
+{
+	if (outputFormat == CLONEWISE_OUTPUT_XML) {
+		printf("\t<Clone>\n");
+		printf("\t\t<EmbeddedLibrary>%s<</EmbeddedLibrary>\n", embeddedLib);
+		printf("\t\t<Package>%s<</Package>\n", package);
+		printf("\t</Clone>\n");
+	} else {
+		printf("%s/%s\n", embeddedLib, package);
+	}
 }
 
 int
@@ -26,7 +39,7 @@ Clonewise_parse_database(int argc, char *argv[])
 
 	ClonewiseInit();
 
-	while ((ch = getopt(argc, argv, "fu")) != EOF) {
+	while ((ch = getopt(argc, argv, "fuo:")) != EOF) {
 		switch (ch) {
 		case 'f':
 			fixed = true;
@@ -35,6 +48,18 @@ Clonewise_parse_database(int argc, char *argv[])
 		case 'u':
 			unfixed = true;
 			break;
+
+               case 'o':
+                        if (strcmp(optarg, "xml") == 0) {
+                                outputFormat = CLONEWISE_OUTPUT_XML;
+                        } else if (0 && strcmp(optarg, "yaml") == 0) {
+                                outputFormat = CLONEWISE_OUTPUT_YAML;
+                        } else if (0 && strcmp(optarg, "json") == 0) {
+                                outputFormat = CLONEWISE_OUTPUT_JSON;
+                        } else {
+                                Usage(argv0);
+                        }
+                        break;
 
 		default:
 			Usage(argv0);
@@ -47,6 +72,9 @@ Clonewise_parse_database(int argc, char *argv[])
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/embedded-code-copies.txt", distroString);
 	LoadEmbeds(s);
 
+	if (outputFormat == CLONEWISE_OUTPUT_XML) {
+		printf("<EmbeddedCodeCopies>\n");
+	}
 	if (fixed) {
 		for (	eIter  = embeddeds.begin();
 			eIter != embeddeds.end();
@@ -57,7 +85,7 @@ Clonewise_parse_database(int argc, char *argv[])
 				sIter++)
 			{
 				if (embeddedsState[eIter->first][*sIter] == EMBED_FIXED) {
-					printf("%s/%s\n", eIter->first.c_str(), sIter->c_str());
+					PrintClone(eIter->first.c_str(), sIter->c_str());
 				}
 			}
 		}
@@ -71,7 +99,7 @@ Clonewise_parse_database(int argc, char *argv[])
 				sIter++)
 			{
 				if (embeddedsState[eIter->first][*sIter] == EMBED_UNFIXED) {
-					printf("%s/%s\n", eIter->first.c_str(), sIter->c_str());
+					PrintClone(eIter->first.c_str(), sIter->c_str());
 				}
 			}
 		}
@@ -84,10 +112,13 @@ Clonewise_parse_database(int argc, char *argv[])
 				sIter != eIter->second.end();
 				sIter++)
 			{
-				printf("%s/%s\n", eIter->first.c_str(), sIter->c_str());
+				PrintClone(eIter->first.c_str(), sIter->c_str());
 			}
 		}
 
+	}
+	if (outputFormat == CLONEWISE_OUTPUT_XML) {
+		printf("</EmbeddedCodeCopies>\n");
 	}
 	return 0;
 }

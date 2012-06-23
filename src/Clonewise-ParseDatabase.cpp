@@ -15,12 +15,13 @@ Usage(const char *argv0)
 }
 
 static void
-PrintClone(const char *embeddedLib, const char *package)
+PrintClone(const char *embeddedLib, const char *package, const char *state)
 {
 	if (outputFormat == CLONEWISE_OUTPUT_XML) {
 		printf("\t<Clone>\n");
 		printf("\t\t<EmbeddedLibrary>%s<</EmbeddedLibrary>\n", embeddedLib);
 		printf("\t\t<Package>%s</Package>\n", package);
+		printf("\t\t<State>%s</State>\n", state);
 		printf("\t</Clone>\n");
 	} else {
 		printf("%s/%s\n", embeddedLib, package);
@@ -85,7 +86,7 @@ Clonewise_parse_database(int argc, char *argv[])
 				sIter++)
 			{
 				if (embeddedsState[eIter->first][*sIter] == EMBED_FIXED) {
-					PrintClone(eIter->first.c_str(), sIter->c_str());
+					PrintClone(eIter->first.c_str(), sIter->c_str(), "Fixed");
 				}
 			}
 		}
@@ -99,7 +100,7 @@ Clonewise_parse_database(int argc, char *argv[])
 				sIter++)
 			{
 				if (embeddedsState[eIter->first][*sIter] == EMBED_UNFIXED) {
-					PrintClone(eIter->first.c_str(), sIter->c_str());
+					PrintClone(eIter->first.c_str(), sIter->c_str(), "Unfixed");
 				}
 			}
 		}
@@ -112,7 +113,11 @@ Clonewise_parse_database(int argc, char *argv[])
 				sIter != eIter->second.end();
 				sIter++)
 			{
-				PrintClone(eIter->first.c_str(), sIter->c_str());
+				if (embeddedsState[eIter->first][*sIter] == EMBED_FIXED) {
+					PrintClone(eIter->first.c_str(), sIter->c_str(), "Fixed");
+				} else {
+					PrintClone(eIter->first.c_str(), sIter->c_str(), "Unfixed");
+				}
 			}
 		}
 

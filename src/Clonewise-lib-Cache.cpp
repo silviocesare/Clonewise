@@ -212,7 +212,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 					sigIter != sig.end();
 					sigIter++)
 				{
-					if (matchFilename.find(sigIter->first) != matchFilename.end() && (packagesSize == 0 || packages.find(*eIter) != packages.end())) {
+					if ((matchFilename.size() == 0 || matchFilename.find(sigIter->first) != matchFilename.end()) && (packagesSize == 0 || packages.find(*eIter) != packages.end())) {
 						if ((matchFilename.size() == 0 || matchHash(sig, eSig, matchFilename)) && (functions.size() == 0 || matchFunctions(*eIter, functions))) {
 							if (any1 == false && pretty && print) {
 								printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");

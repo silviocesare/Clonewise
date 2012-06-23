@@ -20,7 +20,7 @@ PrintClone(const char *embeddedLib, const char *package)
 	if (outputFormat == CLONEWISE_OUTPUT_XML) {
 		printf("\t<Clone>\n");
 		printf("\t\t<EmbeddedLibrary>%s<</EmbeddedLibrary>\n", embeddedLib);
-		printf("\t\t<Package>%s<</Package>\n", package);
+		printf("\t\t<Package>%s</Package>\n", package);
 		printf("\t</Clone>\n");
 	} else {
 		printf("%s/%s\n", embeddedLib, package);

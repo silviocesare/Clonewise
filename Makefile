@@ -16,6 +16,7 @@ COMMON_SOURCES =	src/Clonewise-Cache.cpp \
 
 CLONEWISE_SOURCES =	$(COMMON_SOURCES) \
 			src/Clonewise-MakeCache.cpp \
+			src/Clonewise-ParseDatabase.cpp \
 			src/main.cpp
 
 BUGINFERRER_SOURCES =	$(COMMON_SOURCES) \

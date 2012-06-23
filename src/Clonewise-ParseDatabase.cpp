@@ -10,7 +10,7 @@
 static void
 Usage(const char *argv0)
 {
-	fprintf(stderr, "Usage: %s [-fu] [-o xml]\n", argv0);
+	fprintf(stderr, "Usage: %s [-ful] [-o xml]\n", argv0);
 	exit(1);
 }
 
@@ -37,10 +37,11 @@ Clonewise_parse_database(int argc, char *argv[])
 	char s[1024];
 	std::map<std::string, std::set<std::string> >::const_iterator eIter;
 	std::set<std::string>::const_iterator sIter;
+	bool doStatic = false;
 
 	ClonewiseInit();
 
-	while ((ch = getopt(argc, argv, "fuo:")) != EOF) {
+	while ((ch = getopt(argc, argv, "fuo:l")) != EOF) {
 		switch (ch) {
 		case 'f':
 			fixed = true;
@@ -50,7 +51,11 @@ Clonewise_parse_database(int argc, char *argv[])
 			unfixed = true;
 			break;
 
-               case 'o':
+		case 'l':
+			doStatic = true;
+			break;
+
+                case 'o':
                         if (strcmp(optarg, "xml") == 0) {
                                 outputFormat = CLONEWISE_OUTPUT_XML;
                         } else if (0 && strcmp(optarg, "yaml") == 0) {
@@ -101,6 +106,8 @@ Clonewise_parse_database(int argc, char *argv[])
 			{
 				if (embeddedsState[eIter->first][*sIter] == EMBED_UNFIXED) {
 					PrintClone(eIter->first.c_str(), sIter->c_str(), "Unfixed");
+				} else if (embeddedsState[eIter->first][*sIter] == EMBED_UNFIXED_STATIC && doStatic) {
+					PrintClone(eIter->first.c_str(), sIter->c_str(), "Unfixed");
 				}
 			}
 		}
@@ -115,7 +122,9 @@ Clonewise_parse_database(int argc, char *argv[])
 			{
 				if (embeddedsState[eIter->first][*sIter] == EMBED_FIXED) {
 					PrintClone(eIter->first.c_str(), sIter->c_str(), "Fixed");
-				} else {
+				} else if (embeddedsState[eIter->first][*sIter] == EMBED_UNFIXED) {
+					PrintClone(eIter->first.c_str(), sIter->c_str(), "Unfixed");
+				} else if (embeddedsState[eIter->first][*sIter] == EMBED_UNFIXED_STATIC && doStatic) {
 					PrintClone(eIter->first.c_str(), sIter->c_str(), "Unfixed");
 				}
 			}

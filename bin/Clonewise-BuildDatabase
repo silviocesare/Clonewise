@@ -7,6 +7,7 @@ fi
 
 DISTRO="$(grep ^DISTRIB_ID /etc/lsb-release|cut -d= -f2)-$(grep ^DISTRIB_RELEASE /etc/lsb-release|cut -d= -f2)"
 
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO
 mkdir /var/lib/Clonewise/clones/distros/$DISTRO/downloads
 mkdir /var/lib/Clonewise/clones/distros/$DISTRO/features
 mkdir /var/lib/Clonewise/clones/distros/$DISTRO/signatures

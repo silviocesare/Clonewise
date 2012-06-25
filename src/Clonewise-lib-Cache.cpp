@@ -202,6 +202,9 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 
 	loadedSig = false;
 	if (showUnfixed) {
+		if (print && outputFormat == CLONEWISE_OUTPUT_XML) {
+			printf("\t<TrackedClones>\n");
+		}
 		for (	eIter  = embeddeds[embeddedLib].begin();
 			eIter != embeddeds[embeddedLib].end();
 			eIter++)
@@ -226,12 +229,26 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 					if ((matchFilename.size() == 0 || matchFilename.find(sigIter->first) != matchFilename.end()) && (packagesSize == 0 || packages.find(*eIter) != packages.end())) {
 						if ((matchFilename.size() == 0 || matchHash(sig, eSig, matchFilename)) && (functions.size() == 0 || matchFunctions(*eIter, functions))) {
 							if (any1 == false && pretty && print) {
-								printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
-								printf("#\n\n");
+								if (outputFormat != CLONEWISE_OUTPUT_XML) {
+									printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
+									printf("#\n\n");
+								}
 								any1 = true;
 							}
-							if (print)
-								printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), eIter->c_str(), msg.c_str());
+							if (print) {
+								if (outputFormat == CLONEWISE_OUTPUT_XML) {
+									printf("\t\t<Clone>\n");
+									printf("\t\t\t<EmbeddedLibrary>%s</EmbeddedLibrary>\n", embeddedLib.c_str());
+									printf("\t\t\t<Package>%s</Package>\n", eIter->c_str());
+									printf("\t\t\t<State>Unfixed</State>\n");
+									if (msg.size() != 0)
+										printf("\t\t\t<CVE>%s</CVE>\n", msg.c_str());
+									printf("\t\t</Clone>\n");
+								} else {
+
+									printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), eIter->c_str(), msg.c_str());
+								}
+							}
 							if (packagesSize == 0)
 								packages.insert(*eIter);
 							break;
@@ -241,11 +258,18 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 			}
 		}
 		if (any1 && print) {
-			printf("\n\n");
+			if (outputFormat == CLONEWISE_OUTPUT_XML) {
+				printf("\t</TrackedClones>\n");
+			} else {
+				printf("\n\n");
+			}
 		}
 	}
 	if (cache.find(embeddedLib) == cache.end()) {
 		return;
+	}
+	if (print && outputFormat == CLONEWISE_OUTPUT_XML) {
+		printf("\t<UntrackedClones>\n");
 	}
 	for (	cIter  = cache[embeddedLib].begin();
 		cIter != cache[embeddedLib].end();
@@ -284,30 +308,71 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 			}
 gotit:
 			if (any2 == false && pretty && print) {
-				printf("# The following package clones are NOT tracked in the embedded-code-copies\n# database.\n");
-				printf("#\n\n");
+				if (outputFormat != CLONEWISE_OUTPUT_XML) {
+					printf("# The following package clones are NOT tracked in the embedded-code-copies\n# database.\n");
+					printf("#\n\n");
+				}
 				any2 = true;
 			}
 			snprintf(cmd, sizeof(cmd), "Clonewise-CheckDepends %s %s %s> /dev/null 2> /dev/null", distroString, embeddedLib.c_str(), cIter->first.c_str());
 			status = system(cmd);
+			if (print) {
+				if (outputFormat == CLONEWISE_OUTPUT_XML) {
+					printf("\t\t<Clone>\n");
+					printf("\t\t\t<EmbeddedLibrary>%s</EmbeddedLibrary>\n", embeddedLib.c_str());
+					printf("\t\t\t<Package>%s</Package>\n", cIter->first.c_str());
+					if (msg.size() != 0)
+						printf("\t\t\t<CVE>%s</CVE>\n", msg.c_str());
+				} else {
+					printf("%s CLONED_IN_SOURCE %s ", embeddedLib.c_str(), cIter->first.c_str());
+				}
+			}
 			if (WEXITSTATUS(status) == 0) {
-				if (print)
-					printf("%s CLONED_IN_SOURCE %s <fixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
+				if (print) {
+					if (outputFormat == CLONEWISE_OUTPUT_XML) {
+						printf("\t\t\t<State>Fixed</State>\n");
+						if (msg.size() != 0)
+							printf("\t\t\t<CVE>%s</CVE>\n", msg.c_str());
+					} else {
+						printf("<fixed> %s\n",  msg.c_str());
+					}
+				}
 			} else {
-				if (print)
-					printf("%s CLONED_IN_SOURCE %s <unfixed> %s\n", embeddedLib.c_str(), cIter->first.c_str(), msg.c_str());
+				if (print) {
+					if (outputFormat == CLONEWISE_OUTPUT_XML) {
+						printf("\t\t\t<State>Unfixed</State>\n");
+						if (msg.size() != 0)
+							printf("\t\t\t<CVE>%s</CVE>\n", msg.c_str());
+					} else {
+						printf("<unfixed> %s\n", msg.c_str());
+					}
+				}
 				if (packagesSize == 0)
 					packages.insert(cIter->first);
 			}
 			if (print) {
+				if (outputFormat == CLONEWISE_OUTPUT_XML) {
+					printf("\t\t\t<Matches>\n");
+				}
 				for (	mIter  = cIter->second.begin();
 					mIter != cIter->second.end();
 					mIter++)
 				{
-					printf("\t\tMATCH %s/%s %s\n", mIter->filename1.c_str(), mIter->filename2.c_str(), mIter->weight.c_str());
+					if (outputFormat == CLONEWISE_OUTPUT_XML) {
+						printf("\t\t\t\t<Match><Filename1>%s</Filename1><Filename2>%s</Filename2><Weight>%s</Weight></Match>\n", mIter->filename1.c_str(), mIter->filename2.c_str(), mIter->weight.c_str());
+					} else {
+						printf("\t\tMATCH %s/%s %s\n", mIter->filename1.c_str(), mIter->filename2.c_str(), mIter->weight.c_str());
+					}
+				}
+				if (outputFormat == CLONEWISE_OUTPUT_XML) {
+					printf("\t\t\t</Matches>\n");
+					printf("\t\t</Clone>\n");
 				}
 			}
 		}
+	}
+	if (print && outputFormat == CLONEWISE_OUTPUT_XML) {
+		printf("\t<UntrackedClones>\n");
 	}
 }
 

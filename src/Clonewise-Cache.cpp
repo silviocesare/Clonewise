@@ -14,7 +14,7 @@
 static void
 Usage(const char *argv0)
 {
-	fprintf(stderr, "Usage: %s [-d distroString]\n", argv0);
+	fprintf(stderr, "Usage: %s [-d distroString] [-o xml]\n", argv0);
 	exit(1);
 }
 
@@ -23,17 +23,30 @@ Clonewise_query_cache(int argc, char *argv[])
 {
 	int ch;
 	char s[1024];
+	const char *argv0 = argv[0];
 
 	ClonewiseInit();
 
-	while ((ch = getopt(argc, argv, "d:")) != EOF) {
+	while ((ch = getopt(argc, argv, "d:o:")) != EOF) {
 		switch (ch) {
 		case 'd':
 			distroString = optarg;
 			break;
 
+		case 'o':
+			if (strcmp(optarg, "xml") == 0) {
+                                outputFormat = CLONEWISE_OUTPUT_XML;
+                        } else if (0 && strcmp(optarg, "yaml") == 0) {
+                                outputFormat = CLONEWISE_OUTPUT_YAML;
+                        } else if (0 && strcmp(optarg, "json") == 0) {
+                                outputFormat = CLONEWISE_OUTPUT_JSON;
+                        } else {
+                                Usage(argv0);
+                        }
+                        break;
+
 		default:
-			Usage(argv[0]);
+			Usage(argv0);
 		}
 	}
 
@@ -44,6 +57,9 @@ Clonewise_query_cache(int argc, char *argv[])
 	LoadEmbeds(s);
 	LoadCache();
 
+	if (outputFormat == CLONEWISE_OUTPUT_XML) {
+		printf("<EmbeddedCodeCopies>\n");
+	}
 	if (argc == 0) {
 		pretty = false;
 		showUnfixed = false;
@@ -64,5 +80,8 @@ Clonewise_query_cache(int argc, char *argv[])
 			vulnSources.insert(m);
 			ShowMissingLibs(argv[0], "", true, vulnSources, exclude, functions, packages);
 		}
+	}
+	if (outputFormat == CLONEWISE_OUTPUT_XML) {
+		printf("</EmbeddedCodeCopies>\n");
 	}
 }

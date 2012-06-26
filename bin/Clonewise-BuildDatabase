@@ -39,7 +39,7 @@ for i in $list; do
 			find . -type f -name '*.xz' -exec unxz {} \;
 			find . -type f -name '*.tar'|grep -v .orig.tar$|xargs -n 1 tar xf
 			cd ..
-			find $out -type f |while read f; do ssdeep $f |tail -n1 >> /var/lib/Clonewise/clones/distros/$DISTRO/signatures/$srcname; done
+			find $out -type f |while read f; do ssdeep $f 2> /dev/null|tail -n1 >> /var/lib/Clonewise/clones/distros/$DISTRO/signatures/$srcname; done
 			rm -rf $out
 		fi
 	fi

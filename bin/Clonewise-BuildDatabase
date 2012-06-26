@@ -5,14 +5,19 @@ if [ "$(id -u)" != 0 ]; then
 	exit 1
 fi
 
-DISTRO="$(grep ^DISTRIB_ID /etc/lsb-release|cut -d= -f2)-$(grep ^DISTRIB_RELEASE /etc/lsb-release|cut -d= -f2)"
+if [ $# -ne 1 ]; then
+	echo Usage: $0 distro > /dev/stderr
+	exit 1
+fi
 
-mkdir /var/lib/Clonewise/clones/distros/$DISTRO
-mkdir /var/lib/Clonewise/clones/distros/$DISTRO/depends
-mkdir /var/lib/Clonewise/clones/distros/$DISTRO/downloads
-mkdir /var/lib/Clonewise/clones/distros/$DISTRO/features
-mkdir /var/lib/Clonewise/clones/distros/$DISTRO/signatures
-mkdir /var/lib/Clonewise/clones/distros/$DISTRO/cache
+DISTRO=$1
+
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO 2> /dev/null
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO/depends 2> /dev/null
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO/downloads 2> /dev/null
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO/features 2> /dev/null
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO/signatures 2> /dev/null
+mkdir /var/lib/Clonewise/clones/distros/$DISTRO/cache 2> /dev/null
 
 cd /var/lib/Clonewise/clones/distros/$DISTRO/downloads
 list=$(apt-cache pkgnames)

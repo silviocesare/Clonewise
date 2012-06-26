@@ -34,6 +34,7 @@ extern std::map<std::string, std::set<std::string> > embeddedList;
 extern FILE *outFd;
 extern std::set<std::string> featureExceptions;
 extern const char *distroString;
+extern bool useDistroString;
 extern OutputFormat_e outputFormat;
 extern bool doCheckRelated;
 extern bool useSSDeep;

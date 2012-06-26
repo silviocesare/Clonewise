@@ -57,6 +57,7 @@ double maxWeight = 0.0;
 std::set<std::string> featureExceptions;
 bool approxFilename = true;
 const char *distroString = "ubuntu-11.10";
+bool useDistroString = false;
 OutputFormat_e outputFormat = CLONEWISE_OUTPUT_TEXT;
 bool useSSDeep = true;
 bool useExtensions = true;
@@ -280,12 +281,19 @@ loadFeatureExceptions()
 static void
 BuildDatabase()
 {
+	char cmd[1024];
+
 	if (getuid() != 0) {
 		fprintf(stderr, "Need to be root to build database.\n");
 		exit(1);
 	}
+	if (!useDistroString) {
+		fprintf(stderr, "Need to specify distro\n");
+		exit(1);
+	}
 	fprintf(stderr, "Building database. This could take a considerable amount of time..\n");
-	system("Clonewise-BuildDatabase");
+	snprintf(cmd, sizeof(cmd), "Clonewise-BuildDatabase %s", distroString);
+	system(cmd);
 }
 
 static void
@@ -1171,6 +1179,12 @@ void
 Clonewise_build_database(int argc, char *argv[])
 {
 	ClonewiseInit();
+	if (argc != 2) {
+		fprintf(stderr, "Usage: %s distro\n", argv[0]);
+		exit(1);
+	}
+	useDistroString = true;
+	distroString = argv[1];
 	LoadEverything();
 }
 

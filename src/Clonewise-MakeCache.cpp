@@ -114,6 +114,7 @@ Clonewise_make_cache(int argc, char* argv[])
 			break;
 
                 case 'd':
+			useDistroString = true;
                         distroString = optarg;
                         break;
 

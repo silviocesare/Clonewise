@@ -30,6 +30,7 @@ Clonewise_query_cache(int argc, char *argv[])
 	while ((ch = getopt(argc, argv, "d:o:")) != EOF) {
 		switch (ch) {
 		case 'd':
+			useDistroString = true;
 			distroString = optarg;
 			break;
 

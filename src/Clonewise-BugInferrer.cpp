@@ -587,6 +587,7 @@ Clonewise_find_bugs(int argc, char *argv[])
 			break;
 
 		case 'd':
+			useDistroString = true;
 			distroString = optarg;
 			break;
 

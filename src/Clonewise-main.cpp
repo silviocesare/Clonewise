@@ -41,6 +41,7 @@ Clonewise_query(int argc, char *argv[])
 			break;
 
 		case 'd':
+			useDistroString = true;
 			distroString = optarg;
 			break;
 

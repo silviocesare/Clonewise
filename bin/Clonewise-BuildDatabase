@@ -15,7 +15,6 @@ FIFO_TODO=/var/lib/Clonewise/clones/distros/$DISTRO/downloads/fifo-todo
 NUMTASKS=3
 
 mkfifo $FIFO_TODO
-mkfifo $FIFO_DONE
 
 function DoWork()
 {

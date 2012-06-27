@@ -46,8 +46,8 @@ function Consumer()
 		if [ "$line" = "/" ]; then
 			exit 1
 		fi
-		srcname=$(echo $line|cut -d/ -f2)
-		i=$(echo $line|cut -d/ -f1)
+		srcname=$(echo $line|cut -d/ -f1)
+		i=$(echo $line|cut -d/ -f2)
 		DoWork $srcname $i
 	done
 }
@@ -75,7 +75,6 @@ for i in $list; do
 	srcname=$(apt-cache showsrc $i|grep ^Package:|head -n1|cut -d\  -f2)
 	if [ "$srcname" != "" ]; then
 		echo "$srcname/$i" >> $FIFO_TODO
-		read $FIFO_DONE
 	fi
 	echo $i/$srcname >> /var/lib/Clonewise/clones/distros/$DISTRO/packages
 	((count=count+1))

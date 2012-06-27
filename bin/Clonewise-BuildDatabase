@@ -12,7 +12,6 @@ fi
 
 DISTRO=$1
 FIFO_TODO=/var/lib/Clonewise/clones/distros/$DISTRO/downloads/fifo-todo
-FIFO_DONE=/var/lib/Clonewise/clones/distros/$DISTRO/downloads/fifo-done
 NUMTASKS=3
 
 mkfifo $FIFO_TODO
@@ -51,7 +50,6 @@ function Consumer()
 		srcname=$(echo $line|cut -d/ -f2)
 		i=$(echo $line|cut -d/ -f1)
 		DoWork $srcname $i
-		echo "DONE" >> $FIFO_DONE
 	done
 }
 

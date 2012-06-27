@@ -12,6 +12,7 @@ fi
 
 DISTRO=$1
 DISTRO_PREFIX=/var/lib/Clonewise/clones/distros/$DISTRO
+LOCAL=/tmp/Clonewise
 FIFO_TODO=$DISTRO_PREFIX/downloads/fifo-todo
 NUMTASKS=5
 
@@ -23,7 +24,9 @@ function DoWork()
 {
 	srcname=$1
 	i=$2
-	apt-get source $i > $DISTRO_PREFIX/.apt-source.$srcname.$i 2> /dev/null
+	dsc=$(apt-get source --download-only $i|grep "\.dsc$"|awk '{print $3}'|head -n1)
+	cd $LOCAL/working
+	dpkg-source -x $DISTRO_PREFIX/downloads/$dsc > $DISTRO_PREFIX/.apt-source.$srcname.$i 2> /dev/null
 	out="$(grep 'dpkg-source: info: extracting' $DISTRO_PREFIX/.apt-source.$srcname.$i|awk '{print $6}')"
 	if [ "$out" != "" ]; then
 		cd $out
@@ -34,6 +37,8 @@ function DoWork()
 		find $out -type f |while read f; do ssdeep $f 2> /dev/null|tail -n1 >> $DISTRO_PREFIX/signatures/$srcname; done
 		rm -rf $out
 	fi
+	mv $LOCAL/working/* $DISTRO_PREFIX/downloads
+	cd $DISTRO_PREFIX/downloads
 	rm -f $DISTRO_PREFIX/.apt-source.$srcname.$i
 }
 
@@ -53,8 +58,11 @@ function Consumer()
 	done
 }
 
+mkdir $LOCAL
+mkdir $LOCAL/working 2> /dev/null
 mkdir $DISTRO_PREFIX/depends 2> /dev/null
 mkdir $DISTRO_PREFIX/downloads 2> /dev/null
+mkdir $DISTRO_PREFIX/downloads/working 2> /dev/null
 mkdir $DISTRO_PREFIX/features 2> /dev/null
 mkdir $DISTRO_PREFIX/signatures 2> /dev/null
 mkdir $DISTRO_PREFIX/cache 2> /dev/null

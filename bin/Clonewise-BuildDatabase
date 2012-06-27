@@ -12,7 +12,7 @@ fi
 
 DISTRO=$1
 FIFO_TODO=/var/lib/Clonewise/clones/distros/$DISTRO/downloads/fifo-todo
-NUMTASKS=3
+NUMTASKS=5
 
 mkfifo $FIFO_TODO
 
@@ -20,8 +20,8 @@ function DoWork()
 {
 	srcname=$1
 	i=$2
-	apt-get source $i > /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source 2> /dev/null
-	out="$(grep 'dpkg-source: info: extracting' /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source|awk '{print $6}')"
+	apt-get source $i > /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source.$$ 2> /dev/null
+	out="$(grep 'dpkg-source: info: extracting' /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source.$$|awk '{print $6}')"
 	if [ "$out" != "" ]; then
 		cd $out
 		find . -type f -name '*.dsc' -exec dpkg-source -x {} \;
@@ -43,6 +43,9 @@ function Consumer()
 {
 	while true; do
 		read line < $FIFO_TODO
+		if [ "$line" = "" ]; then
+			continue
+		fi
 		if [ "$line" = "/" ]; then
 			exit 1
 		fi
@@ -59,15 +62,16 @@ mkdir /var/lib/Clonewise/clones/distros/$DISTRO/features 2> /dev/null
 mkdir /var/lib/Clonewise/clones/distros/$DISTRO/signatures 2> /dev/null
 mkdir /var/lib/Clonewise/clones/distros/$DISTRO/cache 2> /dev/null
 
+cd /var/lib/Clonewise/clones/distros/$DISTRO/downloads
+
 for j in $(seq 1 $NUMTASKS); do
 	Consumer &
 done
 
-cd /var/lib/Clonewise/clones/distros/$DISTRO/downloads
 list=$(apt-cache pkgnames)
 rm -f /var/lib/Clonewise/clones/distros/$DISTRO/.done
 rm -f /var/lib/Clonewise/clones/distros/$DISTRO/packages
-rm -f /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source
+rm -f /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source.*
 count=0
 totlist=$(echo $list|wc -w)
 for i in $list; do
@@ -80,7 +84,7 @@ for i in $list; do
 	((count=count+1))
 done
 echo "/" >> $FIFO_TODO
-rm /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source
+rm /var/lib/Clonewise/clones/distros/$DISTRO/.apt-source.*
 
 cat /var/lib/Clonewise/clones/distros/$DISTRO/packages |cut -d/ -f1|while read package; do
         apt-cache depends $package |grep "^  Depends:"|awk '{print $2}'> /var/lib/Clonewise/clones/distros/$DISTRO/depends/$package

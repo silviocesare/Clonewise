@@ -9,6 +9,7 @@ struct Command {
 
 
 int Clonewise_build_database(int argc, char *argv[]);
+int Clonewise_train(int argc, char *argv[]);
 int Clonewise_query(int argc, char *argv[]);
 int Clonewise_query_cache(int argc, char *argv[]);
 int Clonewise_make_cache(int argc, char *argv[]);
@@ -17,6 +18,7 @@ int Clonewise_find_bugs(int argc, char *argv[]);
 
 Command commands[] = {
 	{ "build-database", Clonewise_build_database },
+	{ "train", Clonewise_train },
 	{ "query", Clonewise_query },
 	{ "make-cache", Clonewise_make_cache },
 	{ "query-cache", Clonewise_query_cache },

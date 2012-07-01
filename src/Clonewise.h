@@ -59,7 +59,7 @@ void LoadExtensions();
 bool IsProgramFilename(const std::string &feature);
 void normalizeFeature(std::string &normalFeature, const std::string &feature);
 void LoadEmbeddedCodeCopiesList(const char *filename);
-int LoadEverything();
+int LoadEverything(bool train = false);
 int RunClonewise(int argc, char *argv[]);
 bool WriteCheckForClone(std::ofstream &testStream, const std::map<std::string, std::set<std::string> > &embedding, const std::map<std::string, std::set<std::string> > &package, const std::string &cl);
 void printMatch(const std::map<std::string, std::set<std::string> > &embedding, const std::map<std::string, std::set<std::string> > &package);

@@ -1176,7 +1176,7 @@ LoadExtensions()
 }
 
 void
-Clonewise_build_database(int argc, char *argv[])
+Clonewise_train(int argc, char *argv[])
 {
 	ClonewiseInit();
 	if (argc != 2) {
@@ -1185,11 +1185,29 @@ Clonewise_build_database(int argc, char *argv[])
 	}
 	useDistroString = true;
 	distroString = argv[1];
-	LoadEverything();
+	LoadEverything(true);
+}
+
+void
+Clonewise_build_database(int argc, char *argv[])
+{
+	char s[1024];
+
+	ClonewiseInit();
+	if (argc != 2) {
+		fprintf(stderr, "Usage: %s distro\n", argv[0]);
+		exit(1);
+	}
+	useDistroString = true;
+	distroString = argv[1];
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/.done", distroString);
+	if (access(s, R_OK) != 0) {
+		BuildDatabase();
+	}
 }
 
 int
-LoadEverything()
+LoadEverything(bool train)
 {
 	std::string filename;
 	std::ifstream stream;
@@ -1198,8 +1216,10 @@ LoadEverything()
 	std::map<std::string, float>::iterator idfIter;
 
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/.done", distroString);
-	if (access(s, R_OK) != 0)
-		BuildDatabase();
+	if (access(s, R_OK) != 0) {
+		fprintf(stderr, "Database not built. Run Clonewise build-database.\n");
+		exit(1);
+	}
 
 	LoadExtensions();
 	LoadPackagesInfo();
@@ -1208,9 +1228,11 @@ LoadEverything()
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/features", distroString);
 	stream.open(s);
 	if (!stream) {
-		BuildFeatures();
-		snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/features", distroString);
-		stream.open(s);
+		if (train) {
+			BuildFeatures();
+			snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/features", distroString);
+			stream.open(s);
+		}
 		if (!stream) {
 			fprintf(stderr, "Can't open features\n");
 			exit(1);
@@ -1275,8 +1297,12 @@ LoadEverything()
 
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/weka/model");
 	if (access(s, R_OK) != 0) {
+		if (!train) {
+			fprintf(stderr, "Please run Clonewise train.\n");
+			exit(1);
+		}
 		if (getuid() != 0) {
-			fprintf(stderr, "Need to be root to build database.\n");
+			fprintf(stderr, "Need to be root to train.\n");
 			exit(1);
 		}
 		trainModel();

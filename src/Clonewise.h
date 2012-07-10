@@ -53,6 +53,7 @@ extern bool useRelativePathForSignature;
 
 void ClonewiseInit();
 void ClonweiseCleanup();
+void lineToFeature(const char *s, std::string &feature, std::string &hash);
 void LoadSignature(std::string name, std::map<std::string, std::set<std::string> > &signature);
 void LoadPackagesInfo();
 void LoadExtensions();

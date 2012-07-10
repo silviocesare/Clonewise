@@ -359,8 +359,8 @@ initXmlParser()
 	try {
 		XMLPlatformUtils::Initialize();
 		parser = new XercesDOMParser();
-//		readXML("/var/lib/Clonewise/bugs/cve/nvdcve-2010.xml");
-//		readXML("/var/lib/Clonewise/bugs/cve/nvdcve-2011.xml");
+		readXML("/var/lib/Clonewise/bugs/cve/nvdcve-2010.xml");
+		readXML("/var/lib/Clonewise/bugs/cve/nvdcve-2011.xml");
 		readXML("/var/lib/Clonewise/bugs/cve/nvdcve-2012.xml");
 	} catch (XMLException &exception) {
 		return 1;

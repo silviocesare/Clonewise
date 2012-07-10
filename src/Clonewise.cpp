@@ -236,7 +236,7 @@ normalizeFeature(std::string &normalFeature, const std::string &feature)
 	}
 }
 
-static void
+void
 lineToFeature(const char *s, std::string &feature, std::string &hash)
 {
 	std::string str, str2, origFeature;

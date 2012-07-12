@@ -12,7 +12,7 @@ fi
 
 DISTRO=$1
 DISTRO_PREFIX=/var/lib/Clonewise/clones/distros/$DISTRO
-LOCAL=/tmp/Clonewise
+LOCAL=/var/lib/Clonewise/temp
 FIFO_TODO=$DISTRO_PREFIX/downloads/fifo-todo
 NUMTASKS=5
 
@@ -22,10 +22,11 @@ mkfifo $FIFO_TODO
 
 function DoWork()
 {
-	srcname=$1
-	i=$2
-	dsc=$(apt-get source --download-only $i|grep "\.dsc$"|awk '{print $3}'|head -n1)
-	cd $LOCAL/working
+	tmpdir=$1
+	srcname=$2
+	i=$3
+	dsc=$(apt-get source --download-only $i|tr ' ' '\n'|tr -d "\'"|grep "\.dsc$"|head -n1)
+	cd $tmpdir/x
 	dpkg-source -x $DISTRO_PREFIX/downloads/$dsc > $DISTRO_PREFIX/.apt-source.$srcname.$i 2> /dev/null
 	out="$(grep 'dpkg-source: info: extracting' $DISTRO_PREFIX/.apt-source.$srcname.$i|awk '{print $6}')"
 	if [ "$out" != "" ]; then
@@ -37,13 +38,16 @@ function DoWork()
 		find $out -type f |while read f; do ssdeep $f 2> /dev/null|tail -n1 >> $DISTRO_PREFIX/signatures/$srcname; done
 		rm -rf $out
 	fi
-	mv $LOCAL/working/* $DISTRO_PREFIX/downloads
+	rm -rf $tmpdir/x/*
 	cd $DISTRO_PREFIX/downloads
 	rm -f $DISTRO_PREFIX/.apt-source.$srcname.$i
 }
 
 function Consumer()
 {
+	rm -rf $LOCAL/working-$1 2> /dev/null
+	mkdir $LOCAL/working-$1 2> /dev/null
+	mkdir $LOCAL/working-$1/x 2> /dev/null
 	while true; do
 		read line < $FIFO_TODO
 		if [ "$line" = "" ]; then
@@ -54,15 +58,13 @@ function Consumer()
 		fi
 		srcname=$(echo $line|cut -d/ -f1)
 		i=$(echo $line|cut -d/ -f2)
-		DoWork $srcname $i
+		DoWork $LOCAL/working-$1 $srcname $i
 	done
 }
 
 mkdir $LOCAL
-mkdir $LOCAL/working 2> /dev/null
 mkdir $DISTRO_PREFIX/depends 2> /dev/null
 mkdir $DISTRO_PREFIX/downloads 2> /dev/null
-mkdir $DISTRO_PREFIX/downloads/working 2> /dev/null
 mkdir $DISTRO_PREFIX/features 2> /dev/null
 mkdir $DISTRO_PREFIX/signatures 2> /dev/null
 mkdir $DISTRO_PREFIX/cache 2> /dev/null
@@ -75,7 +77,7 @@ rm -f $DISTRO_PREFIX/sources
 rm -f $DISTRO_PREFIX/.apt-source.*
 
 for j in $(seq 1 $NUMTASKS); do
-	Consumer &
+	Consumer $j &
 done
 
 list=$(apt-cache pkgnames)

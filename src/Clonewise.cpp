@@ -51,6 +51,7 @@ Feature Features[] = {
 
 static void CreateFeatures();
 
+std::map<std::string, std::string> packageAliases;
 bool UseFeatureSelection = true;
 FILE *outFd = stdout;
 double maxWeight = 0.0;
@@ -292,7 +293,7 @@ BuildDatabase()
 		exit(1);
 	}
 	fprintf(stderr, "Building database. This could take a considerable amount of time..\n");
-	snprintf(cmd, sizeof(cmd), "Clonewise-BuildDatabase %s", distroString);
+	snprintf(cmd, sizeof(cmd), "Clonewise-BuildDatabase build-database %s", distroString);
 	system(cmd);
 }
 
@@ -727,7 +728,7 @@ skip2:
 
 #pragma omp critical
 	{
-		if (verbose >= 3) {
+		if (verbose >= 4) {
 			char fs[1024];
 
 			snprintf(fs, sizeof(fs), "%f", featureVector[0]);
@@ -949,8 +950,15 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 	char cmd[1024], testFilename[L_tmpnam + 128], testFilename2[L_tmpnam + 128], t[L_tmpnam], str[1024];
 	FILE *p;
 	std::ofstream testStream;
-	std::set<std::string> skip;
+	std::set<std::string> skip, skip2;
 	std::string rmString;
+	std::string packageAlias, packageCloneAlias;
+
+	if (packageAliases.find(name) != packageAliases.end()) {
+		packageAlias = packageAliases[name];
+	} else {
+		packageAlias = name;
+	}
 
 	tmpnam(t);
 	snprintf(testFilename, sizeof(testFilename), "%s.arff", t);
@@ -982,11 +990,19 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 
 				package = &packagesSignatures[pIter->first];
 				if (strcmp(name, pIter->first.c_str()) != 0) {
-					if (!WriteCheckForClone(fp, testStream, embedding, *package, "?", matchesTable[pIter->first]))
+					bool wRet;
+
+					if (!useRelativePathForSignature) {
+						wRet = WriteCheckForClone(fp, testStream, embedding, *package, "?", matchesTable[pIter->first]);
+					} else {
+						wRet = WriteCheckForClone(fp, testStream, *package, embedding, "?", matchesTable[pIter->first]);
+					}
+					if (!wRet) {
 #pragma omp critical (skipMod)
 						{
-//							skip.insert(fp);
+							skip2.insert(fp);
 						}
+					}
 				} else {
 #pragma omp critical (skipMod)
 					{
@@ -1034,17 +1050,26 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 
 		str[27] = 0;
 		fgets(str, sizeof(str), p);
+
+		if (skip2.find(fp) != skip2.end())
+			continue;
+
 		if (str[27] == 'Y') {
 			if (str[35] == '1' || (str[37] - '0') >= 8) {
+				if (packageAliases.find(pIter->first) != packageAliases.end()) {
+					packageCloneAlias = packageAliases[pIter->first];
+				} else {
+					packageCloneAlias = pIter->first;
+				}
 				if (outputFormat == CLONEWISE_OUTPUT_XML) {
 					fprintf(outFd, "\t<Clone>\n");
-					fprintf(outFd, "\t\t<SourcePackage>%s</SourcePackage>\n", name);
-					fprintf(outFd, "\t\t<ClonedSourcePackage>%s</ClonedSourcePackage>\n", pIter->first.c_str());
+					fprintf(outFd, "\t\t<SourcePackage>%s</SourcePackage>\n", packageAlias.c_str());
+					fprintf(outFd, "\t\t<ClonedSourcePackage>%s</ClonedSourcePackage>\n", packageCloneAlias.c_str());
 				} else {
-					fprintf(outFd, "%s CLONED_IN_SOURCE %s\n", name, pIter->first.c_str());		
+					fprintf(outFd, "%s CLONED_IN_SOURCE %s\n", packageAlias.c_str(), packageCloneAlias.c_str());		
 				}
 				printMatch(embedding, *package, matchesTable[pIter->first]);
-				if (verbose >= 1) {
+				if (verbose >= 3) {
 					std::list<std::string>::const_iterator nIter;
 
 					for (	nIter  = pIter->second.begin();
@@ -1054,7 +1079,7 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 						if (outputFormat == CLONEWISE_OUTPUT_XML) {
 							fprintf(outFd, "\t\t<ClonedPackage>%s</ClonedPackage>\n", nIter->c_str());
 						} else {
-							fprintf(outFd, "\t%s CLONED_IN_PACKAGE %s\n", name, nIter->c_str());
+							fprintf(outFd, "\t%s CLONED_IN_PACKAGE %s\n", packageAlias.c_str(), nIter->c_str());
 						}
 					}
 				}

@@ -30,6 +30,7 @@ struct Feature {
 
 #define NFEATURES 27
 
+extern std::map<std::string, std::string> packageAliases;
 extern std::map<std::string, std::set<std::string> > embeddedList;
 extern FILE *outFd;
 extern std::set<std::string> featureExceptions;

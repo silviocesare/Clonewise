@@ -16,11 +16,13 @@ int Clonewise_make_cache(int argc, char *argv[]);
 int Clonewise_parse_database(int argc, char *argv[]);
 int Clonewise_find_bugs(int argc, char *argv[]);
 int Clonewise_find_file(int argc, char *argv[]);
+int Clonewise_query_source(int argc, char *argv[]);
 
 Command commands[] = {
 	{ "build-database", Clonewise_build_database },
 	{ "train", Clonewise_train },
 	{ "query", Clonewise_query },
+	{ "query-source", Clonewise_query_source },
 	{ "make-cache", Clonewise_make_cache },
 	{ "query-cache", Clonewise_query_cache },
 	{ "parse-database", Clonewise_parse_database },

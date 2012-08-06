@@ -1,15 +1,34 @@
 #!/bin/bash
 
-if [ "$(id -u)" != 0 ]; then
-	echo "Error. Must be superuser to build database."
-	exit 1
+function makeSignature()
+{
+	find $1 -type f |while read f; do ssdeep $f 2> /dev/null|tail -n1 >> $2; done
+}
+
+if [ "$1" = "build-signature" ]; then
+	if [ $# -ne 3 ]; then
+		echo Usage: $0 build-signature srcDirectory outFile > /dev/stderr
+		exit 1
+	fi
+	shift
+	makeSignature $1 $2
+	exit 0
+elif [ "$1" = "build-database" ]; then
+	if [ $# -ne 2 ]; then
+		echo Usage: $0 build-database distro > /dev/stderr
+		exit 1
+	fi
+	if [ "$(id -u)" != 0 ]; then
+		echo "Error. Must be superuser to build database."
+		exit 1
+	fi
+else
+	echo Usage: $0 build-database distro > /dev/stderr
+	echo Usage: $0 build-signature srcDirectory outFile > /dev/stderr
 fi
 
-if [ $# -ne 1 ]; then
-	echo Usage: $0 distro > /dev/stderr
-	exit 1
-fi
 
+shift
 DISTRO=$1
 DISTRO_PREFIX=/var/lib/Clonewise/clones/distros/$DISTRO
 LOCAL=/var/lib/Clonewise/temp
@@ -35,7 +54,7 @@ function DoWork()
 		find . -type f \( -name '*.zip' -o -name '*.rar' -o -name '*.gz' -o -name '*.lzma' -o -name '*.bz' -o -name '*.bz2' -o -name '*.xz' \) -exec unar {} \; > /dev/null
 		find . -type f -name '*.tar'|grep -v "\.orig\.tar$"|xargs -n 1 -r tar xf > /dev/null
 		cd ..
-		find $out -type f |while read f; do ssdeep $f 2> /dev/null|tail -n1 >> $DISTRO_PREFIX/signatures/$srcname; done
+		makeSignature $out $DISTRO_PREFIX/signatures/$srcname
 		rm -rf $out
 	fi
 	rm -rf $tmpdir/x/*

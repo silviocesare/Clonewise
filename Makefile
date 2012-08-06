@@ -14,6 +14,7 @@ SOURCES =	src/Clonewise-Cache.cpp \
 		libs/munkres-2/munkres.cpp \
 		src/Clonewise-main.cpp \
 		src/Clonewise-MakeCache.cpp \
+		src/Clonewise-query-source.cpp \
 		src/Clonewise-find-file.cpp \
 		src/Clonewise-BugInferrer.cpp \
 		src/Clonewise-ParseDatabase.cpp \

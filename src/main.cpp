@@ -17,6 +17,7 @@ int Clonewise_parse_database(int argc, char *argv[]);
 int Clonewise_find_bugs(int argc, char *argv[]);
 int Clonewise_find_file(int argc, char *argv[]);
 int Clonewise_query_source(int argc, char *argv[]);
+int Clonewise_find_license_problems(int argc, char *argv[]);
 
 Command commands[] = {
 	{ "build-database", Clonewise_build_database },
@@ -27,6 +28,7 @@ Command commands[] = {
 	{ "query-cache", Clonewise_query_cache },
 	{ "parse-database", Clonewise_parse_database },
 	{ "find-bugs", Clonewise_find_bugs },
+	{ "find-license-problems", Clonewise_find_license_problems },
 	{ "find-file", Clonewise_find_file },
 	{ NULL, NULL },
 };

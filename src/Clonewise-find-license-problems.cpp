@@ -36,7 +36,7 @@ Clonewise_find_license_problems(int argc, char *argv[])
 		Usage(argv0);
 	}
 
-	snprintf(cmd, sizeof(cmd), "Clonewise-CheckLicenses");
+	snprintf(cmd, sizeof(cmd), "Clonewise-CheckLicenses %s /var/lib/Clonewise/clones/distros/%s/downloads", distroString, distroString);
 	system(cmd);
 	return 0;
 }

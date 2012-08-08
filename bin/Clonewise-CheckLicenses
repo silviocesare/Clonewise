@@ -1,9 +1,21 @@
 #!/bin/bash
 
+tmpdir=~/Clonewise-CheckLicense.tmp
+mkdir $tmpdir 2> /dev/null
+
+if [ $# -ne 2 ]; then
+	echo Usage: $0 distro packagesDir > /dev/stderr
+	exit 1
+fi
+
+distro=$1
+packagesDir=$2
+
 function getDB()
 {
 #	Clonewise parse-database
-	Clonewise query-cache|grep CLONED_IN_SOURCE|awk '{print $1 "/" $3}'
+#	Clonewise query-cache|grep CLONED_IN_SOURCE|awk '{print $1 "/" $3}'
+	cat /var/lib/Clonewise/clones/distros/$distro/complete-cache|grep CLONED_IN_SOURCE|awk '{print $1 "/" $3}'
 }
 
 function grepForGPL()
@@ -16,23 +28,23 @@ function grepForPermissive()
 	egrep '^License: .*ZPL.*|^License: .*Zope.*|^License: .*[Pp]ublic[ -].*|^License: .*MPL.*|^License: .*ISC.*|^License: .*ASL.*|^License: .*[Mm][Ii][Tt].*|^License: .*[Aa][Pp][aA][cC][Hh][Ee].*|^License: .*[Bb][Ss][Dd].*' $1 > /dev/null 2> /dev/null
 }
 
+cd $tmpdir
 getDB|tr / '\n'|sort -u|while read pkg; do
 	grep ^$pkg/ dirlist > /dev/null 2> /dev/null && continue
 	echo $pkg
-	apt-get source $pkg 2>&1 > result.$$ 
-	grep '^Skipping' result.$$ > /dev/null 2> /dev/null
-	if [ $? -eq 0 ]; then
-		continue
-		dir=$(cat result.$$|grep ^Skipping|awk '{print $7}')
-		echo $pkg/$dir >> dirlist
-	else
-		grep '^dpkg-source: info: extracting' result.$$ > /dev/null 2> /dev/null
-		dir=$(grep '^dpkg-source: info: extracting' result.$$|awk '{print $6}')
-		echo $pkg/$dir >> dirlist
+	cd $packagesDir
+	apt-get source --download-only $pkg > /dev/null
+	dsc=$(apt-get source --download-only $pkg|tr ' ' '\n'|tr -d "\'"|grep "\.dsc$"|head -n1)
+        cd $tmpdir
+        dpkg-source -x $packagesDir/$dsc > result.$$ 2> /dev/null
+        out="$(grep 'dpkg-source: info: extracting' result.$$|awk '{print $6}')"
+	if [ "$out" != "" ]; then
+		echo $pkg/$out >> dirlist
 	fi
 	rm result.$$
 done
 
+cd $tmpdir
 getDB|while read line; do
 	lib=$(echo $line|cut -d/ -f1)
 	pkg=$(echo $line|cut -d/ -f2)

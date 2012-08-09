@@ -18,7 +18,7 @@ Usage(const char *argv0)
 static int
 findFile(const char *filename)
 {
-	std::map<std::string, std::map<std::string, std::set<std::string> > >::const_iterator pIter;
+	std::map<std::string, ClonewiseSignature>::const_iterator pIter;
 	std::string nFilename;
 	char line[1024], cmd[1024];
 	std::string feature, hash;
@@ -37,14 +37,14 @@ findFile(const char *filename)
 		pIter != packagesSignatures.end();
 		pIter++)
 	{
-		if (pIter->second.find(nFilename) != pIter->second.end()) {
+		if (pIter->second.filesAndHashes.find(nFilename) != pIter->second.filesAndHashes.end()) {
 			std::set<std::string>::const_iterator hIter;
 
 			if (skipHash)
 				goto gotit;
 
-			for (	hIter  = pIter->second.find(nFilename)->second.begin();
-				hIter != pIter->second.find(nFilename)->second.end();
+			for (	hIter  = pIter->second.filesAndHashes.find(nFilename)->second.begin();
+				hIter != pIter->second.filesAndHashes.find(nFilename)->second.end();
 				hIter++)
 			{
 				float s;

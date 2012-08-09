@@ -193,7 +193,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 	bool any1 = false, any2 = false;
 	std::string m;
 	bool loadedSig;
-	std::map<std::string, std::set<std::string> > eSig;
+	ClonewiseSignature eSig;
 	int packagesSize = packages.size();
 
 	if (embeddeds.find(embeddedLib) == embeddeds.end()) {
@@ -211,23 +211,23 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 		{
 			if (exclude.find(*eIter) == exclude.end() && embeddedsState[embeddedLib][*eIter] == EMBED_UNFIXED) {
 				std::string filename;
-				std::map<std::string, std::set<std::string> > sig;
+				ClonewiseSignature sig;
 				std::map<std::string, std::set<std::string> >::const_iterator sigIter;
 
 				filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + eIter->c_str();
-				LoadSignature(filename, sig);
+				LoadSignature(*eIter, filename, sig);
 				if (!loadedSig) {
 					filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + embeddedLib;
-					LoadSignature(filename, eSig);
+					LoadSignature(embeddedLib, filename, eSig);
 					loadedSig = true;
 				}
 
-				for (	sigIter  = sig.begin();
-					sigIter != sig.end();
+				for (	sigIter  = sig.filesAndHashes.begin();
+					sigIter != sig.filesAndHashes.end();
 					sigIter++)
 				{
 					if ((matchFilename.size() == 0 || matchFilename.find(sigIter->first) != matchFilename.end()) && (packagesSize == 0 || packages.find(*eIter) != packages.end())) {
-						if ((matchFilename.size() == 0 || matchHash(sig, eSig, matchFilename)) && (functions.size() == 0 || matchFunctions(*eIter, functions))) {
+						if ((matchFilename.size() == 0 || matchHash(sig.filesAndHashes, eSig.filesAndHashes, matchFilename)) && (functions.size() == 0 || matchFunctions(*eIter, functions))) {
 							if (any1 == false && pretty && print) {
 								if (outputFormat != CLONEWISE_OUTPUT_XML) {
 									printf("# The following package clones are tracked in the embedded-code-copies\n# database. They have not been fixed.\n");
@@ -286,13 +286,13 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 			char cmd[1024];
 			int status;
 			std::string filename;
-			std::map<std::string, std::set<std::string> > sig;
+			ClonewiseSignature sig;
 
 			filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + cIter->first.c_str();
-			LoadSignature(filename, sig);
+			LoadSignature(cIter->first, filename, sig);
 			if (!loadedSig) {
 				filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + embeddedLib;
-				LoadSignature(filename, eSig);
+				LoadSignature(embeddedLib, filename, eSig);
 				loadedSig = true;
 			}
 			if (useMatchFilename) {
@@ -300,7 +300,7 @@ ShowMissingLibs(const std::string &embeddedLib, const std::string &msg, bool use
 					mIter != cIter->second.end();
 					mIter++)
 				{
-					if ((matchFilename.find(mIter->filename1) != matchFilename.end() || matchFilename.find(mIter->filename2) != matchFilename.end()) && matchHash(sig, eSig, matchFilename) && (functions.size() == 0 || matchFunctions(cIter->first, functions))) {
+					if ((matchFilename.find(mIter->filename1) != matchFilename.end() || matchFilename.find(mIter->filename2) != matchFilename.end()) && matchHash(sig.filesAndHashes, eSig.filesAndHashes, matchFilename) && (functions.size() == 0 || matchFunctions(cIter->first, functions))) {
 						goto gotit;
 					}
 				}

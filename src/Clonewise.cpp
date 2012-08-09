@@ -15,8 +15,9 @@
 #include <cstring>
 #include <fuzzy.h>
 #include <cstdarg>
-#include "Clonewise.h"
+#include <errno.h>
 #include <omp.h>
+#include "Clonewise.h"
 
 Feature Features[] = {
 	{ "N_Filenames_A", true },				// 1
@@ -69,7 +70,7 @@ std::set<std::string> ignoreFalsePositives;
 unsigned int numPackages = 0;
 bool allPackages = false;
 std::map<std::string, std::list<std::string> > packages;
-std::map<std::string, std::map<std::string, std::set<std::string> > > packagesSignatures;
+std::map<std::string, ClonewiseSignature> packagesSignatures;
 std::set<std::string> extensions;
 bool reportError = false;
 bool useRelativePathForSignature = true;
@@ -402,7 +403,7 @@ IsProgramFilename(const std::string &feature)
 }
 
 void
-printMatch(const std::map<std::string, std::set<std::string> > &embedding, const std::map<std::string, std::set<std::string> > &package, std::map<std::string, std::pair<std::string, float> > &matches)
+printMatch(const ClonewiseSignature &embedding, const ClonewiseSignature &package, std::map<std::string, std::pair<std::string, float> > &matches)
 {
 	std::map<std::string, std::pair<std::string, float> >::iterator matchesIter;
 	if (verbose >= 2) {
@@ -469,7 +470,7 @@ SolveGreedy(Matrix<T> &matrix)
 }
 
 bool
-WriteCheckForClone(const std::string &name, std::ofstream &testStream, const std::map<std::string, std::set<std::string> > &embedding, const std::map<std::string, std::set<std::string> > &package, const std::string &cl, std::map<std::string, std::pair<std::string, float> > &matches)
+WriteCheckForClone(const std::string &name, std::ofstream &testStream, const ClonewiseSignature &embedding, const ClonewiseSignature &package, const std::string &cl, std::map<std::string, std::pair<std::string, float> > &matches)
 {
 	std::map<std::string, std::set<std::string> >::const_iterator eIter;
 	int found, foundSimilar, foundFilenameHash, foundFilenameHash80, foundExactFilenameHash;
@@ -508,8 +509,8 @@ WriteCheckForClone(const std::string &name, std::ofstream &testStream, const std
 	scoreDataSimilar = 0.0;
 	scoreDataExactFilenameHash = 0.0;
 
-	for (	eIter  = embedding.begin();
-		eIter != embedding.end();
+	for (	eIter  = embedding.filesAndHashes.begin();
+		eIter != embedding.filesAndHashes.end();
 		eIter++)
 	{
 
@@ -557,8 +558,8 @@ skip1:
 			l1Iter != eIter->second.end();
 			l1Iter++)
 		{
-			for (	pIter  = package.begin();
-				pIter != package.end();
+			for (	pIter  = package.filesAndHashes.begin();
+				pIter != package.filesAndHashes.end();
 				pIter++)
 			{
 				if (pIter->second.find(*l1Iter) != pIter->second.end()) {
@@ -572,8 +573,8 @@ skip1:
 			}
 		}
 skip3:
-		pIter = findFilenameFromPackage(eIter->first, package, weight);
-		if (pIter != package.end()) {
+		pIter = findFilenameFromPackage(eIter->first, package.filesAndHashes, weight);
+		if (pIter != package.filesAndHashes.end()) {
 			possibleMatches[eIter->first][pIter->first] = weight;
 			possibleMatches2.insert(pIter->first);
 			maxS = 0.00;
@@ -695,10 +696,10 @@ skip2:
 			}
 		}
 	}
-	featureVector[ 0] = embedding.size();
-	featureVector[ 1] = numberOfSources(embedding);
-	featureVector[ 2] = package.size();
-	featureVector[ 3] = numberOfSources(package);
+	featureVector[ 0] = embedding.filesAndHashes.size();
+	featureVector[ 1] = numberOfSources(embedding.filesAndHashes);
+	featureVector[ 2] = package.filesAndHashes.size();
+	featureVector[ 3] = numberOfSources(package.filesAndHashes);
 
 	featureVector[ 4] = found;
 	featureVector[ 5] = foundSimilar;
@@ -768,13 +769,25 @@ skip2:
 }
 
 void
-LoadSignature(std::string name, std::map<std::string, std::set<std::string> > &signature)
+LoadSignature(const std::string &name, const std::string &filename, ClonewiseSignature &signature)
 {
 	std::ifstream stream;
 
-	stream.open(name.c_str());
+	stream.open(filename.c_str());
 	if (!stream) {
 		errorLog("Couldn't open %s\n", name.c_str());
+	}
+	signature.name = name;
+	signature.nFilenamesCode = 0;
+	signature.nFilenamesData = 0;
+	signature.nFilenamesAll = 0;
+	signature.scoreAll = 0.0;
+	signature.scoreCode = 0.0;
+	signature.scoreData = 0.0;
+	if (strncmp(name.c_str(), "lib", 3) == 0) {
+		signature.hasLibInPackageName = true;
+	} else {
+		signature.hasLibInPackageName = false;
 	}
 	while (!stream.eof()) {
 		std::string str, str2, hash, feature;
@@ -785,7 +798,16 @@ LoadSignature(std::string name, std::map<std::string, std::set<std::string> > &s
 			break;
 		lineToFeature(s, feature, hash);
 		if (featureExceptions.find(feature) == featureExceptions.end()) {
-			signature[feature].insert(hash);
+			signature.filesAndHashes[feature].insert(hash);
+			signature.nFilenamesAll++;
+			signature.scoreAll += idf[feature];
+			if (IsProgramFilename(feature)) {
+				signature.nFilenamesCode++;
+				signature.scoreCode += idf[feature];
+			} else {
+				signature.nFilenamesData++;
+				signature.scoreData += idf[feature];
+			}
 		}
 	}
 	stream.close();
@@ -865,7 +887,7 @@ DoScoresForEmbedded(std::ofstream &testStream)
         	        iter1++)
         	{
 			std::set<std::string>::const_iterator iter2;
-			std::map<std::string, std::set<std::string> > *sig1, *sig2;
+			ClonewiseSignature *sig1, *sig2;
 
 			sig1 = &packagesSignatures[iter1->first];
 			for (   iter2  = iter1->second.begin();
@@ -889,6 +911,32 @@ DoScoresForEmbedded(std::ofstream &testStream)
 #pragma omp taskwait
 	}
 	return total - fp;
+}
+
+int
+DoScoresForEmbedded2(std::ofstream &testStream)
+{
+}
+
+void
+trainModel2()
+{
+	std::ofstream testStream;
+	char s[1024], testFilename[L_tmpnam + 128];
+
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/embedded-code-copies", distroString);
+	LoadEmbeddedCodeCopiesList(s);
+
+	snprintf(testFilename, sizeof(testFilename), "/var/lib/Clonewise/clones/weka/training2.arff");
+
+	testStream.open(testFilename);
+	if (!testStream) {
+		fprintf(stderr, "Can't write test.arff\n");
+		return;
+	}
+//	printArffHeader2(testStream);
+	DoScoresForEmbedded2(testStream);
+	testStream.close();
 }
 
 void
@@ -943,7 +991,7 @@ trainModel()
 }
 
 static void
-checkPackage(std::map<std::string, std::set<std::string > > &embedding, const char *name)
+checkPackage(ClonewiseSignature &embedding, const char *name)
 {
 	std::map<std::string, std::map<std::string, std::pair<std::string, float> > > matchesTable;
 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
@@ -981,7 +1029,7 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 		{
 #pragma task
 			{
-				const std::map<std::string, std::set<std::string> > *package;
+				const ClonewiseSignature *package;
 				std::string fp;
 
 				fp = std::string(name) + std::string("/") + pIter->first;
@@ -1021,11 +1069,11 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 	snprintf(cmd, sizeof(cmd), "cp %s %s", testFilename, testFilename2);
 
 	system(cmd);
-	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -l /var/lib/Clonewise/clones/weka/model -T %s -p 0", testFilename2);
+	snprintf(cmd, sizeof(cmd), "java -Xmx1024m -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -l /var/lib/Clonewise/clones/weka/model -T %s -p 0", testFilename2);
 	p = popen(cmd, "r");
 	if (p == NULL) {
 		unlink(testFilename);
-		fprintf(stderr, "Can't popen\n");
+		fprintf(stderr, "Can't popen (%s): %s\n", strerror(errno), cmd);
 		return;
 	}
 	for (int i = 0; i < 5; i++) {
@@ -1036,7 +1084,7 @@ checkPackage(std::map<std::string, std::set<std::string > > &embedding, const ch
 		!feof(p) && pIter != packages.end();
 		pIter++)
 	{
-		const std::map<std::string, std::set<std::string> > *package;
+		const ClonewiseSignature *package;
 		std::string fp;
 
 		fp = std::string(name) + std::string("/") + pIter->first;
@@ -1317,7 +1365,7 @@ LoadEverything(bool train)
 		pIter++)
 	{
 		filename = std::string("/var/lib/Clonewise/clones/distros/") + distroString + std::string("/signatures/") + pIter->first;
-		LoadSignature(filename, packagesSignatures[pIter->first]);
+		LoadSignature(pIter->first, filename, packagesSignatures[pIter->first]);
 	}
 
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/weka/model");
@@ -1343,7 +1391,7 @@ int
 RunClonewise(int argc, char *argv[])
 {
 	std::string filename;
-	std::map<std::string, std::set<std::string> > embedding;
+	ClonewiseSignature embedding;
 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
 
 	if (outputFormat == CLONEWISE_OUTPUT_XML) {
@@ -1355,7 +1403,7 @@ RunClonewise(int argc, char *argv[])
 				embedding = packagesSignatures[argv[i]];
 			} else {
 				filename = std::string(argv[i]);
-				LoadSignature(filename, embedding);
+				LoadSignature(argv[i], filename, embedding);
 			}
 			checkPackage(embedding, argv[i]);
 		}

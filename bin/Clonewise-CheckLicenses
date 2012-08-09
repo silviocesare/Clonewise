@@ -20,51 +20,66 @@ function getDB()
 
 function grepForGPL()
 {
-	egrep '^License: .*AFPL.*|^License: .*LGPL.*|^License: .*GPL.*' $1 > /dev/null 2> /dev/null
+	egrep '^License: .*AFPL.*|^License: .*LGPL.*|^License: .*GPL.*' $1/debian/copyright > /dev/null 2> /dev/null
+	a=$?
+	egrep -rw 'General Public License' $1 > /dev/null 2> /dev/null
+	b=$?
+	[ $a -eq 0 -o $b -eq 0 ]
 }
 
 function grepForPermissive()
 {
-	egrep '^License: .*ZPL.*|^License: .*Zope.*|^License: .*[Pp]ublic[ -].*|^License: .*MPL.*|^License: .*ISC.*|^License: .*ASL.*|^License: .*[Mm][Ii][Tt].*|^License: .*[Aa][Pp][aA][cC][Hh][Ee].*|^License: .*[Bb][Ss][Dd].*' $1 > /dev/null 2> /dev/null
+	egrep '^License: .*ZPL.*|^License: .*Zope.*|^License: .*[Pp]ublic[ -].*|^License: .*MPL.*|^License: .*ISC.*|^License: .*ASL.*|^License: .*[Mm][Ii][Tt].*|^License: .*[Aa][Pp][aA][cC][Hh][Ee].*|^License: .*[Bb][Ss][Dd].*' $1/debian/copyright > /dev/null 2> /dev/null
 }
 
-cd $tmpdir
-getDB|tr / '\n'|sort -u|while read pkg; do
-	grep ^$pkg/ dirlist > /dev/null 2> /dev/null && continue
-	echo $pkg
-	cd $packagesDir
-	apt-get source --download-only $pkg > /dev/null
-	dsc=$(apt-get source --download-only $pkg|tr ' ' '\n'|tr -d "\'"|grep "\.dsc$"|head -n1)
-        cd $tmpdir
-        dpkg-source -x $packagesDir/$dsc > result.$$ 2> /dev/null
-        out="$(grep 'dpkg-source: info: extracting' result.$$|awk '{print $6}')"
-	if [ "$out" != "" ]; then
-		echo $pkg/$out >> dirlist
-	fi
-	rm result.$$
-done
+function downloadAll()
+{
+	cd $tmpdir
+	getDB|tr / '\n'|sort -u|while read pkg; do
+		grep ^$pkg/ dirlist > /dev/null 2> /dev/null && continue
+		echo $pkg
+		cd $packagesDir
+		apt-get source --download-only $pkg > /dev/null
+		dsc=$(apt-get source --download-only $pkg|tr ' ' '\n'|tr -d "\'"|grep "\.dsc$"|head -n1)
+	        cd $tmpdir
+	        dpkg-source -x $packagesDir/$dsc > result.$$ 2> /dev/null
+	        out="$(grep 'dpkg-source: info: extracting' result.$$|awk '{print $6}')"
+		if [ "$out" != "" ]; then
+			echo $pkg/$out >> dirlist
+		fi
+		rm result.$$
+	done
+}
 
-cd $tmpdir
-getDB|while read line; do
-	lib=$(echo $line|cut -d/ -f1)
-	pkg=$(echo $line|cut -d/ -f2)
-	lib_pkg=$(grep ^$lib/ dirlist|cut -d/ -f2)
-	if [ "$lib_pkg" != "" ]; then
-#		grep ^License: $lib_pkg/debian/copyright
-		grepForGPL $lib_pkg/debian/copyright
-		lib_gpl=$?
-		grepForPermissive $lib_pkg/debian/copyright
-		lib_bsd=$?
-		pkg_pkg=$(grep ^$pkg/ dirlist|cut -d/ -f2)
-		if [ "$pkg_pkg" != "" ]; then
-#			grep ^License: $pkg_pkg/debian/copyright
-			grepForGPL $pkg_pkg/debian/copyright
-			pkg_gpl=$?
-			grepForPermissive $pkg_pkg/debian/copyright
-			pkg_bsd=$?
-			if [ $lib_gpl -eq 0 -a $lib_bsd -ne 0 -a $pkg_bsd -eq 0 -a $pkg_gpl -ne 0 ]; then
-				echo \'$lib\' with permissive license embedded in \'$pkg\' with GPL license.
+function scanAll()
+{
+	cd $tmpdir
+	getDB|while read line; do
+		echo Scanning \'$lib\' in \'$pkg\'
+		lib=$(echo $line|cut -d/ -f1)
+		pkg=$(echo $line|cut -d/ -f2)
+		lib_pkg=$(grep ^$lib/ dirlist|cut -d/ -f2)
+		if [ "$lib_pkg" != "" ]; then
+#			grep ^License: $lib_pkg/debian/copyright
+			grepForGPL $lib_pkg
+			lib_gpl=$?
+			grepForPermissive $lib_pkg
+			lib_bsd=$?
+			pkg_pkg=$(grep ^$pkg/ dirlist|cut -d/ -f2)
+			if [ "$pkg_pkg" != "" ]; then
+#				grep ^License: $pkg_pkg/debian/copyright
+				grepForGPL $pkg_pkg
+				pkg_gpl=$?
+				grepForPermissive $pkg_pkg
+				pkg_bsd=$?
+				if [ $lib_gpl -eq 0 -a $lib_bsd -ne 0 -a $pkg_bsd -eq 0 -a $pkg_gpl -ne 0 ]; then
+					echo \'$lib\' with GPL license embedded in \'$pkg\' with permissive license.
+				fi
 			fi
 		fi
-	fi
-done
+	done
+}
+
+downloadAll
+scanAll
+

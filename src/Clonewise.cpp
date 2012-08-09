@@ -17,6 +17,7 @@
 #include <cstdarg>
 #include <errno.h>
 #include <omp.h>
+#include <vector>
 #include "Clonewise.h"
 
 Feature Features[] = {
@@ -50,8 +51,29 @@ Feature Features[] = {
 	{ NULL, false }
 };
 
+Feature Features2[] = {
+	{ "N_Filenames_A", true },				// 1
+	{ "N_Filenames_Source_A", true },			// 2
+	{ "N_Filenames_B", true },				// 3
+	{ "N_Filenames_Source_B", true },			// 4
+	{ "Percent_Match_In_A", true },				// 5
+	{ "Percent_Data_Match_In_A", true },			// 6
+	{ "Percent_Match_In_B", true },				// 7
+	{ "Percent_Data_Match_In_B", true },			// 8
+	{ "Percent_Score_In_A", true },				// 9
+	{ "Percent_Data_Score_In_A", true },			// 10
+	{ "Percent_Score_In_B", true },				// 11
+	{ "Percent_Data_Score_In_B", true },			// 12
+	{ "A_Has_Lib_In_Name" , true },				// 13
+	{ "B_Has_Lib_In_Name" , true },				// 14
+	{ "A_To_B_Ratio", true },				// 15
+	{ "A_To_B_Data_Ratio", true },				// 16
+	{ NULL, false }
+};
+
 static void CreateFeatures();
 
+std::map<std::string, std::vector<float> > results;
 std::map<std::string, std::string> packageAliases;
 bool UseFeatureSelection = true;
 FILE *outFd = stdout;
@@ -470,7 +492,7 @@ SolveGreedy(Matrix<T> &matrix)
 }
 
 bool
-WriteCheckForClone(const std::string &name, std::ofstream &testStream, const ClonewiseSignature &embedding, const ClonewiseSignature &package, const std::string &cl, std::map<std::string, std::pair<std::string, float> > &matches)
+WriteCheckForClone(const std::string &name, std::ofstream *testStream, const ClonewiseSignature &embedding, const ClonewiseSignature &package, const std::string &cl, std::map<std::string, std::pair<std::string, float> > &matches)
 {
 	std::map<std::string, std::set<std::string> >::const_iterator eIter;
 	int found, foundSimilar, foundFilenameHash, foundFilenameHash80, foundExactFilenameHash;
@@ -751,21 +773,68 @@ skip2:
 	}
 
 
+	if (testStream) {
 #pragma omp critical
-	{
-		for (int i = 0; i < NFEATURES; i++) {
-			if (!UseFeatureSelection || Features[i].Use) {
-				testStream << featureVector[i] << ",";
+		{
+			for (int i = 0; i < NFEATURES; i++) {
+				if (!UseFeatureSelection || Features[i].Use) {
+					*testStream << featureVector[i] << ",";
+				}
 			}
+			*testStream << cl << "\n";
 		}
-		testStream << cl << "\n";
 	}
 //printMatch(embedding, package, matches);
+
+	results[name] = std::vector<float>(featureVector, featureVector + NFEATURES);
 
 	if (featureVector[4] == 0)
 		return false;
 
 	return true;
+}
+
+bool
+WriteCheckForClone2(const std::string &name, std::ofstream *testStream, const ClonewiseSignature &embedding, const ClonewiseSignature &package, const std::string &cl, std::map<std::string, std::pair<std::string, float> > &matches)
+{
+	float featureVector[NFEATURES2];
+
+	if (results.find(name) == results.end()) {
+		WriteCheckForClone(name, NULL, embedding, package, cl, matches);
+	}
+
+	featureVector[ 0] = embedding.filesAndHashes.size();
+	featureVector[ 1] = numberOfSources(embedding.filesAndHashes);
+	featureVector[ 2] = package.filesAndHashes.size();
+	featureVector[ 3] = numberOfSources(package.filesAndHashes);
+
+	featureVector[ 4] = results[name][ 4] / (float)embedding.filesAndHashes.size(); // found
+	featureVector[ 5] = results[name][14] / (float)embedding.filesAndHashes.size(); // foundData
+	featureVector[ 6] = results[name][ 4] / (float)package.filesAndHashes.size(); // found
+	featureVector[ 7] = results[name][14] / (float)package.filesAndHashes.size(); // foundData
+	featureVector[ 8] = results[name][ 9] / (float)embedding.filesAndHashes.size(); // score
+	featureVector[ 9] = results[name][19] / (float)embedding.filesAndHashes.size(); // scoreData 
+	featureVector[10] = results[name][ 9] / (float)package.filesAndHashes.size(); // score
+	featureVector[11] = results[name][19] / (float)package.filesAndHashes.size(); // scoreData
+
+	featureVector[12] = embedding.hasLibInPackageName ? 1.0 : 0;
+	featureVector[13] = embedding.hasLibInPackageName ? 1.0 : 0;
+
+	featureVector[14] = (float)embedding.nFilenamesCode / (float)package.nFilenamesCode;
+	featureVector[15] = (float)embedding.nFilenamesData / (float)package.nFilenamesData;
+
+	if (testStream) {
+#pragma omp critical
+		{
+			for (int i = 0; i < 16; i++) {
+				if (!UseFeatureSelection || Features2[i].Use) {
+					*testStream << featureVector[i] << ",";
+				}
+			}
+			*testStream << cl << "\n";
+		}
+	}
+
 }
 
 void
@@ -814,13 +883,13 @@ LoadSignature(const std::string &name, const std::string &filename, ClonewiseSig
 }
 
 void
-printArffHeader(std::ofstream &testStream)
+printArffHeader(std::ofstream &testStream, Feature *features)
 {
 	testStream << "@RELATION Clones\n";
 
-	for (int i = 0; i < NFEATURES; i++) {
-		if (!UseFeatureSelection || Features[i].Use) {
-			testStream << "@Attribute " << Features[i].Name << " NUMERIC\n";
+	for (int i = 0; features[i].Name; i++) {
+		if (!UseFeatureSelection || features[i].Use) {
+			testStream << "@Attribute " << features[i].Name << " NUMERIC\n";
 		}
 	}
 
@@ -829,7 +898,7 @@ printArffHeader(std::ofstream &testStream)
 }
 
 int
-GetScoreForNotEmbedded(std::ofstream &testStream)
+GetScoreForNotEmbedded(std::ofstream &testStream, bool which)
 {
         std::map<std::string, std::list<std::string> >::const_iterator pIter;
         std::string p1, p2;
@@ -841,6 +910,7 @@ GetScoreForNotEmbedded(std::ofstream &testStream)
 	skip = 0;
 	do {
 		std::string n;
+		bool ret;
 
 		doit = false;
 		do {
@@ -861,7 +931,11 @@ GetScoreForNotEmbedded(std::ofstream &testStream)
 				breakit = false;
 		} while (!breakit);
 		n = p1 + std::string("/") + p2;
-		if (!WriteCheckForClone(n, testStream, packagesSignatures[p1], packagesSignatures[p2], "N", matches)) {
+		if (which)
+			ret = WriteCheckForClone(n, &testStream, packagesSignatures[p1], packagesSignatures[p2], "N", matches);
+		else
+			ret = WriteCheckForClone2(n, &testStream, packagesSignatures[p1], packagesSignatures[p2], "N", matches);
+		if (!ret) {
 			doit = true;
 			skip++;
 		}
@@ -901,7 +975,7 @@ DoScoresForEmbedded(std::ofstream &testStream)
 				sig2 = &packagesSignatures[*iter2];
 #pragma omp task
 				{
-					if (!WriteCheckForClone(n, testStream, *sig1, *sig2, "Y", matches)) {
+					if (!WriteCheckForClone(n, &testStream, *sig1, *sig2, "Y", matches)) {
 #pragma omp atomic
 						fp++;
 					}
@@ -915,7 +989,41 @@ DoScoresForEmbedded(std::ofstream &testStream)
 
 int
 DoScoresForEmbedded2(std::ofstream &testStream)
-{
+{	
+#pragma omp parallel
+#pragma omp single
+	{
+		std::map<std::string, std::set<std::string> >::const_iterator iter1;
+
+        	for (   iter1  = embeddedList.begin();
+        	        iter1 != embeddedList.end();
+        	        iter1++)
+        	{
+			std::set<std::string>::const_iterator iter2;
+			ClonewiseSignature *sig1, *sig2;
+
+			sig1 = &packagesSignatures[iter1->first];
+			for (   iter2  = iter1->second.begin();
+				iter2 != iter1->second.end();
+				iter2++)
+			{
+				std::map<std::string, std::pair<std::string, float> > matches;
+				std::string n;
+
+				n = iter1->first + std::string("/") + *iter2;
+				sig2 = &packagesSignatures[*iter2];
+#pragma omp task
+				{
+					WriteCheckForClone2(n, &testStream, *sig1, *sig2, "Y", matches);
+					WriteCheckForClone2(n, &testStream, *sig2, *sig1, "N", matches);
+					for (int i = 0; i < 5; i++) {
+//						GetScoreForNotEmbedded(testStream, false);
+					}
+				}
+			}
+		}
+	}
+	return 0;
 }
 
 void
@@ -934,7 +1042,7 @@ trainModel2()
 		fprintf(stderr, "Can't write test.arff\n");
 		return;
 	}
-//	printArffHeader2(testStream);
+	printArffHeader(testStream, Features2);
 	DoScoresForEmbedded2(testStream);
 	testStream.close();
 }
@@ -958,7 +1066,7 @@ trainModel()
 		fprintf(stderr, "Can't write test.arff\n");
 		return;
 	}
-	printArffHeader(testStream);
+	printArffHeader(testStream, Features);
 	c = DoScoresForEmbedded(testStream);
 	total = 0;
 	c = 0;
@@ -966,7 +1074,7 @@ trainModel()
 	for (int i = 0; i < 4000; i++) {
 		int t;
 
-		t = GetScoreForNotEmbedded(testStream);
+		t = GetScoreForNotEmbedded(testStream, true);
 #pragma omp atomic
 		total += t;
 #pragma omp atomic
@@ -1018,7 +1126,7 @@ checkPackage(ClonewiseSignature &embedding, const char *name)
 		fprintf(stderr, "Can't write test.arff\n");
 		return;
 	}
-	printArffHeader(testStream);
+	printArffHeader(testStream, Features);
 
 #pragma parallel
 #pragma single
@@ -1041,9 +1149,9 @@ checkPackage(ClonewiseSignature &embedding, const char *name)
 					bool wRet;
 
 					if (!useRelativePathForSignature) {
-						wRet = WriteCheckForClone(fp, testStream, embedding, *package, "?", matchesTable[pIter->first]);
+						wRet = WriteCheckForClone(fp, &testStream, embedding, *package, "?", matchesTable[pIter->first]);
 					} else {
-						wRet = WriteCheckForClone(fp, testStream, *package, embedding, "?", matchesTable[pIter->first]);
+						wRet = WriteCheckForClone(fp, &testStream, *package, embedding, "?", matchesTable[pIter->first]);
 					}
 					if (!wRet) {
 #pragma omp critical (skipMod)
@@ -1259,6 +1367,20 @@ Clonewise_train(int argc, char *argv[])
 	useDistroString = true;
 	distroString = argv[1];
 	LoadEverything(true);
+}
+
+void
+Clonewise_train2(int argc, char *argv[])
+{
+	ClonewiseInit();
+	if (argc != 2) {
+		fprintf(stderr, "Usage: %s distro\n", argv[0]);
+		exit(1);
+	}
+	useDistroString = true;
+	distroString = argv[1];
+	LoadEverything(true);
+	trainModel2();
 }
 
 void

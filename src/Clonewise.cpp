@@ -19,6 +19,7 @@
 #include <omp.h>
 #include <vector>
 #include "Clonewise.h"
+#include <cmath>
 
 Feature Features[] = {
 	{ "N_Filenames_A", true },				// 1
@@ -827,6 +828,8 @@ WriteCheckForClone2(const std::string &name, std::ofstream *testStream, const Cl
 #pragma omp critical
 		{
 			for (int i = 0; i < 16; i++) {
+				if (isnan(featureVector[i]) || !std::isfinite(featureVector[i]))
+					featureVector[i] = -1.0;
 				if (!UseFeatureSelection || Features2[i].Use) {
 					*testStream << featureVector[i] << ",";
 				}
@@ -1026,6 +1029,54 @@ DoScoresForEmbedded2(std::ofstream &testStream)
 	return 0;
 }
 
+bool
+IsEmbedded(const ClonewiseSignature &sig1, const ClonewiseSignature &sig2)
+{
+	std::ofstream testStream;
+	char s[1024], t[L_tmpnam], testFilename[L_tmpnam + 128];
+	std::map<std::string, std::pair<std::string, float> > matches;
+	char str[2048];
+	FILE *p;
+	char cmd[1024];
+	std::string n;
+
+	tmpnam(t);
+	snprintf(testFilename, sizeof(testFilename), "%s.arff", t);
+
+	testStream.open(testFilename);
+	if (!testStream) {
+		fprintf(stderr, "Can't write test.arff\n");
+		return false;
+	}
+	printArffHeader(testStream, Features2);
+	n = sig1.name + std::string("/") + sig2.name;
+	WriteCheckForClone2(n, &testStream, sig1, sig2, "?", matches);
+	testStream.close();
+
+	snprintf(cmd, sizeof(cmd), "java -Xmx1024m -cp /usr/share/java/weka.jar weka.classifiers.trees.RandomForest -l /var/lib/Clonewise/clones/weka/model2 -T %s -p 0", testFilename);
+
+	p = popen(cmd, "r");
+	if (p == NULL) {
+		unlink(testFilename);
+		fprintf(stderr, "Can't popen (%s): %s\n", strerror(errno), cmd);
+		return false;
+	}
+	for (int i = 0; i < 5; i++) {
+		fgets(str, sizeof(str), p);
+	}
+
+	str[27] = 0;
+	fgets(str, sizeof(str), p);
+	pclose(p);
+	unlink(testFilename);
+
+	if (str[27] == 'Y') {
+		if (1 || (str[35] == '1' || (str[37] - '0') >= 8))
+			return true;
+	}
+	return false;
+}
+
 void
 trainModel2()
 {
@@ -1047,6 +1098,36 @@ trainModel2()
 	testStream.close();
 }
 
+void
+printClone(FILE *outFd, const ClonewiseSignature &embedding, const ClonewiseSignature &package, const std::string &packageAlias, const std::string &packageCloneAlias, const std::list<std::string> &pList, std::map<std::string, std::map<std::string, std::pair<std::string, float> > > &matchesTable)
+{
+	if (outputFormat == CLONEWISE_OUTPUT_XML) {
+		fprintf(outFd, "\t<Clone>\n");
+		fprintf(outFd, "\t\t<SourcePackage>%s</SourcePackage>\n", packageAlias.c_str());
+		fprintf(outFd, "\t\t<ClonedSourcePackage>%s</ClonedSourcePackage>\n", packageCloneAlias.c_str());
+	} else {
+		fprintf(outFd, "%s CLONED_IN_SOURCE %s\n", packageAlias.c_str(), packageCloneAlias.c_str());		
+	}
+	printMatch(embedding, package, matchesTable[package.name]);
+	if (verbose >= 3) {
+		std::list<std::string>::const_iterator nIter;
+
+		for (	nIter  = pList.begin();
+			nIter != pList.end();
+			nIter++)
+		{
+			if (outputFormat == CLONEWISE_OUTPUT_XML) {
+				fprintf(outFd, "\t\t<ClonedPackage>%s</ClonedPackage>\n", nIter->c_str());
+			} else {
+				fprintf(outFd, "\t%s CLONED_IN_PACKAGE %s\n", packageAlias.c_str(), nIter->c_str());
+			}
+		}
+	}
+	if (outputFormat == CLONEWISE_OUTPUT_XML) {
+		fprintf(outFd, "\t</Clone>\n");
+	}
+}
+	
 void
 trainModel()
 {
@@ -1099,7 +1180,7 @@ trainModel()
 }
 
 static void
-checkPackage(ClonewiseSignature &embedding, const char *name)
+checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterByEmbedded)
 {
 	std::map<std::string, std::map<std::string, std::pair<std::string, float> > > matchesTable;
 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
@@ -1211,37 +1292,13 @@ checkPackage(ClonewiseSignature &embedding, const char *name)
 			continue;
 
 		if (str[27] == 'Y') {
-			if (str[35] == '1' || (str[37] - '0') >= 8) {
+			if ((str[35] == '1' || (str[37] - '0') >= 8) && (!filterByEmbedded || IsEmbedded(embedding, *package))) {
 				if (packageAliases.find(pIter->first) != packageAliases.end()) {
 					packageCloneAlias = packageAliases[pIter->first];
 				} else {
 					packageCloneAlias = pIter->first;
 				}
-				if (outputFormat == CLONEWISE_OUTPUT_XML) {
-					fprintf(outFd, "\t<Clone>\n");
-					fprintf(outFd, "\t\t<SourcePackage>%s</SourcePackage>\n", packageAlias.c_str());
-					fprintf(outFd, "\t\t<ClonedSourcePackage>%s</ClonedSourcePackage>\n", packageCloneAlias.c_str());
-				} else {
-					fprintf(outFd, "%s CLONED_IN_SOURCE %s\n", packageAlias.c_str(), packageCloneAlias.c_str());		
-				}
-				printMatch(embedding, *package, matchesTable[pIter->first]);
-				if (verbose >= 3) {
-					std::list<std::string>::const_iterator nIter;
-
-					for (	nIter  = pIter->second.begin();
-						nIter != pIter->second.end();
-						nIter++)
-					{
-						if (outputFormat == CLONEWISE_OUTPUT_XML) {
-							fprintf(outFd, "\t\t<ClonedPackage>%s</ClonedPackage>\n", nIter->c_str());
-						} else {
-							fprintf(outFd, "\t%s CLONED_IN_PACKAGE %s\n", packageAlias.c_str(), nIter->c_str());
-						}
-					}
-				}
-			}
-			if (outputFormat == CLONEWISE_OUTPUT_XML) {
-				fprintf(outFd, "\t</Clone>\n");
+				printClone(outFd, embedding, *package, packageAlias, packageCloneAlias, pIter->second, matchesTable);
 			}
 		}
 	}
@@ -1510,7 +1567,7 @@ err:
 }
 
 int
-RunClonewise(int argc, char *argv[])
+RunClonewise(int argc, char *argv[], bool filterByEmbedded)
 {
 	std::string filename;
 	ClonewiseSignature embedding;
@@ -1527,14 +1584,14 @@ RunClonewise(int argc, char *argv[])
 				filename = std::string(argv[i]);
 				LoadSignature(argv[i], filename, embedding);
 			}
-			checkPackage(embedding, argv[i]);
+			checkPackage(embedding, argv[i], filterByEmbedded);
 		}
 	} else {
 		for (	pIter  = packages.begin();
 			pIter != packages.end();
 			pIter++)
 		{
-			checkPackage(packagesSignatures[pIter->first], pIter->first.c_str());
+			checkPackage(packagesSignatures[pIter->first], pIter->first.c_str(), filterByEmbedded);
 		}
 	}
 	if (outputFormat == CLONEWISE_OUTPUT_XML) {

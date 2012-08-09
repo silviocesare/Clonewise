@@ -15,6 +15,7 @@ SOURCES =	src/Clonewise-Cache.cpp \
 		src/Clonewise-main.cpp \
 		src/Clonewise-MakeCache.cpp \
 		src/Clonewise-query-source.cpp \
+		src/Clonewise-query-embedded.cpp \
 		src/Clonewise-find-file.cpp \
 		src/Clonewise-find-license-problems.cpp \
 		src/Clonewise-BugInferrer.cpp \

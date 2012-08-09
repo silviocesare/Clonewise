@@ -93,5 +93,5 @@ Clonewise_query(int argc, char *argv[])
 
 	if (LoadEverything())
 		return 1;
-	return RunClonewise(argc, argv);
+	return RunClonewise(argc, argv, false);
 }

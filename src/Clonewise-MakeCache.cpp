@@ -60,7 +60,7 @@ DoWork(int index)
 		outFd = fopen(s, "r");
 	} else {
 		outFd = fopen(s, "w+");
-		RunClonewise(c, v);
+		RunClonewise(c, v, false);
 	}
 	printf("# scanned %s\n", name);
 	fflush(stdout);

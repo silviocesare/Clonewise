@@ -12,6 +12,7 @@ int Clonewise_build_database(int argc, char *argv[]);
 int Clonewise_train(int argc, char *argv[]);
 int Clonewise_train2(int argc, char *argv[]);
 int Clonewise_query(int argc, char *argv[]);
+int Clonewise_query_embedded(int argc, char *argv[]);
 int Clonewise_query_cache(int argc, char *argv[]);
 int Clonewise_make_cache(int argc, char *argv[]);
 int Clonewise_parse_database(int argc, char *argv[]);
@@ -22,12 +23,13 @@ int Clonewise_find_license_problems(int argc, char *argv[]);
 
 Command commands[] = {
 	{ "build-database", Clonewise_build_database },
-	{ "train", Clonewise_train },
-	{ "train2", Clonewise_train2 },
-	{ "query", Clonewise_query },
-	{ "query-source", Clonewise_query_source },
-	{ "make-cache", Clonewise_make_cache },
-	{ "query-cache", Clonewise_query_cache },
+	{ "train-shared", Clonewise_train },
+	{ "train-embedded", Clonewise_train2 },
+	{ "query-shared", Clonewise_query },
+	{ "query-embedded", Clonewise_query_embedded },
+	{ "query-shared-source", Clonewise_query_source },
+	{ "make-shared-cache", Clonewise_make_cache },
+	{ "query-shared-cache", Clonewise_query_cache },
 	{ "parse-database", Clonewise_parse_database },
 	{ "find-bugs", Clonewise_find_bugs },
 	{ "find-license-problems", Clonewise_find_license_problems },

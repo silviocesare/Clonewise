@@ -74,7 +74,7 @@ bool IsProgramFilename(const std::string &feature);
 void normalizeFeature(std::string &normalFeature, const std::string &feature);
 void LoadEmbeddedCodeCopiesList(const char *filename);
 int LoadEverything(bool train = false);
-int RunClonewise(int argc, char *argv[]);
+int RunClonewise(int argc, char *argv[], bool filterByEmbedded);
 bool WriteCheckForClone(std::ofstream &testStream, const ClonewiseSignature &embedding, const ClonewiseSignature &package, const std::string &cl);
 void printMatch(const ClonewiseSignature &embedding, const ClonewiseSignature &package);
 

@@ -56,7 +56,7 @@ Clonewise_query_source(int argc, char *argv[])
 	packageAliases[sigFile] = "target";
 	queryArgv[0] = sigFile;
 	queryArgv[1] = NULL;
-	RunClonewise(1, queryArgv);
+	RunClonewise(1, queryArgv, false);
 //	unlink(sigFile);
 	return 0;
 }

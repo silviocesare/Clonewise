@@ -20,16 +20,20 @@ function getDB()
 
 function grepForGPL()
 {
-	egrep '^License: .*AFPL.*|^License: .*LGPL.*|^License: .*GPL.*' $1/debian/copyright > /dev/null 2> /dev/null
+	egrep '^License: .*AFPL.*|^License: .*LGPL.*|^License: .*GPL.*' $1/debian/*copyright* > /dev/null 2> /dev/null
 	a=$?
-	egrep -rw 'General Public License' $1 > /dev/null 2> /dev/null
+	egrep -rw 'General Public License' $1/debian/*copyright* $1 > /dev/null 2> /dev/null
 	b=$?
 	[ $a -eq 0 -o $b -eq 0 ]
 }
 
 function grepForPermissive()
 {
-	egrep '^License: .*ZPL.*|^License: .*Zope.*|^License: .*[Pp]ublic[ -].*|^License: .*MPL.*|^License: .*ISC.*|^License: .*ASL.*|^License: .*[Mm][Ii][Tt].*|^License: .*[Aa][Pp][aA][cC][Hh][Ee].*|^License: .*[Bb][Ss][Dd].*' $1/debian/copyright > /dev/null 2> /dev/null
+	egrep '^License: .*ZPL.*|^License: .*Zope.*|^License: .*[Pp]ublic[ -].*|^License: .*MPL.*|^License: .*ISC.*|^License: .*ASL.*|^License: .*[Mm][Ii][Tt].*|^License: .*[Aa][Pp][aA][cC][Hh][Ee].*|^License: .*[Bb][Ss][Dd].*' $1/debian/*copyright* > /dev/null 2> /dev/null
+	a=$?
+	egrep -rw 'Boost Software License|Apache License|BSD license' $1/debian/*copyright* > /dev/null 2> /dev/null
+	b=$?
+	[ $a -eq 0 -o $b -eq 0 ]
 }
 
 function downloadAll()
@@ -74,12 +78,14 @@ function scanAll()
 				pkg_bsd=$?
 				if [ $lib_gpl -eq 0 -a $lib_bsd -ne 0 -a $pkg_bsd -eq 0 -a $pkg_gpl -ne 0 ]; then
 					echo \'$lib\' with GPL license embedded in \'$pkg\' with permissive license.
+				elif [ $lib_gpl -eq 0 -a $lib_bsd -ne 0 -a $pkg_gpl -ne 0 ]; then
+					echo \'$lib\' with GPL license embedded in \'$pkg\' with non GPL license.
 				fi
 			fi
 		fi
 	done
 }
 
-downloadAll
+#downloadAll
 scanAll
 

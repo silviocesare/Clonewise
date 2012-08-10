@@ -31,6 +31,8 @@ extern std::map<std::string, std::map<std::string, std::list<Match> > > cache;
 extern bool pretty;
 extern bool showUnfixed;
 
+void MakeCache(int argc, char *argv[]);
+void MakeEmbeddedCache(int argc, char *argv[]);
 void LoadEmbeds(const char *filename);
 void LoadCache();
 void LoadEmbeddedCache();

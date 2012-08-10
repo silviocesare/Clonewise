@@ -8,6 +8,7 @@
 
 std::vector<std::string> vPackages;
 std::list<int> packageQueue;
+bool doEmbedded = false;
 
 struct Msg {
 	int r[2];
@@ -17,6 +18,7 @@ struct Msg {
 std::list<Msg> messages;
 
 void DoWork(int index);
+static void MakeCache(const std::string &prefix, int argc, char *argv[]);
 
 void
 DoWorkLoop(int me)
@@ -60,7 +62,7 @@ DoWork(int index)
 		outFd = fopen(s, "r");
 	} else {
 		outFd = fopen(s, "w+");
-		RunClonewise(c, v, false);
+		RunClonewise(c, v, doEmbedded);
 	}
 	printf("# scanned %s\n", name);
 	fflush(stdout);
@@ -88,45 +90,31 @@ Usage(const char *argv0)
 	exit(1);
 }
 
-int
-Clonewise_make_cache(int argc, char* argv[])
-{ 
-	int np, me; 
-	int xi;
-	MPI_Status status;
- 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
-	int ch;
+void
+MakeCache(int argc, char *argv[])
+{
+	MakeCache("cache", argc, argv);
+}
 
-	ClonewiseInit();
+void
+MakeEmbeddedCache(int argc, char *argv[])
+{
+	doEmbedded = true;
+	MakeCache("cache-embedded", argc, argv);
+}
+
+static void
+MakeCache(const std::string &prefix, int argc, char *argv[])
+{
+	MPI_Status status;
+	int xi;
+ 	std::map<std::string, std::list<std::string> >::const_iterator pIter;
+	int np, me; 
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &np);
 	MPI_Comm_rank(MPI_COMM_WORLD, &me);
 
-	while ((ch = getopt(argc, argv, "ad:j:")) != EOF) {
-		switch (ch) {
-		case 'j':
-			omp_set_num_threads(atoi(optarg));
-			break;
-
-		case 'a':
-			embeddedOnly = false;
-			break;
-
-                case 'd':
-			useDistroString = true;
-                        distroString = optarg;
-                        break;
-
-		default:
-			Usage(argv[0]);
-			break;
-		}
-	}
-
-	argc -= optind;
-	argv += optind;
-	
 	LoadEverything();
 //	outputFormat = CLONEWISE_OUTPUT_XML;
 	printf("# loaded everything\n");
@@ -190,7 +178,7 @@ Clonewise_make_cache(int argc, char* argv[])
 
 			MPI_Recv(result, size, MPI_CHAR, which, TAG1, MPI_COMM_WORLD, &status); 
 
-			snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/cache/%s", distroString, vPackages[r[0]].c_str());
+			snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/%s/%s", distroString, prefix.c_str(), vPackages[r[0]].c_str());
 			f = fopen(s, "w");
 			fwrite(result, 1, size, f);
 			fclose(f), f = NULL;
@@ -203,4 +191,38 @@ Clonewise_make_cache(int argc, char* argv[])
 
 	MPI_Finalize(); 
 	exit(0); 
+}
+
+int
+Clonewise_make_cache(int argc, char* argv[])
+{ 
+	int ch;
+
+	ClonewiseInit();
+
+	while ((ch = getopt(argc, argv, "ad:j:")) != EOF) {
+		switch (ch) {
+		case 'j':
+			omp_set_num_threads(atoi(optarg));
+			break;
+
+		case 'a':
+			embeddedOnly = false;
+			break;
+
+                case 'd':
+			useDistroString = true;
+                        distroString = optarg;
+                        break;
+
+		default:
+			Usage(argv[0]);
+			break;
+		}
+	}
+
+	argc -= optind;
+	argv += optind;
+	
+	MakeCache(argc, argv);
 }

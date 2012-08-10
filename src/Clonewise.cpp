@@ -819,7 +819,7 @@ WriteCheckForClone2(const std::string &name, std::ofstream *testStream, const Cl
 	featureVector[11] = results[name][19] / (float)package.filesAndHashes.size(); // scoreData
 
 	featureVector[12] = embedding.hasLibInPackageName ? 1.0 : 0;
-	featureVector[13] = embedding.hasLibInPackageName ? 1.0 : 0;
+	featureVector[13] = package.hasLibInPackageName ? 1.0 : 0;
 
 	featureVector[14] = (float)embedding.nFilenamesCode / (float)package.nFilenamesCode;
 	featureVector[15] = (float)embedding.nFilenamesData / (float)package.nFilenamesData;

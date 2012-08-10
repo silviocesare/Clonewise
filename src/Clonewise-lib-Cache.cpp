@@ -90,7 +90,7 @@ LoadEmbeds(const char *filename)
 }
 
 void
-LoadCache()
+LoadTheCache(const std::string &prefix)
 {
 	std::map<std::string, std::set<std::string> >::const_iterator eIter;
 
@@ -102,7 +102,7 @@ LoadCache()
 		std::ifstream stream;
 		char s[1024];
 
-		snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/cache/%s", distroString, eIter->first.c_str());
+		snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/%s/%s", distroString, prefix.c_str(), eIter->first.c_str());
 		stream.open(s);
 		if (!stream)
 			continue;
@@ -141,6 +141,18 @@ LoadCache()
 		}
 		stream.close();
 	}
+}
+
+void
+LoadCache()
+{
+	LoadTheCache("cache");
+}
+
+void
+LoadEmbeddedCache()
+{
+	LoadTheCache("cache-embedded");
 }
 
 bool

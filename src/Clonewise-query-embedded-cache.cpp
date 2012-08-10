@@ -56,7 +56,7 @@ Clonewise_query_embedded_cache(int argc, char *argv[])
 
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/embedded-code-copies.txt", distroString);
 	LoadEmbeds(s);
-	LoadCache();
+	LoadEmbeddedCache();
 
 	if (outputFormat == CLONEWISE_OUTPUT_XML) {
 		printf("<EmbeddedCodeCopies>\n");

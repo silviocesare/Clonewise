@@ -1002,8 +1002,8 @@ DoScoresForEmbedded2(std::ofstream &testStream)
         	        iter1 != embeddedList.end();
         	        iter1++)
         	{
-			std::set<std::string>::const_iterator iter2;
-			ClonewiseSignature *sig1, *sig2;
+			std::set<std::string>::const_iterator iter2, iter3;
+			ClonewiseSignature *sig1, *sig2, *sig3;
 
 			sig1 = &packagesSignatures[iter1->first];
 			for (   iter2  = iter1->second.begin();
@@ -1021,6 +1021,19 @@ DoScoresForEmbedded2(std::ofstream &testStream)
 					WriteCheckForClone2(n, &testStream, *sig2, *sig1, "N", matches);
 					for (int i = 0; i < 5; i++) {
 //						GetScoreForNotEmbedded(testStream, false);
+					}
+					for (   iter3  = iter1->second.begin();
+						iter3 != iter1->second.end();
+						iter3++)
+					{
+						std::string n1;
+
+						if (*iter2 == *iter3)
+							continue;
+
+						n1 = *iter2 + std::string("/") + *iter3;
+						sig3 = &packagesSignatures[*iter3];
+						WriteCheckForClone2(n1, &testStream, *sig2, *sig3, "N", matches);
 					}
 				}
 			}

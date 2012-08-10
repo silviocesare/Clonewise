@@ -18,7 +18,7 @@ struct Msg {
 std::list<Msg> messages;
 
 void DoWork(int index);
-static void MakeCache(const std::string &prefix, int argc, char *argv[]);
+static void MakeCache(const std::string &prefix, int argc, char *argv[], bool _doEmbedded);
 
 void
 DoWorkLoop(int me)
@@ -93,18 +93,17 @@ Usage(const char *argv0)
 void
 MakeCache(int argc, char *argv[])
 {
-	MakeCache("cache", argc, argv);
+	MakeCache("cache", argc, argv, false);
 }
 
 void
 MakeEmbeddedCache(int argc, char *argv[])
 {
-	doEmbedded = true;
-	MakeCache("cache-embedded", argc, argv);
+	MakeCache("cache-embedded", argc, argv, true);
 }
 
 static void
-MakeCache(const std::string &prefix, int argc, char *argv[])
+MakeCache(const std::string &prefix, int argc, char *argv[], bool _doEmbedded)
 {
 	MPI_Status status;
 	int xi;
@@ -114,6 +113,8 @@ MakeCache(const std::string &prefix, int argc, char *argv[])
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &np);
 	MPI_Comm_rank(MPI_COMM_WORLD, &me);
+
+	doEmbedded = _doEmbedded;
 
 	LoadEverything();
 //	outputFormat = CLONEWISE_OUTPUT_XML;

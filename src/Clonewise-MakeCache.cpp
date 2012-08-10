@@ -81,7 +81,7 @@ DoWork(int index)
 
 bool embeddedOnly = true;
 
-void
+static void
 Usage(const char *argv0)
 {
 	fprintf(stderr, "Usage: %s [-d distroString] [-j numThreads] [-a]\n", argv0);

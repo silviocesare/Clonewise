@@ -9,11 +9,13 @@ RM = rm
 MPICC = mpic++
 
 SOURCES =	src/Clonewise-Cache.cpp \
+		src/Clonewise-query-embedded-cache.cpp \
 		src/Clonewise.cpp \
 		src/Clonewise-lib-Cache.cpp \
 		libs/munkres-2/munkres.cpp \
 		src/Clonewise-main.cpp \
 		src/Clonewise-MakeCache.cpp \
+		src/Clonewise-make-embedded-cache.cpp \
 		src/Clonewise-query-source.cpp \
 		src/Clonewise-query-embedded.cpp \
 		src/Clonewise-find-file.cpp \

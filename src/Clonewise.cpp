@@ -871,7 +871,7 @@ LoadSignature(const std::string &name, const std::string &filename, ClonewiseSig
 	signature.scoreAll = 0.0;
 	signature.scoreCode = 0.0;
 	signature.scoreData = 0.0;
-	if (strncmp(name.c_str(), "lib", 3) == 0) {
+	if (strncasecmp(name.c_str(), "lib", 3) == 0) {
 		signature.hasLibInPackageName = true;
 	} else {
 		signature.hasLibInPackageName = false;

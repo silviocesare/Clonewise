@@ -34,7 +34,7 @@ struct ClonewiseSignature {
 	float scoreAll, scoreCode, scoreData;
 	unsigned int nFilenamesAll, nFilenamesCode, nFilenamesData;
 	std::set<std::string> subdirectories;
-	unsigned int nDependants;
+	unsigned int NumberDependants;
 	bool hasLibraryInBinaryPackage;
 	bool hasLibInPackageName;
 };

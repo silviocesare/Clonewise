@@ -69,6 +69,8 @@ Feature Features2[] = {
 	{ "B_Has_Lib_In_Name" , true },				// 14
 	{ "A_To_B_Ratio", true },				// 15
 	{ "A_To_B_Data_Ratio", true },				// 16
+	{ "N_Dependants_A", true },				// 17
+	{ "N_Dependants_B", true },				// 18
 	{ NULL, false }
 };
 
@@ -823,11 +825,13 @@ WriteCheckForClone2(const std::string &name, std::ofstream *testStream, const Cl
 
 	featureVector[14] = (float)embedding.nFilenamesCode / (float)package.nFilenamesCode;
 	featureVector[15] = (float)embedding.nFilenamesData / (float)package.nFilenamesData;
+	featureVector[16] = embedding.NumberDependants;
+	featureVector[17] = package.NumberDependants;
 
 	if (testStream) {
 #pragma omp critical
 		{
-			for (int i = 0; i < 16; i++) {
+			for (int i = 0; i < 18; i++) {
 				if (isnan(featureVector[i]) || !std::isfinite(featureVector[i]))
 					featureVector[i] = -1.0;
 				if (!UseFeatureSelection || Features2[i].Use) {
@@ -844,11 +848,22 @@ void
 LoadSignature(const std::string &name, const std::string &filename, ClonewiseSignature &signature)
 {
 	std::ifstream stream;
+	FILE *p;
+	char str[1024], cmd[2048];
 
 	stream.open(filename.c_str());
 	if (!stream) {
 		errorLog("Couldn't open %s\n", name.c_str());
 	}
+	snprintf(cmd, sizeof(cmd), "(for i in $(cat /var/lib/Clonewise/clones/distros/%s/packages |grep '/%s$'|cut -d/ -f1); do grep -r ^$i\\$ /var/lib/Clonewise/clones/distros/%s/depends; done)|wc -l", distroString, name.c_str(), distroString);
+	p = popen(cmd, "r");
+	if (p == NULL) {
+		fprintf(stderr, "Can't popen (%s): %s\n", strerror(errno), cmd);
+		return;
+	}
+	fgets(str, sizeof(str), p);
+	fclose(p);
+	signature.NumberDependants = atoi(str);
 	signature.name = name;
 	signature.nFilenamesCode = 0;
 	signature.nFilenamesData = 0;

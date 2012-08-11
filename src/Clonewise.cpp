@@ -847,22 +847,22 @@ WriteCheckForClone2(const std::string &name, std::ofstream *testStream, const Cl
 void
 LoadSignature(const std::string &name, const std::string &filename, ClonewiseSignature &signature)
 {
-	std::ifstream stream;
-	FILE *p;
+	std::ifstream stream, depStream;
 	char str[1024], cmd[2048];
+	char depFilename[1024];
 
-	stream.open(filename.c_str());
-	if (!stream) {
-		errorLog("Couldn't open %s\n", name.c_str());
+	snprintf(depFilename, sizeof(depFilename), "/var/lib/Clonewise/clones/distros/%s/info/%s", distroString, name.c_str());
+	depStream.open(depFilename);
+	if (!depStream) {
+		snprintf(cmd, sizeof(cmd), "(for i in $(cat /var/lib/Clonewise/clones/distros/%s/packages |grep '/%s$'|cut -d/ -f1); do grep -r ^$i\\$ /var/lib/Clonewise/clones/distros/%s/depends; done)|wc -l > %s", distroString, name.c_str(), distroString, depFilename);
+		system(cmd);
+		depStream.open(depFilename);
+		if (!depStream) {
+			errorLog("Couldn't open %s\n", depFilename);
+		}
 	}
-	snprintf(cmd, sizeof(cmd), "(for i in $(cat /var/lib/Clonewise/clones/distros/%s/packages |grep '/%s$'|cut -d/ -f1); do grep -r ^$i\\$ /var/lib/Clonewise/clones/distros/%s/depends; done)|wc -l", distroString, name.c_str(), distroString);
-	p = popen(cmd, "r");
-	if (p == NULL) {
-		fprintf(stderr, "Can't popen (%s): %s\n", strerror(errno), cmd);
-		return;
-	}
-	fgets(str, sizeof(str), p);
-	fclose(p);
+	depStream.getline(str, sizeof(str));
+	depStream.close();
 	signature.NumberDependants = atoi(str);
 	signature.name = name;
 	signature.nFilenamesCode = 0;
@@ -875,6 +875,10 @@ LoadSignature(const std::string &name, const std::string &filename, ClonewiseSig
 		signature.hasLibInPackageName = true;
 	} else {
 		signature.hasLibInPackageName = false;
+	}
+	stream.open(filename.c_str());
+	if (!stream) {
+		errorLog("Couldn't open %s\n", name.c_str());
 	}
 	while (!stream.eof()) {
 		std::string str, str2, hash, feature;

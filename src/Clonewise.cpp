@@ -1057,6 +1057,7 @@ DoScoresForEmbedded2(std::ofstream &testStream)
 				}
 			}
 		}
+#pragma omp taskwait
 	}
 	return 0;
 }

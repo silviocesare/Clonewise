@@ -17,8 +17,12 @@ Clonewise_make_embedded_cache(int argc, char* argv[])
 
 	ClonewiseInit();
 
-	while ((ch = getopt(argc, argv, "d:")) != EOF) {
+	while ((ch = getopt(argc, argv, "cd:")) != EOF) {
 		switch (ch) {
+		case 'c':
+			checkCacheOnly = true;
+			break;
+
                 case 'd':
 			useDistroString = true;
                         distroString = optarg;

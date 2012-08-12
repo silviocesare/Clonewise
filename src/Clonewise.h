@@ -42,6 +42,7 @@ struct ClonewiseSignature {
 #define NFEATURES 27
 #define NFEATURES2 27
 
+extern bool checkCacheOnly;
 extern std::map<std::string, std::string> packageAliases;
 extern std::map<std::string, std::set<std::string> > embeddedList;
 extern FILE *outFd;

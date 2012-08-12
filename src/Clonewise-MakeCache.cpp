@@ -9,6 +9,8 @@
 std::vector<std::string> vPackages;
 std::list<int> packageQueue;
 bool doEmbedded = false;
+bool checkCacheOnly = true;
+std::string cachePath;
 
 struct Msg {
 	int r[2];
@@ -57,7 +59,7 @@ DoWork(int index)
 
 	strcpy(myName, name);
 
-	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/cache/%s", distroString, name);
+	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/%s/%s", distroString, cachePath.c_str(), name);
 	if (0 && access(s, R_OK) == 0) {
 		outFd = fopen(s, "r");
 	} else {
@@ -109,6 +111,8 @@ MakeCache(const std::string &prefix, int argc, char *argv[], bool _doEmbedded)
 	int xi;
  	std::map<std::string, std::list<std::string> >::const_iterator pIter;
 	int np, me; 
+
+	cachePath = prefix;
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &np);

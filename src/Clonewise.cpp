@@ -1090,7 +1090,7 @@ IsEmbedded(const ClonewiseSignature &sig1, const ClonewiseSignature &sig2)
 
 	p = popen(cmd, "r");
 	if (p == NULL) {
-		unlink(testFilename);
+//		unlink(testFilename);
 		fprintf(stderr, "Can't popen (%s): %s\n", strerror(errno), cmd);
 		return false;
 	}
@@ -1228,6 +1228,48 @@ checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterB
 		packageAlias = packageAliases[name];
 	} else {
 		packageAlias = name;
+	}
+
+	if (checkCacheOnly && filterByEmbedded) {
+		std::ifstream cacheStream;
+		char s[1024];
+
+		snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/cache/%s", distroString, packageAlias.c_str());
+		cacheStream.open(s);
+		if (!cacheStream) {
+			printf("Cant open cache: %s\n", s);
+			return;
+		}
+
+		while (!cacheStream.eof()) {
+			std::string line;
+			size_t n;
+			std::string pName;
+			ClonewiseSignature *package;
+
+			cacheStream.getline(s, sizeof(s));
+			if (s[0] == 0)
+				break;
+			line = std::string(s);		
+			n = line.find_first_of(" CLONED_IN_SOURCE ");
+			if (n == std::string::npos)
+				continue;
+			pName = line.substr(n + sizeof(" CLONED_IN_SOURCE "));
+			if (packages.find(pName) == packages.end())
+				continue;
+
+			package = &packagesSignatures[pName];
+			if (IsEmbedded(embedding, *package)) {
+				if (packageAliases.find(pName) != packageAliases.end()) {
+					packageCloneAlias = packageAliases[pName];
+				} else {
+					packageCloneAlias = pName;
+				}
+				printClone(outFd, embedding, *package, packageAlias, packageCloneAlias, packages[pName], matchesTable);
+			}
+		}
+		cacheStream.close();
+		return;
 	}
 
 	tmpnam(t);

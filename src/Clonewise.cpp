@@ -1255,7 +1255,7 @@ checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterB
 			n = line.find(" CLONED_IN_SOURCE ");
 			if (n == std::string::npos)
 				continue;
-			pName = line.substr(n + sizeof(" CLONED_IN_SOURCE "));
+			pName = line.substr(n + sizeof(" CLONED_IN_SOURCE ") - 1);
 			if (packages.find(pName) == packages.end())
 				continue;
 

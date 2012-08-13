@@ -90,7 +90,7 @@ LoadEmbeds(const char *filename)
 }
 
 void
-LoadTheCache(const std::string &prefix)
+LoadTheCache(std::map<std::string, std::map<std::string, std::list<Match> > > &thecache, const std::string &prefix)
 {
 	std::map<std::string, std::set<std::string> >::const_iterator eIter;
 
@@ -123,6 +123,7 @@ LoadTheCache(const std::string &prefix)
 					str[j] = s[i];
 				str[j] = 0;
 				lib = str;
+				thecache[eIter->first][lib] = std::list<Match>();
 			} else {
 				if (strncmp(s, "\t\tMATCH", 7) == 0) {
 					std::string s1 = &s[8], s2;
@@ -135,7 +136,7 @@ LoadTheCache(const std::string &prefix)
 					n2 = s2.find_first_of(' ');
 					m.filename2 = s2.substr(0, n2);
 					m.weight = s2.substr(n2 + 1);
-					cache[eIter->first][lib].push_back(m);
+					thecache[eIter->first][lib].push_back(m);
 				}
 			}
 		}
@@ -146,13 +147,68 @@ LoadTheCache(const std::string &prefix)
 void
 LoadCache()
 {
-	LoadTheCache("cache");
+	std::map<std::string, std::map<std::string, std::list<Match> > >::iterator cacheIter, cNext;
+	std::map<std::string, std::list<Match> >::iterator mIter, next;
+
+	LoadTheCache(cache, "cache");
+	for (	cacheIter  = cache.begin();
+		cacheIter != cache.end();
+		)
+	{
+		cNext = cacheIter;
+		cNext++;
+
+		for (	mIter  = cacheIter->second.begin();
+			mIter != cacheIter->second.end();
+			)
+		{
+			next = mIter;
+			next++;
+
+			if (mIter->second.size() == 0) {
+				cacheIter->second.erase(mIter);
+			} else
+				mIter->second = cache[cacheIter->first][mIter->first];
+			mIter = next;
+		}
+
+		cacheIter = cNext;
+	}
 }
 
 void
 LoadEmbeddedCache()
 {
-	LoadTheCache("cache-embedded");
+	std::map<std::string, std::map<std::string, std::list<Match> > > sharedcache;
+	std::map<std::string, std::map<std::string, std::list<Match> > >::iterator cacheIter, cNext;
+	std::map<std::string, std::list<Match> >::iterator mIter, next;
+
+	LoadTheCache(sharedcache, "cache");
+	LoadTheCache(cache, "cache-embedded");
+
+	for (	cacheIter  = cache.begin();
+		cacheIter != cache.end();
+		)
+	{
+		cNext = cacheIter;
+		cNext++;
+
+		for (	mIter  = cacheIter->second.begin();
+			mIter != cacheIter->second.end();
+			)
+		{
+			next = mIter;
+			next++;
+
+			if (mIter->second.size() == 0) {
+				cacheIter->second.erase(mIter);
+			} else
+				mIter->second = sharedcache[cacheIter->first][mIter->first];
+			mIter = next;
+		}
+
+		cacheIter = cNext;
+	}
 }
 
 bool

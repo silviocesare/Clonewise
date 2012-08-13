@@ -57,7 +57,7 @@ std::map<std::string, VulnCVEReport> vulnCVEReportsByPackage;
 static void
 Usage(const char *argv0)
 {
-	fprintf(stderr, "Usage: %s [-d distroString] [-s] [-v verbosity] [package1 ...]\n", argv0);
+	fprintf(stderr, "Usage: %s [-e] [-d distroString] [-s] [-v verbosity] [package1 ...]\n", argv0);
 	exit(1);
 }
 
@@ -573,11 +573,16 @@ Clonewise_find_bugs(int argc, char *argv[])
 	int ch;
 	const char *argv0 = argv[0];
 	char s[1024];
+	bool useEmbedded = false;
 
 	ClonewiseInit();
 
-	while ((ch = getopt(argc, argv, "v:sd:")) != EOF) {
+	while ((ch = getopt(argc, argv, "v:sd:e")) != EOF) {
 		switch (ch) {
+		case 'e':
+			useEmbedded = true;
+			false;
+
 		case 's':
 			useStdin = true;
 			break;
@@ -601,7 +606,10 @@ Clonewise_find_bugs(int argc, char *argv[])
 
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/embedded-code-copies.txt", distroString);
 	LoadEmbeds(s);
-	LoadCache();
+	if (useEmbedded)
+		LoadEmbeddedCache();
+	else
+		LoadCache();
 	LoadPackagesInfo();
 	LoadExtensions();
 	loadCveReports();

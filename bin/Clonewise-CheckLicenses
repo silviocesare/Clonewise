@@ -15,7 +15,7 @@ function getDB()
 {
 #	Clonewise parse-database
 #	Clonewise query-cache|grep CLONED_IN_SOURCE|awk '{print $1 "/" $3}'
-	cat /var/lib/Clonewise/clones/distros/$distro/complete-cache|grep CLONED_IN_SOURCE|awk '{print $1 "/" $3}'
+	cat /var/lib/Clonewise/clones/distros/$distro/complete-cache-embedded|grep CLONED_IN_SOURCE|awk '{print $1 "/" $3}'
 }
 
 function grepForGPL()

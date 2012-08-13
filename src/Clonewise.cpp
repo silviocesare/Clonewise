@@ -842,6 +842,7 @@ WriteCheckForClone2(const std::string &name, std::ofstream *testStream, const Cl
 		}
 	}
 
+	results.erase(name);
 }
 
 void
@@ -920,7 +921,7 @@ printArffHeader(std::ofstream &testStream, Feature *features)
 }
 
 int
-GetScoreForNotEmbedded(std::ofstream &testStream, bool which)
+GetScoreForNotEmbedded(std::ofstream *testStream, bool which)
 {
         std::map<std::string, std::list<std::string> >::const_iterator pIter;
         std::string p1, p2;
@@ -954,9 +955,9 @@ GetScoreForNotEmbedded(std::ofstream &testStream, bool which)
 		} while (!breakit);
 		n = p1 + std::string("/") + p2;
 		if (which)
-			ret = WriteCheckForClone(n, &testStream, packagesSignatures[p1], packagesSignatures[p2], "N", matches);
+			ret = WriteCheckForClone(n, testStream, packagesSignatures[p1], packagesSignatures[p2], "N", matches);
 		else
-			ret = WriteCheckForClone2(n, &testStream, packagesSignatures[p1], packagesSignatures[p2], "N", matches);
+			ret = WriteCheckForClone2(n, testStream, packagesSignatures[p1], packagesSignatures[p2], "N", matches);
 		if (!ret) {
 			doit = true;
 			skip++;
@@ -966,7 +967,7 @@ GetScoreForNotEmbedded(std::ofstream &testStream, bool which)
 }
 
 int
-DoScoresForEmbedded(std::ofstream &testStream)
+DoScoresForEmbedded(std::ofstream *testStream)
 {
 	int total;
 	int fp;
@@ -997,7 +998,7 @@ DoScoresForEmbedded(std::ofstream &testStream)
 				sig2 = &packagesSignatures[*iter2];
 #pragma omp task
 				{
-					if (!WriteCheckForClone(n, &testStream, *sig1, *sig2, "Y", matches)) {
+					if (!WriteCheckForClone(n, testStream, *sig1, *sig2, "Y", matches)) {
 #pragma omp atomic
 						fp++;
 					}
@@ -1010,7 +1011,7 @@ DoScoresForEmbedded(std::ofstream &testStream)
 }
 
 int
-DoScoresForEmbedded2(std::ofstream &testStream)
+DoScoresForEmbedded2(std::ofstream *testStream)
 {	
 #pragma omp parallel
 #pragma omp single
@@ -1036,8 +1037,8 @@ DoScoresForEmbedded2(std::ofstream &testStream)
 				sig2 = &packagesSignatures[*iter2];
 #pragma omp task
 				{
-					WriteCheckForClone2(n, &testStream, *sig1, *sig2, "Y", matches);
-					WriteCheckForClone2(n, &testStream, *sig2, *sig1, "N", matches);
+					WriteCheckForClone2(n, testStream, *sig1, *sig2, "Y", matches);
+					WriteCheckForClone2(n, testStream, *sig2, *sig1, "N", matches);
 					for (int i = 0; i < 5; i++) {
 //						GetScoreForNotEmbedded(testStream, false);
 					}
@@ -1052,7 +1053,7 @@ DoScoresForEmbedded2(std::ofstream &testStream)
 
 						n1 = *iter2 + std::string("/") + *iter3;
 						sig3 = &packagesSignatures[*iter3];
-						WriteCheckForClone2(n1, &testStream, *sig2, *sig3, "N", matches);
+						WriteCheckForClone2(n1, testStream, *sig2, *sig3, "N", matches);
 					}
 				}
 			}
@@ -1127,7 +1128,7 @@ trainModel2()
 		return;
 	}
 	printArffHeader(testStream, Features2);
-	DoScoresForEmbedded2(testStream);
+	DoScoresForEmbedded2(&testStream);
 	testStream.close();
 }
 
@@ -1181,14 +1182,14 @@ trainModel()
 		return;
 	}
 	printArffHeader(testStream, Features);
-	c = DoScoresForEmbedded(testStream);
+	c = DoScoresForEmbedded(&testStream);
 	total = 0;
 	c = 0;
 #pragma omp parallel for
 	for (int i = 0; i < 4000; i++) {
 		int t;
 
-		t = GetScoreForNotEmbedded(testStream, true);
+		t = GetScoreForNotEmbedded(&testStream, true);
 #pragma omp atomic
 		total += t;
 #pragma omp atomic
@@ -1251,7 +1252,7 @@ checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterB
 			if (s[0] == 0)
 				break;
 			line = std::string(s);		
-			n = line.find_first_of(" CLONED_IN_SOURCE ");
+			n = line.find(" CLONED_IN_SOURCE ");
 			if (n == std::string::npos)
 				continue;
 			pName = line.substr(n + sizeof(" CLONED_IN_SOURCE "));

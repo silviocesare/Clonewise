@@ -200,7 +200,7 @@ LoadEmbeddedCache()
 			next = mIter;
 			next++;
 
-			if (mIter->second.size() == 0) {
+			if (sharedcache[cacheIter->first][mIter->first].size() == 0) {
 				cacheIter->second.erase(mIter);
 			} else
 				mIter->second = sharedcache[cacheIter->first][mIter->first];

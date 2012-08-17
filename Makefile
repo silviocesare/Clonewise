@@ -8,20 +8,20 @@ CP = cp
 RM = rm
 MPICC = mpic++
 
-SOURCES =	src/Clonewise-Cache.cpp \
-		src/Clonewise-query-embedded-cache.cpp \
-		src/Clonewise.cpp \
-		src/Clonewise-lib-Cache.cpp \
+SOURCES =	src/Core/Clonewise-Cache.cpp \
+		src/Core/Clonewise-query-embedded-cache.cpp \
+		src/Core/Clonewise.cpp \
+		src/Core/Clonewise-lib-Cache.cpp \
 		libs/munkres-2/munkres.cpp \
-		src/Clonewise-main.cpp \
-		src/Clonewise-MakeCache.cpp \
-		src/Clonewise-make-embedded-cache.cpp \
-		src/Clonewise-query-source.cpp \
-		src/Clonewise-query-embedded.cpp \
-		src/Clonewise-find-file.cpp \
-		src/Clonewise-find-license-problems.cpp \
-		src/Clonewise-BugInferrer.cpp \
-		src/Clonewise-ParseDatabase.cpp \
+		src/Core/Clonewise-main.cpp \
+		src/Core/Clonewise-MakeCache.cpp \
+		src/Core/Clonewise-make-embedded-cache.cpp \
+		src/Core/Clonewise-query-source.cpp \
+		src/Core/Clonewise-query-embedded.cpp \
+		src/Core/Clonewise-find-file.cpp \
+		src/Core/Clonewise-find-license-problems.cpp \
+		src/Core/Clonewise-BugInferrer.cpp \
+		src/Core/Clonewise-ParseDatabase.cpp \
 		src/main.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)

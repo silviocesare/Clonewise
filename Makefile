@@ -1,5 +1,5 @@
 LDFLAGS = -lrt -lm -lfuzzy -lxerces-c
-INCLUDES = -I src -I libs/munkres-2
+INCLUDES = -I src -I libs/munkres-2 -I src/Core -I src/SimilarityMeasures/StringMetricsAndMatching -I src/FuzzyHashing -I src/Launcher
 CFLAGS = -fopenmp -g
 INSTALL = install
 WGET = wget
@@ -22,7 +22,8 @@ SOURCES =	src/Core/Clonewise-Cache.cpp \
 		src/Core/Clonewise-find-license-problems.cpp \
 		src/Core/Clonewise-BugInferrer.cpp \
 		src/Core/Clonewise-ParseDatabase.cpp \
-		src/main.cpp
+		src/Launcher/main.cpp \
+		src/SimilarityMeasures/StringMetricsAndMatching/StringMetrics.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 

@@ -28,7 +28,8 @@ findFile(const char *filename)
 	p = popen(cmd, "r");
 	fgets(line, sizeof(line), p);
 	pclose(p);
-	lineToFeature(line, feature, hash);
+	lineToHash(line, hash);
+	lineToFeature(line, feature);
 	normalizeFeature(nFilename, feature);
 	if (outputFormat == CLONEWISE_OUTPUT_XML) {
 		printf("<FileClones>\n");

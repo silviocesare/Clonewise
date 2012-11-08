@@ -1,5 +1,5 @@
 LDFLAGS = -lrt -lm -lfuzzy -lxerces-c
-INCLUDES = -I src -I libs/munkres-2 -I src/Core -I src/SimilarityMeasures/StringMetricsAndMatching -I src/FuzzyHashing -I src/Launcher
+INCLUDES = -I src -I libs/munkres-2 -I src/Core -I src/SimilarityMeasures/StringMetricsAndMatching -I src/SimilarityMeasures/FuzzyHashing -I src/Launcher
 CFLAGS = -fopenmp -g
 INSTALL = install
 WGET = wget
@@ -23,7 +23,8 @@ SOURCES =	src/Core/Clonewise-Cache.cpp \
 		src/Core/Clonewise-BugInferrer.cpp \
 		src/Core/Clonewise-ParseDatabase.cpp \
 		src/Launcher/main.cpp \
-		src/SimilarityMeasures/StringMetricsAndMatching/StringMetrics.cpp
+		src/SimilarityMeasures/StringMetricsAndMatching/StringMetrics.cpp \
+		src/SimilarityMeasures/FuzzyHashing/FuzzyHashSSDeep.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
@@ -36,8 +37,8 @@ Clonewise: $(OBJECTS)
 	$(MPICC) $(CFLAGS) -o bin/Clonewise $(OBJECTS) $(LDFLAGS)
 
 install:
-	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise
-	$(CP) -ru config/* $(DESTDIR)/var/lib/Clonewise
+#	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise
+#	$(CP) -ru config/* $(DESTDIR)/var/lib/Clonewise
 	$(WGET) -O $(DESTDIR)/var/lib/Clonewise/bugs/cve/nvdcve-2012.xml http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2012.xml
 	$(WGET) -O $(DESTDIR)/var/lib/Clonewise/bugs/cve/nvdcve-2011.xml http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2011.xml
 	$(WGET) -O $(DESTDIR)/var/lib/Clonewise/bugs/cve/nvdcve-2010.xml http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2010.xml

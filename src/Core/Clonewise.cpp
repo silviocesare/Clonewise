@@ -173,10 +173,21 @@ normalizeFeature(std::string &normalFeature, const std::string &feature)
 		normalFeature = feature;
 	}
 }
+void
+lineToHash(const char *s, std::string &hash)
+{
+	std::string str, str2, origFeature;
+	size_t n, n1, n2;
+
+	str = std::string(s);
+	n2 = str.find_first_of(',');
+	hash = str.substr(0, n2 - 1);
+}
 
 void
-lineToFeature(const char *s, std::string &feature, std::string &hash)
+lineToFeature(const char *s, std::string &feature)
 {
+	std::string hash;
 	std::string str, str2, origFeature;
 	size_t n, n1, n2;
 
@@ -799,7 +810,8 @@ LoadSignature(const std::string &name, const std::string &filename, ClonewiseSig
 		stream.getline(s, sizeof(s));
 		if (s[0] == 0)
 			break;
-		lineToFeature(s, feature, hash);
+		lineToHash(s, hash);
+		lineToFeature(s, feature);
 		if (featureExceptions.find(feature) == featureExceptions.end()) {
 			signature.filesAndHashes[feature].insert(hash);
 			signature.nFilenamesAll++;
@@ -1628,13 +1640,13 @@ CreateFeatures()
 		}
 		i = 0;
 		while (!stream.eof()) {
-			std::string str, str2, hash, feature;
+			std::string str, str2, feature;
 			char s[1024];
 
 			stream.getline(s, sizeof(s));
 			if (s[0] == 0)
 				break;
-			lineToFeature(s, feature, hash);
+			lineToFeature(s, feature);
 			rawFeaturesFile << feature.c_str() << "\n";
 			i++;
 		}

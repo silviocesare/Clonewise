@@ -22,7 +22,7 @@ function grepForGPL()
 {
 	egrep '^License: .*AFPL.*|^License: .*LGPL.*|^License: .*GPL.*' $1/debian/*copyright* > /dev/null 2> /dev/null
 	a=$?
-	egrep -rw 'General Public License' $1/debian/*copyright* $1 > /dev/null 2> /dev/null
+	egrep -rw 'GNU Lesser|GPL|General Public License' $1/debian/*copyright* > /dev/null 2> /dev/null
 	b=$?
 	[ $a -eq 0 -o $b -eq 0 ]
 }
@@ -31,9 +31,11 @@ function grepForPermissive()
 {
 	egrep '^License: .*ZPL.*|^License: .*Zope.*|^License: .*[Pp]ublic[ -].*|^License: .*MPL.*|^License: .*ISC.*|^License: .*ASL.*|^License: .*[Mm][Ii][Tt].*|^License: .*[Aa][Pp][aA][cC][Hh][Ee].*|^License: .*[Bb][Ss][Dd].*' $1/debian/*copyright* > /dev/null 2> /dev/null
 	a=$?
-	egrep -rw 'Boost Software License|Apache License|BSD license' $1/debian/*copyright* > /dev/null 2> /dev/null
+	egrep -rw 'public domain|libpng|FreeType License|Boost Software License|Apache License|BSD license' $1/debian/*copyright* > /dev/null 2> /dev/null
 	b=$?
-	[ $a -eq 0 -o $b -eq 0 ]
+	egrep -rw 'Redistribution and use in source and binary forms' $1/debian/*copyright* > /dev/null 2> /dev/null
+	c=$?
+	[ $a -eq 0 -o $b -eq 0 -o $c -eq 0 ]
 }
 
 function downloadAll()

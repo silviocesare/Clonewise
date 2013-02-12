@@ -777,15 +777,22 @@ LoadSignature(const std::string &name, const std::string &filename, ClonewiseSig
 	snprintf(depFilename, sizeof(depFilename), "/var/lib/Clonewise/clones/distros/%s/info/%s", distroString, name.c_str());
 	depStream.open(depFilename);
 	if (!depStream) {
-		snprintf(cmd, sizeof(cmd), "(for i in $(cat /var/lib/Clonewise/clones/distros/%s/packages |grep '/%s$'|cut -d/ -f1); do grep -r ^$i\\$ /var/lib/Clonewise/clones/distros/%s/depends; done)|wc -l > %s", distroString, name.c_str(), distroString, depFilename);
-		system(cmd);
-		depStream.open(depFilename);
-		if (!depStream) {
-			errorLog("Couldn't open %s\n", depFilename);
+		if (getuid() == 0) {
+			snprintf(cmd, sizeof(cmd), "(for i in $(cat /var/lib/Clonewise/clones/distros/%s/packages |grep '/%s$'|cut -d/ -f1); do grep -r ^$i\\$ /var/lib/Clonewise/clones/distros/%s/depends; done)|wc -l > %s", distroString, name.c_str(), distroString, depFilename);
+			system(cmd);
+			depStream.open(depFilename);
+			if (!depStream) {
+				errorLog("Couldn't open %s\n", depFilename);
+			}
+			depStream.getline(str, sizeof(str));
+			depStream.close();
+		} else {
+			strcpy(str, "1");
 		}
+	} else {
+		depStream.getline(str, sizeof(str));
+		depStream.close();
 	}
-	depStream.getline(str, sizeof(str));
-	depStream.close();
 	signature.NumberDependants = atoi(str);
 	signature.name = name;
 	signature.nFilenamesCode = 0;

@@ -77,6 +77,7 @@ Feature Features2[] = {
 
 static void CreateFeatures();
 
+bool buildAll = false;
 std::map<std::string, std::vector<float> > results;
 std::map<std::string, std::string> packageAliases;
 bool UseFeatureSelection = true;
@@ -243,6 +244,8 @@ BuildDatabase()
 	fprintf(stderr, "Building database. This could take a considerable amount of time..\n");
 	snprintf(cmd, sizeof(cmd), "Clonewise-BuildDatabase build-database %s", distroString);
 	system(cmd);
+	buildAll = true;
+	LoadEverything();
 }
 
 static void
@@ -777,7 +780,7 @@ LoadSignature(const std::string &name, const std::string &filename, ClonewiseSig
 	snprintf(depFilename, sizeof(depFilename), "/var/lib/Clonewise/clones/distros/%s/info/%s", distroString, name.c_str());
 	depStream.open(depFilename);
 	if (!depStream) {
-		if (getuid() == 0) {
+		if (getuid() == 0 && buildAll) {
 			snprintf(cmd, sizeof(cmd), "(for i in $(cat /var/lib/Clonewise/clones/distros/%s/packages |grep '/%s$'|cut -d/ -f1); do grep -r ^$i\\$ /var/lib/Clonewise/clones/distros/%s/depends; done)|wc -l > %s", distroString, name.c_str(), distroString, depFilename);
 			system(cmd);
 			depStream.open(depFilename);

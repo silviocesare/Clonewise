@@ -45,4 +45,4 @@ install:
 	$(INSTALL) ./bin/* $(DESTDIR)/usr/bin
 
 clean:
-	$(RM) -f *.o bin/Clonewise bin/Clonewise-BugInferrer
+	$(RM) -f $(OBJECTS) bin/Clonewise bin/Clonewise-BugInferrer

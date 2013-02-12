@@ -1,0 +1,5 @@
+sqlite3 CLONED_IN_SOURCE chromium-browser
+sqlite3 CLONED_IN_SOURCE db
+sqlite3 CLONED_IN_SOURCE ia32-libs
+sqlite3 CLONED_IN_SOURCE likewise-open
+sqlite3 CLONED_IN_SOURCE sqlite

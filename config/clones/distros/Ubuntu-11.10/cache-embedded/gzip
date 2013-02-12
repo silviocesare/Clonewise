@@ -1,0 +1,5 @@
+gzip CLONED_IN_SOURCE busybox
+gzip CLONED_IN_SOURCE ia32-libs
+gzip CLONED_IN_SOURCE klibc
+gzip CLONED_IN_SOURCE ncompress
+gzip CLONED_IN_SOURCE pristine-tar

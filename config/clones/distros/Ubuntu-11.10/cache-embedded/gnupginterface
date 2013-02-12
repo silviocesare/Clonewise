@@ -1,0 +1,5 @@
+gnupginterface CLONED_IN_SOURCE dpm
+gnupginterface CLONED_IN_SOURCE dpm-postgres
+gnupginterface CLONED_IN_SOURCE duplicity
+gnupginterface CLONED_IN_SOURCE lfc
+gnupginterface CLONED_IN_SOURCE lfc-postgres

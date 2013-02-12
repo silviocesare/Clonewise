@@ -1,0 +1,9 @@
+cpio CLONED_IN_SOURCE coreutils
+cpio CLONED_IN_SOURCE dc3dd
+cpio CLONED_IN_SOURCE diffutils
+cpio CLONED_IN_SOURCE gettext
+cpio CLONED_IN_SOURCE gnulib
+cpio CLONED_IN_SOURCE id-utils
+cpio CLONED_IN_SOURCE inetutils
+cpio CLONED_IN_SOURCE libvirt
+cpio CLONED_IN_SOURCE pspp

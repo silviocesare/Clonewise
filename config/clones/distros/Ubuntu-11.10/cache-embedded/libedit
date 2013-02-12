@@ -1,0 +1,11 @@
+libedit CLONED_IN_SOURCE asterisk
+libedit CLONED_IN_SOURCE binutils
+libedit CLONED_IN_SOURCE falconpl
+libedit CLONED_IN_SOURCE gdb
+libedit CLONED_IN_SOURCE heimdal
+libedit CLONED_IN_SOURCE ia32-libs
+libedit CLONED_IN_SOURCE kde4libs
+libedit CLONED_IN_SOURCE likewise-open
+libedit CLONED_IN_SOURCE mysql-5.1
+libedit CLONED_IN_SOURCE mysql-cluster-7.0
+libedit CLONED_IN_SOURCE openipmi

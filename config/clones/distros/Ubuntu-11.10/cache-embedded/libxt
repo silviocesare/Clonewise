@@ -1,0 +1,12 @@
+libxt CLONED_IN_SOURCE ardour
+libxt CLONED_IN_SOURCE graphicsmagick
+libxt CLONED_IN_SOURCE ia32-libs
+libxt CLONED_IN_SOURCE imagemagick
+libxt CLONED_IN_SOURCE libx11
+libxt CLONED_IN_SOURCE likewise-open
+libxt CLONED_IN_SOURCE newlib
+libxt CLONED_IN_SOURCE qt4-x11
+libxt CLONED_IN_SOURCE texlive-bin
+libxt CLONED_IN_SOURCE vlc
+libxt CLONED_IN_SOURCE vnc4
+libxt CLONED_IN_SOURCE xbmc

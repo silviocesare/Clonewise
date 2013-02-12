@@ -1,0 +1,7 @@
+libxinerama CLONED_IN_SOURCE ia32-libs
+libxinerama CLONED_IN_SOURCE libjogl-java
+libxinerama CLONED_IN_SOURCE libsdl1.2
+libxinerama CLONED_IN_SOURCE vnc4
+libxinerama CLONED_IN_SOURCE wine1.2
+libxinerama CLONED_IN_SOURCE wine1.3
+libxinerama CLONED_IN_SOURCE wmaker

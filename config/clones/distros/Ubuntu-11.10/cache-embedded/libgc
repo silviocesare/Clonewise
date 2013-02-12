@@ -1,0 +1,12 @@
+libgc CLONED_IN_SOURCE boost-mpi-source1.46
+libgc CLONED_IN_SOURCE boost1.42
+libgc CLONED_IN_SOURCE boost1.46
+libgc CLONED_IN_SOURCE ecl
+libgc CLONED_IN_SOURCE gauche
+libgc CLONED_IN_SOURCE ia32-libs
+libgc CLONED_IN_SOURCE kompozer
+libgc CLONED_IN_SOURCE likewise-open
+libgc CLONED_IN_SOURCE mono
+libgc CLONED_IN_SOURCE racket
+libgc CLONED_IN_SOURCE synopsis
+libgc CLONED_IN_SOURCE xbmc

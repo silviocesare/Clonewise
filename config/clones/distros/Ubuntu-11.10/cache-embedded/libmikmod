@@ -1,0 +1,10 @@
+libmikmod CLONED_IN_SOURCE black-box
+libmikmod CLONED_IN_SOURCE dietlibc
+libmikmod CLONED_IN_SOURCE ia32-libs
+libmikmod CLONED_IN_SOURCE klibc
+libmikmod CLONED_IN_SOURCE likewise-open
+libmikmod CLONED_IN_SOURCE lsh-utils
+libmikmod CLONED_IN_SOURCE syslinux
+libmikmod CLONED_IN_SOURCE timidity
+libmikmod CLONED_IN_SOURCE uqm
+libmikmod CLONED_IN_SOURCE xbmc

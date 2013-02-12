@@ -1,0 +1,15 @@
+sqlite CLONED_IN_SOURCE binutils-h8300-hms
+sqlite CLONED_IN_SOURCE db
+sqlite CLONED_IN_SOURCE digikam
+sqlite CLONED_IN_SOURCE elinks
+sqlite CLONED_IN_SOURCE heimdal
+sqlite CLONED_IN_SOURCE ia32-libs
+sqlite CLONED_IN_SOURCE libdbd-sqlite2-perl
+sqlite CLONED_IN_SOURCE libxr
+sqlite CLONED_IN_SOURCE lighttpd
+sqlite CLONED_IN_SOURCE likewise-open
+sqlite CLONED_IN_SOURCE monotone
+sqlite CLONED_IN_SOURCE php5
+sqlite CLONED_IN_SOURCE qt-x11-free
+sqlite CLONED_IN_SOURCE sqlite3
+sqlite CLONED_IN_SOURCE vlc

@@ -1,0 +1,4 @@
+libxv CLONED_IN_SOURCE ia32-libs
+libxv CLONED_IN_SOURCE openssl
+libxv CLONED_IN_SOURCE openssl098
+libxv CLONED_IN_SOURCE vnc4

@@ -1,0 +1,10 @@
+mpeg2dec CLONED_IN_SOURCE bombono-dvd
+mpeg2dec CLONED_IN_SOURCE ia32-libs
+mpeg2dec CLONED_IN_SOURCE libdca
+mpeg2dec CLONED_IN_SOURCE likewise-open
+mpeg2dec CLONED_IN_SOURCE mplayer
+mpeg2dec CLONED_IN_SOURCE mplayer2
+mpeg2dec CLONED_IN_SOURCE mythtv
+mpeg2dec CLONED_IN_SOURCE tvtime
+mpeg2dec CLONED_IN_SOURCE xbmc
+mpeg2dec CLONED_IN_SOURCE xine-lib

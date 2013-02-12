@@ -1,0 +1,3 @@
+vgabios CLONED_IN_SOURCE qemu-kvm
+vgabios CLONED_IN_SOURCE virtualbox
+vgabios CLONED_IN_SOURCE xen

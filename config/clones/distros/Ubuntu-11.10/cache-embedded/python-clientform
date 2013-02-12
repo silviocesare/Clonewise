@@ -1,0 +1,7 @@
+python-clientform CLONED_IN_SOURCE bibus
+python-clientform CLONED_IN_SOURCE gunicorn
+python-clientform CLONED_IN_SOURCE python-mechanize
+python-clientform CLONED_IN_SOURCE python-scrapy
+python-clientform CLONED_IN_SOURCE sleekxmpp
+python-clientform CLONED_IN_SOURCE tilecache
+python-clientform CLONED_IN_SOURCE twill

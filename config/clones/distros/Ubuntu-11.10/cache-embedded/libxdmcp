@@ -1,0 +1,4 @@
+libxdmcp CLONED_IN_SOURCE ia32-libs
+libxdmcp CLONED_IN_SOURCE libx11
+libxdmcp CLONED_IN_SOURCE tightvnc
+libxdmcp CLONED_IN_SOURCE vnc4

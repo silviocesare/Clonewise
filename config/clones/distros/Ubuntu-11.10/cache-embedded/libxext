@@ -1,0 +1,4 @@
+libxext CLONED_IN_SOURCE ia32-libs
+libxext CLONED_IN_SOURCE tightvnc
+libxext CLONED_IN_SOURCE vnc4
+libxext CLONED_IN_SOURCE xorg-server

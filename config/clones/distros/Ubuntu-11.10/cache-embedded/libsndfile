@@ -1,0 +1,17 @@
+libsndfile CLONED_IN_SOURCE ardour
+libsndfile CLONED_IN_SOURCE asterisk
+libsndfile CLONED_IN_SOURCE audacity
+libsndfile CLONED_IN_SOURCE drizzle
+libsndfile CLONED_IN_SOURCE gnuradio
+libsndfile CLONED_IN_SOURCE ia32-libs
+libsndfile CLONED_IN_SOURCE mgetty
+libsndfile CLONED_IN_SOURCE nyquist
+libsndfile CLONED_IN_SOURCE opal
+libsndfile CLONED_IN_SOURCE qutecom
+libsndfile CLONED_IN_SOURCE swh-plugins
+libsndfile CLONED_IN_SOURCE texlive-bin
+libsndfile CLONED_IN_SOURCE vlc
+libsndfile CLONED_IN_SOURCE wxwidgets2.6
+libsndfile CLONED_IN_SOURCE wxwidgets2.8
+libsndfile CLONED_IN_SOURCE xbmc
+libsndfile CLONED_IN_SOURCE xine-lib

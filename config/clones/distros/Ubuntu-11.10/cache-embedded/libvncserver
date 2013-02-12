@@ -1,0 +1,13 @@
+libvncserver CLONED_IN_SOURCE cryptokit
+libvncserver CLONED_IN_SOURCE dump
+libvncserver CLONED_IN_SOURCE ia32-libs
+libvncserver CLONED_IN_SOURCE italc
+libvncserver CLONED_IN_SOURCE kdenetwork
+libvncserver CLONED_IN_SOURCE remmina-plugins
+libvncserver CLONED_IN_SOURCE ssvnc
+libvncserver CLONED_IN_SOURCE tightvnc
+libvncserver CLONED_IN_SOURCE vino
+libvncserver CLONED_IN_SOURCE vnc4
+libvncserver CLONED_IN_SOURCE vncsnapshot
+libvncserver CLONED_IN_SOURCE x11vnc
+libvncserver CLONED_IN_SOURCE xen

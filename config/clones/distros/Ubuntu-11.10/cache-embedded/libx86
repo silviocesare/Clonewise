@@ -1,0 +1,6 @@
+libx86 CLONED_IN_SOURCE hwinfo
+libx86 CLONED_IN_SOURCE maude
+libx86 CLONED_IN_SOURCE svgalib
+libx86 CLONED_IN_SOURCE traverso
+libx86 CLONED_IN_SOURCE vnc4
+libx86 CLONED_IN_SOURCE xorg-server

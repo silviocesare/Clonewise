@@ -1,0 +1,23 @@
+Only in Clonewise: bin
+Only in Clonewise-new/: Clonewise
+Only in Clonewise: config
+Only in Clonewise: .git
+Only in Clonewise: .gitignore
+Only in Clonewise: INSTALL
+Only in Clonewise: libs
+diff -u Clonewise/Makefile Clonewise-new/Makefile
+--- Clonewise/Makefile	2013-02-13 15:47:55.766420951 +1100
++++ Clonewise-new/Makefile	2013-02-13 16:04:38.878712792 +1100
+@@ -48,7 +48,7 @@
+ 	$(WGET) -O $(DESTDIR)/var/lib/Clonewise/bugs/cve/nvdcve-2011.xml http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2011.xml
+ 	$(WGET) -O $(DESTDIR)/var/lib/Clonewise/bugs/cve/nvdcve-2010.xml http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2010.xml
+ 
+-install: install-bins install-configs
++install: install-configs
+ 
+ clean:
+ 	$(RM) -f $(OBJECTS) bin/Clonewise bin/Clonewise-BugInferrer
+Only in Clonewise: patches
+Only in Clonewise: README
+Only in Clonewise: scripts
+Only in Clonewise: src

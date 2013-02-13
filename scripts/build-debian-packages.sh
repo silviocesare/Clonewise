@@ -7,13 +7,13 @@ git clone https://github.com/silviocesare/Clonewise.git
 VERSION="$(cat ~/Clonewise/VERSION)"
 mv ~/Clonewise ~/Clonewise-$VERSION
 tar czvf ~/Clonewise-$VERSION.tar.gz ~/Clonewise-$VERSION
-cp -R ~/Clonewise-$VERSION ~/Clonewise-configs-$VERSION
-mv ~/Clonewise-$VERSION ~/Clonewise-bins-$VERSION
-cd ~/Clonewise-bins-$VERSION
+cp -R ~/Clonewise-$VERSION ~/clonewise-configs-$VERSION
+mv ~/Clonewise-$VERSION ~/clonewise-bins-$VERSION
+cd ~/clonewise-bins-$VERSION
 dh_make -f ../$PACKAGENAME.tar.gz
 mkdir debian/patches
-cp ~/Clonewise-configs-$VERSION/patches/debian-install-bins.patch debian/patches
-cd ~/Clonewise-configs-$VERSION
+cp ~/clonewise-configs-$VERSION/patches/debian-install-bins.patch debian/patches
+cd ~/clonewise-configs-$VERSION
 dh_make -f ../$PACKAGENAME.tar.gz
 mkdir debian/patches
-cp ~/Clonewise-configs-$VERSION/patches/debian-install-configs.patch debian/patches
+cp ~/clonewise-configs-$VERSION/patches/debian-install-configs.patch debian/patches

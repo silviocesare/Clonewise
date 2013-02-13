@@ -36,13 +36,18 @@ all: Clonewise
 Clonewise: $(OBJECTS)
 	$(MPICC) $(CFLAGS) -o bin/Clonewise $(OBJECTS) $(LDFLAGS)
 
-install:
+install-bins:
+	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise
+	$(INSTALL) ./bin/* $(DESTDIR)/usr/bin
+
+install-configs:
 	$(INSTALL) -d $(DESTDIR)/var/lib/Clonewise
 	$(CP) -ru config/* $(DESTDIR)/var/lib/Clonewise
 	$(WGET) -O $(DESTDIR)/var/lib/Clonewise/bugs/cve/nvdcve-2012.xml http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2012.xml
 	$(WGET) -O $(DESTDIR)/var/lib/Clonewise/bugs/cve/nvdcve-2011.xml http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2011.xml
 	$(WGET) -O $(DESTDIR)/var/lib/Clonewise/bugs/cve/nvdcve-2010.xml http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2010.xml
-	$(INSTALL) ./bin/* $(DESTDIR)/usr/bin
+
+install: install-bins install-configs
 
 clean:
 	$(RM) -f $(OBJECTS) bin/Clonewise bin/Clonewise-BugInferrer

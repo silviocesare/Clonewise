@@ -1048,7 +1048,7 @@ void
 trainModel2()
 {
 	std::ofstream testStream;
-	char s[1024], testFilename[L_tmpnam + 128];
+	char s[1024], testFilename[L_tmpnam + 128], cmd[1024];
 
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/embedded-code-copies", distroString);
 	LoadEmbeddedCodeCopiesList(s);
@@ -1063,6 +1063,8 @@ trainModel2()
 	printArffHeader(testStream, Features2);
 	DoScoresForEmbedded2(&testStream);
 	testStream.close();
+	snprintf(cmd, sizeof(cmd), "java -cp /usr/share/java/weka.jar weka.classifiers.trees.J48 -d /var/lib/Clonewise/clones/weka/model2 -t /var/lib/Clonewise/clones/weka/training2.arff");
+	system(cmd);
 }
 
 void

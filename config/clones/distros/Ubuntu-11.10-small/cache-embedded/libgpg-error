@@ -1,0 +1,5 @@
+libgpg-error CLONED_IN_SOURCE febootstrap
+libgpg-error CLONED_IN_SOURCE gnupg2
+libgpg-error CLONED_IN_SOURCE ia32-libs
+libgpg-error CLONED_IN_SOURCE libprelude
+libgpg-error CLONED_IN_SOURCE newlib

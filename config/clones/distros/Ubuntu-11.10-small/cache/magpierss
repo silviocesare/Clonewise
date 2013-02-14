@@ -1,0 +1,14 @@
+magpierss CLONED_IN_SOURCE entagged
+		MATCH rsscache.inc/rsscache.inc (8.711663)
+		MATCH rssfetch.inc/rssfetch.inc (8.711663)
+		MATCH rssparse.inc/rssparse.inc (8.711663)
+		MATCH rssutils.inc/rssutils.inc (8.423981)
+		MATCH snoopyclass.inc/snoopyclass.inc (8.711663)
+	magpierss CLONED_IN_PACKAGE entagged
+magpierss CLONED_IN_SOURCE moodle
+		MATCH rsscache.inc/rsscache.inc (8.711663)
+		MATCH rssfetch.inc/rssfetch.inc (8.711663)
+		MATCH rssparse.inc/rssparse.inc (8.711663)
+		MATCH rssutils.inc/rssutils.inc (8.423981)
+		MATCH snoopyclass.inc/snoopyclass.inc (8.711663)
+	magpierss CLONED_IN_PACKAGE moodle

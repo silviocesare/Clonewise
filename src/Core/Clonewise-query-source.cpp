@@ -7,7 +7,7 @@
 static void
 Usage(const char *argv0)
 {
-	fprintf(stderr, "Usage: Clonewise %s [-v verbosityLevel] srcDirectory\n", argv0);
+	fprintf(stderr, "Usage: Clonewise %s [-f] [-d distro] [-v verbosityLevel] srcDirectory\n", argv0);
 	exit(1);
 }
 
@@ -24,8 +24,17 @@ Clonewise_query_source(int argc, char *argv[])
 
 	ClonewiseInit();
 
-	while ((ch = getopt(argc, argv, "v:")) != EOF) {
+	while ((ch = getopt(argc, argv, "fv:d:")) != EOF) {
 		switch (ch) {
+		case 'f':
+			flipit = true;
+			break;
+
+                case 'd':
+                        useDistroString = true;
+                        distroString = optarg;
+                        break;
+
 		case 'v':
 			verbose = atoi(optarg);
 			break;

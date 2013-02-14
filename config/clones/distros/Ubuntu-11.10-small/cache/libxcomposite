@@ -1,0 +1,3 @@
+libxcomposite CLONED_IN_SOURCE ia32-libs
+		MATCH xcomposite.c/composite.c (6.552179)
+	libxcomposite CLONED_IN_PACKAGE ia32-libs

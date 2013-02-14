@@ -1,0 +1,14 @@
+libasyncns CLONED_IN_SOURCE glib2.0
+		MATCH asyncns.c/asyncns.c (8.423981)
+	libasyncns CLONED_IN_PACKAGE libgio-fam
+	libasyncns CLONED_IN_PACKAGE libglib2.0-data
+	libasyncns CLONED_IN_PACKAGE libglib2.0-0
+	libasyncns CLONED_IN_PACKAGE libglib2.0-bin
+	libasyncns CLONED_IN_PACKAGE libglib2.0-dev
+	libasyncns CLONED_IN_PACKAGE libglib2.0-0-refdbg
+	libasyncns CLONED_IN_PACKAGE libglib2.0-doc
+	libasyncns CLONED_IN_PACKAGE libglib2.0-0-dbg
+libasyncns CLONED_IN_SOURCE ia32-libs
+		MATCH asyncns.c/asyncdns.c (8.018516)
+		MATCH asyncnstest.c/asyncnstest.c (9.117128)
+	libasyncns CLONED_IN_PACKAGE ia32-libs

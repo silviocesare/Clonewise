@@ -42,6 +42,7 @@ struct ClonewiseSignature {
 #define NFEATURES 27
 #define NFEATURES2 27
 
+extern bool flipit;
 extern bool buildAll;
 extern bool checkCacheOnly;
 extern std::map<std::string, std::string> packageAliases;

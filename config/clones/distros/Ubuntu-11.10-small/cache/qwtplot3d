@@ -1,0 +1,88 @@
+qwtplot3d CLONED_IN_SOURCE avogadro
+		MATCH glps.c/glps.c (6.977062)
+		MATCH main.c/main.c (1.999517)
+		MATCH mesh.c/mesh.c (5.802942)
+	qwtplot3d CLONED_IN_PACKAGE libavogadro1
+	qwtplot3d CLONED_IN_PACKAGE python-avogadro
+	qwtplot3d CLONED_IN_PACKAGE avogadro-data
+	qwtplot3d CLONED_IN_PACKAGE avogadro
+	qwtplot3d CLONED_IN_PACKAGE libavogadro-dev
+qwtplot3d CLONED_IN_SOURCE drawxtl
+		MATCH glps.c/glps.c (6.977062)
+	qwtplot3d CLONED_IN_PACKAGE drawxtl
+qwtplot3d CLONED_IN_SOURCE gabedit
+		MATCH glps.c/glps.c (6.977062)
+	qwtplot3d CLONED_IN_PACKAGE gabedit
+qwtplot3d CLONED_IN_SOURCE gl2ps
+		MATCH glps.c/glps.c (6.977062)
+	qwtplot3d CLONED_IN_PACKAGE libgl2ps0
+	qwtplot3d CLONED_IN_PACKAGE libgl2ps-dev
+	qwtplot3d CLONED_IN_PACKAGE libgl2ps0-dbg
+qwtplot3d CLONED_IN_SOURCE paraview
+		MATCH glps.c/glps.c (6.977062)
+		MATCH main.c/main.c (1.999517)
+	qwtplot3d CLONED_IN_PACKAGE paraview-dev
+	qwtplot3d CLONED_IN_PACKAGE paraview-doc
+	qwtplot3d CLONED_IN_PACKAGE paraview
+	qwtplot3d CLONED_IN_PACKAGE paraview-python
+qwtplot3d CLONED_IN_SOURCE qtiplot
+		MATCH glps.c/glps.c (6.977062)
+		MATCH main.c/main.c (1.999517)
+		MATCH qwtdautoscaler.c/qwtdautoscaler.c (9.117128)
+		MATCH qwtdaxis.c/qwtdaxis.c (9.117128)
+		MATCH qwtdcolor.c/qwtdcolor.c (9.117128)
+		MATCH qwtdcolorlegend.c/qwtdcolorlegend.c (9.117128)
+		MATCH qwtdcoordsys.c/qwtdcoordsys.c (9.117128)
+		MATCH qwtddataviews.c/qwtddataviews.c (9.117128)
+		MATCH qwtddrawable.c/qwtddrawable.c (9.117128)
+		MATCH qwtdenrichmentstd.c/qwtdenrichmentstd.c (9.117128)
+		MATCH qwtdfunction.c/qwtdfunction.c (9.117128)
+		MATCH qwtdgridmapping.c/qwtdgridmapping.c (9.117128)
+		MATCH qwtdgridplot.c/qwtdgridplot.c (9.117128)
+		MATCH qwtdio.c/qwtdio.c (9.117128)
+		MATCH qwtdioglps.c/qwtdioglps.c (9.117128)
+		MATCH qwtdioreader.c/qwtdioreader.c (9.117128)
+		MATCH qwtdlabel.c/qwtdlabel.c (9.117128)
+		MATCH qwtdlighting.c/qwtdlighting.c (9.117128)
+		MATCH qwtdmeshplot.c/qwtdmeshplot.c (9.117128)
+		MATCH qwtdmousekeyboard.c/qwtdmousekeyboard.c (9.117128)
+		MATCH qwtdmovements.c/qwtdmovements.c (9.117128)
+		MATCH qwtdparametricsurface.c/qwtdparametricsurface.c (9.117128)
+		MATCH qwtdplot.c/qwtdplot.c (9.117128)
+		MATCH qwtdscale.c/qwtdscale.c (9.117128)
+		MATCH qwtdsurfaceplot.c/qwtdsurfaceplot.c (9.117128)
+		MATCH qwtdtypes.c/qwtdtypes.c (9.117128)
+	qwtplot3d CLONED_IN_PACKAGE qtiplot-doc
+	qwtplot3d CLONED_IN_PACKAGE qtiplot
+qwtplot3d CLONED_IN_SOURCE rgl
+		MATCH glps.c/glps.c (6.977062)
+	qwtplot3d CLONED_IN_PACKAGE r-cran-rgl
+qwtplot3d CLONED_IN_SOURCE snd
+		MATCH glps.c/glps.c (6.977062)
+	qwtplot3d CLONED_IN_PACKAGE snd-nox-alsa
+	qwtplot3d CLONED_IN_PACKAGE snd-doc
+	qwtplot3d CLONED_IN_PACKAGE snd-gtk
+	qwtplot3d CLONED_IN_PACKAGE snd-nox
+	qwtplot3d CLONED_IN_PACKAGE snd-gtk-jack
+	qwtplot3d CLONED_IN_PACKAGE snd
+	qwtplot3d CLONED_IN_PACKAGE snd-gtk-pulse
+qwtplot3d CLONED_IN_SOURCE ugene
+		MATCH glps.c/glps.c (6.977062)
+		MATCH main.c/main.c (1.999517)
+	qwtplot3d CLONED_IN_PACKAGE ugene-data
+	qwtplot3d CLONED_IN_PACKAGE ugene
+qwtplot3d CLONED_IN_SOURCE vtk
+		MATCH glps.c/glps.c (6.977062)
+		MATCH main.c/main.c (1.999517)
+	qwtplot3d CLONED_IN_PACKAGE libvtk5.6
+	qwtplot3d CLONED_IN_PACKAGE python-vtk
+	qwtplot3d CLONED_IN_PACKAGE libvtk5-dev
+	qwtplot3d CLONED_IN_PACKAGE vtk-doc
+	qwtplot3d CLONED_IN_PACKAGE libvtk5.6-qt4
+	qwtplot3d CLONED_IN_PACKAGE libvtk5-qt4-dev
+	qwtplot3d CLONED_IN_PACKAGE libvtk-java
+	qwtplot3d CLONED_IN_PACKAGE vtk-examples
+	qwtplot3d CLONED_IN_PACKAGE tcl-vtk
+qwtplot3d CLONED_IN_SOURCE xmakemol
+		MATCH glps.c/glps.c (6.977062)
+	qwtplot3d CLONED_IN_PACKAGE xmakemol

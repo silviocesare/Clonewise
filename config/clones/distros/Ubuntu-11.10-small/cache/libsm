@@ -1,0 +1,19 @@
+libsm CLONED_IN_SOURCE ia32-libs
+		MATCH smauth.c/smauth.c (8.711663)
+		MATCH smclient.c/sclient.c (7.507690)
+		MATCH smerror.c/merror.c (7.613050)
+		MATCH smgenid.c/smgenid.c (8.711663)
+		MATCH smmanager.c/smmanager.c (8.711663)
+		MATCH smmisc.c/slmisc.c (9.117128)
+		MATCH smprocess.c/sfprocess.c (9.117128)
+	libsm CLONED_IN_PACKAGE ia32-libs
+libsm CLONED_IN_SOURCE vnc4
+		MATCH smauth.c/smauth.c (8.711663)
+		MATCH smclient.c/smclient.c (8.423981)
+		MATCH smerror.c/smerror.c (8.711663)
+		MATCH smgenid.c/smgenid.c (8.711663)
+		MATCH smmanager.c/smmanager.c (8.711663)
+		MATCH smmisc.c/smmisc.c (8.711663)
+		MATCH smprocess.c/smprocess.c (8.711663)
+	libsm CLONED_IN_PACKAGE xvnc4viewer
+	libsm CLONED_IN_PACKAGE vnc4server

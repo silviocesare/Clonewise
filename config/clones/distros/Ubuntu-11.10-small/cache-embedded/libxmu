@@ -1,0 +1,8 @@
+libxmu CLONED_IN_SOURCE alltray
+libxmu CLONED_IN_SOURCE ia32-libs
+libxmu CLONED_IN_SOURCE libxt
+libxmu CLONED_IN_SOURCE perl-tk
+libxmu CLONED_IN_SOURCE tkdesk
+libxmu CLONED_IN_SOURCE vnc4
+libxmu CLONED_IN_SOURCE wmaker
+libxmu CLONED_IN_SOURCE xwit

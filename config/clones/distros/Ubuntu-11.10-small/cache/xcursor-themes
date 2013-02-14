@@ -1,0 +1,5 @@
+xcursor-themes CLONED_IN_SOURCE ia32-libs
+	xcursor-themes CLONED_IN_PACKAGE ia32-libs
+xcursor-themes CLONED_IN_SOURCE vnc4
+	xcursor-themes CLONED_IN_PACKAGE xvnc4viewer
+	xcursor-themes CLONED_IN_PACKAGE vnc4server

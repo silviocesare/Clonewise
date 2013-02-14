@@ -1,0 +1,59 @@
+feedparser CLONED_IN_SOURCE calibre
+		MATCH feedparser.py/feedparser.py (6.814543)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH sgmllib.py/sgmllib.py (8.018516)
+	feedparser CLONED_IN_PACKAGE calibre-bin
+	feedparser CLONED_IN_PACKAGE calibre
+feedparser CLONED_IN_SOURCE exaile
+		MATCH feedparser.py/feedparser.py (6.814543)
+	feedparser CLONED_IN_PACKAGE exaile-plugin-moodbar
+	feedparser CLONED_IN_PACKAGE exaile-plugin-contextinfo
+	feedparser CLONED_IN_PACKAGE exaile-plugin-ipod
+	feedparser CLONED_IN_PACKAGE exaile
+feedparser CLONED_IN_SOURCE freevo
+		MATCH feedparser.py/feedparser.py (6.814543)
+		MATCH setup.py/setup.py (2.336070)
+	feedparser CLONED_IN_PACKAGE python-freevo
+	feedparser CLONED_IN_PACKAGE freevo-data
+	feedparser CLONED_IN_PACKAGE freevo
+	feedparser CLONED_IN_PACKAGE freevo-doc
+	feedparser CLONED_IN_PACKAGE freevo-lirc
+feedparser CLONED_IN_SOURCE pida
+		MATCH feedparser.py/feedparser.py (6.814543)
+		MATCH setup.py/setup.py (2.336070)
+	feedparser CLONED_IN_PACKAGE pida
+feedparser CLONED_IN_SOURCE planet-venus
+		MATCH feedparser.py/feedparser.py (6.814543)
+	feedparser CLONED_IN_PACKAGE planet-venus
+feedparser CLONED_IN_SOURCE python-django-djblets
+		MATCH feedparser.py/feedparser.py (6.814543)
+		MATCH setup.py/setup.py (2.336070)
+	feedparser CLONED_IN_PACKAGE python-django-djblets
+feedparser CLONED_IN_SOURCE python2.6
+		MATCH feedparser.py/feedparser.py (6.814543)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH sgmllib.py/sgmllib.py (8.018516)
+	feedparser CLONED_IN_PACKAGE libpython2.6
+	feedparser CLONED_IN_PACKAGE python2.6
+	feedparser CLONED_IN_PACKAGE python2.6-minimal
+	feedparser CLONED_IN_PACKAGE idle-python2.6
+	feedparser CLONED_IN_PACKAGE python2.6-dbg
+	feedparser CLONED_IN_PACKAGE python2.6-dev
+	feedparser CLONED_IN_PACKAGE python2.6-doc
+	feedparser CLONED_IN_PACKAGE python2.6-examples
+feedparser CLONED_IN_SOURCE python2.7
+		MATCH feedparser.py/feedparser.py (6.814543)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH sgmllib.py/sgmllib.py (8.018516)
+	feedparser CLONED_IN_PACKAGE libpython2.7
+	feedparser CLONED_IN_PACKAGE python2.7
+	feedparser CLONED_IN_PACKAGE idle-python2.7
+	feedparser CLONED_IN_PACKAGE python2.7-examples
+	feedparser CLONED_IN_PACKAGE python2.7-minimal
+	feedparser CLONED_IN_PACKAGE python2.7-dbg
+	feedparser CLONED_IN_PACKAGE python2.7-dev
+	feedparser CLONED_IN_PACKAGE python2.7-doc
+feedparser CLONED_IN_SOURCE rawdog
+		MATCH feedparser.py/feedparser.py (6.814543)
+		MATCH setup.py/setup.py (2.336070)
+	feedparser CLONED_IN_PACKAGE rawdog

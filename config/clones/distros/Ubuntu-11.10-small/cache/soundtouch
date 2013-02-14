@@ -1,0 +1,11 @@
+soundtouch CLONED_IN_SOURCE ardour
+		MATCH aafilter.c/aafilter.c (8.711663)
+		MATCH cpudetectxgcc.c/cpudetectxgcc.c (8.711663)
+		MATCH fifosamplebuffer.c/fifosamplebuffer.c (8.423981)
+		MATCH firfilter.c/firfilter.c (8.200837)
+		MATCH main.c/main.c (1.999517)
+		MATCH ratetransposer.c/ratetransposer.c (8.711663)
+		MATCH soundtouch.c/soundtouch.c (8.711663)
+		MATCH tdstretch.c/tdstretch.c (8.711663)
+	soundtouch CLONED_IN_PACKAGE ardour
+	soundtouch CLONED_IN_PACKAGE ardour-i686

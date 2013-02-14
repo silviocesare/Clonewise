@@ -1,0 +1,17 @@
+libxtst CLONED_IN_SOURCE botan1.8
+		MATCH xtest.c/xtest.c (7.102225)
+	libxtst CLONED_IN_PACKAGE libbotan-1.8.13
+	libxtst CLONED_IN_PACKAGE libbotan-1.8.2
+	libxtst CLONED_IN_PACKAGE botan1.8-dbg
+	libxtst CLONED_IN_PACKAGE libbotan1.8-dev
+libxtst CLONED_IN_SOURCE ia32-libs
+		MATCH xrecord.c/xrecord.c (8.200837)
+		MATCH xtest.c/dtest.c (7.412380)
+	libxtst CLONED_IN_PACKAGE ia32-libs
+libxtst CLONED_IN_SOURCE slashem
+		MATCH xtest.c/xtest.c (7.102225)
+	libxtst CLONED_IN_PACKAGE slashem-common
+	libxtst CLONED_IN_PACKAGE slashem-gtk
+	libxtst CLONED_IN_PACKAGE slashem-x11
+	libxtst CLONED_IN_PACKAGE slashem
+	libxtst CLONED_IN_PACKAGE slashem-sdl

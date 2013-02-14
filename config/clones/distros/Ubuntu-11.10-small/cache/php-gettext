@@ -1,0 +1,22 @@
+php-gettext CLONED_IN_SOURCE docbookwiki
+		MATCH index.php/index.php (4.656983)
+	php-gettext CLONED_IN_PACKAGE docbookwiki
+php-gettext CLONED_IN_SOURCE knowledgeroot
+		MATCH gettext.php/gettext.php (7.245326)
+		MATCH index.php/index.php (4.656983)
+		MATCH streams.php/streams.php (8.200837)
+	php-gettext CLONED_IN_PACKAGE knowledgeroot
+php-gettext CLONED_IN_SOURCE phpmyadmin
+		MATCH gettext.inc/gettext.inc (8.711663)
+		MATCH gettext.php/gettext.php (7.245326)
+		MATCH index.php/index.php (4.656983)
+		MATCH streams.php/streams.php (8.200837)
+	php-gettext CLONED_IN_PACKAGE phpmyadmin
+php-gettext CLONED_IN_SOURCE scuttle
+		MATCH gettext.inc/gettext.inc (8.711663)
+		MATCH gettext.php/gettext.php (7.245326)
+		MATCH index.php/index.php (4.656983)
+		MATCH pigsdropin.php/pigsdropin.php (9.117128)
+		MATCH pigsfallback.php/pigsfallback.php (9.117128)
+		MATCH streams.php/streams.php (8.200837)
+	php-gettext CLONED_IN_PACKAGE scuttle

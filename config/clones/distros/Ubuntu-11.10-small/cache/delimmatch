@@ -1,0 +1,15 @@
+delimmatch CLONED_IN_SOURCE cricket
+		MATCH makefile.pl/makefile.pl (1.947393)
+		MATCH test.pl/test.pl (3.981329)
+	delimmatch CLONED_IN_PACKAGE cricket
+delimmatch CLONED_IN_SOURCE r-base
+	delimmatch CLONED_IN_PACKAGE r-base-core-dbg
+	delimmatch CLONED_IN_PACKAGE r-base-dev
+	delimmatch CLONED_IN_PACKAGE r-doc-info
+	delimmatch CLONED_IN_PACKAGE r-doc-html
+	delimmatch CLONED_IN_PACKAGE r-recommended
+	delimmatch CLONED_IN_PACKAGE r-base-core
+	delimmatch CLONED_IN_PACKAGE r-mathlib
+	delimmatch CLONED_IN_PACKAGE r-base
+	delimmatch CLONED_IN_PACKAGE r-base-html
+	delimmatch CLONED_IN_PACKAGE r-doc-pdf

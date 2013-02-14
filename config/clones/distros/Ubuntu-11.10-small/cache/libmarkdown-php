@@ -1,0 +1,13 @@
+libmarkdown-php CLONED_IN_SOURCE libkohana2-php
+		MATCH markdown.php/markdown.php (8.423981)
+	libmarkdown-php CLONED_IN_PACKAGE libkohana2-modules-php
+	libmarkdown-php CLONED_IN_PACKAGE libkohana2-php
+libmarkdown-php CLONED_IN_SOURCE libvpx
+		MATCH markdown.php/markdown.php (8.423981)
+	libmarkdown-php CLONED_IN_PACKAGE libvpx-dev
+	libmarkdown-php CLONED_IN_PACKAGE libvpx-doc
+	libmarkdown-php CLONED_IN_PACKAGE libvpx0
+	libmarkdown-php CLONED_IN_PACKAGE libvpx0-dbg
+libmarkdown-php CLONED_IN_SOURCE moodle
+		MATCH markdown.php/markdown.php (8.423981)
+	libmarkdown-php CLONED_IN_PACKAGE moodle

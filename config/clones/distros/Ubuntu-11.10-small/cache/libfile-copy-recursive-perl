@@ -1,0 +1,18 @@
+libfile-copy-recursive-perl CLONED_IN_SOURCE libmojomojo-perl
+		MATCH makefile.pl/makefile.pl (1.947393)
+		MATCH recursive.pm/recursive.pm (8.200837)
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE libmojomojo-perl
+libfile-copy-recursive-perl CLONED_IN_SOURCE r-base
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-base-core-dbg
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-base-dev
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-doc-info
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-doc-html
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-recommended
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-base-core
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-mathlib
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-base
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-base-html
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE r-doc-pdf
+libfile-copy-recursive-perl CLONED_IN_SOURCE shutter
+		MATCH recursive.pm/recursive.pm (8.200837)
+	libfile-copy-recursive-perl CLONED_IN_PACKAGE shutter

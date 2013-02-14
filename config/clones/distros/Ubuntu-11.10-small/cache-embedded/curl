@@ -1,0 +1,4 @@
+curl CLONED_IN_SOURCE cmake
+curl CLONED_IN_SOURCE criticalmass
+curl CLONED_IN_SOURCE ia32-libs
+curl CLONED_IN_SOURCE likewise-open

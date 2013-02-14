@@ -77,6 +77,8 @@ Feature Features2[] = {
 
 static void CreateFeatures();
 
+unsigned int myNumPackages = 0;
+bool flipit = false;
 bool buildAll = false;
 std::map<std::string, std::vector<float> > results;
 std::map<std::string, std::string> packageAliases;
@@ -216,7 +218,8 @@ loadFeatureExceptions()
 		exit(1);
 	}
 	while (!stream.eof()) {
-		std::string str, feature;
+		std::string feature;
+		std::string str;
 
 		stream.getline(s, sizeof(s));
 		if (s[0] == 0)
@@ -1182,6 +1185,7 @@ checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterB
 			size_t n;
 			std::string pName;
 			ClonewiseSignature *package;
+			bool isEmbed;
 
 			cacheStream.getline(s, sizeof(s));
 			if (s[0] == 0)
@@ -1195,7 +1199,8 @@ checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterB
 				continue;
 
 			package = &packagesSignatures[pName];
-			if (IsEmbedded(embedding, *package)) {
+			isEmbed = IsEmbedded(embedding, *package);
+			if (isEmbed) {
 				if (packageAliases.find(pName) != packageAliases.end()) {
 					packageCloneAlias = packageAliases[pName];
 				} else {
@@ -1232,7 +1237,10 @@ checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterB
 				const ClonewiseSignature *package;
 				std::string fp;
 
-				fp = std::string(name) + std::string("/") + pIter->first;
+				if (flipit)
+					fp = pIter->first + std::string("/") + pIter->first;
+				else
+					fp = std::string(name) + std::string("/") + pIter->first;
 				if (ignoreFalsePositives.find(fp) != ignoreFalsePositives.end())
 					continue;
 
@@ -1240,7 +1248,7 @@ checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterB
 				if (strcmp(name, pIter->first.c_str()) != 0) {
 					bool wRet;
 
-					if (!useRelativePathForSignature) {
+					if (!useRelativePathForSignature && !flipit) {
 						wRet = WriteCheckForClone(fp, &testStream, embedding, *package, "?", matchesTable[pIter->first]);
 					} else {
 						wRet = WriteCheckForClone(fp, &testStream, *package, embedding, "?", matchesTable[pIter->first]);
@@ -1250,6 +1258,7 @@ checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterB
 						{
 							skip2.insert(fp);
 						}
+					} else {
 					}
 				} else {
 #pragma omp critical (skipMod)
@@ -1286,6 +1295,7 @@ checkPackage(const ClonewiseSignature &embedding, const char *name, bool filterB
 	{
 		const ClonewiseSignature *package;
 		std::string fp;
+		bool isEmbed;
 
 		fp = std::string(name) + std::string("/") + pIter->first;
 		if (ignoreFalsePositives.find(fp) != ignoreFalsePositives.end())
@@ -1501,6 +1511,8 @@ LoadEverything(bool train)
 			exit(1);
 		}
 	}
+	stream.getline(s, sizeof(s));
+	myNumPackages = atoi(s);
 	while (!stream.eof()) {
 		std::string str, fname, freqStr, normalFeature;
 		int freq;
@@ -1528,7 +1540,7 @@ LoadEverything(bool train)
 		idfIter != idf.end();
 		idfIter++)
 	{
-		idfIter->second = log(numPackages/idfIter->second);
+		idfIter->second = log(myNumPackages/idfIter->second);
 		if (idfIter->second > maxWeight) {
 			maxWeight = idfIter->second;
 		}
@@ -1589,11 +1601,11 @@ RunClonewise(int argc, char *argv[], bool filterByEmbedded)
 	}
 	if (allPackages == false) {
 		for (int i = 0; i < argc; i++) {
-			if (useRelativePathForSignature) {
-				embedding = packagesSignatures[argv[i]];
-			} else {
+			if (!useRelativePathForSignature) {
 				filename = std::string(argv[i]);
 				LoadSignature(argv[i], filename, embedding);
+			} else {
+				embedding = packagesSignatures[argv[i]];
 			}
 			checkPackage(embedding, argv[i], filterByEmbedded);
 		}
@@ -1675,6 +1687,7 @@ CreateFeatures()
 		fprintf(stderr, "Couldn't open features\n");
 		exit(1);
 	}
+	featuresFile << numPackages << "\n";
 
 	snprintf(s, sizeof(s), "/var/lib/Clonewise/clones/distros/%s/features/raw-features", distroString);
 	stream.open(s);

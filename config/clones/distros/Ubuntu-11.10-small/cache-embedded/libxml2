@@ -1,0 +1,17 @@
+libxml2 CLONED_IN_SOURCE avida
+libxml2 CLONED_IN_SOURCE boost-mpi-source1.46
+libxml2 CLONED_IN_SOURCE boost1.42
+libxml2 CLONED_IN_SOURCE boost1.46
+libxml2 CLONED_IN_SOURCE chromium-browser
+libxml2 CLONED_IN_SOURCE cone
+libxml2 CLONED_IN_SOURCE dovecot
+libxml2 CLONED_IN_SOURCE gettext
+libxml2 CLONED_IN_SOURCE ia32-libs
+libxml2 CLONED_IN_SOURCE libvirt
+libxml2 CLONED_IN_SOURCE likewise-open
+libxml2 CLONED_IN_SOURCE paraview
+libxml2 CLONED_IN_SOURCE texlive-bin
+libxml2 CLONED_IN_SOURCE virtuoso-opensource
+libxml2 CLONED_IN_SOURCE vlc
+libxml2 CLONED_IN_SOURCE vtk
+libxml2 CLONED_IN_SOURCE xbmc

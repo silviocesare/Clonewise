@@ -1,0 +1,6 @@
+libonig CLONED_IN_SOURCE alpine
+libonig CLONED_IN_SOURCE clamav
+libonig CLONED_IN_SOURCE ia32-libs
+libonig CLONED_IN_SOURCE newlib
+libonig CLONED_IN_SOURCE php5
+libonig CLONED_IN_SOURCE ruby1.9.1

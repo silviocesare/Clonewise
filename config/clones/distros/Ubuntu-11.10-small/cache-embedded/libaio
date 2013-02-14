@@ -1,0 +1,3 @@
+libaio CLONED_IN_SOURCE eglibc
+libaio CLONED_IN_SOURCE ia32-libs
+libaio CLONED_IN_SOURCE xen

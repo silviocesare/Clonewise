@@ -1,0 +1,10 @@
+zipios++ CLONED_IN_SOURCE freecad
+	zipios++ CLONED_IN_PACKAGE freecad-doc
+	zipios++ CLONED_IN_PACKAGE freecad
+	zipios++ CLONED_IN_PACKAGE freecad-dev
+zipios++ CLONED_IN_SOURCE ia32-libs
+		MATCH directory.c/directory.c (5.651392)
+		MATCH fileentry.c/fileentry.c (7.412380)
+		MATCH gzipoutputstream.c/gwinoutputstream.c (9.117128)
+		MATCH zipoutputstream.c/ppoutputstream.c (9.117128)
+	zipios++ CLONED_IN_PACKAGE ia32-libs

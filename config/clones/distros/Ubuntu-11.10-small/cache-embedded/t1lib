@@ -1,0 +1,6 @@
+t1lib CLONED_IN_SOURCE coccinelle
+t1lib CLONED_IN_SOURCE evince
+t1lib CLONED_IN_SOURCE grace
+t1lib CLONED_IN_SOURCE ia32-libs
+t1lib CLONED_IN_SOURCE texlive-bin
+t1lib CLONED_IN_SOURCE tightvnc

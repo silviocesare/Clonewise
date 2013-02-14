@@ -1,0 +1,18 @@
+libxv CLONED_IN_SOURCE ia32-libs
+		MATCH xv.c/xv.c (7.171218)
+	libxv CLONED_IN_PACKAGE ia32-libs
+libxv CLONED_IN_SOURCE openssl
+		MATCH xv.c/xv.c (7.171218)
+	libxv CLONED_IN_PACKAGE libssl-dev
+	libxv CLONED_IN_PACKAGE libssl-doc
+	libxv CLONED_IN_PACKAGE libssl1.0.0-dbg
+	libxv CLONED_IN_PACKAGE openssl
+	libxv CLONED_IN_PACKAGE libssl1.0.0
+libxv CLONED_IN_SOURCE openssl098
+		MATCH xv.c/xv.c (7.171218)
+	libxv CLONED_IN_PACKAGE libssl0.9.8-dbg
+	libxv CLONED_IN_PACKAGE libssl0.9.8
+libxv CLONED_IN_SOURCE vnc4
+		MATCH xv.c/xv.c (7.171218)
+	libxv CLONED_IN_PACKAGE xvnc4viewer
+	libxv CLONED_IN_PACKAGE vnc4server

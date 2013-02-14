@@ -1,0 +1,11 @@
+libsmf CLONED_IN_SOURCE denemo
+		MATCH smf.c/smf.c (7.864365)
+		MATCH smfdecode.c/smfdecode.c (9.117128)
+		MATCH smfload.c/smfload.c (9.117128)
+		MATCH smfsave.c/smfsave.c (9.117128)
+		MATCH smfsh.c/smfsh.c (9.117128)
+		MATCH smftempo.c/smftempo.c (9.117128)
+	libsmf CLONED_IN_PACKAGE denemo
+	libsmf CLONED_IN_PACKAGE denemo-doc
+	libsmf CLONED_IN_PACKAGE denemo-data
+	libsmf CLONED_IN_PACKAGE ttf-denemo

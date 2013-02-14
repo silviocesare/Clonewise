@@ -1,0 +1,11 @@
+bugzilla CLONED_IN_SOURCE perl
+		MATCH config.pm/config.pm (5.256398)
+		MATCH constants.pm/constant.pm (7.730834)
+	bugzilla CLONED_IN_PACKAGE libperl-dev
+	bugzilla CLONED_IN_PACKAGE perl
+	bugzilla CLONED_IN_PACKAGE perl-debug
+	bugzilla CLONED_IN_PACKAGE perl-base
+	bugzilla CLONED_IN_PACKAGE perl-modules
+	bugzilla CLONED_IN_PACKAGE libcgi-fast-perl
+	bugzilla CLONED_IN_PACKAGE libperl5.12
+	bugzilla CLONED_IN_PACKAGE perl-doc

@@ -1,0 +1,4 @@
+libpam-ldap CLONED_IN_SOURCE ia32-libs
+		MATCH md.c/md.c (3.554525)
+		MATCH pamldap.c/pamldap.c (9.117128)
+	libpam-ldap CLONED_IN_PACKAGE ia32-libs

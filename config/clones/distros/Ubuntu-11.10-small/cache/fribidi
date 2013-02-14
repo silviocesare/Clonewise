@@ -1,0 +1,17 @@
+fribidi CLONED_IN_SOURCE glib2.0
+		MATCH genmirroringtab.c/genmirroringtab.c (8.711663)
+		MATCH packtab.c/packtab.c (8.711663)
+	fribidi CLONED_IN_PACKAGE libgio-fam
+	fribidi CLONED_IN_PACKAGE libglib2.0-data
+	fribidi CLONED_IN_PACKAGE libglib2.0-0
+	fribidi CLONED_IN_PACKAGE libglib2.0-bin
+	fribidi CLONED_IN_PACKAGE libglib2.0-dev
+	fribidi CLONED_IN_PACKAGE libglib2.0-0-refdbg
+	fribidi CLONED_IN_PACKAGE libglib2.0-doc
+	fribidi CLONED_IN_PACKAGE libglib2.0-0-dbg
+fribidi CLONED_IN_SOURCE ia32-libs
+		MATCH fribidi.c/fribidi.c (8.200837)
+		MATCH genmirroringtab.c/genmirroringtab.c (8.711663)
+		MATCH getopt.c/getlopt.c (9.117128)
+		MATCH packtab.c/packtab.c (8.711663)
+	fribidi CLONED_IN_PACKAGE ia32-libs

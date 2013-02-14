@@ -1,0 +1,4 @@
+tar CLONED_IN_SOURCE dc3dd
+tar CLONED_IN_SOURCE gnulib
+tar CLONED_IN_SOURCE inetutils
+tar CLONED_IN_SOURCE libarchive

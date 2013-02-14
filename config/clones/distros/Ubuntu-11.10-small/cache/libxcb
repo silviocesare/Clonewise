@@ -1,0 +1,21 @@
+libxcb CLONED_IN_SOURCE ia32-libs
+		MATCH apiconv.pl/apiconv.pl (9.117128)
+		MATCH cclient.py/cclient.py (8.423981)
+		MATCH checkall.c/checkall.c (9.117128)
+		MATCH checkpublic.c/checkpublic.c (9.117128)
+		MATCH xcbauth.c/xcbauth.c (9.117128)
+		MATCH xcbconn.c/xcbconn.c (9.117128)
+		MATCH xcbext.c/xcbext.c (9.117128)
+		MATCH xcbin.c/xcbin.c (9.117128)
+		MATCH xcblist.c/xcblist.c (9.117128)
+		MATCH xcbout.c/xcbout.c (9.117128)
+		MATCH xcbutil.c/xcbutil.c (9.117128)
+		MATCH xcbxid.c/xcbxid.c (9.117128)
+	libxcb CLONED_IN_PACKAGE ia32-libs
+libxcb CLONED_IN_SOURCE utouch-geis
+		MATCH cclient.py/cclient.py (8.423981)
+	libxcb CLONED_IN_PACKAGE libutouch-geis1
+	libxcb CLONED_IN_PACKAGE libutouch-geis-dev
+	libxcb CLONED_IN_PACKAGE libutouch-geis-doc
+	libxcb CLONED_IN_PACKAGE python-utouch-geis
+	libxcb CLONED_IN_PACKAGE utouch-geis-tools

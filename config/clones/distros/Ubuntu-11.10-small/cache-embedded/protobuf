@@ -1,0 +1,4 @@
+protobuf CLONED_IN_SOURCE chromium-browser
+protobuf CLONED_IN_SOURCE google-mock
+protobuf CLONED_IN_SOURCE gtest
+protobuf CLONED_IN_SOURCE mixxx

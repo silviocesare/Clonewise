@@ -1,0 +1,3 @@
+libice CLONED_IN_SOURCE ia32-libs
+libice CLONED_IN_SOURCE libx11
+libice CLONED_IN_SOURCE vnc4

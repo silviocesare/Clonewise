@@ -1,0 +1,4 @@
+proj CLONED_IN_SOURCE paraview
+proj CLONED_IN_SOURCE python-pyproj
+proj CLONED_IN_SOURCE therion
+proj CLONED_IN_SOURCE vtk

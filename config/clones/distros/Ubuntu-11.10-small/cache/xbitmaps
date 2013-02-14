@@ -1,0 +1,4 @@
+xbitmaps CLONED_IN_SOURCE ia32-libs
+	xbitmaps CLONED_IN_PACKAGE ia32-libs
+xbitmaps CLONED_IN_SOURCE tendra
+	xbitmaps CLONED_IN_PACKAGE tendra

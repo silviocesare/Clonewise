@@ -1,0 +1,184 @@
+wv CLONED_IN_SOURCE a2ps
+		MATCH basename.c/basename.c (5.205105)
+		MATCH error.c/error.c (3.435250)
+		MATCH font.c/fonts.c (6.049075)
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH strcasecmp.c/strcasecmp.c (4.890294)
+		MATCH version.c/versions.c (7.613050)
+	wv CLONED_IN_PACKAGE a2ps
+wv CLONED_IN_SOURCE abiword
+	wv CLONED_IN_PACKAGE abiword
+	wv CLONED_IN_PACKAGE abiword-common
+	wv CLONED_IN_PACKAGE abiword-plugin-grammar
+	wv CLONED_IN_PACKAGE abiword-plugin-mathview
+	wv CLONED_IN_PACKAGE libabiword-2.8-dev
+	wv CLONED_IN_PACKAGE libabiword-2.8
+wv CLONED_IN_SOURCE cadaver
+		MATCH basename.c/basename.c (5.205105)
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH strcasecmp.c/strcasecmp.c (4.890294)
+		MATCH version.c/version.c (3.674710)
+	wv CLONED_IN_PACKAGE cadaver
+wv CLONED_IN_SOURCE cvs
+		MATCH basename.c/basename.c (5.205105)
+		MATCH crc.c/crc.c (4.073703)
+		MATCH error.c/error.c (3.435250)
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH md.c/md.c (3.554525)
+		MATCH strcasecmp.c/strcasecmp.c (4.890294)
+		MATCH version.c/version.c (3.674710)
+	wv CLONED_IN_PACKAGE cvs
+wv CLONED_IN_SOURCE ebnetd
+		MATCH error.c/error.c (3.435250)
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH strcasecmp.c/strcasecmp.c (4.890294)
+	wv CLONED_IN_PACKAGE ndtpd
+	wv CLONED_IN_PACKAGE ebhttpd
+	wv CLONED_IN_PACKAGE ebnetd-common
+	wv CLONED_IN_PACKAGE ebnetd
+wv CLONED_IN_SOURCE fftw3
+		MATCH generic.c/generic.c (5.784924)
+		MATCH md.c/md.c (3.554525)
+		MATCH rc.c/rc.c (5.288486)
+		MATCH rr.c/rr.c (7.325368)
+		MATCH version.c/version.c (3.674710)
+	wv CLONED_IN_PACKAGE libfftw3-3
+	wv CLONED_IN_PACKAGE libfftw3-dev
+	wv CLONED_IN_PACKAGE libfftw3-doc
+wv CLONED_IN_SOURCE gnumeric
+		MATCH font.c/font.c (4.573833)
+		MATCH md.c/md.c (3.554525)
+		MATCH rc.c/rc.c (5.288486)
+		MATCH symbol.c/symbol.c (5.288486)
+	wv CLONED_IN_PACKAGE gnumeric-plugins-extra
+	wv CLONED_IN_PACKAGE gnumeric-common
+	wv CLONED_IN_PACKAGE gnumeric
+	wv CLONED_IN_PACKAGE gnumeric-doc
+wv CLONED_IN_SOURCE gtypist
+		MATCH error.c/error.c (3.435250)
+		MATCH getopt.c/getopt.c (3.471681)
+	wv CLONED_IN_PACKAGE gtypist
+wv CLONED_IN_SOURCE ia32-libs
+		MATCH basename.c/basename.c (5.205105)
+		MATCH bx.c/bx.c (9.117128)
+		MATCH crc.c/crc.c (4.073703)
+		MATCH decrypt.c/decrypt.c (6.632221)
+		MATCH error.c/error.c (3.435250)
+		MATCH field.c/field.c (5.715930)
+		MATCH font.c/font.c (4.573833)
+		MATCH generic.c/generic.c (5.784924)
+		MATCH getopt.c/getlopt.c (9.117128)
+		MATCH list.c/clist.c (7.102225)
+		MATCH md.c/md.c (3.554525)
+		MATCH rc.c/rc.c (5.288486)
+		MATCH rr.c/rr.c (7.325368)
+		MATCH rs.c/rs.c (6.632221)
+		MATCH strcasecmp.c/cstrcasecmp.c (6.719233)
+		MATCH stylesheet.c/crstylesheet.c (8.200837)
+		MATCH support.c/support.c (4.617318)
+		MATCH symbol.c/symbol.c (5.288486)
+		MATCH table.c/dtable.c (7.864365)
+		MATCH text.c/text.c (4.376553)
+		MATCH unicode.c/unicode.c (5.415826)
+		MATCH utf.c/utf.c (4.868633)
+		MATCH version.c/cversion.c (8.200837)
+		MATCH wvconfig.c/wconfig.c (8.200837)
+	wv CLONED_IN_PACKAGE ia32-libs
+wv CLONED_IN_SOURCE lftp
+		MATCH error.c/error.c (3.435250)
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH md.c/md.c (3.554525)
+		MATCH strcasecmp.c/cstrcasecmp.c (6.719233)
+	wv CLONED_IN_PACKAGE lftp
+wv CLONED_IN_SOURCE madplay
+		MATCH crc.c/crc.c (4.073703)
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH strcasecmp.c/strcasecmp.c (4.890294)
+		MATCH version.c/version.c (3.674710)
+	wv CLONED_IN_PACKAGE madplay
+wv CLONED_IN_SOURCE mednafen
+		MATCH crc.c/crc.c (4.073703)
+		MATCH error.c/error.c (3.435250)
+		MATCH md.c/md.c (3.554525)
+		MATCH text.c/text.c (4.376553)
+		MATCH version.c/version.c (3.674710)
+	wv CLONED_IN_PACKAGE mednafen
+wv CLONED_IN_SOURCE microdc2
+		MATCH basename.c/basename.c (5.205105)
+		MATCH error.c/error.c (3.435250)
+		MATCH getopt.c/getopt.c (3.471681)
+	wv CLONED_IN_PACKAGE microdc2
+wv CLONED_IN_SOURCE openwince-jtag
+		MATCH generic.c/generic.c (5.784924)
+		MATCH table.c/cable.c (8.711663)
+		MATCH tap.c/tap.c (6.478071)
+	wv CLONED_IN_PACKAGE openwince-jtag
+wv CLONED_IN_SOURCE sitecopy
+		MATCH basename.c/basename.c (5.205105)
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH strcasecmp.c/strcasecmp.c (4.890294)
+		MATCH version.c/version.c (3.674710)
+	wv CLONED_IN_PACKAGE sitecopy
+wv CLONED_IN_SOURCE survex
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH strcasecmp.c/strcasecmp.c (4.890294)
+	wv CLONED_IN_PACKAGE survex-svxedit
+	wv CLONED_IN_PACKAGE survex-aven
+	wv CLONED_IN_PACKAGE survex
+wv CLONED_IN_SOURCE vlc
+		MATCH error.c/error.c (3.435250)
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH md.c/md.c (3.554525)
+		MATCH rc.c/rc.c (5.288486)
+		MATCH strcasecmp.c/strcasecmp.c (4.890294)
+		MATCH unicode.c/unicode.c (5.415826)
+		MATCH utf.c/utf.c (4.868633)
+		MATCH version.c/version.c (3.674710)
+	wv CLONED_IN_PACKAGE vlc-plugin-sdl
+	wv CLONED_IN_PACKAGE mozilla-plugin-vlc
+	wv CLONED_IN_PACKAGE vlc-plugin-svg
+	wv CLONED_IN_PACKAGE vlc-plugin-svgalib
+	wv CLONED_IN_PACKAGE libvlccore-dev
+	wv CLONED_IN_PACKAGE vlc-dbg
+	wv CLONED_IN_PACKAGE libvlc5
+	wv CLONED_IN_PACKAGE vlc-nox
+	wv CLONED_IN_PACKAGE vlc-plugin-notify
+	wv CLONED_IN_PACKAGE vlc
+	wv CLONED_IN_PACKAGE vlc-plugin-jack
+	wv CLONED_IN_PACKAGE vlc-plugin-fluidsynth
+	wv CLONED_IN_PACKAGE libvlc-dev
+	wv CLONED_IN_PACKAGE vlc-data
+	wv CLONED_IN_PACKAGE libvlccore4
+	wv CLONED_IN_PACKAGE vlc-plugin-ggi
+	wv CLONED_IN_PACKAGE vlc-plugin-zvbi
+	wv CLONED_IN_PACKAGE vlc-plugin-pulse
+wv CLONED_IN_SOURCE xbmc
+		MATCH basename.c/basename.c (5.205105)
+		MATCH crc.c/crc.c (4.073703)
+		MATCH error.c/error.c (3.435250)
+		MATCH field.c/field.c (5.715930)
+		MATCH font.c/gfont.c (8.200837)
+		MATCH getopt.c/getopt.c (3.471681)
+		MATCH list.c/list.c (3.844128)
+		MATCH md.c/md.c (3.554525)
+		MATCH rc.c/rc.c (5.288486)
+		MATCH rs.c/rs.c (6.632221)
+		MATCH strcasecmp.c/strcasecmp.c (4.890294)
+		MATCH support.c/support.c (4.617318)
+		MATCH symbol.c/psymbol.c (9.810275)
+		MATCH table.c/tables.c (5.344367)
+		MATCH unicode.c/unicode.c (5.415826)
+		MATCH utf.c/utf.c (4.868633)
+		MATCH version.c/version.c (3.674710)
+	wv CLONED_IN_PACKAGE xbmc-eventclients-xbmc-send
+	wv CLONED_IN_PACKAGE xbmc-eventclients-dev
+	wv CLONED_IN_PACKAGE xbmc-eventclients-ps3
+	wv CLONED_IN_PACKAGE xbmc-live
+	wv CLONED_IN_PACKAGE xbmc-bin
+	wv CLONED_IN_PACKAGE xbmc
+	wv CLONED_IN_PACKAGE xbmc-eventclients-common
+	wv CLONED_IN_PACKAGE xbmc-eventclients-wiiremote
+	wv CLONED_IN_PACKAGE xbmc-standalone
+	wv CLONED_IN_PACKAGE xbmc-skin-confluence
+	wv CLONED_IN_PACKAGE xbmc-data
+	wv CLONED_IN_PACKAGE xbmc-eventclients-j2me

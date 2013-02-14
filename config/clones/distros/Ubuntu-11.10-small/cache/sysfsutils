@@ -1,0 +1,13 @@
+sysfsutils CLONED_IN_SOURCE ia32-libs
+		MATCH dlist.c/clist.c (7.102225)
+		MATCH dlisttest.c/flisttest.c (9.117128)
+		MATCH getdevice.c/getdevices.c (9.117128)
+		MATCH getdriver.c/netdriver.c (9.117128)
+		MATCH names.c/name.c (5.878449)
+		MATCH test.c/dtest.c (7.412380)
+		MATCH testattr.c/tstattr.c (9.117128)
+		MATCH testdriver.c/testdriver.c (7.325368)
+		MATCH testmodule.c/testmodule.c (7.412380)
+		MATCH testout.c/testopt.c (8.711663)
+		MATCH testutils.c/gtestutils.c (9.117128)
+	sysfsutils CLONED_IN_PACKAGE ia32-libs

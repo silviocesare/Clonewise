@@ -1,0 +1,205 @@
+libntlm CLONED_IN_SOURCE a2ps
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE a2ps
+libntlm CLONED_IN_SOURCE bison
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE bison
+libntlm CLONED_IN_SOURCE clisp
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE clisp-module-wildcard
+	libntlm CLONED_IN_PACKAGE clisp-module-rawsock
+	libntlm CLONED_IN_PACKAGE clisp-module-pcre
+	libntlm CLONED_IN_PACKAGE clisp-module-bindings-glibc
+	libntlm CLONED_IN_PACKAGE clisp-module-dbus
+	libntlm CLONED_IN_PACKAGE clisp
+	libntlm CLONED_IN_PACKAGE clisp-module-postgresql
+	libntlm CLONED_IN_PACKAGE clisp-dev
+	libntlm CLONED_IN_PACKAGE clisp-doc
+	libntlm CLONED_IN_PACKAGE clisp-module-gdbm
+	libntlm CLONED_IN_PACKAGE clisp-module-clx
+	libntlm CLONED_IN_PACKAGE clisp-module-zlib
+	libntlm CLONED_IN_PACKAGE clisp-module-berkeley-db
+libntlm CLONED_IN_SOURCE curl
+		MATCH md.c/md.c (3.554525)
+	libntlm CLONED_IN_PACKAGE libcurl4-nss-dev
+	libntlm CLONED_IN_PACKAGE libcurl4-openssl-dev
+	libntlm CLONED_IN_PACKAGE libcurl3-dbg
+	libntlm CLONED_IN_PACKAGE libcurl3
+	libntlm CLONED_IN_PACKAGE libcurl3-nss
+	libntlm CLONED_IN_PACKAGE curl
+	libntlm CLONED_IN_PACKAGE libcurl4-gnutls-dev
+	libntlm CLONED_IN_PACKAGE libcurl3-gnutls
+libntlm CLONED_IN_SOURCE dc3dd
+		MATCH md.c/md.c (3.554525)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE dc3dd
+libntlm CLONED_IN_SOURCE dico
+		MATCH des.c/des.c (5.667140)
+		MATCH md.c/md.c (3.554525)
+	libntlm CLONED_IN_PACKAGE dico-module-guile
+	libntlm CLONED_IN_PACKAGE python-dicoclient
+	libntlm CLONED_IN_PACKAGE dico-module-python
+	libntlm CLONED_IN_PACKAGE dico
+	libntlm CLONED_IN_PACKAGE python-wit
+	libntlm CLONED_IN_PACKAGE dicod
+	libntlm CLONED_IN_PACKAGE dico-module-mediawiki
+	libntlm CLONED_IN_PACKAGE dicoweb
+	libntlm CLONED_IN_PACKAGE libdico1
+	libntlm CLONED_IN_PACKAGE dico-dev
+	libntlm CLONED_IN_PACKAGE dico-doc
+libntlm CLONED_IN_SOURCE fetchmail
+		MATCH smbencrypt.c/smbencrypt.c (7.171218)
+		MATCH smbutil.c/smbutil.c (8.423981)
+	libntlm CLONED_IN_PACKAGE fetchmailconf
+	libntlm CLONED_IN_PACKAGE fetchmail
+libntlm CLONED_IN_SOURCE gdb
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH md.c/md.c (3.554525)
+		MATCH smbutil.c/mbutil.c (7.613050)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE gdb-source
+	libntlm CLONED_IN_PACKAGE gdb
+	libntlm CLONED_IN_PACKAGE libgdb-dev
+	libntlm CLONED_IN_PACKAGE gdbserver
+	libntlm CLONED_IN_PACKAGE gdb-multiarch
+	libntlm CLONED_IN_PACKAGE gdb64
+libntlm CLONED_IN_SOURCE gnulib
+		MATCH checkversion.c/checkversion.c (8.018516)
+		MATCH des.c/des.c (5.667140)
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH md.c/md.c (3.554525)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+		MATCH testdes.c/testdes.c (8.711663)
+		MATCH testmd.c/testmd.c (7.037686)
+	libntlm CLONED_IN_PACKAGE gnulib
+libntlm CLONED_IN_SOURCE gnutls26
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH md.c/md.c (3.554525)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE guile-gnutls
+	libntlm CLONED_IN_PACKAGE libgnutls26
+	libntlm CLONED_IN_PACKAGE libgnutlsxx26
+	libntlm CLONED_IN_PACKAGE gnutls-bin
+	libntlm CLONED_IN_PACKAGE gnutls-doc
+	libntlm CLONED_IN_PACKAGE libgnutls26-dbg
+	libntlm CLONED_IN_PACKAGE libgnutls-dev
+libntlm CLONED_IN_SOURCE gsasl
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH md.c/md.c (3.554525)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE gsasl
+	libntlm CLONED_IN_PACKAGE gsasl-dbg
+	libntlm CLONED_IN_PACKAGE libgsasl7
+	libntlm CLONED_IN_PACKAGE libgsasl7-dev
+libntlm CLONED_IN_SOURCE gss
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE libgss-dbg
+	libntlm CLONED_IN_PACKAGE libgss-dev
+	libntlm CLONED_IN_PACKAGE libgss3
+	libntlm CLONED_IN_PACKAGE gss-doc
+	libntlm CLONED_IN_PACKAGE gss-man
+libntlm CLONED_IN_SOURCE ia32-libs
+		MATCH des.c/des.c (5.667140)
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH md.c/md.c (3.554525)
+		MATCH smbencrypt.c/smbencrypt.c (7.171218)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+		MATCH testmd.c/testd.c (7.864365)
+	libntlm CLONED_IN_PACKAGE ia32-libs
+libntlm CLONED_IN_SOURCE kbuild
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH md.c/md.c (3.554525)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE kbuild
+libntlm CLONED_IN_SOURCE libetpan
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH md.c/md.c (3.554525)
+	libntlm CLONED_IN_PACKAGE libetpan-dbg
+	libntlm CLONED_IN_PACKAGE libetpan-dev
+	libntlm CLONED_IN_PACKAGE libetpan-doc
+	libntlm CLONED_IN_PACKAGE libetpan15
+libntlm CLONED_IN_SOURCE libidn
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE libidn11
+	libntlm CLONED_IN_PACKAGE libidn11-java
+	libntlm CLONED_IN_PACKAGE idn
+	libntlm CLONED_IN_PACKAGE libidn11-dev
+libntlm CLONED_IN_SOURCE libtasn1-3
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE libtasn1-3
+	libntlm CLONED_IN_PACKAGE libtasn1-3-bin
+	libntlm CLONED_IN_PACKAGE libtasn1-3-dbg
+	libntlm CLONED_IN_PACKAGE libtasn1-3-dev
+libntlm CLONED_IN_SOURCE mailutils
+		MATCH des.c/des.c (5.667140)
+		MATCH md.c/md.c (3.554525)
+	libntlm CLONED_IN_PACKAGE libmailutils-dev
+	libntlm CLONED_IN_PACKAGE mailutils-imap4d
+	libntlm CLONED_IN_PACKAGE mailutils-guile
+	libntlm CLONED_IN_PACKAGE python-mailutils
+	libntlm CLONED_IN_PACKAGE libmailutils2
+	libntlm CLONED_IN_PACKAGE mailutils
+	libntlm CLONED_IN_PACKAGE mailutils-pop3d
+	libntlm CLONED_IN_PACKAGE mailutils-comsatd
+	libntlm CLONED_IN_PACKAGE mailutils-mh
+libntlm CLONED_IN_SOURCE oath-toolkit
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE oath-dbg
+	libntlm CLONED_IN_PACKAGE liboath-dev
+	libntlm CLONED_IN_PACKAGE liboath0
+	libntlm CLONED_IN_PACKAGE libpam-oath
+	libntlm CLONED_IN_PACKAGE oathtool
+libntlm CLONED_IN_SOURCE openscap
+		MATCH dummy.c/dummy.c (4.760419)
+		MATCH md.c/md.c (3.554525)
+	libntlm CLONED_IN_PACKAGE libopenscap-dev
+	libntlm CLONED_IN_PACKAGE libopenscap0-dbg
+	libntlm CLONED_IN_PACKAGE python-openscap
+	libntlm CLONED_IN_PACKAGE libopenscap-perl
+	libntlm CLONED_IN_PACKAGE libopenscap0
+libntlm CLONED_IN_SOURCE shishi
+		MATCH des.c/des.c (5.667140)
+		MATCH md.c/md.c (3.554525)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE libpam-shishi
+	libntlm CLONED_IN_PACKAGE shisa
+	libntlm CLONED_IN_PACKAGE libshisa0
+	libntlm CLONED_IN_PACKAGE shishi
+	libntlm CLONED_IN_PACKAGE libshishi0
+	libntlm CLONED_IN_PACKAGE shishi-dbg
+	libntlm CLONED_IN_PACKAGE shishi-doc
+	libntlm CLONED_IN_PACKAGE shishi-kdc
+	libntlm CLONED_IN_PACKAGE libshisa-dev
+	libntlm CLONED_IN_PACKAGE shishi-common
+	libntlm CLONED_IN_PACKAGE libshishi-dev
+libntlm CLONED_IN_SOURCE strongswan
+		MATCH des.c/des.c (5.667140)
+		MATCH dummy.c/dumm.c (9.810275)
+		MATCH md.c/md.c (3.554525)
+		MATCH testmd.c/testid.c (8.711663)
+	libntlm CLONED_IN_PACKAGE strongswan-ikev1
+	libntlm CLONED_IN_PACKAGE strongswan-ikev2
+	libntlm CLONED_IN_PACKAGE strongswan-dbg
+	libntlm CLONED_IN_PACKAGE strongswan-starter
+	libntlm CLONED_IN_PACKAGE strongswan
+	libntlm CLONED_IN_PACKAGE libstrongswan
+	libntlm CLONED_IN_PACKAGE strongswan-nm
+libntlm CLONED_IN_SOURCE xbmc
+		MATCH des.c/des.c (5.667140)
+		MATCH md.c/md.c (3.554525)
+		MATCH strverscmp.c/strverscmp.c (6.478071)
+	libntlm CLONED_IN_PACKAGE xbmc-eventclients-xbmc-send
+	libntlm CLONED_IN_PACKAGE xbmc-eventclients-dev
+	libntlm CLONED_IN_PACKAGE xbmc-eventclients-ps3
+	libntlm CLONED_IN_PACKAGE xbmc-live
+	libntlm CLONED_IN_PACKAGE xbmc-bin
+	libntlm CLONED_IN_PACKAGE xbmc
+	libntlm CLONED_IN_PACKAGE xbmc-eventclients-common
+	libntlm CLONED_IN_PACKAGE xbmc-eventclients-wiiremote
+	libntlm CLONED_IN_PACKAGE xbmc-standalone
+	libntlm CLONED_IN_PACKAGE xbmc-skin-confluence
+	libntlm CLONED_IN_PACKAGE xbmc-data
+	libntlm CLONED_IN_PACKAGE xbmc-eventclients-j2me

@@ -1,0 +1,14 @@
+simplegeneric CLONED_IN_SOURCE apertium-tolk
+		MATCH init.py/init.py (2.310852)
+		MATCH simplegeneric.py/simplegeneric.py (8.423981)
+	simplegeneric CLONED_IN_PACKAGE apertium-tolk
+simplegeneric CLONED_IN_SOURCE ipython
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH simplegeneric.py/simplegeneric.py (8.423981)
+	simplegeneric CLONED_IN_PACKAGE ipython
+simplegeneric CLONED_IN_SOURCE virtaal
+		MATCH init.py/init.py (2.310852)
+		MATCH setup.py/setup.py (2.336070)
+		MATCH simplegeneric.py/simplegeneric.py (8.423981)
+	simplegeneric CLONED_IN_PACKAGE virtaal

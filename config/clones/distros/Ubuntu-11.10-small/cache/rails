@@ -1,0 +1,7 @@
+rails CLONED_IN_SOURCE libgettext-ruby
+	rails CLONED_IN_PACKAGE libgettext-ruby1.9.1
+	rails CLONED_IN_PACKAGE libgettext-ruby1.8
+	rails CLONED_IN_PACKAGE libgettext-ruby-util
+rails CLONED_IN_SOURCE libopenid-ruby
+	rails CLONED_IN_PACKAGE libopenid-ruby
+	rails CLONED_IN_PACKAGE libopenid-ruby1.8

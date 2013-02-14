@@ -1,0 +1,52 @@
+libx86 CLONED_IN_SOURCE hwinfo
+		MATCH debug.c/debug.c (3.668238)
+		MATCH decode.c/decode.c (5.310465)
+		MATCH fpu.c/fpu.c (6.919903)
+		MATCH ops.c/ops.c (6.591399)
+		MATCH primops.c/primops.c (7.864365)
+		MATCH sys.c/sys.c (5.898252)
+		MATCH validate.c/validate.c (6.172689)
+	libx86 CLONED_IN_PACKAGE hwinfo
+	libx86 CLONED_IN_PACKAGE libhd16
+	libx86 CLONED_IN_PACKAGE libhd-dev
+	libx86 CLONED_IN_PACKAGE libhd-doc
+libx86 CLONED_IN_SOURCE maude
+		MATCH ops.c/ops.c (6.591399)
+	libx86 CLONED_IN_PACKAGE maude
+libx86 CLONED_IN_SOURCE svgalib
+		MATCH lrmi.c/lrmi.c (7.864365)
+	libx86 CLONED_IN_PACKAGE libsvga1
+	libx86 CLONED_IN_PACKAGE libsvga1-dev
+	libx86 CLONED_IN_PACKAGE svgalib-bin
+libx86 CLONED_IN_SOURCE traverso
+		MATCH fpu.c/fpu.c (6.919903)
+	libx86 CLONED_IN_PACKAGE traverso
+libx86 CLONED_IN_SOURCE vnc4
+		MATCH debug.c/debug.c (3.668238)
+		MATCH decode.c/decode.c (5.310465)
+		MATCH fpu.c/fpu.c (6.919903)
+		MATCH ops.c/ops.c (6.591399)
+		MATCH primops.c/primops.c (7.864365)
+		MATCH sys.c/sys.c (5.898252)
+		MATCH validate.c/validate.c (6.172689)
+		MATCH xcommon.c/common.c (3.870104)
+	libx86 CLONED_IN_PACKAGE xvnc4viewer
+	libx86 CLONED_IN_PACKAGE vnc4server
+libx86 CLONED_IN_SOURCE xorg-server
+		MATCH debug.c/debug.c (3.668238)
+		MATCH decode.c/decode.c (5.310465)
+		MATCH fpu.c/fpu.c (6.919903)
+		MATCH ops.c/ops.c (6.591399)
+		MATCH primops.c/primops.c (7.864365)
+		MATCH sys.c/sys.c (5.898252)
+		MATCH validate.c/validate.c (6.172689)
+	libx86 CLONED_IN_PACKAGE xserver-xfbdev
+	libx86 CLONED_IN_PACKAGE xdmx-tools
+	libx86 CLONED_IN_PACKAGE xserver-xorg-core
+	libx86 CLONED_IN_PACKAGE xserver-common
+	libx86 CLONED_IN_PACKAGE xserver-xorg-dev
+	libx86 CLONED_IN_PACKAGE xdmx
+	libx86 CLONED_IN_PACKAGE xserver-xephyr
+	libx86 CLONED_IN_PACKAGE xserver-xorg-core-dbg
+	libx86 CLONED_IN_PACKAGE xvfb
+	libx86 CLONED_IN_PACKAGE xnest

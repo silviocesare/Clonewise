@@ -1,0 +1,4 @@
+xcb-util CLONED_IN_SOURCE ia32-libs
+		MATCH atoms.c/atom.c (6.049075)
+		MATCH event.c/event.c (4.296846)
+	xcb-util CLONED_IN_PACKAGE ia32-libs

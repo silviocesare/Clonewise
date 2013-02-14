@@ -1,0 +1,5 @@
+cimg CLONED_IN_SOURCE gmic
+		MATCH gmic.c/gmic.c (9.117128)
+		MATCH gmicgimp.c/gmicgimp.c (9.117128)
+	cimg CLONED_IN_PACKAGE gimp-gmic
+	cimg CLONED_IN_PACKAGE gmic

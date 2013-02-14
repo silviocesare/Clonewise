@@ -1,0 +1,5 @@
+keyutils CLONED_IN_SOURCE ia32-libs
+		MATCH keyctl.c/keyctl.c (8.200837)
+		MATCH keyutils.c/keyutils.c (9.117128)
+		MATCH requestkey.c/requestkey.c (8.711663)
+	keyutils CLONED_IN_PACKAGE ia32-libs

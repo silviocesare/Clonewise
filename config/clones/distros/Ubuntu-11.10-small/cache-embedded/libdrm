@@ -1,0 +1,13 @@
+libdrm CLONED_IN_SOURCE babel
+libdrm CLONED_IN_SOURCE ia32-libs
+libdrm CLONED_IN_SOURCE intel-gpu-tools
+libdrm CLONED_IN_SOURCE libva
+libdrm CLONED_IN_SOURCE linux
+libdrm CLONED_IN_SOURCE mesa
+libdrm CLONED_IN_SOURCE mesa-glw
+libdrm CLONED_IN_SOURCE newlib
+libdrm CLONED_IN_SOURCE openmpi
+libdrm CLONED_IN_SOURCE scilab
+libdrm CLONED_IN_SOURCE texlive-bin
+libdrm CLONED_IN_SOURCE vnc4
+libdrm CLONED_IN_SOURCE xbmc

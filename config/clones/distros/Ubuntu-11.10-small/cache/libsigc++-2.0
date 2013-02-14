@@ -1,0 +1,75 @@
+libsigc++-2.0 CLONED_IN_SOURCE ardour
+		MATCH connection.c/connection.c (4.747680)
+		MATCH lambda.c/lambda.c (7.613050)
+		MATCH signal.c/signal.c (4.735101)
+		MATCH signalbase.c/signalbase.c (7.864365)
+		MATCH slot.c/slot.c (6.674781)
+		MATCH slotbase.c/slotbase.c (8.711663)
+		MATCH trackable.c/trackable.c (7.730834)
+	libsigc++-2.0 CLONED_IN_PACKAGE ardour
+	libsigc++-2.0 CLONED_IN_PACKAGE ardour-i686
+libsigc++-2.0 CLONED_IN_SOURCE glom
+		MATCH docinstall.pl/docinstall.pl (7.412380)
+		MATCH docpostprocess.pl/docpostprocess.pl (7.412380)
+		MATCH testsignal.c/testsignals.c (9.117128)
+	libsigc++-2.0 CLONED_IN_PACKAGE glom-doc
+	libsigc++-2.0 CLONED_IN_PACKAGE libglom-1.18-dev
+	libsigc++-2.0 CLONED_IN_PACKAGE glom
+	libsigc++-2.0 CLONED_IN_PACKAGE libglom-1.18-0
+libsigc++-2.0 CLONED_IN_SOURCE gtkmm2.4
+		MATCH blank.c/blank.c (6.814543)
+		MATCH docinstall.pl/docinstall.pl (7.412380)
+		MATCH docpostprocess.pl/docpostprocess.pl (7.412380)
+	libsigc++-2.0 CLONED_IN_PACKAGE libgtkmm-2.4-1c2a
+	libsigc++-2.0 CLONED_IN_PACKAGE libgtkmm-2.4-dbg
+	libsigc++-2.0 CLONED_IN_PACKAGE libgtkmm-2.4-dev
+	libsigc++-2.0 CLONED_IN_PACKAGE libgtkmm-2.4-doc
+libsigc++-2.0 CLONED_IN_SOURCE gtkmm3.0
+		MATCH blank.c/blank.c (6.814543)
+		MATCH docinstall.pl/docinstall.pl (7.412380)
+		MATCH docpostprocess.pl/docpostprocess.pl (7.412380)
+	libsigc++-2.0 CLONED_IN_PACKAGE libgtkmm-3.0-dbg
+	libsigc++-2.0 CLONED_IN_PACKAGE libgtkmm-3.0-dev
+	libsigc++-2.0 CLONED_IN_PACKAGE libgtkmm-3.0-1
+	libsigc++-2.0 CLONED_IN_PACKAGE libgtkmm-3.0-doc
+libsigc++-2.0 CLONED_IN_SOURCE ia32-libs
+		MATCH blank.c/blank.c (6.814543)
+		MATCH connection.c/connection.c (4.747680)
+		MATCH helloworld.c/helloworld.c (5.981634)
+		MATCH signal.c/gsignal.c (8.711663)
+		MATCH testsignal.c/testsignal.c (7.325368)
+	libsigc++-2.0 CLONED_IN_PACKAGE ia32-libs
+libsigc++-2.0 CLONED_IN_SOURCE icinga
+		MATCH helloworld.c/helloworld.c (5.981634)
+	libsigc++-2.0 CLONED_IN_PACKAGE icinga-phpapi
+	libsigc++-2.0 CLONED_IN_PACKAGE icinga-idoutils
+	libsigc++-2.0 CLONED_IN_PACKAGE icinga-dbg
+	libsigc++-2.0 CLONED_IN_PACKAGE icinga-cgi
+	libsigc++-2.0 CLONED_IN_PACKAGE icinga-doc
+	libsigc++-2.0 CLONED_IN_PACKAGE icinga-core
+	libsigc++-2.0 CLONED_IN_PACKAGE icinga-common
+	libsigc++-2.0 CLONED_IN_PACKAGE icinga
+libsigc++-2.0 CLONED_IN_SOURCE libglademm2.4
+		MATCH blank.c/blank.c (6.814543)
+	libsigc++-2.0 CLONED_IN_PACKAGE libglademm-2.4-1c2a
+	libsigc++-2.0 CLONED_IN_PACKAGE libglademm-2.4-dbg
+	libsigc++-2.0 CLONED_IN_PACKAGE libglademm-2.4-dev
+	libsigc++-2.0 CLONED_IN_PACKAGE libglademm-2.4-doc
+libsigc++-2.0 CLONED_IN_SOURCE stardict
+		MATCH connection.c/connection.c (4.747680)
+		MATCH lambda.c/lambda.c (7.613050)
+		MATCH signal.c/signal.c (4.735101)
+		MATCH signalbase.c/signalbase.c (7.864365)
+		MATCH slot.c/slot.c (6.674781)
+		MATCH slotbase.c/slotbase.c (8.711663)
+		MATCH trackable.c/trackable.c (7.730834)
+	libsigc++-2.0 CLONED_IN_PACKAGE stardict-gnome
+	libsigc++-2.0 CLONED_IN_PACKAGE stardict-gtk
+	libsigc++-2.0 CLONED_IN_PACKAGE stardict
+	libsigc++-2.0 CLONED_IN_PACKAGE stardic
+	libsigc++-2.0 CLONED_IN_PACKAGE stardict-plugin
+	libsigc++-2.0 CLONED_IN_PACKAGE stardict-plugin-espeak
+	libsigc++-2.0 CLONED_IN_PACKAGE stardict-common
+	libsigc++-2.0 CLONED_IN_PACKAGE stardict-plugin-festival
+	libsigc++-2.0 CLONED_IN_PACKAGE stardict-plugin-gucharmap
+	libsigc++-2.0 CLONED_IN_PACKAGE stardict-plugin-spell

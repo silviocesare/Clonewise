@@ -1,0 +1,3 @@
+libxi CLONED_IN_SOURCE ia32-libs
+libxi CLONED_IN_SOURCE vnc4
+libxi CLONED_IN_SOURCE xorg-server

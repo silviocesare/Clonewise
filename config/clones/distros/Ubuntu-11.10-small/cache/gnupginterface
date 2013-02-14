@@ -1,0 +1,40 @@
+gnupginterface CLONED_IN_SOURCE dpm
+		MATCH unittests.py/unittests.py (7.037686)
+	gnupginterface CLONED_IN_PACKAGE dpm-mysql-srmv22
+	gnupginterface CLONED_IN_PACKAGE dpm-mysql-nameserver
+	gnupginterface CLONED_IN_PACKAGE python-dpm
+	gnupginterface CLONED_IN_PACKAGE dpm-mysql
+	gnupginterface CLONED_IN_PACKAGE dpm-client
+	gnupginterface CLONED_IN_PACKAGE libdpm1
+	gnupginterface CLONED_IN_PACKAGE libdpm-dev
+	gnupginterface CLONED_IN_PACKAGE libdpm-perl
+	gnupginterface CLONED_IN_PACKAGE dpm-rfiod
+	gnupginterface CLONED_IN_PACKAGE dpm-mysql-srmv1
+	gnupginterface CLONED_IN_PACKAGE dpm-mysql-srmv2
+	gnupginterface CLONED_IN_PACKAGE dpm-mysql-copyd
+gnupginterface CLONED_IN_SOURCE dpm-postgres
+		MATCH unittests.py/unittests.py (7.037686)
+	gnupginterface CLONED_IN_PACKAGE dpm-postgres-copyd
+	gnupginterface CLONED_IN_PACKAGE dpm-postgres-srmv22
+	gnupginterface CLONED_IN_PACKAGE dpm-postgres
+	gnupginterface CLONED_IN_PACKAGE dpm-postgres-srmv1
+	gnupginterface CLONED_IN_PACKAGE dpm-postgres-srmv2
+	gnupginterface CLONED_IN_PACKAGE dpm-postgres-nameserver
+gnupginterface CLONED_IN_SOURCE duplicity
+		MATCH gnupginterface.py/gnupginterface.py (8.711663)
+		MATCH setup.py/setup.py (2.336070)
+	gnupginterface CLONED_IN_PACKAGE duplicity
+gnupginterface CLONED_IN_SOURCE lfc
+		MATCH unittests.py/unittests.py (7.037686)
+	gnupginterface CLONED_IN_PACKAGE lfc-mysql
+	gnupginterface CLONED_IN_PACKAGE liblcgdm1
+	gnupginterface CLONED_IN_PACKAGE liblcgdm-dev
+	gnupginterface CLONED_IN_PACKAGE liblfc-perl
+	gnupginterface CLONED_IN_PACKAGE liblfc-dev
+	gnupginterface CLONED_IN_PACKAGE python-lfc
+	gnupginterface CLONED_IN_PACKAGE lfc-client
+	gnupginterface CLONED_IN_PACKAGE liblfc1
+	gnupginterface CLONED_IN_PACKAGE lfc-dli
+gnupginterface CLONED_IN_SOURCE lfc-postgres
+		MATCH unittests.py/unittests.py (7.037686)
+	gnupginterface CLONED_IN_PACKAGE lfc-postgres

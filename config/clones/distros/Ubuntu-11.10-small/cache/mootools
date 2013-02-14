@@ -1,0 +1,19 @@
+mootools CLONED_IN_SOURCE gallery
+	mootools CLONED_IN_PACKAGE gallery
+mootools CLONED_IN_SOURCE kdenetwork
+		MATCH mootoolscorenc.js/mootoolscoreyc.js (8.423981)
+	mootools CLONED_IN_PACKAGE krdc
+	mootools CLONED_IN_PACKAGE krfb
+	mootools CLONED_IN_PACKAGE kde-zeroconf
+	mootools CLONED_IN_PACKAGE kppp
+	mootools CLONED_IN_PACKAGE libkopete-dev
+	mootools CLONED_IN_PACKAGE kdenetwork
+	mootools CLONED_IN_PACKAGE libkopete4
+	mootools CLONED_IN_PACKAGE kopete
+	mootools CLONED_IN_PACKAGE kget
+	mootools CLONED_IN_PACKAGE kdenetwork-filesharing
+	mootools CLONED_IN_PACKAGE kdenetwork-dbg
+mootools CLONED_IN_SOURCE perl-doc-html
+		MATCH mootoolscorenc.js/mootoolscore.js (9.810275)
+		MATCH mootoolsmorenc.js/mootoolsmore.js (8.200837)
+	mootools CLONED_IN_PACKAGE perl-doc-html

@@ -1,0 +1,32 @@
+lzo2 CLONED_IN_SOURCE ia32-libs
+		MATCH align.c/align.c (6.376288)
+		MATCH dict.c/dict.c (5.310465)
+		MATCH lzo.c/lzo.c (7.037686)
+		MATCH lzoad.c/load.c (5.225307)
+		MATCH overlap.c/overlay.c (6.072606)
+		MATCH precomp.c/precomp.c (7.507690)
+		MATCH simple.c/sample.c (5.195155)
+		MATCH table.pl/tables.pl (8.200837)
+	lzo2 CLONED_IN_PACKAGE ia32-libs
+lzo2 CLONED_IN_SOURCE italc
+		MATCH minilzo.c/minilzo.c (6.814543)
+	lzo2 CLONED_IN_PACKAGE libitalc
+	lzo2 CLONED_IN_PACKAGE italc-client
+	lzo2 CLONED_IN_PACKAGE italc-master
+lzo2 CLONED_IN_SOURCE openmsx
+		MATCH lzo.c/lzo.c (7.037686)
+	lzo2 CLONED_IN_PACKAGE openmsx-data
+	lzo2 CLONED_IN_PACKAGE openmsx
+lzo2 CLONED_IN_SOURCE syslinux
+		MATCH lzoad.c/lzoxd.c (8.711663)
+		MATCH lzoax.c/lzox.c (8.711663)
+		MATCH lzobxx.c/lzoxx.c (8.711663)
+		MATCH lzoccc.c/lzocrc.c (9.117128)
+		MATCH lzoinit.c/lzoinit.c (9.117128)
+		MATCH lzoptr.c/lzoptr.c (9.117128)
+		MATCH lzoutil.c/lzoutil.c (9.117128)
+		MATCH lzoyo.c/lzoxo.c (8.711663)
+		MATCH simple.c/simple.c (4.942740)
+	lzo2 CLONED_IN_PACKAGE syslinux
+	lzo2 CLONED_IN_PACKAGE extlinux
+	lzo2 CLONED_IN_PACKAGE syslinux-common

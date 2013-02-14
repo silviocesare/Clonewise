@@ -1,0 +1,15 @@
+libxcursor CLONED_IN_SOURCE ia32-libs
+		MATCH cursor.c/cursor.c (5.065343)
+		MATCH display.c/display.c (4.439637)
+		MATCH file.c/bfile.c (7.864365)
+		MATCH rary.c/rary.c (6.199357)
+		MATCH xlib.c/xlib.c (7.245326)
+	libxcursor CLONED_IN_PACKAGE ia32-libs
+libxcursor CLONED_IN_SOURCE vnc4
+		MATCH cursor.c/cursor.c (5.065343)
+		MATCH display.c/display.c (4.439637)
+		MATCH file.c/file.c (3.746490)
+		MATCH rary.c/rary.c (6.199357)
+		MATCH xlib.c/xlib.c (7.245326)
+	libxcursor CLONED_IN_PACKAGE xvnc4viewer
+	libxcursor CLONED_IN_PACKAGE vnc4server

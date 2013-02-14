@@ -1,0 +1,339 @@
+tinyxml CLONED_IN_SOURCE antigrav
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE antigravitaattori
+tinyxml CLONED_IN_SOURCE aqsis
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE aqsis-examples
+	tinyxml CLONED_IN_PACKAGE aqsis
+	tinyxml CLONED_IN_PACKAGE libaqsis1
+	tinyxml CLONED_IN_PACKAGE libaqsis-dev
+	tinyxml CLONED_IN_PACKAGE aqsis-data
+tinyxml CLONED_IN_SOURCE balder2d
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE balder2d
+	tinyxml CLONED_IN_PACKAGE balder2d-data
+tinyxml CLONED_IN_SOURCE biosig4c++
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE libbiosig0
+	tinyxml CLONED_IN_PACKAGE libbiosig0-dbg
+	tinyxml CLONED_IN_PACKAGE python-biosig
+	tinyxml CLONED_IN_PACKAGE octave-biosig
+	tinyxml CLONED_IN_PACKAGE libbiosig-dev
+	tinyxml CLONED_IN_PACKAGE biosig-tools
+tinyxml CLONED_IN_SOURCE blobby
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE blobby-data
+	tinyxml CLONED_IN_PACKAGE blobby
+	tinyxml CLONED_IN_PACKAGE blobby-server
+tinyxml CLONED_IN_SOURCE boost-mpi-source1.46
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+	tinyxml CLONED_IN_PACKAGE libboost-graph-parallel1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-graph-parallel1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-mpi1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-mpi-python1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-mpi1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost1.46-all-dev
+	tinyxml CLONED_IN_PACKAGE libboost-mpi-python1.46-dev
+tinyxml CLONED_IN_SOURCE boost1.46
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+	tinyxml CLONED_IN_PACKAGE libboost-thread1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-filesystem1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-regex1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-program-options1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-random1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-graph1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-system1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-python1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-signals1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-program-options1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-date-time1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-test1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-iostreams1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-wave1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-graph1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-date-time1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost1.46-dbg
+	tinyxml CLONED_IN_PACKAGE libboost1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost1.46-doc
+	tinyxml CLONED_IN_PACKAGE libboost-iostreams1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-thread1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-math1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-python1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-signals1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-system1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-serialization1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-serialization1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-wave1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-math1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-regex1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-random1.46.1
+	tinyxml CLONED_IN_PACKAGE libboost-filesystem1.46-dev
+	tinyxml CLONED_IN_PACKAGE libboost-test1.46-dev
+tinyxml CLONED_IN_SOURCE bulletml
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+		MATCH xmltest.c/xmltest.c (7.245326)
+	tinyxml CLONED_IN_PACKAGE libbulletml-dev
+	tinyxml CLONED_IN_PACKAGE libbulletml0d2
+tinyxml CLONED_IN_SOURCE cal3d
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE libcal3d12
+	tinyxml CLONED_IN_PACKAGE libcal3d12-dev
+	tinyxml CLONED_IN_PACKAGE libcal3d-doc
+tinyxml CLONED_IN_SOURCE codeblocks
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE codeblocks-contrib-dbg
+	tinyxml CLONED_IN_PACKAGE codeblocks
+	tinyxml CLONED_IN_PACKAGE libwxsmithlib-dev
+	tinyxml CLONED_IN_PACKAGE libwxsmithlib0-dev
+	tinyxml CLONED_IN_PACKAGE codeblocks-dbg
+	tinyxml CLONED_IN_PACKAGE codeblocks-common
+	tinyxml CLONED_IN_PACKAGE codeblocks-dev
+	tinyxml CLONED_IN_PACKAGE codeblocks-contrib
+	tinyxml CLONED_IN_PACKAGE libcodeblocks0
+	tinyxml CLONED_IN_PACKAGE libwxsmithlib0
+tinyxml CLONED_IN_SOURCE cppcheck
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE cppcheck
+tinyxml CLONED_IN_SOURCE criticalmass
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+		MATCH xmltest.c/xmltest.c (7.245326)
+	tinyxml CLONED_IN_PACKAGE criticalmass-data
+	tinyxml CLONED_IN_PACKAGE criticalmass
+tinyxml CLONED_IN_SOURCE crystalspace
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+	tinyxml CLONED_IN_PACKAGE libcrystalspace-dbg
+	tinyxml CLONED_IN_PACKAGE libcrystalspace-dev
+	tinyxml CLONED_IN_PACKAGE crystalspace-data
+	tinyxml CLONED_IN_PACKAGE libcrystalspace-1.4
+	tinyxml CLONED_IN_PACKAGE crystalspace
+	tinyxml CLONED_IN_PACKAGE crystalspace-doc
+tinyxml CLONED_IN_SOURCE epiphany
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE epiphany
+	tinyxml CLONED_IN_PACKAGE epiphany-data
+tinyxml CLONED_IN_SOURCE filezilla
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE filezilla
+	tinyxml CLONED_IN_PACKAGE filezilla-common
+tinyxml CLONED_IN_SOURCE gambit
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE gambit
+tinyxml CLONED_IN_SOURCE geos
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE libgeos-dbg
+	tinyxml CLONED_IN_PACKAGE libgeos-dev
+	tinyxml CLONED_IN_PACKAGE libgeos-doc
+	tinyxml CLONED_IN_PACKAGE libgeos-c1
+	tinyxml CLONED_IN_PACKAGE libgeos-3.2.2
+	tinyxml CLONED_IN_PACKAGE libgeos-ruby1.8
+tinyxml CLONED_IN_SOURCE gource
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE gource
+tinyxml CLONED_IN_SOURCE libwfut
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE libwfut-0.2-dev
+	tinyxml CLONED_IN_PACKAGE libwfut-0.2-1-dbg
+	tinyxml CLONED_IN_PACKAGE wfut
+	tinyxml CLONED_IN_PACKAGE libwfut-0.2-1
+tinyxml CLONED_IN_SOURCE mapnik
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE libmapnik-dev
+	tinyxml CLONED_IN_PACKAGE python-mapnik
+	tinyxml CLONED_IN_PACKAGE mapnik-utils
+	tinyxml CLONED_IN_PACKAGE libmapnik0.7
+	tinyxml CLONED_IN_PACKAGE mapnik-doc
+tinyxml CLONED_IN_SOURCE noiz2sa
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+		MATCH xmltest.c/xmltest.c (7.245326)
+	tinyxml CLONED_IN_PACKAGE noiz2sa
+	tinyxml CLONED_IN_PACKAGE noiz2sa-data
+tinyxml CLONED_IN_SOURCE nux
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE libnux-1.0-common
+	tinyxml CLONED_IN_PACKAGE nux-tools
+	tinyxml CLONED_IN_PACKAGE libnux-1.0-dev
+	tinyxml CLONED_IN_PACKAGE libnux-1.0-doc
+	tinyxml CLONED_IN_PACKAGE libnux-1.0-0
+tinyxml CLONED_IN_SOURCE ogre
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE libogre-1.7.3
+	tinyxml CLONED_IN_PACKAGE ogre-tools
+	tinyxml CLONED_IN_PACKAGE blender-ogrexml
+	tinyxml CLONED_IN_PACKAGE ogre-doc
+	tinyxml CLONED_IN_PACKAGE libogre-dev
+	tinyxml CLONED_IN_PACKAGE libogre-1.7.3-dbg
+tinyxml CLONED_IN_SOURCE opencity
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE opencity
+	tinyxml CLONED_IN_PACKAGE opencity-data
+tinyxml CLONED_IN_SOURCE passwordmaker-cli
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE passwordmaker-cli
+tinyxml CLONED_IN_SOURCE pokerth
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE pokerth
+	tinyxml CLONED_IN_PACKAGE pokerth-server
+	tinyxml CLONED_IN_PACKAGE pokerth-data
+tinyxml CLONED_IN_SOURCE qutecom
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+		MATCH xmltest.c/xmltest.c (7.245326)
+	tinyxml CLONED_IN_PACKAGE qutecom-data
+	tinyxml CLONED_IN_PACKAGE qutecom-dbg
+	tinyxml CLONED_IN_PACKAGE qutecom
+tinyxml CLONED_IN_SOURCE rarian
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE librarian-dev
+	tinyxml CLONED_IN_PACKAGE librarian0
+	tinyxml CLONED_IN_PACKAGE rarian-compat
+	tinyxml CLONED_IN_PACKAGE scrollkeeper
+tinyxml CLONED_IN_SOURCE rrootage
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+		MATCH xmltest.c/xmltest.c (7.245326)
+	tinyxml CLONED_IN_PACKAGE rrootage-data
+	tinyxml CLONED_IN_PACKAGE rrootage
+tinyxml CLONED_IN_SOURCE sofa-framework
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+		MATCH xmltest.c/xmltest.c (7.245326)
+	tinyxml CLONED_IN_PACKAGE sofa-doc
+	tinyxml CLONED_IN_PACKAGE libsofa1-dev
+	tinyxml CLONED_IN_PACKAGE sofa-tutorials
+	tinyxml CLONED_IN_PACKAGE sofa-apps
+	tinyxml CLONED_IN_PACKAGE sofa-data
+	tinyxml CLONED_IN_PACKAGE libsofa1
+tinyxml CLONED_IN_SOURCE tecnoballz
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE tecnoballz
+	tinyxml CLONED_IN_PACKAGE tecnoballz-data
+tinyxml CLONED_IN_SOURCE trigger-rally
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE trigger-rally
+	tinyxml CLONED_IN_PACKAGE trigger
+tinyxml CLONED_IN_SOURCE wxformbuilder
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE wxformbuilder
+tinyxml CLONED_IN_SOURCE xbmc
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+		MATCH xmltest.c/xmltest.c (7.245326)
+	tinyxml CLONED_IN_PACKAGE xbmc-eventclients-xbmc-send
+	tinyxml CLONED_IN_PACKAGE xbmc-eventclients-dev
+	tinyxml CLONED_IN_PACKAGE xbmc-eventclients-ps3
+	tinyxml CLONED_IN_PACKAGE xbmc-live
+	tinyxml CLONED_IN_PACKAGE xbmc-bin
+	tinyxml CLONED_IN_PACKAGE xbmc
+	tinyxml CLONED_IN_PACKAGE xbmc-eventclients-common
+	tinyxml CLONED_IN_PACKAGE xbmc-eventclients-wiiremote
+	tinyxml CLONED_IN_PACKAGE xbmc-standalone
+	tinyxml CLONED_IN_PACKAGE xbmc-skin-confluence
+	tinyxml CLONED_IN_PACKAGE xbmc-data
+	tinyxml CLONED_IN_PACKAGE xbmc-eventclients-j2me
+tinyxml CLONED_IN_SOURCE xmoto
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlerror.c/tinyxmlerror.c (6.283915)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE xmoto-data
+	tinyxml CLONED_IN_PACKAGE xmoto
+tinyxml CLONED_IN_SOURCE yate
+		MATCH tinystr.c/tinystr.c (6.442979)
+		MATCH tinyxml.c/tinyxml.c (6.121396)
+		MATCH tinyxmlparser.c/tinyxmlparser.c (6.254927)
+	tinyxml CLONED_IN_PACKAGE yate-alsa
+	tinyxml CLONED_IN_PACKAGE yate-core
+	tinyxml CLONED_IN_PACKAGE yate-dahdi
+	tinyxml CLONED_IN_PACKAGE yate-dev
+	tinyxml CLONED_IN_PACKAGE yate-doc
+	tinyxml CLONED_IN_PACKAGE libyate2.2.0
+	tinyxml CLONED_IN_PACKAGE yate-pgsql
+	tinyxml CLONED_IN_PACKAGE yate-qt4
+	tinyxml CLONED_IN_PACKAGE yate-mysql
+	tinyxml CLONED_IN_PACKAGE yate
+	tinyxml CLONED_IN_PACKAGE yate-scripts
+	tinyxml CLONED_IN_PACKAGE yate-openh323

@@ -1,0 +1,3 @@
+attr CLONED_IN_SOURCE acl
+attr CLONED_IN_SOURCE drizzle
+attr CLONED_IN_SOURCE ia32-libs

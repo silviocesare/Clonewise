@@ -1,0 +1,6 @@
+libmad CLONED_IN_SOURCE avidemux
+libmad CLONED_IN_SOURCE avifile
+libmad CLONED_IN_SOURCE ia32-libs
+libmad CLONED_IN_SOURCE linux
+libmad CLONED_IN_SOURCE xbmc
+libmad CLONED_IN_SOURCE xine-lib
